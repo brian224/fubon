@@ -1,0 +1,139 @@
+html , body  {
+	font       : 13px/1.6em $font-family;
+	color      : $text-minor-color;
+	width      : 100%;
+	min-width  : $main-min-width;
+	background : $default-html-bgcolor;
+}
+
+a {
+	text-decoration : none;
+	color           : $text-minor-color;
+	outline         : 0;
+
+	&[href^="tel"] {
+		cursor : text
+	}
+
+	&:hoevr {
+		text-decoration : none;
+	}
+
+	&.b-link {
+		color           : $color-link;
+		text-decoration : underline;
+		@include transition((color $transition-times) , 0);
+
+		&:hover {
+			color : darken($color-link , 15%);
+		}
+	}
+}
+
+/* vertical-align middle */
+.b-middle {
+	position  : relative;
+	height    : 100%;
+	font-size : 0;
+
+	&:before {
+		content : "";
+		height  : 100%;
+		@include inline-block;
+	}
+
+	> * {
+		font-size : initial;
+		@include inline-block;
+	}
+}
+
+/* clearfix */
+.b-clearfix {
+	&:after {
+		content : "";
+		width   : 100%;
+		height  : 0;
+		clear   : both;
+		@include clearfix;
+		@include display(block);
+	}
+}
+
+/* h1 ~ h6 font size */
+h2 , .b-h2 {
+	font-size   : 32px;
+	line-height : 1.6;
+	color       : $major-color;
+}
+
+/* row */
+.b-row {
+	margin-right : -5px;
+	margin-left  : -5px;
+	@include clearfix;
+}
+
+/* col */
+$types : 12;
+@while $types > 0 {
+	.b-col-#{$types} {
+		padding-right : 5px;
+		padding-left  : 5px;
+		width         : ((100% / 12) * $types);
+		min-height    : 1px;
+		float         : left;
+		display       : block;
+		position      : relative;
+		@include box-sizing(border-box);
+	}
+
+	$types : $types - 1;
+}
+
+/* screen width <= 800 */
+@media screen and ( max-width : 800px ) {
+	html , body  {
+		min-width  : inherit;
+		height     : 100%;
+		min-height : 100%;
+		
+	}
+}
+
+/* screen width <= 800 and width > 598 */
+@media screen and ( min-width : 598px ) and ( max-width : 800px ) {
+	
+}
+
+/* screen width < 598 */
+@media screen and ( max-width : 597px ) {
+	.b-row {
+		margin-right : 0;
+		margin-left  : 0;
+	}
+
+	[class^="b-col-"] , [class*=" b-col-"] {
+		padding-right : 0;
+		padding-left  : 0;
+		width         : 100%;
+		float         : none;
+	}
+
+	/* col */
+	$types : 6;
+	@while $types > 0 {
+		.b-col-m-#{$types} {
+			padding-right : 5px;
+			padding-left  : 5px;
+			width         : ((100% / 6) * $types);
+			min-height    : 1px;
+			float         : left;
+			display       : block;
+			position      : relative;
+			@include box-sizing(border-box);
+		}
+
+		$types : $types - 1;
+	}
+}

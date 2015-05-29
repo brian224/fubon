@@ -1,0 +1,119 @@
+﻿/* ==================== 基本設定 ==================== */
+/* html 最小的寬度 */
+$main-min-width : 1000px;
+
+/* html 預設的背景顏色 */
+$default-html-bgcolor : #ECECEC;
+
+/* 側邊欄位的寬度 */
+$side-width : 228px;
+
+/* Header 的高度 */
+$header-height : 72px;
+
+/* 預設字型 */
+$font-family : Helvetica , "微軟正黑體" , sans-serif , serif;
+
+/* 子字型 */
+$sub-font-family : "新細明體" , Helvetica , sans-serif , serif;
+
+/* l-content 第一層物件的距離 */
+$inner-Width : 25px;
+
+
+
+
+
+/* ==================== 顏色設定 ==================== */
+/* 企業識別主色 */
+$major-color : #0089D1;
+
+/* 企業識別次色 */
+$minor-color : #01B6AD;
+
+/* 企業識別替補色 */
+$sub-color : #F4FAFC;
+
+/* 文字主要顏色 */
+$text-major-color : #2A2A2A;
+
+/* 文字子顏色 */
+$text-minor-color : #535353;
+
+/* 文字說明顏色 */
+$text-sub-color : #909090;
+
+/* 主要邊框顏色 */
+$border-major-color : #A8A8A8;
+
+/* 次要邊框顏色 */
+$border-minor-color : #D7D7D7;
+
+/* Placeholder 顏色 */
+$placeholder-color : #999;
+
+/* Focus 顏色 */
+$focus-color : $major-color;
+
+/* link 顏色 */
+$color-link : #337ab7;
+
+/* 最重要顏色 */
+$color-primary : #37B;
+
+/* 成功顏色 */
+$color-success : #5B5;
+
+/* 訊息顏色 */
+$color-info : #5CD;
+
+/* 警告顏色 */
+$color-warning : #FA4;
+
+/* 危險顏色 */
+$color-danger : #D54;
+
+/* 反白顏色 */
+$color-inverse : #555;
+
+/* 已失效顏色 */
+$color-disabled : #EFEFEF;
+
+/* 自訂顏色 */
+$color : (
+	primary     : $color-primary,
+	success     : $color-success,
+	info        : $color-info,
+	warning     : $color-warning,
+	danger      : $color-danger,
+	inverse     : $color-inverse,
+	disabled    : $color-disabled,
+	facebook    : #359,
+	twitter     : #0AE,
+	line        : #0C0,
+	instagram   : #258,
+	apple       : #BBC,
+	android     : #AC3,
+	windows     : #0BF,
+	google      : #16E,
+	google-plus : #D43,
+	html5       : #E63,
+	css3        : #E63
+);
+
+
+
+
+/* ==================== 動態時間設定 ==================== */
+$transition-times : .3s;
+
+
+
+
+
+/* ==================== 物件圓角設定 ==================== */
+/* Module 圓角 */
+$module-border-radius : 5px;
+
+/* 表單物件圓角 */
+$form-border-radius : 3px;

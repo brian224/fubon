@@ -1,0 +1,119 @@
+/* m-icon-stack */
+.m-icon-stack {
+	position   : relative;
+	@include inline-block;
+	@include box-sizing(border-box);
+
+	.m-icon {
+		top        : 0;
+		left       : 0;
+		text-align : center;
+		height     : 100%;
+		display    : block;
+
+		&:first-child {
+			position : absolute;
+		}
+	}
+
+	&.m-icon-fubon-group {
+		padding-left : 1.05em;
+
+		.m-icon {
+			position : absolute;
+
+			&.m-icon-fubon-blue {
+				color : #09C;
+			}
+
+			&.m-icon-fubon-green {
+				color : #0AA;
+			}
+
+			&.m-icon-fubon-text {
+				position : relative;
+			}
+			
+		}
+	}
+
+	&.m-icon-circle-group {
+		.m-icon {
+			z-index  : 1;
+
+			&:first-child {
+				font-size   : 45%;
+				color       : #FFF;
+				width       : 100%;
+				/*line-height : 2.3;*/
+				z-index     : 2;
+
+				&:after {
+					content        : "";
+					vertical-align : middle;
+					height         : 100%;
+					@include inline-block;
+				}
+
+				&:before {
+					font-size      : inherit;
+					vertical-align : middle;
+					@include inline-block;
+				}
+			}
+		}
+	}
+
+	&.m-icon-number-group {
+		> em {
+			top            : 0;
+			left           : 0;
+			/*padding        : 23% 0;*/
+			font-size      : 45%;
+			color          : #FFF;
+			width          : 100%;
+			height         : 100%;
+			position       : absolute;
+			display        : block;
+			vertical-align : middle;
+			z-index        : 2;
+			@include box-sizing(border-box);
+
+			&:before {
+				content        : "";
+				vertical-align : middle;
+				height         : 100%;
+				@include inline-block;
+			}
+
+			> * {
+				font-size      : inherit;
+				vertical-align : middle;
+				@include inline-block;
+			}
+		}
+
+		/*.m-icon {
+			position : absolute;
+			z-index: 1;
+		}*/
+	}
+
+	&.m-icon-toggle {
+		.m-icon {
+			top        : 0;
+			left       : 0;
+			text-align : center;
+			height     : 100%;
+			display    : block;
+
+			&:first-child {
+				position : relative;
+			}
+
+			&.is-hide {
+				display : none;
+			}
+		}
+	}
+}

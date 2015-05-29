@@ -1,0 +1,12 @@
+﻿.m-button-group {
+	@include inline-block;
+
+	&:after {
+		content : "";
+		width   : 100%;
+		height  : 0;
+		clear   : both;
+		@include clearfix;
+		@include display(table);
+	}
+}

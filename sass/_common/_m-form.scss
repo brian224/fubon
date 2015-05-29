@@ -1,0 +1,117 @@
+.m-form {
+	margin      : 0;
+	padding     : 0;
+	font-family : $font-family;
+	color       : $text-major-color;
+	position    : relative;
+	outline     : none;
+
+	&.m-form-control {
+		padding     : 5px 10px;
+		width       : 100%;
+		height      : 34px;
+		line-height : 1.6;
+		border      : 1px solid $border-major-color;
+		@include autofill();
+		@include placeholder();
+		@include box-sizing(border-box);
+		@include border-radius($form-border-radius);
+		@include transition(all .5s , 0);
+
+		&:focus {
+			border-color : $focus-color !important;
+		}
+	}
+
+	&.error {
+		border-color : $color-warning;
+	}
+
+	&[type="radio"] , &[type="checkbox"] {
+		margin-top : -2px;
+		@include inline-block;
+	}
+
+	&.is-disable {
+		@include disabled;
+		@include placeholder(lighten($text-sub-color , 15%));
+	}
+
+	&[readonly="readonly"] {
+		border-color : lighten($border-major-color , 12%);
+		cursor       : not-allowed;
+
+		&:focus {
+			border-color : lighten($focus-color , 35%) !important;
+		}
+	}
+}
+
+.m-form-msg {
+	&.m-form-msg-warning {
+		color : $color-warning;
+	}
+
+	&.m-form-msg-success {
+		color : $color-success;
+	}
+}
+
+textarea.m-form {
+	&.m-form-control {
+		height      : auto;
+		min-height  : 84px;
+		line-height : 1.4;
+		overflow    : auto;
+		resize      : none;
+
+		&[resize] {
+			resize : both;
+		}
+	}
+}
+
+select.m-form {
+	&.m-form-control {
+		padding-right : 5px;
+		padding-left  : 5px;
+		line-height   : 20px;
+		background    : transparent;
+
+		&[disabled] {
+			@include disabled;
+		}
+
+		&[multiple] {
+			height   : auto;
+			overflow : auto;
+
+			option {
+				@include transition(background ($transition-times * 1.5) , 0);
+
+				&:nth-child(even) {
+					background : lighten($border-major-color , 6.5%);
+				}
+
+				&:hover {
+					background : lighten($border-major-color , 2.5%);
+				}
+			}
+		}
+	}
+
+	option {
+		&:disabled {
+			color  : lighten($text-sub-color , 35%);
+			cursor : not-allowed;
+			@include appearance(none);
+		}
+	}
+}
+
+.m-form-addon {
+	margin-bottom : 10px;
+	padding-right : 10px;
+	white-space   : nowrap;
+	@include display(block);
+}

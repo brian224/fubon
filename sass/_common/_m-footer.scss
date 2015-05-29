@@ -1,0 +1,65 @@
+.m-footer {
+	margin    : 0 auto 35px auto;
+	color     : #FFF;
+	width     : 100%;
+	max-width : $main-min-width;
+}
+
+.m-footer-hd {
+	text-align : center;
+	position   : relative;
+
+	> .m-button-group {
+		margin-top : -22px;
+	}
+
+	.m-sitemap {
+		text-align : left;
+	}
+}
+
+.m-footer-bd {
+	margin-top : 25px;
+
+	> li {
+		float    : left;
+		position : relative;
+		@include display(table);
+
+		&:before {
+			content : "|";
+			padding : 0 5px;
+			@include display(table-cell);
+		}
+
+		&:first-child {
+			&:before {
+				display : none;
+			}
+		}
+
+		> a {
+			color : #FFF;
+			@include display(table-cell);
+		}
+	}
+}
+
+.m-footer-ft {
+	margin-top : 5px;
+	@include display(block);
+}
+
+/* screen width <= 800 */
+@media screen and ( max-width : 800px ) {
+	
+}
+
+/* screen width <= 800 and width > 598 */
+@media screen and ( min-width : 598px ) and ( max-width : 800px ) {
+	
+}
+
+/* screen width < 598 */
+@media screen and ( max-width : 597px ) {
+}

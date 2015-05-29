@@ -1,0 +1,171 @@
+.m-form-group {
+	margin-top    : 15px;
+	margin-bottom : 15px;
+	position      : relative;
+	@include clearfix;
+
+	&.m-form-search {
+		margin-top    : 0;
+		margin-bottom : 0;
+
+		.m-form {
+			height      : 28px;
+			line-height : 20px;
+			@include border-radius(30px);
+		}
+	}
+
+	&.m-form-horizontal {
+		min-height  : 30px;
+		line-height : 30px;
+
+		.m-form-addon {
+			margin-bottom : 0;
+			line-height   : 34px;
+			@include display(table);
+
+			&.is-label {
+				text-align : right;
+			}
+		}
+
+		.m-form-ctrl {
+			padding-right : 5px;
+			padding-left  : 5px;
+			@include display(table);
+		}
+
+		[class^="b-col-"] , [class*=" b-col-"] {
+			float : left;
+		}
+	}
+
+	&[radio] , &[checkbox] {
+		.m-form[type="radio"] , .m-form[type="checkbox"] {
+			top        : -99999px;
+			left       : -99999px;
+			position   : absolute;
+			visibility : hidden;
+			@include opacity(0);
+		}
+
+		.m-icon-stack {
+			@include inline-block;
+
+			.m-icon {
+				font-size : 120%;
+			}
+		}
+	}
+
+	[class^="b-col-"] , [class*=" b-col-"] {
+		float : none;
+	}
+
+	.m-icon-stack {
+		display : none;
+	}
+
+	.m-form-ctrl {
+		display  : block;
+		position : relative;
+		@include box-sizing(border-box);
+
+		> label {
+			display : block;
+		}
+
+		.m-form:not([type=radio]):not([type=checkbox]) {
+			@include display(table-cell);
+		}
+
+		.m-form-line {
+			padding-left : 10px;
+			@include inline-block;
+
+			&:first-child {
+				padding-left : 0;
+			}
+		}
+	}
+
+	.m-form-input {
+		width           : 100%;
+		border-collapse : separate;
+		position        : relative;
+		@include clearfix;
+		@include display(table);
+		@include box-sizing(border-box);
+
+		> * {
+			height        : 100%;
+			border-top    : 1px solid $border-major-color;
+			border-bottom : 1px solid $border-major-color;
+			@include clearfix;
+			@include border-radius(0);
+			@include display(table-cell);
+			@include box-sizing(border-box);
+		}
+
+		.m-form-addon {
+			padding     : 0 15px;
+			text-align  : center;
+			min-width   : 45px;
+			width       : 1%;
+			line-height : 1.6;
+			background  : #EEE;
+			@include display(table-cell);
+		}
+
+		.m-form {
+			height             : 34px;
+			line-height        : 1.6;
+			border-right-color : #EEE;
+			border-left-color  : #EEE;
+
+			&[type="radio"] , &[type="checkbox"] {
+				height : auto;
+				@include inline-block;
+			}
+		}
+
+		> *:first-child {
+			border-left : 1px solid $border-major-color;
+			@include border-radius($form-border-radius 0 0 $form-border-radius);
+		}
+
+		> *:last-child {
+			border-right : 1px solid $border-major-color;
+			@include border-radius(0 $form-border-radius $form-border-radius 0);
+		}
+
+		.m-button-group {
+			width       : 1%;
+			border      : 0;
+			white-space : nowrap;
+			@include display(table-cell);
+		}
+
+		.m-button {
+			margin : 0;
+			border : 0;
+			height : 34px;
+			@include border-radius(0);
+		}
+	}
+}
+
+/* IE 9 */
+.IE9 {
+	.m-form-group {
+		&[select] {
+			.m-form-ctrl {
+				> label {
+					> .m-icon {
+						display : none;
+					}
+				}
+			}
+		}
+	}
+}
