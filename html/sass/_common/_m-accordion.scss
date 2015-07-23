@@ -1,0 +1,234 @@
+.m-accordion {
+	position : relative;
+	counter-reset : section;
+	/*list-style : decimal inside;*/
+
+	> li {
+		margin-bottom : 5px;
+		position      : relative;
+
+
+		&.is-active {
+			.m-accordion-hd {
+				/*border-color : $major-color;*/
+				background   : $sub-color;
+
+				&:after {
+					height : 100%;
+				}
+
+				.m-icon {
+					@include rotate(90deg);
+				}
+			}
+
+			.m-accordion-bd {
+				max-height : 500px;
+			}
+
+			.m-accordion-content {
+				&:after {
+					height : 100%;
+				}
+			}
+		}
+	}
+}
+
+.m-accordion-hd {
+	padding       : 18px 60px 18px 28px;
+	font-size     : 18px;
+	color         : $major-color;
+	line-height   : 1.6;
+	background    : $sub-color;
+	position      : relative;
+	cursor        : pointer;
+	/*@include display(table);*/
+	@include clearfix;
+	@include box-sizing(border-box);
+	@include transition(background $transition-times);
+
+	&:hover {
+		background  : darken($sub-color , 5%);
+	}
+
+	&:after {
+		content    : "";
+		top        : 0;
+		left       : 0;
+		width      : 4px;
+		height     : 0;
+		background : $major-color;
+		position   : absolute;
+		@include clearfix;
+		@include transition(height $transition-times , ($transition-times / 2));
+	}
+
+	&:before {
+		counter-increment : section;
+		content           : counter(section)".";
+		color             : $major-color;
+		@include display(table-cell , top);
+	}
+
+	> * {
+		@include display(table-cell);
+	}
+
+	.m-icon {
+		top        : 50%;
+		right      : 20px;
+		margin-top : -10px;
+		font-size  : 20px;
+		width      : 20px;
+		height     : 20px;
+		color      : $major-color;
+		position   : absolute;
+		@include clearfix;
+		@include display(block);
+		@include transform-origin(center);
+		@include transform(rotate3d(0 , 0 , 1 , 0deg));
+		@include transition(transform $transition-times);
+	}
+}
+
+.m-accordion-bd {
+	font-size   : 14px;
+	max-height  : 0;
+	line-height : 2;
+	position    : relative;
+	@include clearfix;
+	@include box-sizing(border-box);
+	@include transition(max-height $transition-times);
+}
+
+.m-accordion-content {
+	margin-bottom : 10px;
+	padding       : 15px 24px 15px 28px;
+	position      : relative;
+	/*border-left   : 4px solid $border-minor-color;*/
+	@include box-sizing(border-box);
+
+	&:after {
+		content    : "";
+		bottom     : 0;
+		left       : 0;
+		width      : 4px;
+		height     : 0;
+		background : $border-minor-color;
+		position   : absolute;
+		@include clearfix;
+		@include transition(height $transition-times , ($transition-times / 2));
+	}
+
+	a {
+		color           : $major-color;
+		text-decoration : underline;
+	}
+}
+
+/* IE8 */
+.IE8 {
+	.m-accordion {
+		> li {
+			&.is-active {
+				.m-accordion-hd {
+					> span {
+						@include display(block);
+					}
+				}
+
+				.m-accordion-bd {
+					> span {
+						@include display(block);
+					}
+				}
+			}
+		}
+	}
+
+	.m-accordion-hd {
+		width : 100%;
+		@include display(table);
+
+		&:after {
+			display : none;
+		}
+
+		&:before {
+			width: 1%;
+		}
+
+		> span {
+			top        : 0;
+			left       : 0;
+			width      : 4px;
+			height     : 100%;
+			background : $major-color;
+			position   : absolute;
+			display    : none;
+			@include clearfix;
+		}
+	}
+
+	.m-accordion-bd {
+		> span {
+			top        : 0;
+			left       : 0;
+			width      : 4px;
+			height     : 100%;
+			background : $border-minor-color;
+			position   : absolute;
+			display    : none;
+			@include clearfix;
+		}
+	}
+
+	.m-accordion-content {
+		&:after {
+			display : none;
+		}
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {
+	.m-accordion-hd {
+		padding-right : 48px;
+		padding-left  : 22px;
+
+		.m-icon {
+			right      : 16px;
+			font-size  : 18px;
+			margin-top : -9px;
+			width      : 18px;
+			height     : 18px;
+		}
+	}	
+
+	.m-accordion-content {
+		padding-right : 22px;
+		padding-left  : 26px;
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-accordion-hd {
+		padding-right : 35px;
+		padding-left  : 18px;
+
+		.m-icon {
+			right      : 10px;
+			font-size  : 16px;
+			margin-top : -8px;
+			width      : 16px;
+			height     : 16px;
+		}
+	}
+
+	.m-accordion-content {
+		padding-right : 18px;
+		padding-left  : 22px;
+	}
+}

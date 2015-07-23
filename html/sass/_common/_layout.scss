@@ -1,0 +1,180 @@
+.l-nav {
+	top       : 0;
+	left      : 0;
+	width     : 100%;
+	min-width : $main-min-width;
+	position : absolute;
+	@include transition(margin-left $transition-times);
+
+	&.no-transition {
+		@include transition-none;
+	}
+}
+
+.l-body {
+	left     : 0;
+	width    : 100%;
+	position : relative;
+	@include transition((margin-top $transition-times , left $transition-times));
+}
+
+.l-header {
+	position   : relative;
+	background : #FFF;
+	@include box-sizing(border-box);
+}
+
+.l-main {
+	position : relative;
+}
+
+.l-main-hd {
+	position : relative;
+}
+
+.l-main-bd {
+	margin       : -36px auto 0 auto;
+	width        : 100%;
+	max-width    : $main-min-width;
+	/*background : $sub-color;*/
+	background   : #FFF;
+	position     : relative;
+	@include box-sizing(border-box);
+	@include box-shadow(rgba(#000 , .15) 0 1px 4px);
+
+	&:before {
+		content    : "";
+		top        : 0;
+		right      : 0;
+		width      : $side-width;
+		height     : 100%;
+		position   : absolute;
+		background : $sub-color;
+	}
+
+	&.is-content-right {
+		.l-content {
+			width : ($main-min-width - $side-width);
+			float : right;
+		}
+
+		.l-side {
+			float : left;
+		}
+	}
+
+	&.is-content-left {
+		.l-content {
+			width : ($main-min-width - $side-width);
+			float : left;
+		}
+
+		.l-side {
+			float : right;
+		}
+	}
+}
+
+.l-content {
+	padding    : 10px 0 30px 0;
+	width      : 100%;
+	border-top : 4px solid #D2D2D2;
+	position   : relative;
+	@include clearfix;
+	@include box-sizing(border-box);
+}
+
+.l-side {
+	width      : $side-width;
+	border-top : 4px solid $major-color;
+	position   : relative;
+	@include clearfix;
+	@include box-sizing(border-box);
+}
+
+.l-footer {
+	margin-top : 45px;
+	background : $color-footer;
+}
+
+@include respond-to(Tables) {
+	.l-nav {
+		margin-left : -80%;
+		min-width   : inherit;
+		width       : 80%;
+		height      : 100%;
+		position    : fixed;
+
+		&.is-animate {
+			margin-left : 0%;
+			position    : relative;
+		}
+	}
+
+	.l-body {
+		&.is-animate {
+			top      : 0;
+			left     : 80%;
+			height   : 100%;
+			position : fixed;
+
+			&.is-lock {
+				overflow : hidden;	
+			}
+
+			&:before {
+				content    : "";
+				top        : 0;
+				left       : 0;
+				width      : 100%;
+				height     : 100%;
+				position   : fixed;
+				z-index    : 30;
+				background : #000;
+				@include opacity(.35);
+			}
+		}
+	}
+
+	.l-main-bd {
+		margin     : -18px 10px 0 10px;
+		width      : auto;
+		max-width  : inherit;
+		background : none;
+		@include box-shadow(rgba(#000 , .15) 0 0 0);
+
+		&:before {
+			left       : 0;
+			right      : auto;
+			width      : 100%;
+			background : #FFF;
+			@include box-shadow(rgba(#000 , .15) 0 1px 4px);
+		}
+
+		&.is-content-right , &.is-content-left {
+			.l-content , .l-side {
+				width : 100%;
+				float : none;
+				/*@include box-shadow(rgba(#000 , .15) 0 1px 4px);*/
+			}
+		}
+	}
+
+	.l-content {
+		padding-bottom : 15px;
+	}
+
+	.l-side {
+		border-top : 0;
+		float      : none;
+		position   : static;
+	}
+
+	.l-footer {
+		margin-top : 25px;
+	}
+}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {}

@@ -1,0 +1,289 @@
+.m-form-group {
+	position : relative;
+	@include clearfix;
+
+	&.m-form-search {
+		margin-top    : 0;
+		margin-bottom : 0;
+		@include box-sizing(border-box);
+
+		.m-form {
+			height      : 28px;
+			line-height : 20px;
+			@include border-radius(30px);
+		}
+	}
+
+	&.is-required {
+		> .m-form-addon {
+			&:before {
+				content    : "\ff0a";
+				font-size  : 15px;
+				text-align : right;
+				color      : $color-warning;
+				width      : 100%;
+			}
+
+			&:after {
+				margin-top : -3px;
+				content    : "\ff0a";
+				font-size  : 15px;
+				color      : $color-warning;
+				height     : 100%;
+				display    : none;
+			}
+		}
+	}
+
+	&.m-form-select {
+		.m-form-ctrl {
+			> label {
+				position : relative;
+				@include box-sizing(border-box);
+
+				&.is-disabled {
+					> .m-icon {
+						z-index    : 3;
+						background : transparent !important;
+						@include disabled;
+					}
+				}
+			}
+
+			.is-label {
+				position   : relative;
+				background : $color-inverse;
+				@include display(block);
+				
+				> .m-icon {
+					top         : 1px;
+					right       : 5px;
+					font-size   : 150%;
+					color       : $major-color;
+					text-align  : center;
+					width       : 30px;
+					height      : 100%;
+					line-height : 40px;
+					border-left : 0;
+					cursor      : pointer;
+					position    : absolute;
+					z-index     : 1;
+					@include clearfix;
+					@include border-radius(0 $form-border-radius $form-border-radius 0);
+				}
+			}
+
+			select.m-form {
+				z-index : 2;
+
+				&.m-form-control {
+					@include appearance(none);
+
+					&::-ms-expand {
+						display : none;
+					}
+				}
+
+				&.is-bgcolor {
+					background : $color-inverse;
+				}
+			}
+		}
+	}
+
+	&.m-form-horizontal {
+		min-height  : 30px;
+		line-height : 30px;
+
+		.m-form-addon {
+			margin-bottom  : 0;
+			padding-top    : 10px;
+			padding-bottom : 9px;
+			line-height    : 1.4;
+			@include display(table);
+		}
+	}
+
+	&.is-radio , &.is-checkbox {
+		.m-form[type="radio"] , .m-form[type="checkbox"] {
+			top        : -99999px;
+			left       : -99999px;
+			position   : absolute;
+			visibility : hidden;
+			@include opacity(0);
+		}
+
+		&.m-form-horizontal {
+			min-height  : 30px;
+			line-height : 30px;
+
+			.m-form-addon {
+				padding-top    : 6px;
+				padding-bottom : 6px;
+				float          : left;
+			}
+		}
+
+		.m-icon-stack {
+			@include inline-block;
+
+			.m-icon {
+				font-size : 120%;
+			}
+		}
+
+		.m-form-ctrl {
+			@include display(block);
+
+			> label {
+				padding-left : 0;
+				width        : auto;
+				@include inline-block;
+
+				> * {
+					white-space : nowrap;
+					@include inline-block;
+				}
+
+				.m-icon-stack {
+					padding-right : 3px;
+					white-space   : nowrap;
+				}
+
+				.m-icon {
+					line-height : 30px;
+				}
+
+				.is-label {
+					@include inline-block;
+				}
+
+				> em {
+					margin-left   : -5px;
+					padding-right : 1px;
+				}
+
+				.m-form {
+					width : auto;
+				}
+			}	
+		}
+	}
+
+	.m-icon-stack {
+		display : none;
+	}
+
+	.m-form-ctrl {
+		margin-bottom   : 5px;
+		border-collapse : separate;
+		position        : relative;
+		@include clearfix;
+		@include display(table);
+		@include box-sizing(border-box);
+
+		&.no-table {
+			@include display(block);
+		}
+
+		> * {
+			height : 100%;
+			@include clearfix;
+			@include box-sizing(border-box);
+		}
+
+		> label {
+			padding-left  : 5px;
+			@include display(table-cell);
+
+			&:first-child {
+				padding-left : 0;
+			}
+
+			&.is-margin-top {
+				margin-top : 10px;
+			}
+		}
+
+		.m-form-addon {
+			padding-left : 5px;
+			width        : 1%;
+			white-space  : nowrap;
+			@include display(table-cell);
+
+			&:first-child {
+				padding-left : 0;
+			}
+		}
+
+		.m-form {
+			height : 40px;
+
+			&[type="radio"] , &[type="checkbox"] {
+				height : auto;
+				@include inline-block;
+			}
+		}
+
+		.m-button-group {
+			width       : 1%;
+			white-space : nowrap;
+			@include display(table-cell);
+		}
+
+		.m-button {
+			margin-left : 5px;
+			height      : 40px;
+			@include box-sizing(border-box);
+		}
+	}
+}
+
+/* IE8 & IE9 */
+.IE8 , .IE9 {
+	.m-form-group {
+		&.m-form-select {
+			.m-form-ctrl {
+				.is-label {
+					> .m-icon {
+						display : none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-form-group {
+		&.is-required {
+			> .m-form-addon {
+				&:after {
+					@include inline-block;
+				}
+
+				&:before {
+					display : none;
+				}
+			}
+		}
+
+		&.m-form-horizontal {
+			.m-form-addon {
+				@include display(block);
+			}
+		}
+
+		.m-form-ctrl {
+			width : 100%;
+
+			.m-form-addon {
+				width : auto;
+			}
+		}
+	}
+}

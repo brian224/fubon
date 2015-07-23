@@ -1,0 +1,208 @@
+﻿/* background-vertical-gradient */
+@mixin background-vertical-gradient($startColor , $startPosition , $endColor , $endPosition) {
+	background : $endColor; /* Old browsers */
+	background : -moz-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* FF3.6+ */
+	background : -webkit-gradient(linear, left top, left bottom, color-stop($startPosition, $startColor), color-stop($endPosition, $endColor)); /* Chrome,Safari4+ */
+	background : -webkit-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* Chrome10+,Safari5.1+ */
+	background : -o-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* Opera 11.10+ */
+	background : -ms-linear-gradient(top, $startColor $startPosition, $endColor $endPosition); /* IE10+ */
+	background : linear-gradient(to bottom, $startColor $startPosition, $endColor $endPosition); /* W3C */
+	filter     : progid:DXImageTransform.Microsoft.gradient(startColorstr='#{darken($startColor , 0.15%)}' , endColorstr='#{darken($endColor , 0.15%)}',GradientType=0);
+}
+
+/* background-horizontal-gradient */
+@mixin background-horizontal-gradient($startColor , $startPosition , $endColor , $endPosition) {
+	background : $endColor; /* Old browsers */
+	background : -moz-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* FF3.6+ */
+	background : -webkit-gradient(linear, left top, right top, color-stop($startPosition, $startColor), color-stop($endPosition, $endColor)); /* Chrome,Safari4+ */
+	background : -webkit-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* Chrome10+,Safari5.1+ */
+	background : -o-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* Opera 11.10+ */
+	background : -ms-linear-gradient(left, $startColor $startPosition, $endColor $endPosition); /* IE10+ */
+	background : linear-gradient(to right, $startColor $startPosition, $endColor $endPosition); /* W3C */
+	filter     : progid:DXImageTransform.Microsoft.gradient(startColorstr='#{darken($startColor , 0.15%)}' , endColorstr='#{darken($endColor , 0.15%)}',GradientType=1);
+}
+
+/* transition */
+@mixin transition($transition , $delay : 0) {
+	-webkit-transition                 : $transition;
+	-moz-transition                    : $transition;
+	-ms-transition                     : $transition;
+	-o-transition                      : $transition;
+	transition                         : $transition;
+	-webkit-transition-delay           : $delay;
+	-moz-transition-delay              : $delay;
+	-ms-transition-delay               : $delay;
+	-o-transition-delay                : $delay;
+	transition-delay                   : $delay;
+	-webkit-transition-timing-function : ease;
+	-moz-transition-timing-function    : ease;
+	-ms-transition-timing-function     : ease;
+	-o-transition-timing-function      : ease;
+	transition-timing-function         : ease;
+}
+
+@mixin transition-in($transition , $delay : 0) {
+	-webkit-transition                 : $transition;
+	-moz-transition                    : $transition;
+	-ms-transition                     : $transition;
+	-o-transition                      : $transition;
+	transition                         : $transition;
+	-webkit-transition-delay           : $delay;
+	-moz-transition-delay              : $delay;
+	-ms-transition-delay               : $delay;
+	-o-transition-delay                : $delay;
+	transition-delay                   : $delay;
+	-webkit-transition-timing-function : ease-in;
+	-moz-transition-timing-function    : ease-in;
+	-ms-transition-timing-function     : ease-in;
+	-o-transition-timing-function      : ease-in;
+	transition-timing-function         : ease-in;
+}
+
+@mixin transition-out($transition , $delay : 0) {
+	-webkit-transition                 : $transition;
+	-moz-transition                    : $transition;
+	-ms-transition                     : $transition;
+	-o-transition                      : $transition;
+	transition                         : $transition;
+	-webkit-transition-delay           : $delay;
+	-moz-transition-delay              : $delay;
+	-ms-transition-delay               : $delay;
+	-o-transition-delay                : $delay;
+	transition-delay                   : $delay;
+	-webkit-transition-timing-function : ease-out;
+	-moz-transition-timing-function    : ease-out;
+	-ms-transition-timing-function     : ease-out;
+	-o-transition-timing-function      : ease-out;
+	transition-timing-function         : ease-out;
+}
+
+@mixin transition-none {
+	-webkit-transition : none !important;
+	-moz-transition    : none !important;
+	-ms-transition     : none !important;
+	-o-transition      : all 0 ease-in !important;
+	transition         : none !important;
+}
+
+/* transform scale */
+@mixin transform-scale($zoom) {
+	-webkit-transform : scale($zoom , $zoom);
+	-moz-transform    : scale($zoom , $zoom);
+	-o-transform      : scale($zoom , $zoom);
+	-ms-transform     : scale($zoom , $zoom);
+	transform         : scale($zoom , $zoom);
+}
+
+/* placeholder text */
+@mixin placeholder( $color : $placeholder-color ) {
+	font-family : $font-family;
+
+	&::-moz-placeholder {
+		color   : $color;
+		opacity : 1;
+	}
+
+	&:-ms-input-placeholder {
+		color : $color;
+	}
+
+	&::-webkit-input-placeholder { 
+		color : $color;
+	}
+}
+
+@mixin autofill( $background-color : #FFF !important , $color : #CCC !important ) {
+	&::-moz-autofill {
+		color            : $color;
+		background-color : $background-color;
+	}
+
+	&:-ms-autofill {
+		color            : $color;
+		background-color : $background-color;
+	}
+
+	&:-webkit-autofill , &:-webkit-autofill:hover , &:-webkit-autofill:focus { 
+		color            : $color;
+		background-color : $background-color;
+	}
+}
+
+/* text-size-adjust */
+@mixin text-size-adjust {
+	-webkit-text-size-adjust : none;
+	-moz-text-size-adjust    : none;
+	-o-text-size-adjust      : none;
+	-ms-text-size-adjust     : none;
+	text-size-adjust         : none;
+}
+
+/* display */
+@mixin display( $type , $vertical : middle ) {
+	display        : $type;
+	vertical-align : $vertical;
+}
+
+/* touch-action */
+@mixin touch-action {
+	-ms-touch-action    : manipulation;
+	touch-action        : manipulation;
+	-webkit-user-select : none;
+	-moz-user-select    : none;
+	-ms-user-select     : none;
+	user-select         : none;
+}
+
+/* appearance  */
+@mixin appearance( $type : menulist ) {
+	-webkit-appearance : $type;
+	-moz-appearance    : $type;
+	-o-appearance      : $type;
+	appearance         : $type;
+}
+
+
+/* disabled */
+@mixin disabled {
+	color        : lighten($text-sub-color , 15%);
+	border-color : darken($color-disabled , 5%);
+	background   : $color-disabled;
+	cursor       : not-allowed;
+	@include text-shadow(#FFF 1px 1px 0);
+
+	&:hover {
+		color : lighten($text-sub-color , 15%);
+	}
+}
+
+@mixin m-buttom-default {
+	margin         : 0;
+	padding        : 0;
+	font           : 14px/1.6 $font-family;
+	color          : $text-major-color;
+	border         : 1px solid transparent;
+	border-spacing : 0;
+	position       : relative;
+	background     : none;
+	outline        : 0;
+	cursor         : pointer;
+	text-indent    : 0;
+	white-space    : nowrap;
+	z-index        : 1;
+	@include inline-block;
+	@include touch-action;
+}
+
+/* RWD */
+@mixin respond-to($midia) {
+	@if $midia == Tables {
+		@media screen and ( max-width : $screen-pc ) { @content; }
+	} @else if $midia == Tables-Mobile {
+		@media screen and ( min-width : $screen-device ) and ( max-width : ($screen-pc - 1) ) { @content; }
+	} @else if $midia == Mobile {
+		@media screen and ( max-width : ($screen-device - 1) ) { @content; }
+	} @else {
+		@media screen and ( max-width : $midia ) { @content; }
+	}
+}

@@ -1,0 +1,124 @@
+.m-footer {
+	margin-bottom : 35px;
+	color         : #FFF;
+	width         : 100%;
+}
+
+.m-footer-hd {
+	text-align : center;
+	width      : 100%;
+	
+	position   : relative;
+
+	> .m-button-group {
+		margin-top : -22px;
+	}
+
+	.m-sitemap {
+		text-align : left;
+	}
+}
+
+.m-footer-bd {
+	margin     : 25px auto 0 auto;
+	max-width  : $main-min-width;
+	@include box-sizing(border-box);
+
+	> li {
+		float    : left;
+		position : relative;
+		@include display(table);
+		@include box-sizing(border-box);
+
+		&:before {
+			content : "|";
+			padding : 0 5px;
+			@include display(table-cell);
+		}
+
+		&:first-child {
+			&:before {
+				display : none;
+			}
+		}
+
+		> a {
+			color         : #FFF;
+			border-bottom : 1px solid transparent;
+			@include display(table-cell);
+			@include box-sizing(border-box);
+			@include transition(border-color $transition-times);
+
+			&:hover {
+				border-bottom-color : #FFF;
+			}
+		}
+	}
+}
+
+.m-footer-ft {
+	margin    : 5px auto 0 auto;
+	max-width : $main-min-width;
+	@include display(block);
+	@include box-sizing(border-box);
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {
+	.m-footer {
+		margin-bottom : 25px;
+	}
+
+	.m-footer-bd {
+		padding-right : ($inner-Width - 15);
+		padding-left  : ($inner-Width - 15);
+	}
+
+	.m-footer-ft {
+		padding-right : ($inner-Width - 15);
+		padding-left  : ($inner-Width - 15);
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-footer {
+		margin-bottom : 0;
+	}
+
+	.m-footer-bd {
+		margin-top : 5px;
+		max-width  : inherit;
+
+		> li {
+			height        : 50px;
+			line-height   : 50px;
+			float         : none;
+			border-bottom : 1px solid $border-major-color;
+			@include display(block);
+
+			&:before {
+				display : none;
+			}
+
+			> a {
+				padding-right : ($inner-Width - 5);
+				padding-left  : ($inner-Width - 5);
+				height        : 100%;
+				@include display(block);
+
+				&:hover {
+					border-color : transparent;
+				}
+			}
+		}
+	}
+
+	.m-footer-ft {
+		margin-top  : 0;
+		padding     : 15px ($inner-Width - 5);
+		max-width   : inherit;
+		min-height  : 50px;
+		line-height : 20px;
+	}
+}
