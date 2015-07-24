@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-form-item {
 	position : relative;
 }
@@ -88,4 +89,96 @@
 	.m-form-item-ft {
 		margin-top  : 20px;
 	}
+=======
+.m-form-item {
+	position : relative;
+}
+
+.m-form-item-hd {
+	margin-bottom : -25px;
+
+	> * {
+		margin-bottom : 25px;
+	}
+}
+
+.m-form-item-bd {
+	.m-step {
+		margin-bottom : -10px;
+	}
+
+	> * {
+		margin-top : 25px;
+
+		&:first-child {
+			margin-top : 0;
+		}
+	}
+}
+
+.m-form-item-ft {
+	margin-top  : 40px;
+	padding-top : 15px;
+	font-size   : 14px;
+	line-height : 28px;
+	border-top  : 1px solid $border-minor-color;
+
+	> * {
+		margin-top: 25px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.is-important {
+		color : $major-color;
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {
+	.m-form-item-hd {
+		margin-bottom : -20px;
+		
+		> * {
+			margin-bottom : 20px;
+		}
+	}
+
+	.m-form-item-bd {
+		> * {
+			margin-top : 20px;
+		}
+	}
+
+	.m-form-item-ft {
+		margin-top  : 30px;
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-form-item-hd {
+		margin-bottom : -15px;
+		
+		> * {
+			margin-bottom : 15px;
+		}
+	}
+
+	.m-form-item-bd {
+		.m-step {
+			margin-bottom : -5px;
+		}
+
+		> * {
+			margin-top : 15px;
+		}
+	}
+
+	.m-form-item-ft {
+		margin-top  : 20px;
+	}
+>>>>>>> origin/master
 }

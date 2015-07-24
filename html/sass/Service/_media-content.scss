@@ -1,0 +1,11 @@
+.media-content {
+	.m-media {
+		background : $media-background;
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {}

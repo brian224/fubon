@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-sitemap {
 	margin-top : -20px;
 	max-height : 0;
@@ -158,4 +159,166 @@
 			}
 		}
 	}
+=======
+.m-sitemap {
+	margin-top : -20px;
+	max-height : 0;
+	position   : relative;
+	background : $major-color;
+	@include clearfix;
+	@include transition(max-height $transition-times);
+
+	&.is-show {
+		max-height : 999px;
+	}
+}
+
+.m-sitemap-bd {
+	padding       : 40px 0;
+	border-bottom : 1px solid lighten($color-footer , 10%);
+	position      : relative;
+	@include box-sizing(border-box);
+
+	&:after {
+		content    : "";
+		bottom     : 0;
+		left       : 0;
+		width      : 100%;
+		height     : 1px;
+		background : darken($color-footer , 5%);
+		position   : absolute;
+		@include clearfix;
+		@include display(block);
+	}
+
+	> ul {
+		margin    : 0 auto;
+		width     : 100%;
+		max-width : $main-min-width;
+		@include display(table);
+
+		> li {
+			float    : none;
+			position : relative;
+			@include display(table-cell , top);
+
+
+			> ul {
+				margin-top: 20px;
+
+				&:first-child {
+					margin-top : 0;
+				}
+
+				> li {
+					line-height : 2;
+
+					&:first-child {
+						margin-bottom : 10px;
+						font-size     : 16px;
+						line-height   : 1.6;
+
+						> a {
+							&:hover {
+								border-color : transparent;
+							}
+						}
+					}
+
+					> a {
+						color         : #FFF;
+						border-bottom : 1px solid transparent;
+						@include transition(border-color $transition-times);
+
+						&:hover {
+							border-color : #FFF;
+						}
+					}
+				}
+			}
+			
+		}	
+	}
+}
+
+@include respond-to(Tables) {
+	.m-sitemap-bd {
+		> ul {
+			max-width : inherit;
+
+			> li {
+				> ul {
+					> li {
+						> a {
+							&:hover {
+								border-color : transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-sitemap {
+		&.is-show {
+			max-height : 3000px;
+		}
+	}
+
+	.m-sitemap-bd {
+		padding-top    : 20px;
+		padding-bottom : 0;
+
+		> ul {
+			@include display(block);
+
+			> li {
+				padding-top    : 10px;
+				padding-bottom : 10px;
+				border-top     : 1px solid darken($major-color , 5%);
+				@include display(block , middle);
+
+				&:after {
+					content    : "";
+					top        : 0;
+					left       : 0;
+					width      : 100%;
+					height     : 1px;
+					background : lighten($major-color , 10%);
+					position   : absolute;
+					@include clearfix;
+					@include display(block);
+				}
+
+				&:first-child {
+					border-top-color : transparent;
+
+					&:after {
+						display : none;
+					}
+				}
+
+				> ul {
+					padding-right : ($inner-Width - 5);
+					padding-left  : ($inner-Width - 5);
+
+					> li {
+						margin-bottom  : 0;
+
+						> a {
+							&:hover {
+								border-color : transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+>>>>>>> origin/master
 }

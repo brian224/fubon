@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .contact-content {
 	.m-media {
 		background : $media-background;
@@ -8,4 +9,16 @@
 
 @include respond-to(Tables-Mobile) {}
 
+=======
+.contact-content {
+	.m-media {
+		background : $media-background;
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {}
+
+>>>>>>> origin/master
 @include respond-to(Mobile) {}

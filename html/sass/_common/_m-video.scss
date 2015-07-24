@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-video {
 	position : relative;
 }
@@ -17,4 +18,25 @@
 	&.is-show {
 		@include display(block);
 	}
+=======
+.m-video {
+	position : relative;
+}
+
+.m-video-bd {
+	position : relative;
+}
+
+.m-video-frame {
+	top      : 0;
+	left     : 0;
+	width    : 100%;
+	height   : 100%;
+	position : absolute;
+	display  : none;
+
+	&.is-show {
+		@include display(block);
+	}
+>>>>>>> origin/master
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-pagination {
 	text-align : center;
 	position   : relative;
@@ -102,4 +103,110 @@
 	.m-pagination-bd {
 		display : none;
 	}
+=======
+.m-pagination {
+	text-align : center;
+	position   : relative;
+
+	&:after {
+		content    : "";
+		top        : 50%;
+		left       : 0;
+		width      : 100%;
+		height     : 1px;
+		background : $border-minor-color;
+		position   : absolute;
+		z-index    : 1;
+		@include clearfix;
+	}
+}
+
+.m-pagination-hd {
+	display : none;
+
+	.m-button {
+		width : 100%;
+	}
+}
+
+.m-pagination-bd {
+	padding-right : 20px;
+	padding-left  : 20px;
+	position      : relative;
+	background    : #FFF;
+	white-space   : nowrap;
+	z-index       : 2;
+	@include clearfix;
+	@include inline-block;
+
+	> li {
+		margin     : 0 6px;
+		color      : $color-pagination;
+		float      : left;
+		position   : relative;
+		@include display(block);
+		@include box-sizing(border-box);
+
+		> a {
+			font-size      : 14px;
+			text-align     : center;
+			color          : #FFF;
+			width          : 24px;
+			height         : 24px;
+			line-height    : 24px;
+			position       : relative;
+			letter-spacing : -1px;
+			text-indent    : -1px;
+			z-index        : 2;
+			background     : $color-pagination;
+			@include clearfix;
+			@include display(block);
+			@include border-radius(50%);
+			@include box-sizing(border-box);
+			@include transition((background $transition-times , color $transition-times));
+
+			&:hover {
+				background : darken($color-pagination , 20%);
+			}
+
+			&.is-active {
+				background : $major-color;
+			}
+
+			&.is-prev , &.is-next {
+				color      : $color-pagination;
+				background : none;
+
+				&:hover {
+					color : $major-color;
+				}
+			}
+
+			&.is-disabled {
+				background : none !important;
+				@include disabled;
+			}
+		}
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-pagination {
+		&:after {
+			display : none;
+		}
+	}
+
+	.m-pagination-hd {
+		@include display(block);
+	}
+
+	.m-pagination-bd {
+		display : none;
+	}
+>>>>>>> origin/master
 }

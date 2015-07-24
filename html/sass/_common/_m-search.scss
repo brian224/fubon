@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-search {
 	position : relative;
 }
@@ -75,4 +76,83 @@
 			}
 		}
 	}
+=======
+.m-search {
+	position : relative;
+}
+
+.m-search-hd {
+	&.is-margin-bottom {
+		> * {
+			margin-bottom : 25px;
+		}	
+	}
+
+	.m-form-group {
+		.m-search-data {
+			margin-top  : -5px;
+			line-height : 25px;
+		}
+	}
+}
+
+.m-search-data {
+	font-size : 14px;
+	position  : relative;
+	
+}
+
+.m-search-bd {
+	&.is-margin-bottom {
+		> * {
+			margin-top : 15px;
+
+			&:first-child {
+				margin-top : 0;
+			}
+		}
+	}
+}
+
+.m-search-item {
+	padding    : 30px 0;
+	border-top : 1px solid $border-minor-color;
+
+	&:first-child {
+		border-top : 0;
+	}
+
+	> em {
+		margin-bottom : 5px;
+	}
+
+	> p {
+		margin-bottom : 10px;
+		font-size     : 14px;
+		line-height   : 28px;
+		word-break    : break-all;
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {
+	.m-search-bd {
+		&.is-margin-bottom {
+			> * {
+				margin-top : 10px;
+			}
+		}
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-search-bd {
+		&.is-margin-bottom {
+			> * {
+				margin-top : 10px;
+			}
+		}
+	}
+>>>>>>> origin/master
 }

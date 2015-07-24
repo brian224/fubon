@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-aside {
 	margin-top : 25px;
 	position   : relative;
@@ -424,4 +425,429 @@
 
 @include respond-to(Tables-Mobile) {}
 
+=======
+.m-aside {
+	margin-top : 25px;
+	position   : relative;
+
+	&:first-child {
+		margin-top : 0;
+	}
+
+	&.m-aside-accordion {
+		/*margin-bottom : -1px;*/
+		border-bottom : 1px solid $border-minor-color;
+		@include box-sizing(border-box);
+
+		.m-aside-hd {
+			height      : 40px;
+			line-height : 40px;
+			border      : 1px solid $border-major-color;
+			display     : none;
+			background  : $color-inverse;
+			position    : relative;
+			@include box-sizing(border-box);
+
+			> button {
+				margin         : 0;
+				padding        : 0 15px;
+				font           : 20px/1.6 $font-family;
+				text-align     : left;
+				color          : $text-major-color;
+				width          : 100%;
+				height         : 100%;
+				border         : 0;
+				border-spacing : 0;
+				position       : relative;
+				background     : none;
+				outline        : 0;
+				text-indent    : 0;
+				white-space    : nowrap;
+				z-index        : 1;
+				@include touch-action;
+				@include display(block);
+				@include box-sizing(border-box);
+
+				.m-icon-stack {
+					top         : 50%;
+					right       : 15px;
+					margin-top  : -10px;
+					color       : $major-color;
+					width       : 20px;
+					height      : 20px;
+					line-height : 20px;
+					position    : absolute;
+					@include clearfix;
+
+					.m-icon {
+						display : none;
+
+						&:first-child {
+							@include display(block);
+						}
+					}
+				}
+			}
+		}
+		
+		.m-aside-bd {
+			> ul {
+				> li {
+					&.is-curr , &.is-active {
+						.m-icon-stack {
+							.m-icon {
+								@include display(block);
+
+								&:first-child {
+									display : none;
+								}
+							}
+						}
+
+						> h6 {
+							a {
+								color : $major-color;
+							}
+						}
+
+						> div {
+							max-height : 999px;
+						}
+					}
+
+					&.is-curr {
+						&.is-hide {
+							> div {
+								max-height : 0;
+							}
+						}
+
+						&.is-curred {
+							> h6 {
+								a {
+									color : $text-minor-color;
+								}
+							}
+						}
+					}
+
+					&.is-curred {
+						> h6 {
+							a {
+								color : $major-color;
+							}
+						}
+
+						&.is-hide {
+							.m-icon-stack {
+								.m-icon {
+									display : none;
+
+									&:first-child {
+										@include display(block);
+									}
+								}
+							}
+
+							> h6 {
+								a {
+									color : $major-color;
+								}
+							}
+						}
+					}
+
+					&:first-child {
+						> h4 {
+							a {
+								border-top : 0;
+							}
+						}
+					}
+
+					.m-icon-stack {
+						top       : 50%;
+						right     : 5px;
+						margin-top: -6px;
+						font-size : 12px;
+						color     : $major-color;
+						width     : 12px;
+						height    : 12px;
+						display   : block;
+						position  : absolute;
+
+						.m-icon {
+							display: none;
+
+							&:first-child {
+								display : block;
+							}
+						}
+					}
+
+					h6 {
+						/*padding  : 0 ($inner-Width - 5);*/
+						position : relative;
+						z-index  : 1;
+
+						a {
+							height      : 50px;
+							line-height : 1.6;
+							position    : relative;
+							display     : block;
+							border-top  : 1px solid $border-minor-color;
+							@include box-sizing(border-box);
+							@include transition(color $transition-times);
+
+							&:hover {
+								color : $major-color;
+							}
+
+							> em {
+								font-size : 15px;
+
+								&:before {
+									content      : "";
+									margin-top   : -3px;
+									margin-right : 10px;
+									width        : 4px;
+									height       : 6px;
+									background   : $major-color;
+									@include clearfix;
+									@include inline-block;
+								}
+							}
+						}
+					}
+
+					> div {
+						margin-top : -1px;
+						max-height : 0;
+						position   : relative;
+						z-index    : 2;
+						@include clearfix;
+						@include transition(max-height $transition-times);
+
+						> ul {
+							padding    : 10px 10px 10px ($inner-Width - 7);
+							background : $major-color;
+
+							> li {
+								> a {
+									padding-top    : 10px;
+									padding-bottom : 10px;
+									color          : #FFF;
+									@include display(block);
+
+									> .m-icon {
+										visibility : hidden;
+									}
+
+									> em {
+										font-size     : 14px;
+										line-height   : 20px;
+										border-bottom : 1px solid transparent;
+										@include inline-block;
+										@include transition(border-color $transition-times);
+									}
+
+									&:hover {
+										> em {
+											border-bottom-color : #FFF;
+										}
+									}
+								}
+
+								&.is-active {
+									> a {
+										> .m-icon {
+											visibility : visible;
+										}
+
+										&:hover {
+											> em {
+												border-bottom-color : transparent;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.m-aside-hd {
+	> h5 {
+		padding-left : 20px;
+		font-size    : 18px;
+		line-height  : 1.7;
+		color        : $major-color;
+		position     : relative;
+		@include box-sizing(border-box);
+
+		&:before {
+			content    : "";
+			top        : 0;
+			left       : 0;
+			width      : 4px;
+			height     : 100%;
+			position   : absolute;
+			background : $major-color;
+			@include clearfix;
+		}
+	}
+}
+
+.m-aside-bd {
+	padding  : 0 ($inner-Width - 5);
+}
+
+@include respond-to(Tables) {
+	.m-aside {
+		padding-right : ($inner-Width - 10);
+		padding-left  : ($inner-Width - 10);
+
+		&.m-aside-accordion {
+			top           : 50px;
+			left          : 0;
+			width         : 100%;
+			border-bottom : 0;
+			display       : block;
+			position      : absolute;
+			z-index       : 20;
+
+			&.is-disabled {
+				.m-aside-hd {
+					border-color : lighten($border-major-color , 25%);
+
+					> button {
+						cursor : not-allowed;
+
+						.m-icon-stack {
+							display : none;
+						}
+					}
+				}
+			}
+
+			&.is-selected {
+				.m-aside-hd {
+					> button {
+						.m-icon-stack {
+							.m-icon {
+								display : block;
+
+								&:first-child {
+									display : none;
+								}
+							}
+						}
+					}
+				}
+
+				.m-aside-bd {
+					max-height : 999px;
+				}
+			}
+
+			.m-aside-hd {
+				display : block;
+			}
+
+			.m-aside-bd {
+				max-height : 0;
+				background : $color-inverse;
+				@include clearfix;
+				@include transition(max-height $transition-times);
+
+				> ul {
+					border     : 1px solid $border-major-color;
+					border-top : 0;
+
+					> li {
+						&.is-curr {
+							.m-icon-stack {
+								.m-icon {
+									display : none;
+
+									&:first-child {
+										@include display(block);
+									}
+								}
+							}
+
+							> div {
+								max-height : 0;
+							}
+						}
+
+						&.is-active , &.is-curred {
+							> h6 {
+								a {
+									&:hover {
+										color : $major-color;
+									}
+								}
+							}
+						}
+
+						&:first-child {
+							> h6 {
+								a {
+									border-top : 0;
+								}
+							}
+						}
+
+						> h6 {
+							padding : 0 ($inner-Width - 5);
+							
+							a {
+								height : 40px;
+
+								&:hover {
+									color : $text-minor-color;
+								}
+
+								> em {
+									&:before {
+										display : none;
+									}
+								}
+							}	
+						}
+
+						> div {
+							> ul {
+								padding-left : 20px;
+
+								> li {
+									> a {
+										> .m-icon {
+											display : none;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.m-aside-bd {
+		padding-left  : 0;
+		padding-right : 0;
+	}
+
+}
+
+@include respond-to(Tables-Mobile) {}
+
+>>>>>>> origin/master
 @include respond-to(Mobile) {}

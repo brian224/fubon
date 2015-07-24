@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html , body {
 	background : #FFF;
 	min-width  : inherit;
@@ -114,4 +115,122 @@ html , body {
 	.m-box-ft {
 		padding : 5px 15px;
 	}
+=======
+html , body {
+	background : #FFF;
+	min-width  : inherit;
+	min-height : inherit;
+	height     : auto;
+}
+
+.m-box {
+	font-size : 14px;
+	width     : 100%;
+	position  : relative;
+	@include clearfix;
+	
+	&:before , > span {
+		content  : "";
+		top      : 0;
+		left     : 0;
+		width    : 100%;
+		height   : 7px;
+		@include display(block);
+		@include background-horizontal-gradient($major-color , 0% , $minor-color , 100%);
+	}
+}
+
+.m-box-hd {
+	margin-top : 20px;
+	padding    : 0 $inner-Width;
+	width      : 100%;
+	position   : relative;
+	@include box-sizing(border-box);
+
+	.box-item {
+		margin-top : 5px;
+
+		> p {
+			line-height : 28px;
+		}
+	}
+}
+
+.m-box-bd {
+	margin-bottom  : 5px;
+	padding-bottom : 25px;
+	position       : relative;
+	border-bottom  : 1px solid $border-minor-color;
+	
+	&:before {
+		content    : "";
+		bottom     : -3px;
+		left       : 0;
+		width      : 100%;
+		height     : 1px;
+		background : $border-minor-color;
+		position   : absolute;
+	}
+
+	&:after {
+		content    : "";
+		bottom     : -5px;
+		left       : 0;
+		width      : 100%;
+		height     : 1px;
+		background : $border-minor-color;
+		position   : absolute;
+	}
+
+	> * {
+		margin-top : 20px;
+
+		&.is-margin-default {
+			margin-top : 0;
+		}
+	}
+}
+
+.m-box-ft {
+	padding     : 15px 20px;
+	line-height : 28px;
+	border-top  : 1px solid $border-minor-color;
+	background  : $color-inverse; 
+}
+
+/* IE8 , IE9 */
+.IE8 , .IE9 {
+	.m-box {
+		&:before {
+			display : none;
+		}
+	}
+}
+
+@include respond-to(Tables) {}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-box-hd {
+		margin-top    : 10px;
+		padding-right : ($inner-Width - 10);
+		padding-left  : ($inner-Width - 10);
+	}
+
+	.m-box-bd {
+		> * {
+			margin-top : 10px;
+		}
+
+		.m-form-group {
+			margin-right : ($inner-Width - 15);
+			margin-left  : ($inner-Width - 15);
+		}
+	}
+
+	.m-box-ft {
+		padding : 5px 15px;
+	}
+>>>>>>> origin/master
 }

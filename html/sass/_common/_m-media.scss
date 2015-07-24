@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-media {
 	height   : 280px;
 	position : relative;
@@ -132,4 +133,140 @@
 	.m-media-tools {
 		padding : 10px 5px;
 	}
+=======
+.m-media {
+	height   : 280px;
+	position : relative;
+	@include clearfix;
+}
+
+.m-media-item {
+	left        : 50%;
+	margin-left : -$main-min-width;
+	text-align  : center;
+	width       : ($main-min-width * 2);
+	position    : relative;
+
+	> img {
+		@include opacity(0);
+		@include transition(opacity $transition-times);
+
+		&.is-loaded {
+			@include opacity(1);
+		}
+	}
+}
+
+.m-media-tools {
+	margin-bottom : 36px;
+	padding       : 20px 15px;
+	text-align    : center;
+	height        : auto;
+	position      : absolute;
+	z-index       : 2;
+	@include clearfix;
+	@include box-sizing(border-box);
+
+	&.is-left-top {
+		top  : 0;
+		left : 0;
+	}
+
+	&.is-center-top {
+		top   : 0;
+		width : 100%;
+	}
+
+	&.is-right-top {
+		top   : 0;
+		right : 0;
+	}
+
+	&.is-middle-right {
+		top    : 0;
+		right  : 0;
+		height : 100%;
+	}
+
+	&.is-bottom-right {
+		bottom : 0;
+		right  : 0;
+	}
+
+	&.is-center-bottom {
+		bottom : 0;
+		left   : 0;
+		width  : 100%;
+	}
+
+	&.is-bottom-left {
+		bottom : 0;
+		left   : 0;
+	}
+
+	&.is-middle-left {
+		top    : 0;
+		left   : 0;
+		height : 100%;
+	}
+
+	&.is-center-middle {
+		top    : 0;
+		left   : 0;
+		width  : 100%;
+		height : 100%;
+	}
+
+	> li {
+		margin : -4px 5px 0 5px;
+		@include inline-block;
+
+		> a {
+			font-size : 22px;
+
+			.m-icon {
+				color : #FFF;
+				@include transition(color $transition-times);
+			}
+
+			&:hover {
+				.m-icon {
+					&.m-icon-m-plus {
+						color : $color-m-plus;
+					}
+
+					&.m-icon-youtube-you {
+						color : $color-youtube-you;
+					}
+
+					&.m-icon-youtube-tube {
+						color : $color-youtube-tube;
+					}
+
+					&.m-icon-facebook-official {
+						color : $color-facebook;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Tables) {
+	.m-media-tools {
+		margin-bottom : 18px;
+	}
+}
+
+@include respond-to(Tables-Mobile) {
+	.m-media-tools {
+		padding : 15px 10px;
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-media-tools {
+		padding : 10px 5px;
+	}
+>>>>>>> origin/master
 }

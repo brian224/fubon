@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-section {
 	margin-top : 15px;
 
@@ -177,4 +178,185 @@
 			margin-top : 15px;
 		}
 	}
+=======
+.m-section {
+	margin-top : 15px;
+
+	&.is-line {
+		.m-section-hd {
+			margin-bottom  : 5px;
+			padding-bottom : 10px;
+			border-bottom  : 1px solid $border-minor-color;
+
+			&:before {
+				content    : "";
+				bottom     : -3px;
+				left       : 0;
+				width      : 100%;
+				height     : 1px;
+				background : $border-minor-color;
+				position   : absolute;
+			}
+		}
+
+		.m-section-bd {
+			border-top : 1px solid $border-minor-color;
+
+			&:before {
+				content    : "";
+				top        : -3px;
+				left       : 0;
+				width      : 100%;
+				height     : 1px;
+				background : $border-minor-color;
+				position   : absolute;
+			}
+		}
+	}
+}
+
+.m-section-hd {
+	padding-right : $inner-Width;
+	padding-left  : $inner-Width;
+	position      : relative;
+	@include box-sizing(border-box);
+
+	&.is-title-hide {
+		h2 {
+			text-indent : -99999px;
+		}
+	}
+
+	&.is-col {
+		> h2 {
+			float : left;
+		}
+
+		.m-section-tools {
+			margin-top  : 0;
+			padding-top : 5px;
+			text-align  : right;
+			width       : 1%;
+			@include display(table-cell);
+			@include box-sizing(border-box);
+
+			> * {
+				@include inline-block;
+			}
+		}
+
+		.m-section-tools-group {
+			padding-top : 12px;
+			width       : 100%;
+			min-height  : 46px;
+			text-align  : right;
+			@include box-sizing(border-box);
+
+			> * {
+				width : auto;
+				@include inline-block;
+			}
+
+			.m-section-tools-addon {
+				margin-left : 20px;
+
+				&:first-child {
+					margin-left : 0;
+				}
+			}
+		}
+	}
+
+	h2 {
+		@include display(block);
+	}
+
+	.m-section-tools {
+		margin-top : 10px;
+		font-size  : 14px;
+		@include display(block);
+	}
+}
+
+.m-section-bd {
+	padding  : 25px $inner-Width 0 $inner-Width;
+	position : relative;
+	@include box-sizing(border-box);
+
+	> * {
+		margin-top : 25px;
+
+		&:first-child {
+			margin-top : 0;
+		}
+	}
+}
+
+@include respond-to(Tables) {
+	.m-section {
+		margin-top : 55px;
+	}
+
+	.m-section-hd {
+		padding-right : ($inner-Width - 10);
+		padding-left  : ($inner-Width - 10);
+
+		> h2 {
+			display : none;	
+		}
+
+		&.is-col {
+			.m-section-tools {
+				padding-top : 20px;
+			}
+		}
+
+		.m-section-tools {
+			margin-top : 0;
+		}
+	}
+
+	.m-section-bd {
+		padding-right : ($inner-Width - 10);
+		padding-left  : ($inner-Width - 10);
+
+		> * {
+			margin-top : 20px;
+		}
+	}
+}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-section-hd {
+		.m-section-tools {
+			.m-form-group {
+				.m-form-ctrl {
+					@include display(table);
+				}
+			}
+		}
+
+		&.is-col {
+			.m-section-tools-group {
+				padding-top : 0;
+
+				.m-section-tools-addon {
+					height : 0;
+					width  : 0;
+					clear  : both;
+					@include clearfix;
+					@include display(block);
+				}
+			}
+		}
+	}
+
+	.m-section-bd {
+		> * {
+			margin-top : 15px;
+		}
+	}
+>>>>>>> origin/master
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:html/sass/_common/_variables.scss
 ﻿/* ==================== 基本設定 ==================== */
 /* html 最小的寬度 */
 $main-min-width : 1000px;
@@ -117,4 +118,125 @@ $transition-times : .3s;
 $module-border-radius : 5px;
 
 /* 表單物件圓角 */
+=======
+﻿/* ==================== 基本設定 ==================== */
+/* html 最小的寬度 */
+$main-min-width : 1000px;
+
+/* html 預設的背景顏色 */
+$default-html-bgcolor : #ECECEC;
+
+/* 側邊欄位的寬度 */
+$side-width : 228px;
+
+/* Header 的高度 */
+$header-height : 72px;
+
+/* 預設字型 */
+$font-family : "微軟正黑體" , "新細明體" , sans-serif , serif;
+
+/* 子字型 */
+$sub-font-family : "新細明體" , sans-serif , serif;
+
+/* l-content 第一層物件的距離 */
+$inner-Width : 25px;
+
+/* PC screen */
+$screen-pc : ($main-min-width - 1);
+/* Device screen */
+$screen-device : 601px;
+
+
+
+
+
+/* ==================== 顏色設定 ==================== */
+/* 企業識別主色 */
+$major-color : #0089D1;
+
+/* 企業識別次色 */
+$minor-color : #01B6AD;
+
+/* 企業識別替補色 */
+$sub-color : #F4FAFC;
+
+/* 文字主要顏色 */
+$text-major-color : #2A2A2A;
+
+/* 文字子顏色 */
+$text-minor-color : #535353;
+
+/* 文字說明顏色 */
+$text-sub-color : #727272;
+
+/* 主要邊框顏色 */
+$border-major-color : #A8A8A8;
+
+/* 次要邊框顏色 */
+$border-minor-color : #D7D7D7;
+
+/* Placeholder 顏色 */
+$placeholder-color : #999;
+
+/* Focus 顏色 */
+$focus-color : $major-color;
+
+/* footer bg 顏色 */
+$color-footer : #7C7C7C;
+
+/* link 顏色 */
+$color-link : $major-color;
+
+/* pagination 顏色 */
+$color-pagination : #ABABAB;
+
+/* 最重要顏色 */
+$color-primary : $major-color;
+
+/* 警告顏色 */
+$color-warning : #F00;
+
+/* 反白顏色 */
+$color-inverse : #F0F0F0;
+
+/* 已失效顏色 */
+$color-disabled : #EFEFEF;
+
+/* Map ICON 顏色  */
+$color-map : #C44;
+
+/* App Icon 顏色 */
+$color-facebook     : #359;
+$color-m-plus       : #6A4;
+$color-youtube-you  : #333;
+$color-youtube-tube : #C11;
+
+/* 自訂顏色 */
+$color : (
+	primary      : $color-primary,
+	warning      : $color-warning,
+	inverse      : $color-inverse,
+	disabled     : $color-disabled,
+	facebook     : $color-facebook,
+	m-plus       : $color-m-plus,
+	youtube-you  : $color-youtube-you,
+	youtube-tube : $color-youtube-tube
+);
+
+
+
+
+/* ==================== 動態時間設定 ==================== */
+$transition-times : .3s;
+
+
+
+
+
+/* ==================== 物件圓角設定 ==================== */
+/* Module 圓角 */
+$module-border-radius : 5px;
+
+/* 表單物件圓角 */
+>>>>>>> origin/master:html/sass/_common/_variables.scss
 $form-border-radius : 3px;

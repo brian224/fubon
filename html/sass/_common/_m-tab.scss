@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .m-tab {
 	width    : 100%;
 	position : relative;
@@ -357,4 +358,345 @@
 			}
 		}
 	}
+=======
+.m-tab {
+	margin-left  : -$inner-Width;
+	padding-top  : 35px;
+	padding-left : $inner-Width;
+	width        : 100%;
+	position     : relative;
+	@include clearfix;
+	@include transition(height $transition-times);
+
+	&:after {
+		content    : "";
+		top        : 31px;
+		left       : 0;
+		width      : 100%;
+		height     : 4px;
+		background : $border-minor-color;
+		position   : absolute;
+		z-index    : 1;
+	}
+
+	&.m-tab-slide {
+		margin-left    : 0;
+		padding-top    : 10px;
+		padding-bottom : 10px;
+		padding-left   : 0;
+
+		&:after {
+			display : none;
+		}
+
+		.m-tab-content {
+			left       : 0;
+			margin-top : 0;
+			position   : relative;
+			@include transition((left $transition-times , max-height $transition-times));
+
+			> li {
+				position : relative;
+			}
+		}
+
+		.m-tab-ctrl {
+			text-align : center;
+
+			> li {
+				@include inline-block;
+			}
+		}
+
+		.m-tab-ctrl-button {
+			@include m-buttom-default;
+			padding   : 0 1px;
+			font-size : 20px;
+			color     : $color-pagination;
+
+			&.is-active {
+				color : $major-color;
+			}
+		}
+	}
+
+	.m-tab-content {
+		margin-top : 25px;
+		width      : 200%;
+
+		> li {
+			width : 50%;
+			float : left;
+
+			&:first-child {
+				.m-tab-button {
+					&:before {
+						display : none;
+					}
+				}
+			}
+
+			&:first-child + li {
+				.m-tab-button {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							left : ((100% / $total) * $types);
+						}
+
+						$types : $types - 1;
+					}
+				}
+			}
+
+			&:first-child + li + li {
+				.m-tab-button {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							left : (((100% / $total) * $types) * 2);
+						}
+
+						$types : $types - 1;
+					}
+				}
+			}
+
+			&:first-child + li + li + li {
+				.m-tab-button {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							left : (((100% / $total) * $types) * 3);
+						}
+
+						$types : $types - 1;
+					}
+				}
+			}
+
+			&:first-child + li + li + li + li {
+				.m-tab-button {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							left : (((100% / $total) * $types) * 4);
+						}
+
+						$types : $types - 1;
+					}
+				}
+			}
+
+			&:first-child + li + li + li + li + li {
+				.m-tab-button {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							left : (((100% / $total) * $types) * 5);
+						}
+
+						$types : $types - 1;
+					}
+				}
+			}
+		}
+	}
+
+	.m-tab-bd {
+		left       : 0;
+		margin-top : -30px;
+		position   : relative;
+		@include display(block);
+		@include transition((left $transition-times , max-height $transition-times));
+
+		> * {
+			margin-top : 30px;
+		}
+	}
+
+	.m-tab-button {
+		top         : 0;
+		left        : 0;
+		font-size   : 18px;
+		text-align  : center;
+		line-height : 1.4;
+		position    : absolute;
+		@include display(block);
+
+		&:before {
+			content    : "";
+			top        : 50%;
+			left       : 0;
+			margin-top : -10px;
+			width      : 1px;
+			height     : 70%;
+			background : $border-minor-color;
+			position   : absolute;
+			@include display(block);
+		}
+
+		.m-icon-stack {
+			top        : 50%;
+			right      : 15px;
+			padding    : 4px;
+			margin-top : -10px;
+			color      : #FFF;
+			text-align : center;
+			width      : 20px;
+			height     : 20px;
+			display    : none;
+			position   : absolute;
+			background : $major-color;
+			@include border-radius(50%);
+
+			.m-icon {
+				font-size : 12px;
+				width     : 12px;
+				height    : 12px;
+				display   : none;
+
+				&:first-child {
+					@include display(block);
+				}
+			}
+		}
+	}
+
+	.m-tab-bar {
+		top        : 31px;
+		left       : 0;
+		width      : 33.3333%;
+		height     : 4px;
+		position   : absolute;
+		z-index    : 2;
+		background : $major-color;
+		@include transition(left $transition-times);
+
+		/*&:before {
+			content      : "";
+			width        : 0;
+			height       : 0;
+			border-style : solid;
+			border-width : 12px 12px 0 0;
+			border-color : $major-color transparent transparent transparent;
+			@include display(block);
+		}*/
+	}
+}
+
+@include respond-to(Tables) {
+	.m-tab {
+		padding-top : 0;
+
+		&:after {
+			display : none;
+		}
+
+		.m-tab-content {
+			margin-top : 0;
+			width      : 100%;
+
+			> li {
+				margin-top : 20px;
+				width      : 100%;
+				float      : none;
+
+				&:first-child {
+					margin-top : 0;
+				}
+
+				&.is-active {
+					> div {
+						max-height  : 999px;
+					}
+
+					.m-tab-button {
+						.m-icon-stack {
+							.m-icon {
+								@include display(block);
+
+								&:first-child {
+									display : none;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.m-tab-bd {
+			margin-top : 0;
+			max-height : 0;
+			float      : none;
+			@include clearfix;
+
+			&.is-hide {
+				display : block;
+			}
+		}
+
+		.m-tab-button {
+			padding-right : 40px;
+			height        : 45px;
+			line-height   : 45px;
+			position      : relative;
+			float         : none;
+			background    : $color-inverse;
+			border        : 1px solid $border-major-color;
+			@include box-sizing(border-box);
+			@include border-radius($module-border-radius);
+
+			&:before {
+				display : none;
+			}
+
+			&[class^="b-col-"] , &[class*=" b-col-"] {
+				left : 0 !important;
+			}
+
+			.m-icon-stack {
+				display : block;
+			}
+		}
+
+		.m-tab-bar {
+			display : none;
+		}
+	}
+}
+
+@include respond-to(Tables-Mobile) {
+	.m-tab {
+		.m-tab-bd {
+			> * {
+				margin-top : 20px;
+
+				&:first-child {
+					margin-top : 20px;
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-tab {
+		.m-tab-bd {
+			> * {
+				margin-top : 20px;
+
+				&:first-child {
+					margin-top : 20px;
+				}
+			}
+		}
+	}
+>>>>>>> origin/master
 }
