@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿.m-button-group {
 	/*margin-top : 20px;*/
 	/*text-align : center;*/
@@ -31,38 +30,4 @@
 
 @include respond-to(Tables-Mobile) {}
 
-=======
-﻿.m-button-group {
-	/*margin-top : 20px;*/
-	/*text-align : center;*/
-	width      : 100%;
-	@include inline-block;
-
-	&:after {
-		content : "";
-		width   : 100%;
-		height  : 0;
-		clear   : both;
-		@include clearfix;
-		@include display(table);
-	}
-
-	&.is-button-left {
-		text-align : left;
-	}
-
-	&.is-button-center {
-		text-align : center;
-	}
-
-	&.is-button-right {
-		text-align : right;
-	}
-}
-
-@include respond-to(Tables) {}
-
-@include respond-to(Tables-Mobile) {}
-
->>>>>>> origin/master
 @include respond-to(Mobile) {}

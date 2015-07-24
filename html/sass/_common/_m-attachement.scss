@@ -24,6 +24,16 @@
 	position : relative;
 	z-index  : 1;
 	@include box-sizing(border-box);
+
+	> .m-icon {
+		float : left;
+		@include display(block);
+	}
+
+	> em {
+		float : left;
+		@include display(block);
+	}
 }
 
 .m-attachement-bd {
