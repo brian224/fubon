@@ -1,0 +1,5 @@
+
+.ng-aside-accordion-item li li{ padding-left: 18px;}
+.ng-aside-accordion-item li li.is-curr{ background:url(../../../Content/img/Responsibility/icon_rightarrow.png) center left no-repeat;}
+.m-aside.m-aside-accordion .m-aside-bd > ul > li > div > ul > li > a{ font-size: 14px;}
+.m-section-bd{ margin-bottom: 25px;}
