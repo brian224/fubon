@@ -22,7 +22,7 @@
 	<meta property="og:image:width" content="504" />
 	<meta property="og:image:height" content="504" />
 	<meta property="og:site_name" content=""/>
-	<title>富邦金控-關於富邦金控-專業殊榮</title>
+	<title>富邦金控-公司治理-股東會-公司治理現況</title>
 	<link rel="canonical" href="" />
 	<link rel="shortcut icon" type="image/x-icon" href="../../Content/img/favicon.ico">
 	<!-- master page include css begin -->
@@ -32,7 +32,7 @@
 	<!-- master page include css end -->
 
 	<!-- self page include css begin -->
-	<link rel="stylesheet" href="../../Content/css/about/honor.css?CSS=20150630_01">
+	<link rel="stylesheet" href="../../Content/css/governance/status.css?CSS=20150630_01">
 	<!-- self page include css end -->
 
 	<!-- master page include scripts begin -->
@@ -71,7 +71,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main honor-content ng-controller" ng-controller="About">
+		<div class="l-main status-content ng-controller" ng-controller="Governance">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -82,7 +82,7 @@
 						</span>
 					</div>
 					<figure class="m-media-item">
-						<img ng-src="../../Content/img/about/kv.jpg" alt="富邦金控-關於富邦金控">
+						<img ng-src="../../Content/img/governance/kv.jpg" alt="富邦金控-公司治理">
 					</figure>
 					<ul class="m-media-tools is-right-top b-middle">
 						<li><a href="javascript:;"><i class="m-icon m-icon-m-plus"></i></a></li>
@@ -110,67 +110,87 @@
 							<a href="../../Views/home/index.html"><i class="m-icon m-icon-home"></i></a>
 						</li>
 						<li>
-							<a href="../../Views/about/info.html">關於富邦金控</a>
+							<a href="../../Views/governance/letter.html">公司治理</a>
 						</li>
 						<li>
-							<em>專業殊榮</em>
+							<a href="../../Views/governance/shareholders.html">股東會</a>
+						</li>
+						<li>
+							<em>公司治理現況</em>
 						</li>
 					</ol>
 					<!-- ==================== m-breadcrumb end =================== -->
 
 					<!-- ==================== m-section begin =================== -->
-					<section class="m-section is-line">
+					<section class="m-section">
 						<header class="m-section-hd is-col b-clearfix">
-							<h2>專業殊榮</h2>
-							<div class="m-section-tools">
-								<div class="m-form-group m-form-select ng-select">
-									<div class="m-form-ctrl">
-										<span class="m-form-addon b-col-xs-0">請選擇年份</span>
-										<label>
-											<select class="m-form m-form-control is-bgcolor" ng-model="About.Honor.NewYear" ng-options="option for option in About.Honor.YearArray" ng-change="About.Honor.OnChange()"></select>
-										</label>
-									</div>
-								</div>
-							</div>
+							<h2>公司治理現況</h2>
 						</header>
 						<main class="m-section-bd b-clearfix">
-							<div class="m-tab b-cloak" ng-class="{'b-cloak' : ! Common.IsReady}">
-								<ul class="m-tab-bd b-clearfix ng-tab-switch">
-									<li class="b-cloak" data-year="2014" ng-class="{'b-cloak' : About.Honor.NewYear !== '2014'}">
-										<h3>亞洲貨幣雜誌(Asiamoney)</h3>
-										<table class="m-table no-data-label">
-											<tbody>
-												<tr class="is-bgcolor">
-													<td class="b-col-md-3 b-col-sm-3 b-col-xs-6"><em>台北富邦銀行</em></td>
-													<td class="b-col-md-9 b-col-sm-9 b-col-xs-6"><em>台灣最佳私人銀行</em></td>
-												</tr>
-												<tr>
-													<td><em>台北富邦銀行</em></td>
-													<td><em>企業票選台灣最佳外匯服務銀行</em></td>
-												</tr>
-												<tr class="is-bgcolor">
-													<td><em>台北富邦銀行</em></td>
-													<td><em>大型企業票選台灣最佳現金管理銀行</em></td>
-												</tr>
-											</tbody>
-										</table>
-									</li>
-									<li class="b-cloak" data-year="2013" ng-class="{'b-cloak' : About.Honor.NewYear !== '2013'}">2013</li>
-									<li class="b-cloak" data-year="2012" ng-class="{'b-cloak' : About.Honor.NewYear !== '2012'}">2012</li>
-									<li class="b-cloak" data-year="2011" ng-class="{'b-cloak' : About.Honor.NewYear !== '2011'}">2011</li>
-									<li class="b-cloak" data-year="2010" ng-class="{'b-cloak' : About.Honor.NewYear !== '2010'}">2010</li>
-									<li class="b-cloak" data-year="2009" ng-class="{'b-cloak' : About.Honor.NewYear !== '2009'}">2009</li>
-									<li class="b-cloak" data-year="2008" ng-class="{'b-cloak' : About.Honor.NewYear !== '2008'}">2008</li>
-									<li class="b-cloak" data-year="2007" ng-class="{'b-cloak' : About.Honor.NewYear !== '2007'}">2007</li>
-									<li class="b-cloak" data-year="2006" ng-class="{'b-cloak' : About.Honor.NewYear !== '2006'}">2006</li>
-								</ul>
-							</div>
-							<div class="b-loading is-relative" ng-class="{'b-cloak' : Common.IsReady}">
-								<span class="m-icon-stack">
-									<i class="m-icon m-icon-fubon-blue is-absolute"></i>
-									<i class="m-icon m-icon-fubon-green"></i>
-								</span>
-							</div>
+							<article class="m-article is-titles">
+								<main class="m-article-bd b-clearfix">
+									<div class="m-article-data">
+										<p>富邦金控在公司治理方面的努力，多年來屢獲國內外知名財經媒體肯定，至2014年，《天下》雜誌第五度評選富邦金控為「最佳聲望標竿企業」金控產業龍頭，並連續三年蟬聯「跨產業總排名」前十名，2014年總排名更上升至第六名。《亞洲公司治理(Corporate Governance Asia)》雜誌連續六年頒發「亞洲地區最佳公司治理獎」，《財資(The Asset)》雜誌連續四年頒發「公司治理白金獎」。</p>
+										<p>爲有效檢視公司治理制度之落實，富邦金控暨旗下主要子公司自 2009年起持續參加由社團法人中華公司治理協會舉辦之「公司治理制度評量認證」，並連續四屆通過認證，顯示富邦金控致力提升公司治理的決心與努力。</p>
+										<div class="b-clearfix">
+											<div class="m-icon-stack m-icon-border m-icon-size-md-4 b-col-md-4 b-col-sm-4 b-col-xs-6">
+												<div class="b-middle">
+													<span>
+														<i class="m-icon m-icon-banner"></i>
+														<em>第五度</em>
+													</span>	
+												</div>
+												<em>天下雜誌<br>最佳聲望標竿企業</em>
+											</div>
+											<div class="m-icon-stack m-icon-border m-icon-size-md-4 b-col-md-4 b-col-sm-4 b-col-xs-6">
+												<div class="b-middle">
+													<span>
+														<i class="m-icon m-icon-follow"></i>
+														<em>連續六年</em>
+													</span>	
+												</div>
+												<em>亞洲公司治理<br>（ Corporate Governance Asia）<br>亞洲地區最佳公司治理獎</em>
+											</div>
+											<div class="m-icon-stack m-icon-border m-icon-size-md-4 b-col-md-4 b-col-sm-4 b-col-xs-6">
+												<div class="b-middle">
+													<span>
+														<i class="m-icon m-icon-badge-o"></i>
+														<em>連續四年</em>
+													</span>	
+												</div>
+												<em>財資（ The Asset）<br>公司治理白金獎</em>
+											</div>
+										</div>
+										<p>富邦金控不僅為第一家引進獨立董事制度的上市公司，更是第一家獨立董事席次達三分之一的金融機構。為求公司治理品質之精進，2011年股東常會率業界之先，採逐案票決方式進行議案表決，使股東對議案之意見得充分表達。為維護股東權益、公平對待公司股東，並落實強化董事提名審查作業之透明度，本公司於2014年新一屆董事選任，採用全體董事候選人提名制度進行全面改選，並順利選任13席董事(外部董事席次過半)。為使獨立董事客觀行使職權，避免因久任降低獨立性，改選後實際在任之獨立董事任期皆未超過九年。</p>
+										<p>富邦金控為強化管理機能，於董事會下設有「審計委員會」、「薪資報酬委員會」及「公司治理委員會」三功能性委員會。「審計委員會」依法由全體獨立董事組成，除依法審議各類案件外，也特別重視子/孫公司的風險管理與督導，以達監督集團內各項風險之目的。「薪資報酬委員會」亦由本公司全體獨立董事組成，協助董事會訂定並檢討評估本公司董事及經理人績效評估與薪資報酬之政策、制度、標準與結構，定期評估並訂定本公司董事及經理人之薪資報酬。「公司治理委員會」之成員除全體獨立董事外尚包含本公司最大股東明東實業及臺北市政府之法人代表各1位，其功能除包含當前公司治理致力倡導「提名委員會」之協助董事會完成全體董事候選人提名相關作業外，並致力於向董事會建議組織運作及管理等事宜，以強化董事會職能。</p>
+										<div class="m-icon-stack m-icon-border m-icon-size-md-4 b-col-md-4 b-col-sm-4 b-col-xs-6">
+											<div class="b-middle">
+												<span>
+													<i class="m-icon m-icon-star"></i>
+												</span>	
+											</div>
+											<em>公司治理委員會</em>
+										</div>
+										<div class="m-icon-stack m-icon-border m-icon-size-md-4 b-col-md-4 b-col-sm-4 b-col-xs-6">
+											<div class="b-middle">
+												<span>
+													<i class="m-icon m-icon-follow"></i>
+												</span>	
+											</div>
+											<em>審計委員會</em>
+										</div>
+										<div class="m-icon-stack m-icon-border m-icon-size-md-4 b-col-md-4 b-col-sm-4 b-col-xs-6">
+											<div class="b-middle">
+												<span>
+													<i class="m-icon m-icon-shirt"></i>
+												</span>	
+											</div>
+											<em>薪資報酬委員會</em>
+										</div>
+										<p>富邦金控基於廉潔、透明及負責之經營理念，樹立誠信經營之企業文化及創造永續發展之經營環境，先於 1996年通過「道德行為準則」之制定，更於 2011年通過制定「誠信經營守則」及「企業社會責任守則」，朝向落實企業誠信經營、建立良好商業運作模式及風險控管機制、推動社會公益等目標持續邁進。</p>
+									</div>
+								</main>
+							</article>
 						</main>
 					</section>
 					<!-- ==================== m-section end =================== -->
@@ -190,68 +210,134 @@
 						</header>
 						<main class="m-aside-bd">
 							<ul id="aside-item" class="ng-aside-accordion-item">
-								<li data-channel="info">
+								<li data-channel="status">
 									<h6>
-										<a href="../../Views/about/info.html" class="b-middle">
-											<em>富邦金控簡介</em>
+										<a href="../../Views/governance/status.html" class="b-middle">
+											<em>公司治理現況</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="business_philosophy">
+								<li data-channel="framework">
 									<h6>
-										<a href="../../Views/about/business_philosophy.html" class="b-middle">
-											<em>核心價值</em>
+										<a href="../../Views/governance/framework.html" class="b-middle">
+											<em>公司治理架構</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="team">
+								<li data-channel="operation">
 									<h6>
-										<a href="../../Views/about/team.html" class="b-middle">
-											<em>經營團隊</em>
+										<a href="../../Views/governance/operation.html" class="b-middle">
+											<em>公司治理運作情形</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="sub">
+								<li>
 									<h6>
-										<a href="../../Views/about/sub.html" class="b-middle">
-											<em>金控子公司成員</em>
+										<a href="javascript:;" class="b-middle">
+											<em>股東會</em>
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+									</h6>
+									<div>
+										<ul>
+											<li data-channel="letter">
+												<a href="../../Views/governance/letter.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>致股東報告書</em>
+												</a>
+											</li>
+											<li data-channel="shareholders">
+												<a href="../../Views/governance/shareholders.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>股東會資訊</em>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<h6>
+										<a href="javascript:;" class="b-middle">
+											<em>董事會</em>
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+									</h6>
+									<div>
+										<ul>
+											<li data-channel="board_of_directors">
+												<a href="../../Views/governance/board_of_directors.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會成員</em>
+												</a>
+											</li>
+											<li data-channel="election">
+												<a href="../../Views/governance/election.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>獨立董事選任資訊</em>
+												</a>
+											</li>
+											<li data-channel="attendance">
+												<a href="../../Views/governance/attendance.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會出席情形</em>
+												</a>
+											</li>
+											<li data-channel="resolutions">
+												<a href="../../Views/governance/resolutions.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會重要決議</em>
+												</a>
+											</li>
+											<li data-channel="rules">
+												<a href="../../Views/governance/rules.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會議事規範</em>
+												</a>
+											</li>
+											<li data-channel="study">
+												<a href="../../Views/governance/study.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事進修</em>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li data-channel="committee">
+									<h6>
+										<a href="../../Views/governance/committee.html" class="b-middle">
+											<em>功能性委員會</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="honor">
+								<li data-channel="organization">
 									<h6>
-										<a href="../../Views/about/honor.html" class="b-middle">
-											<em>專業殊榮</em>
+										<a href="../../Views/governance/organization.html" class="b-middle">
+											<em>內部稽核組織及運作</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="milestone">
+								<li data-channel="regulation">
 									<h6>
-										<a href="../../Views/about/milestone.html" class="b-middle">
-											<em>大事紀</em>
+										<a href="../../Views/governance/regulation.html" class="b-middle">
+											<em>公司重要章則</em>
+										</a>
+									</h6>
+								</li>
+								<li>
+									<h6>
+										<a href="javascript:;" class="b-middle">
+											<em>獨立董事信箱</em>
 										</a>
 									</h6>
 								</li>
 							</ul>
-						</main>
-					</aside>
-					<aside class="m-aside">
-						<header class="m-aside-hd">
-							<h5>相關連結</h5>
-						</header>
-						<main class="m-aside-bd">
-							<div class="m-video ng-youtube" data-youtube="WdhzVssc-MI">
-								<div class="m-video-bd">
-									<a href="m-button m-button-video">
-										https://youtu.be/WdhzVssc-MI
-										<!-- <figure>
-											<img ng-src="" alt="富邦員工出動 台東蓋樹屋">
-										</figure> -->
-									</a>
-									<div class="m-video-frame"></div>
-								</div>
-								<div class="m-video-ft">富邦金控簡介影片</div>
-							</div>
 						</main>
 					</aside>
 				</div>
@@ -529,6 +615,6 @@
 <!-- master page include scripts end -->
 
 <!-- self page include scripts begin -->
-<script type="text/javascript" src="../../Scripts/js/about/common.js?JS=20150630_01"></script>
+<script type="text/javascript" src="../../Scripts/js/governance/common.js?JS=20150630_01"></script>
 <!-- self page include scripts end -->
 </html>
