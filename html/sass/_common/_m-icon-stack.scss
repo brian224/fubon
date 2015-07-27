@@ -1,3 +1,23 @@
+﻿.m-icon {
+	/* 顏色設定 */
+	@each $key , $value in $color {
+		&.b-#{$key} {
+			color : $value;
+		}
+	}
+
+	/* icon-size */
+	$types : 20;
+	$Size  : 12px;
+	@while $types > 0 {
+		&.m-icon-size-md-#{$types} {
+			font-size : $Size * $types;
+		}
+
+		$types : $types - 1;
+	}
+}
+
 /* m-icon-stack */
 .m-icon-stack {
 	position : relative;
@@ -38,11 +58,11 @@
 			@include display(table-cell);
 
 			&.m-icon-fubon-blue {
-				color : #09C;
+				color : $color-fubon-blue;
 			}
 
 			&.m-icon-fubon-green {
-				color : #0AA;
+				color : $color-fubon-green;
 			}
 		}
 
@@ -128,56 +148,79 @@
 		@include clearfix;
 		@include display(block);
 
-		> div {
-			margin     : 0 auto;
-			font-size  : 18px;
-			text-align : center;
-			color      : $major-color;
-			width      : 110px;
-			height     : 110px;
-			position   : relative;
-			display    : block;
-			@include clearfix;
-			@include border-radius(50%);
+		> li {
+			margin-top    : 10px;
+			margin-bottom : 10px;
 			@include box-sizing(border-box);
-			@include background-vertical-gradient($minor-color , 0% , $major-color , 100%);
 
-			&:after {
-				content    : "";
-				top        : 50%;
-				left       : 50%;
-				margin     : -50px 0 0 -50px;
-				width      : 100px;
-				height     : 100px;
-				background : #FFF;
-				position   : absolute;
-				z-index    : 1;
-				@include clearfix;
-				@include border-radius(50%);
+			&.b-align-md-left {
+				padding-left : 30px;
 			}
 
-			.m-icon {
-				top           : 0;
-				left          : 0;
-				margin-bottom : 5px;
-				text-align    : center;
-				height        : auto;
-				@include display(block);
-			}
-
-			> span {
-				margin-left : -4px;
-				position    : relative;
-				z-index     : 2;
+			&.b-align-md-right {
+				padding-right : 30px;
 			}
 		}
 
-		> em {
-			margin-top : 15px;
-			font-size  : 14px;
-			text-align : center;
-			color      : $major-color;
-			@include display(block);
+		.m-icon-border-item {
+			min-width : 190px;
+			@include inline-block;
+
+			> div {
+				margin     : 0 auto;
+				text-align : center;
+				color      : $major-color;
+				width      : 110px;
+				height     : 110px;
+				position   : relative;
+				display    : block;
+				@include clearfix;
+				@include border-radius(50%);
+				@include box-sizing(border-box);
+				@include background-vertical-gradient($minor-color , 0% , $major-color , 100%);
+
+				&:after {
+					content    : "";
+					top        : 50%;
+					left       : 50%;
+					margin     : -50px 0 0 -50px;
+					width      : 100px;
+					height     : 100px;
+					background : #FFF;
+					position   : absolute;
+					z-index    : 1;
+					@include clearfix;
+					@include border-radius(50%);
+				}
+
+				.m-icon {
+					top        : 0;
+					left       : 0;
+					text-align : center;
+					height     : auto;
+					@include display(block);
+				}
+
+				> span {
+					position : relative;
+					z-index  : 2;
+
+					em {
+						margin-top : -3px;
+						font-size  : 15px;
+						@include display(block);
+					}
+				}
+			}
+
+			> p {
+				margin-top  : 10px;
+				font-size   : 14px;
+				text-align  : center;
+				color       : $major-color;
+				line-height : 26px;
+				@include display(block);
+			}
 		}
 	}
 }
@@ -185,16 +228,18 @@
 .IE8 , .IE9 {
 	.m-icon-stack {
 		&.m-icon-border {
-			> div {
-				background : none;
-				filter     : none;
+			.m-icon-border-item {
+				> div {
+					background : none;
+					filter     : none;
 
-				&:after {
-					margin     : -55px 0 0 -55px;
-					width      : 110px;
-					height     : 110px;
-					background : image-url('m-icon-border-mask.png') no-repeat center center;
-					@include border-radius(0);
+					&:after {
+						margin     : -55px 0 0 -55px;
+						width      : 110px;
+						height     : 110px;
+						background : image-url('m-icon-border-mask.png') no-repeat center center;
+						@include border-radius(0);
+					}
 				}
 			}
 		}
@@ -204,6 +249,19 @@
 @include respond-to(Tables) {}
 
 @include respond-to(Tables-Mobile) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-sm-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
 	.m-icon-stack {
 		/* icon-size */
 		$types : 20;
@@ -217,10 +275,50 @@
 
 			$types : $types - 1;
 		}
+
+		&.m-icon-border {
+			> li {
+				&.b-align-md-left {
+					padding-right : 0;
+					padding-left  : 0;
+				}
+
+				&.b-align-md-center {
+					padding-right : 0;
+					padding-left  : 0;
+				}
+
+				&.b-align-md-right {
+					padding-right : 0;
+					padding-left  : 0;
+				}
+
+				&.b-align-sm-left {
+					padding-left : 15px;
+				}
+
+				&.b-align-sm-right {
+					padding-right : 15px;
+				}
+			}
+		}
 	}
 }
 
 @include respond-to(Mobile) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-xs-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
 	.m-icon-stack {
 		/* icon-size */
 		$types : 20;
@@ -236,20 +334,27 @@
 		}
 
 		&.m-icon-border {
-			@include display(table);
+			> li {
+				&.b-align-sm-left {
+					padding-right : 0;
+					padding-left  : 0;
+				}
 
-			> div {
-				@include display(table-cell);
+				&.b-align-sm-center {
+					padding-right : 0;
+					padding-left  : 0;
+				}
 
-				.m-icon {
-					font-size : 42px;
+				&.b-align-sm-right {
+					padding-right : 0;
+					padding-left  : 0;
 				}
 			}
 
-			> em {
-				padding-left : 20px;
-				text-align   : left;
-				@include display(table-cell);
+			.m-icon-border-item {
+				> p {
+					padding-left : 20px;
+				}
 			}
 		}
 	}

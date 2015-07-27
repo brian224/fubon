@@ -1,6 +1,14 @@
 .m-accordion {
 	position : relative;
 
+	&.is-no-number {
+		.m-accordion-hd {
+			&:before {
+				display : none;
+			}
+		}
+	}
+
 	> ol {
 		counter-reset : section;
 
@@ -8,11 +16,9 @@
 			margin-bottom : 5px;
 			position      : relative;
 
-
 			&.is-active {
 				.m-accordion-hd {
-					/*border-color : $major-color;*/
-					background   : $sub-color;
+					background : $sub-color;
 
 					&:after {
 						height : 100%;
@@ -40,14 +46,13 @@
 }
 
 .m-accordion-hd {
-	padding       : 18px 60px 18px 28px;
-	font-size     : 18px;
-	color         : $major-color;
-	line-height   : 1.6;
-	background    : $sub-color;
-	position      : relative;
-	cursor        : pointer;
-	/*@include display(table);*/
+	padding     : 18px 60px 18px 28px;
+	font-size   : 18px;
+	color       : $major-color;
+	line-height : 1.6;
+	background  : $sub-color;
+	position    : relative;
+	cursor      : pointer;
 	@include clearfix;
 	@include box-sizing(border-box);
 	@include transition(background $transition-times);
@@ -110,7 +115,6 @@
 	margin-bottom : 10px;
 	padding       : 15px 24px 15px 28px;
 	position      : relative;
-	/*border-left   : 4px solid $border-minor-color;*/
 	@include box-sizing(border-box);
 
 	&:after {
@@ -125,6 +129,14 @@
 		@include transition(height $transition-times , ($transition-times / 2));
 	}
 
+	> p {
+		margin-top : 30px;
+	}
+
+	> *:first-child {
+		margin-top : 0;
+	}
+
 	a {
 		color           : $major-color;
 		text-decoration : underline;
@@ -135,7 +147,7 @@
 .IE8 {
 	.m-accordion {
 		> ol {
-				> li {
+			> li {
 				&.is-active {
 					.m-accordion-hd {
 						> span {
@@ -151,7 +163,6 @@
 				}
 			}	
 		}
-		
 	}
 
 	.m-accordion-hd {

@@ -26,7 +26,11 @@
 	@include box-sizing(border-box);
 
 	> .m-icon {
-		float : left;
+		font-size   : 25px;
+		width       : 25px;
+		height      : 25px;
+		line-height : 25px;
+		float       : left;
 		@include display(block);
 	}
 
@@ -38,7 +42,7 @@
 
 .m-attachement-bd {
 	margin-bottom : 1px;
-	padding       : 0 20px 18px 20px;
+	padding       : 0 20px 18px 55px;
 	border-bottom : 1px solid $border-minor-color;
 	position      : relative;
 	z-index       : 1;

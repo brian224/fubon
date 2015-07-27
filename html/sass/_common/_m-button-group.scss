@@ -1,7 +1,5 @@
 ﻿.m-button-group {
-	/*margin-top : 20px;*/
-	/*text-align : center;*/
-	width      : 100%;
+	width : 100%;
 	@include inline-block;
 
 	&:after {
@@ -11,18 +9,6 @@
 		clear   : both;
 		@include clearfix;
 		@include display(table);
-	}
-
-	&.is-button-left {
-		text-align : left;
-	}
-
-	&.is-button-center {
-		text-align : center;
-	}
-
-	&.is-button-right {
-		text-align : right;
 	}
 }
 

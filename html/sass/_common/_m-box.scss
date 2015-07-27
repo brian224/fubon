@@ -109,6 +109,12 @@ html , body {
 			margin-right : ($inner-Width - 15);
 			margin-left  : ($inner-Width - 15);
 		}
+
+		.m-button-group {
+			padding-right : ($inner-Width - 10);
+			padding-left  : ($inner-Width - 10);
+			@include box-sizing(border-box);
+		}
 	}
 
 	.m-box-ft {

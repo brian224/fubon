@@ -11,6 +11,10 @@ mark {
 	background : transparent;
 }
 
+b , strong {
+	font-weight : bold;
+}
+
 a {
 	text-decoration : none;
 	color           : $text-minor-color;

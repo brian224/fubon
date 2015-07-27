@@ -81,12 +81,10 @@
 	}
 
 	&.b-lg {
-		margin-right  : 3px;
-		margin-left   : 3px;
+		margin-right  : 2px;
+		margin-left   : 2px;
 		padding-right : 60px;
 		padding-left  : 60px;
-		/*min-width   : 180px;*/
-		text-align    : center;
 	}
 
 	/* 顏色設定 */
@@ -134,6 +132,9 @@
 
 @include respond-to(Tables) {
 	.m-button {
+		padding-right : 12px;
+		padding-left  : 12px;
+
 		&.m-button-top {
 			right        : 10px;
 			margin-right : auto;
@@ -158,14 +159,19 @@
 
 @include respond-to(Mobile) {
 	.m-button {
+		padding : 6px 8px;
+
 		&.m-button-navicon {
 			padding-right : 5px;
 			padding-left  : 2px;
 		}
 
-		&.b-lg {
+		&.b-xs-full , &.b-lg {
 			margin-top    : 5px;
-			margin-bottom : 5px;
+			width         : 100%;
+			padding-right : 30px;
+			padding-left  : 30px;
+			@include box-sizing(border-box);
 		}
 	}
 }
