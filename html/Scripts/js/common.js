@@ -33,7 +33,7 @@ if ( $AsideItem !== null ) {
 }
 
 function userAgentFun() {
-	if (window.innerWidth < 768) {
+	if ( window.innerWidth < 768 ) {
 		$userAgent = 'Mobile';
 	} else {
 		if ($Device.test(navigator.userAgent)) {
@@ -251,7 +251,7 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 					}
 					scope.Common.Nav.Submenu.Position(AgElem(this));
 				}
-			}, function() {
+			} , function() {
 				if ($userAgent !== 'Mobile') {
 					if (!$elementLi.hasClass('is-curr')) {
 						scope.Common.Nav.Bar.Hover = !scope.Common.Nav.Bar.Hover;
@@ -265,14 +265,14 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 			});
 
 			$elementLink.on('click', function(e) {
-				if ($userAgent === 'Mobile') {
-					if (AgElem(this).next('div').length !== 0) {
+				if ( $userAgent !== 'PC' && window.innerWidth <= 768 ) {
+					if ( AgElem(this).next('div').length !== 0 ) {
 						e.preventDefault();
 						AgElem(this).parent().toggleClass('is-active').siblings().removeClass('is-active');
 						AgElem('.ng-path').parent().removeClass('is-active');
 					}
-				} else if ($userAgent === 'Tablet') {
-					if (AgElem(this).next('div').length !== 0) {
+				} else if ( $userAgent === 'Tablet' ) {
+					if ( AgElem(this).next('div').length !== 0 ) {
 						e.preventDefault();
 						scope.Common.Nav.Bar.Hover = true;
 						scope.Common.Nav.Submenu.Position(AgElem(this).parent());
@@ -290,7 +290,7 @@ Ctrl.directive('ngPath', ['$document', function($document) {
 		link: function(scope, elem, attrs) {
 			elem.on('click', function(e) {
 				e.preventDefault();
-				if ($userAgent !== 'Mobile') {
+				if ( $userAgent !== 'Mobile' ) {
 					scope.Common.Nav.Path.Click = !scope.Common.Nav.Path.Click;
 					scope.$apply();
 				} else {

@@ -7,7 +7,7 @@
 	@include transition(margin-top $transition-times);
 
 	> a {
-		color : #FFF;
+		color : $color-white;
 	}
 
 	> div {
@@ -80,7 +80,7 @@
 							padding    : 8px 10px;
 							font-size  : 14px;
 							width      : 100%;
-							background : rgba(#FFF , .95);
+							background : rgba($color-white , .95);
 							@include clearfix;
 							@include border-radius(15px);
 							@include box-sizing(border-box);
@@ -183,7 +183,7 @@
 				bottom      : -24px;
 				padding     : 0 20px;
 				text-align  : center;
-				color       : #FFF;
+				color       : $color-white;
 				font-size   : 12px;
 				height      : 25px;
 				line-height : 22px;
@@ -193,7 +193,7 @@
 				@include border-radius(0 0 20px 20px);
 
 				.m-icon-stack {
-					color   : #FFF;
+					color   : $color-white;
 					height  : 100%;
 					float   : right;
 					display : none;
@@ -224,7 +224,7 @@
 						> a {
 							margin        : 7px 8px;
 							font-size     : 13px;
-							color         : #FFF;
+							color         : $color-white;
 							line-height   : 1.5;
 							border-bottom : 1px solid transparent;
 							@include display(block);
@@ -236,7 +236,7 @@
 
 
 							&:hover {
-								border-bottom-color : #FFF;
+								border-bottom-color : $color-white;
 							}
 						}
 					}	
@@ -278,7 +278,7 @@
 							background : image-url('blank.gif');
 
 							> ul {
-								background : #FFF;
+								background : $color-white;
 							}
 						}
 					}
@@ -326,7 +326,7 @@
 					> li {
 						float      : none;
 						position   : relative;
-						background : #FFF;
+						background : $color-white;
 
 						&.b-middle {
 							&:before {
@@ -403,9 +403,9 @@
 
 									> a {
 										margin              : 0 15px;
-										color               : #FFF;
-										height              : 30px;
-										line-height         : 30px;
+										color               : $color-white;
+										height              : 40px;
+										line-height         : 40px;
 										border-bottom-width : 0;
 										@include display(block);
 
@@ -509,7 +509,7 @@
 							> a {
 								margin              : 0 15px;
 								font-size           : 13px;
-								color               : #FFF;
+								color               : $color-white;
 								line-height         : 30px;
 								border-bottom-width : 0;
 
@@ -537,4 +537,25 @@
 
 @include respond-to(Tables-Mobile) {}
 
-@include respond-to(Mobile) {}
+@include respond-to(Mobile) {
+	.is-subsidiary .m-nav , .m-nav {
+		> div {
+			&:first-child {
+				> ul {
+					> li {
+						> div {
+							> ul {
+								> li {
+									> a {
+										height      : 35px;
+										line-height : 35px;
+									}
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

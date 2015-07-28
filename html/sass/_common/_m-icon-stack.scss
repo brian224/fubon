@@ -1,3 +1,33 @@
+﻿.m-icon {
+	/* 顏色設定 */
+	@each $key , $value in $color {
+<<<<<<< HEAD
+<<<<<<< HEAD
+		&.b-#{'' + $key} {
+			color : $value !important;
+=======
+		&.b-#{$key} {
+			color : $value;
+>>>>>>> origin/master
+=======
+		&.b-#{$key} {
+			color : $value;
+>>>>>>> origin/master
+		}
+	}
+
+	/* icon-size */
+	$types : 20;
+	$Size  : 12px;
+	@while $types > 0 {
+		&.m-icon-size-md-#{$types} {
+			font-size : $Size * $types;
+		}
+
+		$types : $types - 1;
+	}
+}
+
 /* m-icon-stack */
 .m-icon-stack {
 	position : relative;
@@ -38,11 +68,11 @@
 			@include display(table-cell);
 
 			&.m-icon-fubon-blue {
-				color : #09C;
+				color : $color-fubon-blue;
 			}
 
 			&.m-icon-fubon-green {
-				color : #0AA;
+				color : $color-fubon-green;
 			}
 		}
 
@@ -52,27 +82,81 @@
 	}
 
 	&.m-icon-circle-group {
-		.m-icon {
-			z-index  : 1;
+		margin-bottom : -30px;
+		@include clearfix;
+		@include display(block);
 
-			&:first-child {
-				font-size   : 45%;
-				color       : #FFF;
-				width       : 100%;
-				/*line-height : 2.3;*/
-				z-index     : 2;
+		> li {
+			margin-bottom : 30px;
+			position      : relative;
+		}
+
+		.m-icon-circle-item {
+			color    : $major-color;
+			position : relative;
+			@include inline-block;
+
+			> span {
+				position : relative;
+				@include display(block);
+			}
+
+			> em {
+				margin-top : 5px;
+				font-size  : 15px;
+				text-align : center;
+				@include display(block);
+				@include transition(color $transition-times);
+			}
+
+			&:hover {
+				.m-icon {
+					&.m-icon-circle {
+						color : darken($major-color , 15%);
+					}
+				}
+
+				> em {
+					color : darken($major-color , 15%);
+				}
+			}
+		}
+
+		.m-icon {
+			top        : 0;
+			right      : 0;
+			bottom     : 0;
+			left       : 0;
+			text-align : center;
+			color      : #FFF;
+			width      : 100%;
+			height     : 100%;
+			position   : relative;
+			z-index    : 2;
+
+			&:after {
+				content : "";
+				height  : 100%;
+				@include inline-block;
+			}
+
+			&:before {
+				@include inline-block;
+			}
+
+			&.m-icon-circle {
+				color   : $major-color;
+				z-index : 1;
+				@include text-shadow(rgba(#000 , .15) 3px 3px 0);
+				@include transition(color $transition-times);
 
 				&:after {
-					content        : "";
-					vertical-align : middle;
-					height         : 100%;
-					@include inline-block;
+					display : none;
 				}
 
 				&:before {
-					font-size      : inherit;
-					vertical-align : middle;
-					@include inline-block;
+					top : 0;
+					@include display(block);
 				}
 			}
 		}
@@ -82,7 +166,6 @@
 		> em {
 			top            : 0;
 			left           : 0;
-			/*padding        : 23% 0;*/
 			font-size      : 45%;
 			color          : #FFF;
 			width          : 100%;
@@ -106,11 +189,6 @@
 				@include inline-block;
 			}
 		}
-
-		/*.m-icon {
-			position : absolute;
-			z-index: 1;
-		}*/
 	}
 
 	&.m-icon-toggle {
@@ -128,56 +206,208 @@
 		@include clearfix;
 		@include display(block);
 
-		> div {
-			margin     : 0 auto;
-			font-size  : 18px;
-			text-align : center;
-			color      : $major-color;
-			width      : 110px;
-			height     : 110px;
-			position   : relative;
-			display    : block;
-			@include clearfix;
-			@include border-radius(50%);
+		> li {
+			margin-top    : 10px;
+			margin-bottom : 10px;
 			@include box-sizing(border-box);
-			@include background-vertical-gradient($minor-color , 0% , $major-color , 100%);
+<<<<<<< HEAD
+<<<<<<< HEAD
 
-			&:after {
-				content    : "";
-				top        : 50%;
-				left       : 50%;
-				margin     : -50px 0 0 -50px;
-				width      : 100px;
-				height     : 100px;
-				background : #FFF;
-				position   : absolute;
-				z-index    : 1;
-				@include clearfix;
-				@include border-radius(50%);
+			&.b-align-md-left {
+				padding-left : 30px;
 			}
 
-			.m-icon {
-				top           : 0;
-				left          : 0;
-				margin-bottom : 5px;
-				text-align    : center;
-				height        : auto;
-				@include display(block);
-			}
+			&.b-align-md-right {
+				padding-right : 30px;
+=======
 
-			> span {
-				margin-left : -4px;
-				position    : relative;
-				z-index     : 2;
+			&.b-align-md-left {
+				padding-left : 30px;
+>>>>>>> origin/master
 			}
 		}
 
-		> em {
-			margin-top : 15px;
-			font-size  : 14px;
-			text-align : center;
-			color      : $major-color;
-			@include display(block);
+<<<<<<< HEAD
+		.m-icon-border-item {
+			min-width : 190px;
+			@include inline-block;
+
+			> div {
+				margin     : 0 auto;
+				text-align : center;
+				color      : $major-color;
+				width      : 110px;
+				height     : 110px;
+				position   : relative;
+				display    : block;
+				@include clearfix;
+				@include border-radius(50%);
+				@include box-sizing(border-box);
+				@include background-vertical-gradient($minor-color , 0% , $major-color , 100%);
+
+				&:after {
+					content    : "";
+					top        : 50%;
+					left       : 50%;
+					margin     : -50px 0 0 -50px;
+					width      : 100px;
+					height     : 100px;
+					background : #FFF;
+					position   : absolute;
+					z-index    : 1;
+					@include clearfix;
+					@include border-radius(50%);
+				}
+
+				.m-icon {
+					top        : 0;
+					left       : 0;
+					text-align : center;
+					height     : auto;
+					@include display(block);
+				}
+
+				> span {
+					position : relative;
+					z-index  : 2;
+
+					em {
+						margin-top : -3px;
+						font-size  : 15px;
+						@include display(block);
+					}
+				}
+=======
+			&.b-align-md-right {
+				padding-right : 30px;
+>>>>>>> origin/master
+			}
+
+<<<<<<< HEAD
+=======
+		.m-icon-border-item {
+			min-width : 190px;
+			@include inline-block;
+
+			> div {
+				margin     : 0 auto;
+				text-align : center;
+				color      : $major-color;
+				width      : 110px;
+				height     : 110px;
+				position   : relative;
+				display    : block;
+				@include clearfix;
+				@include border-radius(50%);
+				@include box-sizing(border-box);
+				@include background-vertical-gradient($minor-color , 0% , $major-color , 100%);
+
+				&:after {
+					content    : "";
+					top        : 50%;
+					left       : 50%;
+					margin     : -50px 0 0 -50px;
+					width      : 100px;
+					height     : 100px;
+					background : #FFF;
+					position   : absolute;
+					z-index    : 1;
+					@include clearfix;
+					@include border-radius(50%);
+				}
+
+				.m-icon {
+					top        : 0;
+					left       : 0;
+					text-align : center;
+					height     : auto;
+					@include display(block);
+				}
+
+				> span {
+					position : relative;
+					z-index  : 2;
+
+					em {
+						margin-top : -3px;
+						font-size  : 15px;
+						@include display(block);
+					}
+				}
+=======
+
+			&.b-align-md-left {
+				padding-left : 30px;
+			}
+
+			&.b-align-md-right {
+				padding-right : 30px;
+>>>>>>> origin/master
+			}
+
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+		.m-icon-border-item {
+			min-width : 190px;
+			@include inline-block;
+
+			> div {
+				margin     : 0 auto;
+				text-align : center;
+				color      : $major-color;
+				width      : 110px;
+				height     : 110px;
+				position   : relative;
+				display    : block;
+				@include clearfix;
+				@include border-radius(50%);
+				@include box-sizing(border-box);
+				@include background-vertical-gradient($minor-color , 0% , $major-color , 100%);
+
+				&:after {
+					content    : "";
+					top        : 50%;
+					left       : 50%;
+					margin     : -50px 0 0 -50px;
+					width      : 100px;
+					height     : 100px;
+					background : #FFF;
+					position   : absolute;
+					z-index    : 1;
+					@include clearfix;
+					@include border-radius(50%);
+				}
+
+				.m-icon {
+					top        : 0;
+					left       : 0;
+					text-align : center;
+					height     : auto;
+					@include display(block);
+				}
+
+				> span {
+					position : relative;
+					z-index  : 2;
+
+					em {
+						margin-top : -3px;
+						font-size  : 15px;
+						@include display(block);
+					}
+				}
+			}
+
+>>>>>>> origin/master
+			> p {
+				margin-top  : 10px;
+				font-size   : 14px;
+				text-align  : center;
+				color       : $major-color;
+				line-height : 26px;
+				@include display(block);
+			}
 		}
 	}
 }
@@ -185,25 +415,58 @@
 .IE8 , .IE9 {
 	.m-icon-stack {
 		&.m-icon-border {
-			> div {
-				background : none;
-				filter     : none;
+			.m-icon-border-item {
+				> div {
+					background : none;
+					filter     : none;
 
-				&:after {
-					margin     : -55px 0 0 -55px;
-					width      : 110px;
-					height     : 110px;
-					background : image-url('m-icon-border-mask.png') no-repeat center center;
-					@include border-radius(0);
+					&:after {
+						margin     : -55px 0 0 -55px;
+						width      : 110px;
+						height     : 110px;
+						background : image-url('m-icon-border-mask.png') no-repeat center center;
+						@include border-radius(0);
+					}
 				}
 			}
 		}
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Tables) {
+	.m-icon-stack {
+		&.m-icon-circle-group {
+			.m-icon-circle-item {
+				&:hover {
+					.m-icon {
+						&.m-icon-circle {
+							color : $major-color;
+						}
+					}
+
+					> em {
+						color : $major-color;
+					}
+				}
+			}
+		}
+	}
+}
 
 @include respond-to(Tables-Mobile) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-sm-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
 	.m-icon-stack {
 		/* icon-size */
 		$types : 20;
@@ -217,10 +480,62 @@
 
 			$types : $types - 1;
 		}
+
+		&.m-icon-border {
+			> li {
+				&.b-align-md-left {
+					padding-right : 0;
+					padding-left  : 0;
+				}
+
+				&.b-align-md-center {
+					padding-right : 0;
+					padding-left  : 0;
+				}
+
+				&.b-align-md-right {
+					padding-right : 0;
+					padding-left  : 0;
+				}
+
+				&.b-align-sm-left {
+					padding-left : 15px;
+				}
+
+				&.b-align-sm-right {
+					padding-right : 15px;
+				}
+			}
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+			.m-icon-border-item {
+				min-width : 175px;
+			}
+		}	
+=======
+		}
+>>>>>>> origin/master
+=======
+		}
+>>>>>>> origin/master
 	}
 }
 
 @include respond-to(Mobile) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-xs-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
 	.m-icon-stack {
 		/* icon-size */
 		$types : 20;
@@ -236,20 +551,27 @@
 		}
 
 		&.m-icon-border {
-			@include display(table);
+			> li {
+				&.b-align-sm-left {
+					padding-right : 0;
+					padding-left  : 0;
+				}
 
-			> div {
-				@include display(table-cell);
+				&.b-align-sm-center {
+					padding-right : 0;
+					padding-left  : 0;
+				}
 
-				.m-icon {
-					font-size : 42px;
+				&.b-align-sm-right {
+					padding-right : 0;
+					padding-left  : 0;
 				}
 			}
 
-			> em {
-				padding-left : 20px;
-				text-align   : left;
-				@include display(table-cell);
+			.m-icon-border-item {
+				> p {
+					padding-left : 20px;
+				}
 			}
 		}
 	}

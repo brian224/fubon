@@ -190,6 +190,10 @@
 	text-indent    : 0;
 	white-space    : nowrap;
 	z-index        : 1;
+	text-rendering : auto;
+	text-transform : none;
+	speak          : none;
+	@include transform(translate(0, 0));
 	@include inline-block;
 	@include touch-action;
 }

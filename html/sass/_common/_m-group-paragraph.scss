@@ -1,0 +1,158 @@
+<<<<<<< HEAD
+.m-group-paragraph {
+	margin-top    : 70px;
+	margin-bottom : 35px;
+	font-size     : 14px;
+	line-height   : 28px;
+	position      : relative;
+
+	&.is-item-absolute {
+		.m-group-paragraph-ft {
+			position : static;
+		}
+
+		.m-group-paragraph-item {
+			top      : 0;
+			right    : 0;
+			width    : auto;
+			position : absolute;
+		}
+	}
+
+	&:first-child {
+		margin-top : 0;
+	}
+}
+
+.m-group-paragraph-hd {
+	padding    : 5px 0;
+	color      : $major-color;
+
+	.m-icon {
+		margin-right : 5px;
+		font-size    : 30px;
+		width        : 30px;
+		height       : 30px;
+		line-height  : 30px;
+		float        : left;
+		@include display(block);
+	}
+
+	h3 , .b-h3 {
+		margin-bottom : 0;
+		float         : left;
+	}
+}
+
+.m-group-paragraph-bd {
+	position : relative;
+}
+
+.m-group-paragraph-ft {
+	position : relative;
+}
+
+@include respond-to(Tables) {
+	.m-group-paragraph-hd {
+		margin-top : 50px;
+	}
+}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-group-paragraph {
+		&.is-item-absolute {
+			.m-group-paragraph-ft {
+				position : relative;
+			}
+
+			.m-group-paragraph-item {
+				position : relative;
+			}
+		}
+	}
+
+	.m-group-paragraph-hd {
+		margin-top : 35px;
+	}
+=======
+.m-group-paragraph {
+	margin-top    : 70px;
+	margin-bottom : 35px;
+	font-size     : 14px;
+	line-height   : 28px;
+	position      : relative;
+
+	&.is-item-absolute {
+		.m-group-paragraph-ft {
+			position : static;
+		}
+
+		.m-group-paragraph-item {
+			top      : 0;
+			right    : 0;
+			width    : auto;
+			position : absolute;
+		}
+	}
+
+	&:first-child {
+		margin-top : 0;
+	}
+}
+
+.m-group-paragraph-hd {
+	padding    : 5px 0;
+	color      : $major-color;
+
+	.m-icon {
+		margin-right : 5px;
+		font-size    : 30px;
+		width        : 30px;
+		height       : 30px;
+		line-height  : 30px;
+		float        : left;
+		@include display(block);
+	}
+
+	h3 , .b-h3 {
+		margin-bottom : 0;
+		float         : left;
+	}
+}
+
+.m-group-paragraph-bd {
+	position : relative;
+}
+
+.m-group-paragraph-ft {
+	position : relative;
+}
+
+@include respond-to(Tables) {
+	.m-group-paragraph-hd {
+		margin-top : 50px;
+	}
+}
+
+@include respond-to(Tables-Mobile) {}
+
+@include respond-to(Mobile) {
+	.m-group-paragraph {
+		&.is-item-absolute {
+			.m-group-paragraph-ft {
+				position : relative;
+			}
+
+			.m-group-paragraph-item {
+				position : relative;
+			}
+		}
+	}
+
+	.m-group-paragraph-hd {
+		margin-top : 35px;
+	}
+>>>>>>> origin/master
+}

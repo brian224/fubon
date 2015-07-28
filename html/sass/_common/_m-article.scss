@@ -1,5 +1,6 @@
 ﻿.m-article {
-	position : relative;
+	margin-bottom : -40px;
+	position      : relative;
 
 	&.is-graphic-left {
 		.m-article-bd {
@@ -58,8 +59,8 @@
 }
 
 .m-article-data {
-	font-size   : 14px;
-	line-height : 28px;
+	font-size     : 14px;
+	line-height   : 28px;
 
 	> h3 {
 		margin-top    : 40px;
@@ -70,10 +71,23 @@
 		}
 	}
 
+	> * {
+<<<<<<< HEAD
+<<<<<<< HEAD
+		margin-bottom : 40px;
+	}
+=======
+=======
+>>>>>>> origin/master
+		margin-bottom : 10px;
+	}
+
 	> p {
 		margin-top    : 30px;
 		margin-bottom : 10px;
+>>>>>>> origin/master
 
+	> p {
 		&:first-child {
 			margin-top : 0;
 		}
@@ -90,6 +104,11 @@
 		&:first-child {
 			margin-top : 0;
 		}
+	}
+
+	.article-margin-default {
+		margin-top    : 10px !important;
+		margin-bottom : 10px !important;
 	}
 }
 

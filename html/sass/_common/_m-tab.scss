@@ -146,6 +146,16 @@
 			float    : left;
 			position : relative;
 		}
+
+		> li {
+			h3 , .b-h3 {
+				margin-top : 20px;
+
+				&:first-child {
+					margin-top : 0;
+				}
+			}
+		}
 	}
 
 	.m-tab-content {
@@ -232,20 +242,22 @@
 
 @include respond-to(Tables) {
 	.m-tab {
-		padding-top : 0;
-
-		&:after {
-			display : none;
-		}
-
 		&.m-tab-respond {
+			margin-left  : 0;
+			padding-top  : 0;
+			padding-left : 0;
+
+			&:after {
+				display : none;
+			}
+
 			.m-tab-bd {
 				margin-top : 0;
 
 				> li {
 					&.is-active {
 						> div {
-							max-height  : 999px;
+							max-height : 999px;
 						}
 
 						.m-tab-button {
@@ -264,19 +276,7 @@
 			}
 		}
 
-		.m-tab-bd {
-			width : 100%;
-
-			> * {
-				margin-top : 20px;
-				width      : 100%;
-				float      : none;
-
-				&:first-child {
-					margin-top : 0;
-				}
-			}
-		}
+		
 
 		.m-tab-content {
 			margin-top : 0;
@@ -343,6 +343,20 @@
 					&.is-show {
 						@include display(block);
 					}
+				}
+			}
+		}
+
+		.m-tab-bd {
+			width : 100%;
+
+			> * {
+				margin-top : 20px;
+				width      : 100%;
+				float      : none;
+
+				&:first-child {
+					margin-top : 0;
 				}
 			}
 		}

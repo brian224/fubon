@@ -89,9 +89,20 @@ $color-facebook     : #359;
 $color-m-plus       : #6A4;
 $color-youtube-you  : #333;
 $color-youtube-tube : #C11;
+<<<<<<< HEAD
+<<<<<<< HEAD
+$color-white        : #FFF;
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+$color-fubon-blue   : #09C;
+$color-fubon-green  : #0AA;
 
 /* 自訂顏色 */
 $color : (
+	fubon-blue   : $color-fubon-blue,
+	fubon-green  : $color-fubon-green,
 	primary      : $color-primary,
 	warning      : $color-warning,
 	inverse      : $color-inverse,

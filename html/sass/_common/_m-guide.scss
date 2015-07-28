@@ -1,0 +1,55 @@
+.m-guide {
+	position : relative;
+
+	&.m-guide-table {
+		.m-guide-bd {
+			> li {
+				font-size : 14px;
+				
+				&.m-guide-arrow {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							margin-right : -(((100% / $total) * $types) / 3.99);
+							margin-left  : -(((100% / $total) * $types) / 3.99);
+						}
+
+						$types : $types - 1;
+					}
+
+					.m-icon {
+						margin-top : 110%;
+						color      : $border-minor-color;
+						position   : relative;
+					}
+				}
+
+				> em {
+					padding    : 10px 15px;
+					color      : #FFF;
+					background : tint($major-color , 42%);
+					@include display(block);
+					@include box-sizing(border-box);
+				}
+
+				> p {
+					padding     : 10px 15px;
+					line-height : 28px;
+					white-space  : nowrap;
+					background  : tint($major-color , 85%);
+					@include display(block);
+					@include box-sizing(border-box);
+				}
+			}
+		}
+	}
+}
+
+.m-guide-bd {
+	position : relative;
+
+	> li {
+		position : relative;
+	}
+}

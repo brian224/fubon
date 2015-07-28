@@ -1,0 +1,111 @@
+.m-file {
+	margin-bottom : -45px;
+	position      : relative;
+	@include clearfix;
+	@include display(block);
+}
+
+.m-file-item {
+	margin-bottom  : 45px;
+	padding-top    : 30px;
+	padding-bottom : 30px;
+	border         : 1px solid $border-minor-color;
+	position       : relative;
+	@include display(block);
+	@include box-sizing(boredr-box);
+
+	&:before , &:after {
+		content    : "";
+		left       : 0;
+		width      : 100%;
+		height     : 1px;
+		position   : absolute;
+		background : $border-minor-color;
+		@include clearfix;
+		@include transition(background $transition-times);
+	}
+
+	&:before {
+		top        : -1px;
+		height     : 4px;
+		background : $major-color;
+	}
+
+	&:after {
+		bottom : 5px;
+	}
+
+	&:hover {
+		&:before {
+			background : darken($major-color , 15%);
+		}
+
+		.m-file-item-bd {
+			> em {
+				color : darken($major-color , 15%);
+			}
+		}
+	}
+}
+
+.m-file-item-bd {
+	@include display(block);
+
+	&:before , &:after {
+		content    : "";
+		left       : 0;
+		width      : 100%;
+		height     : 1px;
+		position   : absolute;
+		background : $border-minor-color;
+		@include clearfix;
+	}
+
+	&:before {
+		bottom : 3px;
+	}
+
+	&:after {
+		bottom : 1px;
+	}
+
+	> em {
+		font-size : 15px;
+		color     : $major-color;
+		@include transition(color $transition-times);
+	}
+}
+
+@include respond-to(Tables) {
+	.m-file-item {
+		margin-bottom : 20px;
+
+		&:hover {
+			&:before {
+				background : $major-color;
+			}
+
+			.m-file-item-bd {
+				> em {
+					color : $major-color;
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Tables-Mobile) {
+	.m-file {
+		margin-bottom : -30px;
+	}
+
+	.m-file-item {
+		margin-bottom : 30px;
+	}
+}
+
+@include respond-to(Mobile) {
+	.m-file {
+		margin-bottom : -20px;
+	}
+}
