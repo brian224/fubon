@@ -10,6 +10,22 @@
 		@include clearfix;
 		@include display(table);
 	}
+
+	&.m-button-icon {
+		.m-button {
+			.m-icon {
+				font-size  : 145%;
+			}
+		}
+	}
+
+	.m-button {
+		margin-left : 2px;
+
+		&:first-child {
+			margin-left : 0;
+		}
+	}
 }
 
 @include respond-to(Tables) {}

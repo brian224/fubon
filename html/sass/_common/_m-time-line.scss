@@ -1,6 +1,45 @@
 .m-time-line {
 	position    : relative;
 
+	&.m-time-line-horizontal {
+		> li {
+			padding-top  : 0;
+			padding-left : 0;
+			@include clearfix;
+
+			&[class^="b-col-"] , &[class*=" b-col-"] {
+				padding-left : 5px;
+			}
+
+			&:first-child {
+				padding-top : 0;
+			}
+
+			&:before {
+				top    : 32px;
+				left   : 0;
+				width  : 100%;
+				height : 1px;
+			}
+
+			.m-time-line-time {
+				top      : 0;
+				left     : 0;
+				position : relative;
+
+				> em {
+					font-size : 16px;
+				}
+			}
+
+			.m-time-line-item {
+				margin-top  : 20px;
+				font-size   : 14px;
+				line-height : 1.6;
+			}
+		}
+	}
+
 	> li {
 		padding-top  : 60px;
 		padding-left : 100px;
@@ -31,13 +70,12 @@
 .m-time-line-time {
 	top         : 40px;
 	left        : 10px;
-	font-size   : 18px;
 	color       : $major-color;
 	text-align  : center;
 	width       : 65px;
 	height      : 65px;
-	line-height : 65px;
 	position    : absolute;
+	@include inline-block;
 	@include clearfix;
 	@include border-radius(50%);
 	@include box-sizing(border-box);
@@ -70,9 +108,22 @@
 	}
 
 	> em {
-		position : relative;
-		z-index  : 3;
+		top         : 0;
+		right       : 0;
+		bottom      : 0;
+		left        : 0;
+		margin      : auto;
+		font-size   : 18px;
+		width       : 100%;
+		height      : 20px;
+		line-height : 20px;
+		position    : absolute;
+		z-index     : 3;
 	}
+}
+
+.m-time-line-item {
+	@include box-sizing(border-box);
 }
 
 .IE8 {
@@ -94,31 +145,57 @@
 
 @include respond-to(Mobile) {
 	.m-time-line {
+		&.m-time-line-horizontal {
+			> li {
+				.m-time-line-time {
+					> em {
+						font-size : 14px;
+					}
+				}
+
+				.m-time-line-item {
+					margin-top : -28px;
+				}
+			}
+		}
+
 		> li {
-			margin-top   : 30px;
-			padding-top  : 65px;
+			margin-top   : -28px;
+			padding-top  : 0;
 			padding-left : 0;
 
 			&:first-child {
 				margin-top  : 0;
-				padding-top : 65px;
+				padding-top : 0;
+			}
+
+			&:last-child {
+				.m-time-line-item {
+					padding-bottom : 0;
+				}
 			}
 
 			&:before {
-				top    : 27px;
-				left   : 0;
-				width  : 100%;
-				height : 1px;
+				display : none;
 			}
 		}
 	}
 
 	.m-time-line-time {
-		top         : 0;
-		left        : 0;
-		font-size   : 14px;
-		width       : 55px;
-		height      : 55px;
-		line-height : 55px;
+		top      : 0;
+		left     : 0;
+		width    : 55px;
+		height   : 55px;
+		position : relative;
+
+		> em {
+			font-size : 14px;
+		}
+	}
+
+	.m-time-line-item {
+		margin-top : -28px;
+		padding    : 40px 10px;
+		border-top : 1px solid $minor-color;
 	}
 }

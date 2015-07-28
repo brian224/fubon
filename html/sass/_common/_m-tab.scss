@@ -1,8 +1,10 @@
 .m-tab {
-	width    : 100%;
-	position : relative;
+	width      : 100%;
+	height     : auto;
+	min-height : auto;
+	position   : relative;
 	@include clearfix;
-	@include transition(height $transition-times);
+	@include transition(height $transition-times , min-height $transition-times);
 
 	&.m-tab-respond {
 		margin-left  : -$inner-Width;
@@ -178,6 +180,11 @@
 		line-height : 1.4;
 		position    : absolute;
 		@include display(block);
+		@include transition(color $transition-times);
+
+		&.is-active {
+			color : $major-color;
+		}
 
 		&:before {
 			content    : "";
@@ -257,7 +264,7 @@
 				> li {
 					&.is-active {
 						> div {
-							max-height : 999px;
+							max-height : 9999px;
 						}
 
 						.m-tab-button {
@@ -276,7 +283,19 @@
 			}
 		}
 
-		
+		.m-tab-bd {
+			width : 100%;
+
+			> * {
+				margin-top : 20px;
+				width      : 100%;
+				float      : none;
+
+				&:first-child {
+					margin-top : 0;
+				}
+			}
+		}
 
 		.m-tab-content {
 			margin-top : 0;
@@ -343,20 +362,6 @@
 					&.is-show {
 						@include display(block);
 					}
-				}
-			}
-		}
-
-		.m-tab-bd {
-			width : 100%;
-
-			> * {
-				margin-top : 20px;
-				width      : 100%;
-				float      : none;
-
-				&:first-child {
-					margin-top : 0;
 				}
 			}
 		}

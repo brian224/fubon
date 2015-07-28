@@ -454,12 +454,9 @@ Ctrl.directive('ngTab', ['$document', function($document) {
 				$elementTab = $elementItem.find('> a');
 
 			AgElem(document).finish().delay(0).queue(function() {
-				if (document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen) {
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen ) {
 					elem.addClass('b-no-transition');
 					scope.Common.Tab.Height = ($elementItem.eq(0).outerHeight() + parseInt(elem.find(' > ul').css('margin-top'), 10));
-					// for (var i = 0; i < $elementItem.length; i++) {
-					// $elementTab.eq(i).css('left', ($elementTab.outerWidth() * i));
-					// };
 				}
 
 				scope.Common.Tab.Width = $elementTab.outerWidth();
@@ -475,13 +472,15 @@ Ctrl.directive('ngTab', ['$document', function($document) {
 
 				e.preventDefault();
 				elem.removeClass('b-no-transition');
+				$elementTab.removeClass('is-active');
+				$this.addClass('is-active');
 
-				if (document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen) {
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen ) {
 					scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
 					scope.Common.Tab.ClickArray[0] = $index;
-					$elementItem.eq(scope.Common.Tab.ClickArray[0]).find('> div').removeClass('b-cloak');
-					scope.Common.Tab.Height = ($elementItem.eq($index).outerHeight() + parseInt(elem.find(' > ul').css('margin-top'), 10));
-					scope.Common.Tab.Animate($elementItem.find('> div'));
+					$elementItem.eq( scope.Common.Tab.ClickArray[0] ).find('> div').removeClass('b-cloak');
+					scope.Common.Tab.Height = ( $elementItem.eq($index).outerHeight() + parseInt(elem.find(' > ul').css('margin-top') , 10) );
+					scope.Common.Tab.Animate( $elementItem.find('> div') );
 					scope.Common.Tab.Left = $this.position().left;
 				} else {
 					$elementItem.find('> div').removeClass('b-cloak');
