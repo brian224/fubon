@@ -3,8 +3,13 @@
 	@each $key , $value in $color {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		&.b-#{'' + $key} {
 			color : $value !important;
+=======
+		&.b-#{$key} {
+			color : $value;
+>>>>>>> origin/master
 =======
 		&.b-#{$key} {
 			color : $value;
@@ -212,6 +217,7 @@
 			@include box-sizing(border-box);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 			&.b-align-md-left {
 				padding-left : 30px;
@@ -336,18 +342,27 @@
 				}
 =======
 
+=======
+
+>>>>>>> origin/master
 			&.b-align-md-left {
 				padding-left : 30px;
 			}
 
 			&.b-align-md-right {
 				padding-right : 30px;
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 			}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
 =======
+=======
+>>>>>>> origin/master
 		.m-icon-border-item {
 			min-width : 190px;
 			@include inline-block;
@@ -399,6 +414,9 @@
 				}
 			}
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 			> p {
 				margin-top  : 10px;
@@ -508,11 +526,15 @@
 			}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 			.m-icon-border-item {
 				min-width : 175px;
 			}
 		}	
+=======
+		}
+>>>>>>> origin/master
 =======
 		}
 >>>>>>> origin/master
