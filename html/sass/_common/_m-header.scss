@@ -103,6 +103,18 @@
 	}
 }
 
+/* IE8 */
+.IE8 {
+	.m-header-logo {
+		> a {
+			&.m-icon-stack {
+				margin-top : 22px;
+			}	
+		}
+	}
+
+}
+
 @include respond-to(Tables) {
 	.m-header {
 		padding-top : 5px;

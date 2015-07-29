@@ -10,133 +10,124 @@
 		color : $color-white;
 	}
 
-	> div {
+	> ul {
+		margin    : 0 auto;
+		padding   : 16px 183px 0 210px;
+		width     : 100%;
+		height    : $header-height;
+		max-width : $main-min-width;
+		position  : relative;
+		z-index   : 2;
 		@include box-sizing(border-box);
 
-		&:first-child {
-			margin    : 0 auto;
-			width     : 100%;
-			max-width : $main-min-width;
-			position  : relative;
-			z-index   : 2;
+		> li {
+			height   : 100%;
+			float    : left;
+			position : static;
 
-			> ul {
-				padding  : 16px 183px 0 210px;
-				height   : $header-height;
-				position : relative;
-				z-index  : 2;
-				@include box-sizing(border-box);
+			&.is-curr {
+				> a {
+					color : $major-color;
+				}
+			}
 
-				> li {
-					height   : 100%;
-					float    : left;
-					position : static;
+			&:hover {
+				> div {
+					visibility : visible;
+					@include opacity(1);
+				}
+			}
 
-					&.is-curr {
-						> a {
-							color : $major-color;
-						}
-					}
+			> a {
+				margin    : 0 14px;
+				font-size : 15px;
+				color     : $text-major-color;
+				position  : relative;
+				@include transition(color $transition-times);
 
-					&:hover {
-						> div {
-							visibility : visible;
-							@include opacity(1);
-						}
-					}
+				.m-icon-stack {
+					color   : $major-color;
+					height  : 100%;
+					float   : right;
+					display : none;
 
-					> a {
-						margin    : 0 14px;
-						font-size : 15px;
-						color     : $text-major-color;
-						position  : relative;
-						@include transition(color $transition-times);
-
-						.m-icon-stack {
-							color   : $major-color;
-							height  : 100%;
-							float   : right;
-							display : none;
-
-							.m-icon {
-								margin-top : -3px;
-								height     : auto;
-							}
-						}
-					}
-
-					> div {
-						top         : 66px;
-						padding-top : 12px;
-						max-width   : $main-min-width;
-						position    : absolute;
-						visibility  : hidden;
-						@include opacity(0);
-						@include box-sizing(border-box);
-						@include transition((max-height $transition-times , opacity $transition-times));
-						
-
-						> ul {
-							padding    : 8px 10px;
-							font-size  : 14px;
-							width      : 100%;
-							background : rgba($color-white , .95);
-							@include clearfix;
-							@include border-radius(15px);
-							@include box-sizing(border-box);
-							@include box-shadow(rgba(#000 , .25) 0 0 3px);
-
-							> li {
-								float : left;
-
-								> a {
-									margin        : 7px 14px;
-									color         : $text-minor-color;
-									line-height   : 20px;
-									position      : relative;
-									@include display(block);
-
-									> em {
-										border-bottom : 1px solid transparent;
-										@include transition(border-color $transition-times);
-									}
-
-									&:hover {
-										> em {
-											border-bottom-color : $text-minor-color;
-										}
-									}
-
-									.m-icon {
-										margin-top   : -2px;
-										margin-right : 5px;
-										font-size    : 15px;
-										color        : $major-color;
-										width        : 15px;
-										height       : 15px;
-									}
-								}
-							}	
-						}
+					.m-icon {
+						margin-top : -3px;
+						height     : auto;
 					}
 				}
 			}
 
-			.m-nav-bar {
-				bottom     : 1px;
-				width      : 0;
-				height     : 5px;
-				position   : absolute;
-				background : #D9D9D9;
-				z-index    : 1;
+			> div {
+				top         : 66px;
+				padding-top : 12px;
+				max-width   : $main-min-width;
+				position    : absolute;
+				visibility  : hidden;
 				@include opacity(0);
-				@include transition((left $transition-times , width $transition-times , opacity $transition-times));
+				@include box-sizing(border-box);
+				@include transition((max-height $transition-times , opacity $transition-times));
+				
 
-				&.is-show {
-					@include opacity(1);	
+				> ul {
+					padding    : 8px 10px;
+					font-size  : 14px;
+					width      : 100%;
+					background : rgba($color-white , .95);
+					@include clearfix;
+					@include border-radius(15px);
+					@include box-sizing(border-box);
+					@include box-shadow(rgba(#000 , .25) 0 0 3px);
+
+					> li {
+						float : left;
+
+						> a {
+							margin        : 7px 14px;
+							color         : $text-minor-color;
+							line-height   : 20px;
+							position      : relative;
+							@include display(block);
+
+							> em {
+								border-bottom : 1px solid transparent;
+								@include transition(border-color $transition-times);
+							}
+
+							&:hover {
+								> em {
+									border-bottom-color : $text-minor-color;
+								}
+							}
+
+							.m-icon {
+								margin-top   : -2px;
+								margin-right : 5px;
+								font-size    : 15px;
+								color        : $major-color;
+								width        : 15px;
+								height       : 15px;
+							}
+						}
+					}	
 				}
 			}
 		}
+	}
+}
+
+.m-nav-bar {
+	bottom     : 1px;
+	width      : 0;
+	height     : 5px;
+	position   : absolute;
+	background : #D9D9D9;
+	z-index    : 1;
+	@include opacity(0);
+	@include transition((left $transition-times , width $transition-times , opacity $transition-times));
+
+	&.is-show {
+		@include opacity(1);	
 	}
 }
 
@@ -270,17 +261,15 @@
 /* IE8 */
 .IE8 {
 	.m-nav {
-		> div {
-			&:first-child {
-				> ul {
-					> li {
-						> div {
-							background : image-url('blank.gif');
+		> ul {
+			width : $main-min-width;
 
-							> ul {
-								background : $color-white;
-							}
-						}
+			> li {
+				> div {
+					background : image-url('blank.gif');
+
+					> ul {
+						background : $color-white;
 					}
 				}
 			}
@@ -315,125 +304,121 @@
 		padding-top : 5px;
 		@include background-horizontal-gradient($major-color , 0% , $minor-color , 100%);
 
-		> div {
-			&:first-child {
-				max-width : inherit;
+		> ul {
+			padding : 0;
+			height  : auto;
 
-				> ul {
-					padding : 0;
-					height  : auto;
+			> li {
+				float      : none;
+				position   : relative;
+				background : $color-white;
 
-					> li {
-						float      : none;
-						position   : relative;
-						background : $color-white;
+				&.b-middle {
+					&:before {
+						display : none;
+					}
+				}
 
-						&.b-middle {
-							&:before {
-								display : none;
-							}
-						}
+				&.is-active {
+					> a {
+						border-bottom-color : transparent;
 
-						&.is-active {
-							> a {
-								border-bottom-color : transparent;
+						.m-icon-stack {
+							.m-icon {
+								@include inline-block;
 
-								.m-icon-stack {
-									.m-icon {
-										@include inline-block;
-
-										&:first-child {
-											display : none;
-										}
-									}
-								}
-							}
-
-							> div {
-								max-height : 550px;
-							}
-						}
-
-						&:last-child {
-							> a {
-								border-bottom-color : transparent;
-							}
-						}
-
-						> a {
-							margin        : 0 15px;
-							height        : 50px;
-							line-height   : 50px;
-							border-bottom : 1px solid $border-minor-color;
-							@include display(block);
-
-							.m-icon-stack {
-								@include display(block);
-
-								.m-icon {
+								&:first-child {
 									display : none;
-
-									&:first-child {
-										@include inline-block;
-									}
 								}
 							}
 						}
+					}
 
-						> div {
-							top         : 0;
-							padding-top : 0;
-							width       : 100%;
-							max-width   : inherit;
-							max-height  : 0;
-							position    : relative;
-							visibility  : visible;
-							background  : $major-color;
-							@include clearfix;
-							@include opacity(1);
-							@include display(block);
+					> div {
+						max-height : 550px;
+					}
+				}
 
-							> ul {
-								padding    : 0;
-								background : none;
-								@include box-shadow(rgba(#000 , .25) 0 0 0);
+				&:last-child {
+					> a {
+						border-bottom-color : transparent;
+					}
+				}
 
-								> li {
-									float : none;
+				> a {
+					margin        : 0 15px;
+					height        : 50px;
+					line-height   : 50px;
+					border-bottom : 1px solid $border-minor-color;
+					@include display(block);
 
-									> a {
-										margin              : 0 15px;
-										color               : $color-white;
-										height              : 40px;
-										line-height         : 40px;
-										border-bottom-width : 0;
-										@include display(block);
+					.m-icon-stack {
+						@include display(block);
 
-										&:before {
-											content      : "";
-											margin-top   : -3px;
-											margin-right : 10px;
-											width        : 3px;
-											height       : 5px;
-											background   : lighten($major-color , 10%);
-											@include inline-block;
-										}
+						.m-icon {
+							display : none;
 
-										.m-icon {
-											display : none;
-										}
-									}
-								}	
+							&:first-child {
+								@include inline-block;
 							}
 						}
 					}
 				}
 
-				.m-nav-bar {
-					display : none;
+				> div {
+					top         : 0;
+					padding-top : 0;
+					width       : 100%;
+					max-width   : inherit;
+					max-height  : 0;
+					position    : relative;
+					visibility  : visible;
+					background  : $major-color;
+					@include clearfix;
+					@include opacity(1);
+					@include display(block);
+
+					> ul {
+						padding    : 0;
+						background : none;
+						@include box-shadow(rgba(#000 , .25) 0 0 0);
+
+						> li {
+							float : none;
+
+							> a {
+								margin              : 0 15px;
+								color               : $color-white;
+								height              : 40px;
+								line-height         : 40px;
+								border-bottom-width : 0;
+								@include display(block);
+
+								&:before {
+									content      : "";
+									margin-top   : -3px;
+									margin-right : 10px;
+									width        : 3px;
+									height       : 5px;
+									background   : lighten($major-color , 10%);
+									@include inline-block;
+								}
+
+								.m-icon {
+									display : none;
+								}
+							}
+						}	
+					}
 				}
 			}
 		}
+
+		
+	}
+
+	.m-nav-bar {
+		display : none;
 	}
 
 	.m-nav-path {
@@ -539,20 +524,16 @@
 
 @include respond-to(Mobile) {
 	.is-subsidiary .m-nav , .m-nav {
-		> div {
-			&:first-child {
-				> ul {
-					> li {
-						> div {
-							> ul {
-								> li {
-									> a {
-										height      : 35px;
-										line-height : 35px;
-									}
-								}	
+		> ul {
+			> li {
+				> div {
+					> ul {
+						> li {
+							> a {
+								height      : 35px;
+								line-height : 35px;
 							}
-						}
+						}	
 					}
 				}
 			}

@@ -27,8 +27,12 @@
 				}
 
 				> * {
-					@include display(table-cell , top);
+					@include display(table-cell);
 				}
+			}
+
+			.m-icon {
+				vertical-align : top;
 			}
 		}
 	}

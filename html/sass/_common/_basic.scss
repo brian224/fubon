@@ -65,9 +65,9 @@ a {
 
 /* vertical-align middle */
 .b-middle {
-	position  : relative;
 	height    : 100%;
 	font-size : 0;
+	position  : relative;
 
 	&:before {
 		content : "";
@@ -77,6 +77,7 @@ a {
 
 	> * {
 		font-size : initial;
+		zoom      : 1;
 		@include inline-block;
 	}
 }
@@ -241,6 +242,14 @@ $total : 12;
 	}
 	to {
 		@include rotate(360deg);
+	}
+}
+
+/* IE8 */
+.IE8 {
+	.b-middle {
+		margin-left : -1px;
+		font-size   : 0.1px;
 	}
 }
 

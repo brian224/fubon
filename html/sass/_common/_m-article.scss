@@ -56,6 +56,10 @@
 
 .m-article-bd {
 	position : relative;
+
+	> * {
+		margin-bottom : 40px;
+	}
 }
 
 .m-article-data {
@@ -85,17 +89,15 @@
 		margin-top : 0;
 	}
 
+	.article-margin-default {
+		margin-bottom : 10px !important;
+	}
+}
+
+.m-article-graphic {
 	img {
 		max-width      : 100%;
 		vertical-align : top;
-
-		&:first-child {
-			margin-top : 0;
-		}
-	}
-
-	.article-margin-default {
-		margin-bottom : 10px !important;
 	}
 }
 

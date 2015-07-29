@@ -566,7 +566,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 				Left       : 0,
 				MarginLeft : 0,
 				Position   : function(element) {
-					$scope.Common.Nav.Bar.Left = element.position().left;
+					$scope.Common.Nav.Bar.Left = element.offset().left;
 					$scope.Common.Nav.Bar.Width = element.width();
 					$scope.Common.Nav.Submenu.Left = 0;
 					$scope.Common.Nav.Submenu.MarginLeft = 0;

@@ -100,12 +100,8 @@
 				$('.'+$($iframe)[0].className.split(' ')[0]+'').bind('load' , function(){
 					var $this = this;
 
-					if ( $('.'+$($loadimage)[0].className.split(' ')[0]+'') !== '' ) {
-						// $('.sugarfunbox-bd' , $sugarfunbox).css('height' , $this.contentWindow.document.body.offsetHeight);
-
+					if ( $loadimage !== '' && $('.'+$($loadimage)[0].className.split(' ')[0]+'') !== '' ) {
 						if ( $overview ) {
-							// $('.sugarfunbox-bd' , $sugarfunbox).css('height' , $this.contentWindow.document.body.offsetHeight);
-
 							if ( $('.sugarfunbox-hd' , $sugarfunbox).css('position') === 'relative' ) {
 								getSize($settings.get('width') , ( $this.contentWindow.document.body.offsetHeight + $('.sugarfunbox-hd' , $sugarfunbox).height() ) );
 							} else {
@@ -117,6 +113,26 @@
 							$overview = true;
 							$('.'+$($iframe)[0].className.split(' ')[0]+'').removeClass('is-hide');
 							$('.'+$($loadimage)[0].className.split(' ')[0]+'').remove();
+							if ( $settings.get('height') === 'auto' ) {
+								if ( $('.sugarfunbox-hd' , $sugarfunbox).css('position') === 'relative' ) {
+									getSize($settings.get('width') , ( $this.contentWindow.document.body.offsetHeight + $('.sugarfunbox-hd' , $sugarfunbox).height() ) );
+								} else {
+									getSize($settings.get('width') , $this.contentWindow.document.body.offsetHeight);
+								}
+							}
+						});
+					} else if ( $loadimage === '' ) {
+						if ( $overview ) {
+							if ( $('.sugarfunbox-hd' , $sugarfunbox).css('position') === 'relative' ) {
+								getSize($settings.get('width') , ( $this.contentWindow.document.body.offsetHeight + $('.sugarfunbox-hd' , $sugarfunbox).height() ) );
+							} else {
+								getSize($settings.get('width') , $this.contentWindow.document.body.offsetHeight);
+							}
+						}
+
+						$(document.body).finish().delay(300).queue(function(){
+							$overview = true;
+							$('.'+$($iframe)[0].className.split(' ')[0]+'').removeClass('is-hide');
 							if ( $settings.get('height') === 'auto' ) {
 								if ( $('.sugarfunbox-hd' , $sugarfunbox).css('position') === 'relative' ) {
 									getSize($settings.get('width') , ( $this.contentWindow.document.body.offsetHeight + $('.sugarfunbox-hd' , $sugarfunbox).height() ) );
@@ -432,8 +448,9 @@
 				if ( $location.split('//')[1].split('/')[0] === $crossdomain  ) {
 					if ( $settings.get('height') === 'auto' || $settings.get('height') === '' || height === undefined ) {
 						if ( $('.'+$($iframe)[0].className.split(' ')[0]+'')[0].src !== undefined ) {
-							// $('.sugarfunbox-bd' , $sugarfunbox).css('height' , $('.'+$($iframe)[0].className.split(' ')[0]+'')[0].contentWindow.document.body.offsetHeight);
-							$('.'+$($iframe)[0].className.split(' ')[0]+'')[0].contentWindow.document.body.style.overflow = 'hidden';
+							if ( $('.'+$($iframe)[0].className.split(' ')[0]+'')[0].contentWindow.document.body !== null ) {
+								$('.'+$($iframe)[0].className.split(' ')[0]+'')[0].contentWindow.document.body.style.overflow = 'hidden';
+							}
 							if ( $('.sugarfunbox-hd' , $sugarfunbox).css('position') === 'relative' ) {
 								if ( $('.'+$($iframe)[0].className.split(' ')[0]+'')[0].contentWindow.document.body ) {
 									$settings.cache.height = ($('.'+$($iframe)[0].className.split(' ')[0]+'')[0].contentWindow.document.body.offsetHeight + $('.sugarfunbox-hd' , $sugarfunbox).height());
