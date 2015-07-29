@@ -1,6 +1,10 @@
 ﻿.m-button-group {
-	width : 100%;
-	@include inline-block;
+	/*width : 100%;*/
+	@include display(block);
+
+	&.is-inline-block {
+		@include inline-block;	
+	}
 
 	&:after {
 		content : "";
@@ -32,4 +36,12 @@
 
 @include respond-to(Tables-Mobile) {}
 
-@include respond-to(Mobile) {}
+@include respond-to(Mobile) {
+	.m-button-group {
+		.m-button {
+			&.b-xs-full , &.b-lg {
+				margin-left : 0;
+			}
+		}
+	}
+}

@@ -113,6 +113,7 @@ select.m-form {
 }
 
 .m-form-addon {
+	font-size : 14px;
 	@include display(block);
 
 	&:after {

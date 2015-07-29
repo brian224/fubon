@@ -13,7 +13,6 @@
 		.m-group-paragraph-item {
 			top      : 0;
 			right    : 0;
-			width    : auto;
 			position : absolute;
 		}
 	}
@@ -52,8 +51,12 @@
 }
 
 @include respond-to(Tables) {
-	.m-group-paragraph-hd {
-		margin-top : 50px;
+	.m-group-paragraph {
+		margin-top : 55px;
+
+		&:first-child {
+			margin-top : 0;
+		}
 	}
 }
 
@@ -61,6 +64,8 @@
 
 @include respond-to(Mobile) {
 	.m-group-paragraph {
+		margin-top : 25px;
+
 		&.is-item-absolute {
 			.m-group-paragraph-ft {
 				position : relative;
@@ -70,9 +75,5 @@
 				position : relative;
 			}
 		}
-	}
-
-	.m-group-paragraph-hd {
-		margin-top : 35px;
 	}
 }

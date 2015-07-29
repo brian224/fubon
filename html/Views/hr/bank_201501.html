@@ -71,7 +71,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main jobs-content ng-controller">
+		<div class="l-main jobs-content ng-controller" ng-controller="Hr">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -135,7 +135,7 @@
 							<div class="m-tab m-tab-respond ng-tab" ng-style="{'height' : Common.Tab.Height}">
 								<ul class="m-tab-bd b-clearfix">
 									<li class="b-clearfix">
-										<a href="javascript:;" class="m-tab-button b-col-md-3 b-col-sm-12 b-col-xs-6">
+										<a href="javascript:;" class="m-tab-button is-active b-col-md-3 b-col-sm-12 b-col-xs-6">
 											個人金融組 RA
 											<span class="m-icon-stack m-icon-toggle">
 												<i class="m-icon m-icon-plus"></i>
@@ -156,29 +156,24 @@
 														<div class="m-guide m-guide-table b-clearfix">
 															<ul class="m-guide-bd b-row">
 																<li class="b-col-md-4 b-col-sm-4 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">5週紮實的業務基礎訓練</em>
-																	<p>業務推廣基礎知識訓練3週<br />部門輪調學習2週</p>
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
+																	<div class="m-guide-item">
+																		<em class="b-align-md-center b-align-sm-center b-align-xs-center">5週紮實的業務基礎訓練</em>
+																		<p>業務推廣基礎知識訓練3週<br />部門輪調學習2週</p>	
+																	</div>
+																	<i class="m-icon m-icon-chevron-right"></i>
 																</li>
 																<li class="b-col-md-5 b-col-sm-5 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">依據「部門人力需求」分派</em>
-																	<p>AFC (Assistant Financial Consultant)<br />APM (Assistant Product Manager)<br />AFA (Assistant Financial Adviser)</p>
-<<<<<<< Updated upstream
+																	<div class="m-guide-item">
+																		<em class="b-align-md-center b-align-sm-center b-align-xs-center">依據「部門人力需求」分派</em>
+																		<p>AFC (Assistant Financial Consultant)<br />APM (Assistant Product Manager)<br />AFA (Assistant Financial Adviser)</p>
+																	</div>
+																	<i class="m-icon m-icon-chevron-right"></i>
 																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
-=======
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
->>>>>>> Stashed changes
-																<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">人才養成</em>
-																	<p>FC→資深FC<br />PM<br />FA</p>
+																<li class="b-col-md-3 b-col-sm-3 b-col-xs-6">
+																	<div class="m-guide-item">
+																		<em class="b-align-md-center b-align-sm-center b-align-xs-center">人才養成</em>
+																		<p>FC→資深FC<br />PM<br />FA</p>	
+																	</div>
 																</li>
 															</ul>
 														</div>
@@ -196,7 +191,7 @@
 												<i class="m-icon m-icon-minus"></i>
 											</span>
 										</a>
-										<div class="m-tab-content b-clearfix">
+										<div class="m-tab-content b-clearfix b-cloak">
 											<p>針對有志從事銀行個人金融業務者，以系統化的培訓方式，從專業課程、實務演練、輪調實習等一系列教育訓練，儲備個人金融業務人才。</p>
 										</div>
 									</li>
@@ -213,7 +208,7 @@
 					<aside class="m-aside m-aside-accordion ng-aside-accordion" ng-class="{'is-selected' : Common.Aside.Selected}">
 						<header class="m-aside-hd">
 							<button class="ng-cloak ng-aside-select">
-								{{ Common.Aside.Toggle.Text }}
+								{{ Common.Aside.Toggle.Text || '焦點職缺' }}
 								<span class="m-icon-stack m-icon-toggle">
 									<i class="m-icon m-icon-arrow-angle-down"></i>
 									<i class="m-icon m-icon-arrow-angle-up"></i>
@@ -361,8 +356,8 @@
 					</aside>
 					<div class="m-aside">
 						<div class="m-aside-bd">
-							<ul class="m-icon-stack m-icon-circle-group">
-								<li class="b-align-md-center b-align-sm-center b-align-xs-center">
+							<ul class="m-icon-stack m-icon-circle-group b-row">
+								<li class="b-col-md-12 b-col-sm-6 b-col-xs-6 b-align-md-center b-align-sm-right b-align-xs-center">
 									<a href="javascript:;" class="m-icon-circle-item">
 										<span>
 											<i class="m-icon m-icon-download m-icon-size-md-4 m-icon-size-sm-4 m-icon-size-xs-4 is-absolute"></i>
@@ -371,7 +366,7 @@
 										<em>富邦金控制式履歷下載</em>
 									</a>
 								</li>
-								<li class="b-align-md-center b-align-sm-center b-align-xs-center">
+								<li class="b-col-md-12 b-col-sm-6 b-col-xs-6 b-align-md-center b-align-sm-left b-align-xs-center">
 									<a href="../../Views/hr/contact.html" class="m-icon-circle-item">
 										<span>
 											<i class="m-icon m-icon-comment m-icon-size-md-4 m-icon-size-sm-4 m-icon-size-xs-4 is-absolute"></i>
@@ -397,7 +392,7 @@
 		<div class="l-footer b-clearfix">
 			<footer class="m-footer">
 				<div class="m-footer-hd">
-					<div class="m-button-group">
+					<div class="m-button-group is-inline-block">
 						<button type="button" class="m-button m-button-sitemap ng-sitemap">
 							網站導覽
 							<span class="m-icon-stack m-icon-toggle">
@@ -656,5 +651,6 @@
 <!-- master page include scripts end -->
 
 <!-- self page include scripts begin -->
+<script type="text/javascript" src="../../Scripts/js/hr/common.js?JS=20150630_01"></script>
 <!-- self page include scripts end -->
 </html>

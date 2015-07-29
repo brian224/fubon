@@ -41,9 +41,10 @@
 	}
 
 	> li {
-		padding-top  : 60px;
-		padding-left : 100px;
-		position     : relative;
+		padding-top    : 45px;
+		padding-bottom : 15px;
+		padding-left   : 100px;
+		position       : relative;
 		@include box-sizing(border-box);
 
 		&:first-child {
@@ -68,7 +69,7 @@
 }
 
 .m-time-line-time {
-	top         : 40px;
+	top         : 26px;
 	left        : 10px;
 	color       : $major-color;
 	text-align  : center;

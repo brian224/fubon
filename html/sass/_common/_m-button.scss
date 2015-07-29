@@ -87,6 +87,24 @@
 		padding-left  : 60px;
 	}
 
+	&[class^="m-button-size-"] , &[class*=" m-button-size-"] {
+		padding-right : 0;
+		padding-left  : 0;
+		text-align    : center;
+	}
+
+	&.m-button-size-xs {
+		width : 60px;
+	}
+
+	&.m-button-size-sm {
+		width : 125px;
+	}
+
+	&.m-button-size-lg {
+		width : 190px;
+	}
+
 	/* 顏色設定 */
 	@each $key , $value in $color {
 		&.b-#{'' + $key} {
@@ -167,11 +185,13 @@
 		}
 
 		&.b-xs-full , &.b-lg {
-			margin-top    : 5px;
-			width         : 100%;
-			padding-right : 30px;
-			padding-left  : 30px;
+			margin-top  : 5px;
+			width       : 100%;
 			@include box-sizing(border-box);
+
+			&[class^="m-button-size-"] , &[class*=" m-button-size-"] {
+				width : 100%;
+			}
 		}
 	}
 }

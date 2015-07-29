@@ -61,6 +61,27 @@ Ctrl.controller('Governance' , ['$scope' , '$http' , function($scope , $http) {
 				}
 			}	
 		},
+		BoardOfDirectors : {
+			GetName : function() {
+				if ( $href.indexOf('?p=') !== -1 ) {
+					for ( var i = 0 , $length = AgElem('.ng-accordion > ol > li').length ; i < $length ; i ++ ) {
+						if ( AgElem('.ng-accordion > ol > li:eq('+ i +')').data('name') === $href.split('?p=')[1] ) {
+							var $index = i;
+
+							AgElem('.ng-accordion > ol > li:eq('+ $index +')').addClass('is-active');
+
+							if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
+								AgElem('.ng-accordion > ol > li:eq('+ $index +')').one($animationend, function() {
+									AgElem('html , body').animate({
+										'scrollTop' : AgElem('.ng-accordion > ol > li:eq('+ $index +')').offset().top
+									} , 500);
+								});
+							}
+						}
+					};
+				}
+			}
+		},
 		Resolutions : {
 			Total   : AgElem('.ng-ajax > li').length,
 			Length  : parseInt(AgElem('.ng-ajax').data('length') , 10),
@@ -126,7 +147,9 @@ Ctrl.controller('Governance' , ['$scope' , '$http' , function($scope , $http) {
 	AgElem(document).ready(function() {
 		if ( AgElem('.l-main').hasClass('shareholders-content') ) {
 			$scope.Governance.Shareholders.GetDate();
-		} else if (  AgElem('.l-main').hasClass('resolutions-content') ) {
+		} else if ( AgElem('.l-main').hasClass('board_of_directors-content') ) {
+			$scope.Governance.BoardOfDirectors.GetName();
+		} else if ( AgElem('.l-main').hasClass('resolutions-content') ) {
 			$scope.Governance.Resolutions.GetDate();
 		}
 		$scope.$apply();

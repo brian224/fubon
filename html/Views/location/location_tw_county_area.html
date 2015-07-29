@@ -159,7 +159,7 @@
 										</span>
 										<div class="m-step-item">
 											<div class="m-form-group m-form-select ng-select">
-												<div class="m-form-ctrl b-col-md-8 b-col-sm-8">
+												<div class="m-form-ctrl b-col-md-8 b-col-sm-8 b-col-xs-6">
 													<label>
 														<select class="m-form m-form-control is-bgcolor" disabled ng-disabled="! Location.Tw.Model.Company" ng-model="Location.Tw.Model.County">
 															<option value="">請選擇縣市</option>
@@ -268,7 +268,7 @@
 					<aside class="m-aside m-aside-accordion ng-aside-accordion" ng-class="{'is-selected' : Common.Aside.Selected}">
 						<header class="m-aside-hd">
 							<button class="ng-cloak ng-aside-select">
-								{{ Common.Aside.Toggle.Text }}
+								{{ Common.Aside.Toggle.Text || '台灣地區服務據點' }}
 								<span class="m-icon-stack m-icon-toggle">
 									<i class="m-icon m-icon-arrow-angle-down"></i>
 									<i class="m-icon m-icon-arrow-angle-up"></i>
@@ -308,7 +308,7 @@
 		<div class="l-footer b-clearfix">
 			<footer class="m-footer">
 				<div class="m-footer-hd">
-					<div class="m-button-group">
+					<div class="m-button-group is-inline-block">
 						<button type="button" class="m-button m-button-sitemap ng-sitemap">
 							網站導覽
 							<span class="m-icon-stack m-icon-toggle">
