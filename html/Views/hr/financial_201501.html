@@ -6,7 +6,7 @@
 <!--<![endif]-->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no , minimal-ui" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
@@ -71,7 +71,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main jobs-content ng-controller">
+		<div class="l-main jobs-content ng-controller" ng-controller="Hr">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -116,7 +116,7 @@
 							<a href="../../Views/hr/jobs.html">焦點職缺</a>
 						</li>
 						<li>
-							<em>[銀行] 儲備業務人才</em>
+							<em>[金控] 儲備幹部MA</em>
 						</li>
 					</ol>
 					<!-- ==================== m-breadcrumb end =================== -->
@@ -124,7 +124,7 @@
 					<!-- ==================== m-section begin =================== -->
 					<section class="m-section">
 						<header class="m-section-hd is-col b-clearfix">
-							<h2>[銀行] 儲備業務人才</h2>
+							<h2>[金控] 儲備幹部MA</h2>
 							<div class="m-section-tools">
 								<div class="m-button-group">
 									<button type="button" class="m-button b-inverse ng-history-back">回上一頁</button>
@@ -132,11 +132,11 @@
 							</div>
 						</header>
 						<main class="m-section-bd b-clearfix">
-							<div class="m-tab m-tab-respond ng-tab" ng-style="{'height' : Common.Tab.Height}">
+							<div class="m-tab m-tab-respond ng-tab">
 								<ul class="m-tab-bd b-clearfix">
 									<li class="b-clearfix">
-										<a href="javascript:;" class="m-tab-button b-col-md-3 b-col-sm-12 b-col-xs-6">
-											個人金融組 RA
+										<a href="javascript:;" class="m-tab-button is-active b-col-md-2 b-col-sm-12 b-col-xs-6">
+											職缺介紹
 											<span class="m-icon-stack m-icon-toggle">
 												<i class="m-icon m-icon-plus"></i>
 												<i class="m-icon m-icon-minus"></i>
@@ -146,62 +146,297 @@
 											<article class="m-article is-titles">
 												<main class="m-article-bd">
 													<div class="m-article-data">
-														<p>針對有志從事銀行個人金融業務者，以系統化的培訓方式，從專業課程、實務演練、輪調實習等一系列教育訓練，儲備個人金融業務人才。</p>
-														<h3>職缺介紹</h3>
-														<p class="article-margin-default">工作內容如下：</p>
-														<ol class="m-item article-margin-default">
-															<li>分派至全省各分行單位：擔任AFC (Assistant Financial Consultant)，協助 FC 推廣各項金融商品，提供客戶最適化資產配置，為客戶創造最大收益。</li>
-															<li>分派至個金商品規劃及銷售部門：擔任APM／AFA (Assistant Product Manager; Assistant Financial Adviser) 協助 PM 及業務部門規劃、管理、發展及銷售個金商品；協助 FA 提供市場分析與投資策略及協助 FC 銷售個人理財商品。</li>
-														</ol>
-														<div class="m-guide m-guide-table b-clearfix">
-															<ul class="m-guide-bd b-row">
-																<li class="b-col-md-4 b-col-sm-4 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">5週紮實的業務基礎訓練</em>
-																	<p>業務推廣基礎知識訓練3週<br />部門輪調學習2週</p>
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
-																<li class="b-col-md-5 b-col-sm-5 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">依據「部門人力需求」分派</em>
-																	<p>AFC (Assistant Financial Consultant)<br />APM (Assistant Product Manager)<br />AFA (Assistant Financial Adviser)</p>
-<<<<<<< Updated upstream
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
-=======
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
->>>>>>> Stashed changes
-																<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">人才養成</em>
-																	<p>FC→資深FC<br />PM<br />FA</p>
-																</li>
-															</ul>
+														<div class="m-button-group m-button-icon article-margin-default b-align-md-right b-align-sm-right b-align-xs-right">
+															<a href="javascript:;" class="m-button b-primary">MA專用履歷</a>
+															<a href="javascript:;" class="m-button b-primary">富邦MA<i class="m-icon m-icon-facebook"></i></a>
 														</div>
-														<p>培訓地點在台北，培訓完成後，將視當時部門缺額情形分派全台各地區。</p>
+														<h3>人壽組</h3>
+														<p>富邦人壽擁有健全的財務結構、穩定的獲利能力和持續的業務成長力，以正向力量回饋社會並發揮影響力。透過創新策略及多元行銷通路，提供更專業、完整與便利的保險服務業務。壽險儲備幹部將透過任務及專案參與等歷練，有系統地學習全面性壽險業務包括壽險行政、通路經營、策略規劃與創新服務，期以培養具創新思維、國際視野並掌握趨勢脈動的電子商務業務拓展之經營管理人才，與公司共同朝向大型化、國際化、專業化的「亞洲一流金融機構」願景邁進。</p>
+														<h3>投信組</h3>
+														<p>富邦投信為募集發行共同基金、私募基金、總代理以及全權委託業務，總管理資產規模達新臺幣1,194億元，為投資人嚴選最佳投資標的、及時掌握最新趨勢變化，不錯過任何投資標的之最新訊息，以最專業的素養、最認真的態度，用心管理投資人所託付的每一分錢。加入投信儲備幹部初期將以投資研究為主、包括台灣、大中華以及亞太等地區總體經濟與個別產業，參訪國內上市上櫃公司提供研究分析報告，中長期將以培養成基金經理人為目標。</p>
 													</div>
 												</main>
 											</article>
 										</div>
 									</li>
 									<li class="b-clearfix">
-										<a href="javascript:;" class="m-tab-button b-col-md-3 b-col-sm-12 b-col-xs-6">
-											法人金融組 IA
+										<a href="javascript:;" class="m-tab-button b-col-md-2 b-col-sm-12 b-col-xs-6">
+											培訓發展
 											<span class="m-icon-stack m-icon-toggle">
 												<i class="m-icon m-icon-plus"></i>
 												<i class="m-icon m-icon-minus"></i>
 											</span>
 										</a>
-										<div class="m-tab-content b-clearfix">
+										<div class="m-tab-content b-clearfix b-cloak">
+											<article class="m-article is-titles">
+												<main class="m-article-bd">
+													<div class="m-article-data">
+														<p>富邦金控致力於儲備幹部(MA)計劃，持續培育多位金融菁英與管理人才！我們在兩岸三地有最完整的金融平台，能開拓您的金融視野，讓您擁有更多的機會與發揮空間。經由為期兩年系統性及多元化的培訓制度，建立廣度與深度的專業知識，瞭解金融業務與作業流程；並藉由專案參與，盡情發揮創意；透過導師(Mentor)機制，近距離學習高階主管思維與格局，以加速金融專業經理人的養成。邀請您與我們一同邁向「亞洲一流金融機構」的願景，成為金融保險領域的佼佼者。</p>
+														<ul class="m-icon-stack m-icon-border b-row b-clearfix">
+															<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-right b-align-sm-right b-align-xs-center">
+																<div class="m-icon-border-item">
+																	<div class="b-middle">
+																		<span>
+																			<i class="m-icon m-icon-user-profile m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
+																			<em>Mentor 輔導</em>
+																		</span>	
+																	</div>
+																	<p>高階主管輔導<br />適時提供職涯發展建議</p>
+																</div>
+															</li>
+															<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<div class="m-icon-border-item">
+																	<div class="b-middle">
+																		<span>
+																			<i class="m-icon m-icon-stock  m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
+																			<em>多元化課程<br />訓練</em>
+																		</span>	
+																	</div>
+																	<p>團隊凝聚<br />培養核心競爭力<br />培養財經時事敏感度</p>
+																</div>
+															</li>
+															<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-left b-align-sm-left b-align-xs-center">
+																<div class="m-icon-border-item">
+																	<div class="b-middle">
+																		<span>
+																			<i class="m-icon m-icon-shuffle-o  m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
+																			<em>計劃性輪調</em>
+																		</span>	
+																	</div>
+																	<p>培養綜觀業務的視野及高度<br />快速了解各項業務流程</p>
+																</div>
+															</li>
+															<li class="b-col-md-6 b-col-sm-6 b-col-xs-6 b-align-md-right b-align-sm-right b-align-xs-center">
+																<div class="m-icon-border-item">
+																	<div class="b-middle">
+																		<span>
+																			<i class="m-icon m-icon-identity-card-line m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
+																			<em>專案實習</em>
+																		</span>	
+																	</div>
+																	<p>強化核心競爭力<br />綜合理論與實務，激盪創意思維</p>
+																</div>
+															</li>
+															<li class="b-col-md-6 b-col-sm-6 b-col-xs-6 b-align-md-left b-align-sm-left b-align-xs-center">
+																<div class="m-icon-border-item">
+																	<div class="b-middle">
+																		<span>
+																			<i class="m-icon m-icon-earth  m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
+																			<em>海外研習</em>
+																		</span>	
+																	</div>
+																	<p>國際金融實務接軌<br />兩岸三地金融業務模式運作研習</p>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</main>
+											</article>
+										</div>
+									</li>
+									<li class="b-clearfix">
+										<a href="javascript:;" class="m-tab-button b-col-md-2 b-col-sm-12 b-col-xs-6">
+											經驗分享
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+										<div class="m-tab-content b-clearfix b-cloak">
+											<div class="m-accordion is-no-number ng-accordion">
+												<em class="b-h3">投信組</em>
+												<ol>
+													<li>
+														<div class="m-accordion-hd">
+															<em class="b-h3">吳允翔 2012/投信組</em>
+															<i class="m-icon m-icon-arrow-angle-right"></i>
+														</div>
+														<div class="m-accordion-bd">
+															<div class="m-accordion-content">
+																<div class="m-personal is-sm b-col-md-3 b-col-sm-3 b-col-md-6">
+																	<ul class="b-clearfix">
+																		<li class="b-align-xs-center">
+																			<figure class="m-personal-item">
+																				<img src="../../Content/img/hr/jobs/01.jpg" alt="吳允翔">
+																			</figure>
+																		</li>
+																	</ul>
+																</div>
+																<div class="b-col-md-9 b-col-sm-9 b-col-md-6">
+																	<p>University of Illinois at Urbana-Champaign, Master of Science in Policy Economics<br />大同大學電機工程系</p>
+																	<em class="b-h3">快速調整學校與職場之間的心態差異</em>
+																	<p>儲備幹部往往是新鮮人心目中通往管理職務的快速通道，如何扮演好儲備幹部這個職位，沒有一定的勝利方程式，過去學校強調的是學術專業，而儲備幹部強調的是問題解決的能力，除此之外，展現高度的整合能力，才能利用簡易的方式創造出客戶或公司的最大利益。富邦鼓勵MA從基層做起，不僅能夠領悟到不同單位的運作方式外，進而可了解核心業務、產業狀況以及未來前景。加入富邦MA Program，你會找到屬於自己的舞台，同時有機會接觸到不同部門的主管與不同專業領域的同事，將為你未來的人脈打下深厚的基礎！</p>	
+																</div>
+															</div>
+														</div>
+													</li>
+												</ol>
+												<em class="b-h3">產險組</em>
+												<ol>
+													<li>
+														<div class="m-accordion-hd">
+															<em class="b-h3">邱振淵 2014/產險組</em>
+															<i class="m-icon m-icon-arrow-angle-right"></i>
+														</div>
+														<div class="m-accordion-bd">
+															<div class="m-accordion-content">
+																<div class="m-personal is-sm b-col-md-3 b-col-sm-3 b-col-md-6">
+																	<ul class="b-clearfix">
+																		<li class="b-align-xs-center">
+																			<figure class="m-personal-item">
+																				<img src="../../Content/img/hr/jobs/02.jpg" alt="邱振淵">
+																			</figure>
+																		</li>
+																	</ul>
+																</div>
+																<div class="b-col-md-9 b-col-sm-9 b-col-md-6">
+																	<p>University of Illinois at Urbana-Champaign,<br />Master of Human Resources and Industrial Relations<br />政治大學 新聞系</p>
+																	<em class="b-h3">把自己的職涯，交給值得託付一輩子的卓越表現</em>
+																	<p>富邦產險在業界保持領先地位，同時在兩岸三地與東南亞有完整的佈局，象徵著我們舞台的規模。<br />作為富邦產險第一屆MA，擔心自己非本科系出身是否能成為一個專業的保險從業人員，但憑著對產險的一股熱情，從報到的第一天開始，便把自己全心投入由HR精心設計與安排的密集訓練課程中，他們的用心與貼心，讓我的擔心都變成了放心。在這裡，富邦重視的不是MA間的競爭廝殺，而是希望培養密不可分的同梯情誼，未來不論彼此在金控的哪個崗位上，都能在關鍵時刻提供對方協助。<br />進入產險服務這段日子以來，深覺產險就像個大家庭，非常重視創新與合作。我們擁有來自不同專業領域的同儕以及經驗豐富的高階主管擔任Mentor提供必要的資源與支援，不斷鼓勵我們提出新的想法。<br />富邦產險，秉持誠信原則，透過親切又不失專業的服務，提供創新的保險商品。歡迎優秀的您加入我們的行列，因為產險，比您想像得更豐富！</p>	
+																</div>
+															</div>
+														</div>
+													</li>
+												</ol>
+											</div>
+										</div>
+									</li>
+									<li class="b-clearfix">
+										<a href="javascript:;" class="m-tab-button b-col-md-2 b-col-sm-12 b-col-xs-6">
+											加入我們
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+										<div class="m-tab-content b-clearfix b-cloak">
+											<article class="m-article is-titles">
+												<main class="m-article-bd">
+													<div class="m-article-data">
+														<div class="m-button-group m-button-icon article-margin-default b-align-md-right b-align-sm-right b-align-xs-right">
+															<a href="javascript:;" class="m-button b-primary">MA專用履歷</a>
+															<a href="javascript:;" class="m-button b-primary">富邦MA<i class="m-icon m-icon-facebook"></i></a>
+														</div>
+														<h3>應徵資格及方式</h3>
+														<b>理想人選</b>
+														<ul class="m-item">
+															<li>主動積極，勇於承擔責任。</li>
+															<li>強烈企圖心，展現自信與熱情。</li>
+															<li>具邏輯思考與問題分析解決能力。</li>
+															<li>具創新精神，樂於接受挑戰與解決問題。</li>
+															<li>具良好溝通表達能力。</li>
+														</ul>
+														<b>應徵資格</b>
+														<ul class="m-item">
+															<li>研究所以上學歷，科系不限。</li>
+															<li>工作經驗不限，具兩年以下工作經驗者尤佳。</li>
+															<li>良好的中、英文能力。</li>
+														</ul>
+														<p>
+															<b>應徵資格</b><br />
+															3月31日前完成線上履歷<br />報到日：7月15日
+														</p>
+														<h3>甄選流程</h3>
+														<p>履歷採隨到隨審制，通過履歷篩選者，將依順序安排後續甄選程序，招募小組將以Email通知應徵者每一階段的甄選結果與訊息。<br />最新甄選進度，將公告於<a href="javascript:;" target="_blank" class="b-link">Facebook粉絲團</a>。</p>
+														<ul class="m-time-line m-time-line-horizontal b-row">
+															<li class="b-clearfix b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<time class="m-time-line-time"><em>2-3月</em></time>
+																<div class="m-time-line-item">履歷篩選</div>
+															</li>
+															<li class="b-clearfix b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<time class="m-time-line-time"><em>2-4月</em></time>
+																<div class="m-time-line-item">英語口說檢測</div>
+															</li>
+															<li class="b-clearfix b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<time class="m-time-line-time"><em>4月</em></time>
+																<div class="m-time-line-item">團體面談</div>
+															</li>
+															<li class="b-clearfix b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<time class="m-time-line-time"><em>4-5月</em></time>
+																<div class="m-time-line-item">領導力潛質評鑑</div>
+															</li>
+															<li class="b-clearfix b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<time class="m-time-line-time"><em>5月</em></time>
+																<div class="m-time-line-item">事業單位<br />高階主管面談</div>
+															</li>
+															<li class="b-clearfix b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
+																<time class="m-time-line-time"><em>5-6月</em></time>
+																<div class="m-time-line-item">金控董事長<br />副董事長<br />總經理面談</div>
+															</li>
+														</ul>
+														<h3>MA招募小組</h3>
+														<p>Email：<a href="mailto:hrd.thc@fubon.com" class="b-link">hrd.thc@fubon.com</a><br />徐小姐 <a href="tel:+886-2-6602-7312">+886-2-6602-7312</a><br />盧小姐 <a href="tel:+886-2-6602-7258">+886-2-6602-7258</a></p>
+													</div>
+												</main>
+											</article>
+										</div>
+									</li>
+									<li class="b-clearfix">
+										<a href="javascript:;" class="m-tab-button b-col-md-2 b-col-sm-12 b-col-xs-6">
+											說明會資訊
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+										<div class="m-tab-content b-clearfix b-cloak">
 											<p>針對有志從事銀行個人金融業務者，以系統化的培訓方式，從專業課程、實務演練、輪調實習等一系列教育訓練，儲備個人金融業務人才。</p>
 										</div>
 									</li>
+									<li class="b-clearfix">
+										<a href="javascript:;" class="m-tab-button b-col-md-2 b-col-sm-12 b-col-xs-6">
+											Q&A
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+										<div class="m-tab-content b-clearfix b-cloak">
+											<div class="m-accordion ng-accordion">
+												<em class="b-h3">申請資格相關</em>
+												<ol>
+													<li>
+														<div class="m-accordion-hd">
+															<h3>我不是商學相關科系畢業，也沒有金融相關的工作經驗，是否可以申請？</h3>
+															<i class="m-icon m-icon-arrow-angle-right"></i>
+														</div>
+														<div class="m-accordion-bd">
+															<div class="m-accordion-content">
+																<p>可以，只要您具備研究所以上學歷，並有強烈的企圖心、樂於接受挑戰，我們不限科系及工作經驗，非常歡迎優秀的青年學子與職場菁英申請報名。</p>
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="m-accordion-hd">
+															<h3>我是應屆畢業生，但尚未取得畢業證書或正在服兵役，是否可以申請？</h3>
+															<i class="m-icon m-icon-arrow-angle-right"></i>
+														</div>
+														<div class="m-accordion-bd">
+															<div class="m-accordion-content">
+																<p>可以，若您尚未取得畢業證書，請提供在學成績單；若您還在服兵役，建議您盡早完成線上履歷表，將有助後續甄選時間的安排。</p>
+															</div>
+														</div>
+													</li>
+												</ol>
+												<em class="b-h3">甄選流程相關</em>
+												<ol>
+													<li>
+														<div class="m-accordion-hd">
+															<h3>於線上完成履歷表後，大約多久可以收到通知？</h3>
+															<i class="m-icon m-icon-arrow-angle-right"></i>
+														</div>
+														<div class="m-accordion-bd">
+															<div class="m-accordion-content">
+																<p>我們採隨到隨審制。原則上，當您完成並送出線上履歷表後，約2~3週會以Email通知您是否進入下一階段的甄選程序；建議您盡早完成線上履歷，即可優先進行履歷審查。</p>
+															</div>
+														</div>
+													</li>
+												</ol>
+											</div>
+										</div>
+									</li>
 								</ul>
-								<span class="m-tab-bar b-col-md-3" ng-style="{'left' : Common.Tab.Left , 'width' : Common.Tab.Width}"></span>
+								<span class="m-tab-bar b-col-md-2" ng-style="{'left' : Common.Tab.Left , 'width' : Common.Tab.Width}"></span>
 							</div>
 						</main>
 					</section>
@@ -213,7 +448,7 @@
 					<aside class="m-aside m-aside-accordion ng-aside-accordion" ng-class="{'is-selected' : Common.Aside.Selected}">
 						<header class="m-aside-hd">
 							<button class="ng-cloak ng-aside-select">
-								{{ Common.Aside.Toggle.Text }}
+								{{ Common.Aside.Toggle.Text || '焦點職缺' }}
 								<span class="m-icon-stack m-icon-toggle">
 									<i class="m-icon m-icon-arrow-angle-down"></i>
 									<i class="m-icon m-icon-arrow-angle-up"></i>
@@ -361,8 +596,8 @@
 					</aside>
 					<div class="m-aside">
 						<div class="m-aside-bd">
-							<ul class="m-icon-stack m-icon-circle-group">
-								<li class="b-align-md-center b-align-sm-center b-align-xs-center">
+							<ul class="m-icon-stack m-icon-circle-group b-row">
+								<li class="b-col-md-12 b-col-sm-6 b-col-xs-6 b-align-md-center b-align-sm-right b-align-xs-center">
 									<a href="javascript:;" class="m-icon-circle-item">
 										<span>
 											<i class="m-icon m-icon-download m-icon-size-md-4 m-icon-size-sm-4 m-icon-size-xs-4 is-absolute"></i>
@@ -371,7 +606,7 @@
 										<em>富邦金控制式履歷下載</em>
 									</a>
 								</li>
-								<li class="b-align-md-center b-align-sm-center b-align-xs-center">
+								<li class="b-col-md-12 b-col-sm-6 b-col-xs-6 b-align-md-center b-align-sm-left b-align-xs-center">
 									<a href="../../Views/hr/contact.html" class="m-icon-circle-item">
 										<span>
 											<i class="m-icon m-icon-comment m-icon-size-md-4 m-icon-size-sm-4 m-icon-size-xs-4 is-absolute"></i>
@@ -656,5 +891,6 @@
 <!-- master page include scripts end -->
 
 <!-- self page include scripts begin -->
+<script type="text/javascript" src="../../Scripts/js/hr/common.js?JS=20150630_01"></script>
 <!-- self page include scripts end -->
 </html>

@@ -22,7 +22,7 @@
 	<meta property="og:image:width" content="504" />
 	<meta property="og:image:height" content="504" />
 	<meta property="og:site_name" content=""/>
-	<title>富邦金控-人才招募-焦點職缺</title>
+	<title>富邦金控-公司治理-董事會-獨立董事選任資訊</title>
 	<link rel="canonical" href="" />
 	<link rel="shortcut icon" type="image/x-icon" href="../../Content/img/favicon.ico">
 	<!-- master page include css begin -->
@@ -32,7 +32,7 @@
 	<!-- master page include css end -->
 
 	<!-- self page include css begin -->
-	<link rel="stylesheet" href="../../Content/css/hr/jobs.css?CSS=20150630_01">
+	<link rel="stylesheet" href="../../Content/css/governance/election.css?CSS=20150630_01">
 	<!-- self page include css end -->
 
 	<!-- master page include scripts begin -->
@@ -71,7 +71,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main jobs-content ng-controller">
+		<div class="l-main election-content ng-controller" ng-controller="Governance">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -82,7 +82,7 @@
 						</span>
 					</div>
 					<figure class="m-media-item">
-						<img ng-src="../../Content/img/hr/kv.jpg" alt="富邦金控-服務中心">
+						<img ng-src="../../Content/img/governance/kv.jpg" alt="富邦金控-公司治理">
 					</figure>
 					<ul class="m-media-tools is-right-top b-middle">
 						<li><a href="javascript:;"><i class="m-icon m-icon-m-plus"></i></a></li>
@@ -110,13 +110,10 @@
 							<a href="../../Views/home/index.html"><i class="m-icon m-icon-home"></i></a>
 						</li>
 						<li>
-							<a href="../../Views/hr/jobs.html">人才招募</a>
+							<a href="../../Views/governance/letter.html">公司治理</a>
 						</li>
 						<li>
-							<a href="../../Views/hr/jobs.html">焦點職缺</a>
-						</li>
-						<li>
-							<em>[銀行] 儲備業務人才</em>
+							<em>獨立董事選任資訊</em>
 						</li>
 					</ol>
 					<!-- ==================== m-breadcrumb end =================== -->
@@ -124,85 +121,142 @@
 					<!-- ==================== m-section begin =================== -->
 					<section class="m-section">
 						<header class="m-section-hd is-col b-clearfix">
-							<h2>[銀行] 儲備業務人才</h2>
-							<div class="m-section-tools">
-								<div class="m-button-group">
-									<button type="button" class="m-button b-inverse ng-history-back">回上一頁</button>
-								</div>
-							</div>
+							<h2>獨立董事選任資訊</h2>
 						</header>
 						<main class="m-section-bd b-clearfix">
-							<div class="m-tab m-tab-respond ng-tab" ng-style="{'height' : Common.Tab.Height}">
-								<ul class="m-tab-bd b-clearfix">
-									<li class="b-clearfix">
-										<a href="javascript:;" class="m-tab-button b-col-md-3 b-col-sm-12 b-col-xs-6">
-											個人金融組 RA
-											<span class="m-icon-stack m-icon-toggle">
-												<i class="m-icon m-icon-plus"></i>
-												<i class="m-icon m-icon-minus"></i>
-											</span>
-										</a>
-										<div class="m-tab-content b-clearfix">
-											<article class="m-article is-titles">
-												<main class="m-article-bd">
-													<div class="m-article-data">
-														<p>針對有志從事銀行個人金融業務者，以系統化的培訓方式，從專業課程、實務演練、輪調實習等一系列教育訓練，儲備個人金融業務人才。</p>
-														<h3>職缺介紹</h3>
-														<p class="article-margin-default">工作內容如下：</p>
-														<ol class="m-item article-margin-default">
-															<li>分派至全省各分行單位：擔任AFC (Assistant Financial Consultant)，協助 FC 推廣各項金融商品，提供客戶最適化資產配置，為客戶創造最大收益。</li>
-															<li>分派至個金商品規劃及銷售部門：擔任APM／AFA (Assistant Product Manager; Assistant Financial Adviser) 協助 PM 及業務部門規劃、管理、發展及銷售個金商品；協助 FA 提供市場分析與投資策略及協助 FC 銷售個人理財商品。</li>
-														</ol>
-														<div class="m-guide m-guide-table b-clearfix">
-															<ul class="m-guide-bd b-row">
-																<li class="b-col-md-4 b-col-sm-4 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">5週紮實的業務基礎訓練</em>
-																	<p>業務推廣基礎知識訓練3週<br />部門輪調學習2週</p>
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
-																<li class="b-col-md-5 b-col-sm-5 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">依據「部門人力需求」分派</em>
-																	<p>AFC (Assistant Financial Consultant)<br />APM (Assistant Product Manager)<br />AFA (Assistant Financial Adviser)</p>
-<<<<<<< Updated upstream
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
-=======
-																</li>
-																<li class="m-guide-arrow b-col-md-1 b-col-sm-1 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-																	<i class="m-icon m-icon-chevron-right m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-																</li>
->>>>>>> Stashed changes
-																<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
-																	<em class="b-align-md-center b-align-sm-center b-align-xs-center">人才養成</em>
-																	<p>FC→資深FC<br />PM<br />FA</p>
-																</li>
-															</ul>
-														</div>
-														<p>培訓地點在台北，培訓完成後，將視當時部門缺額情形分派全台各地區。</p>
-													</div>
-												</main>
-											</article>
-										</div>
-									</li>
-									<li class="b-clearfix">
-										<a href="javascript:;" class="m-tab-button b-col-md-3 b-col-sm-12 b-col-xs-6">
-											法人金融組 IA
-											<span class="m-icon-stack m-icon-toggle">
-												<i class="m-icon m-icon-plus"></i>
-												<i class="m-icon m-icon-minus"></i>
-											</span>
-										</a>
-										<div class="m-tab-content b-clearfix">
-											<p>針對有志從事銀行個人金融業務者，以系統化的培訓方式，從專業課程、實務演練、輪調實習等一系列教育訓練，儲備個人金融業務人才。</p>
-										</div>
-									</li>
-								</ul>
-								<span class="m-tab-bar b-col-md-3" ng-style="{'left' : Common.Tab.Left , 'width' : Common.Tab.Width}"></span>
-							</div>
+							<article class="m-article is-titles">
+								<main class="m-article-bd b-clearfix">
+									<div class="m-article-data">
+										<p>本公司全體董事選舉採候選人提名制度，並訂有「董事選任程序」，其中有關獨立董事之專業資格、持股、兼職限制、獨立性之認定、提名與選任方式及其他應遵行事項，皆依證券主管機關之相關規定辦理。<br>本屆獨立董事係經公司治理委員會依上述相關規定，決議推薦名單後，提交董事會討論審議通過，並於公告受理提名期間，檢具相關證明文件向公司辦理提名事宜，送請股東會就候選人名單中選任之。<br>本公司第六屆獨立董事為張子欣、湯明哲、張景森、陳錦稷四位，所具專業知識及獨立性資料如下表：</p>
+										<h3>是否具有五年以上工作經驗及下列專業資格</h3>
+										<table class="m-table">
+											<thead>
+												<tr>
+													<th class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-left b-align-sm-left b-align-xs-left">條件</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">張子欣</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">湯明哲</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">張景森</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">陳錦稷</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>商務、法務、財務、會計或公司業務所須相關科系之公私立大專院校講師以上</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr class="is-bgcolor">
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>法官、檢察官、律師、會計師或其他與公司業務所需之國家考試及格領有證書之專門職業及技術人員</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em></em></td>
+												</tr>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>商務、法務、財務、會計或公司業務所須之工作經驗</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+											</tbody>
+										</table>
+										<h3>符合獨立性情形</h3>
+										<table class="m-table">
+											<thead>
+												<tr>
+													<th class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-left b-align-sm-left b-align-xs-left">條件</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">張子欣</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">湯明哲</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">張景森</th>
+													<th class="b-col-md-2 b-col-sm-2 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-left">陳錦稷</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非為公司或其關係企業之受僱人</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr class="is-bgcolor">
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非公司或其關係企業之董事、監察人(但如為公司或其母公司、公司直接及間接持有表決權之股份超過百分之五十之子公司之獨立董事者，不在此限)</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非本人及其配偶、未成年子女或以他人名義持有公司已發行股份總額百分之一以上或持股前十名之自然人股東</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr class="is-bgcolor">
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非前三款所列人員之配偶、二親等以內親屬或五親等以內直系血親親屬</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非直接持有公司已發行股份總額百分之五以上法人股東之董事、監察人或受僱人，或持股前五名法人股東之董事、監察人或受僱人</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr class="is-bgcolor">
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非與公司有財務或業務往來之特定公司或機構之董事（理事）、監察人（監事）、經理人或持股百分之五以上股東</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>非為公司或關係企業提供商務、法務、財務、會計等服務或諮詢之專業人士、獨資、合夥、公司或機構之企業主、合夥人、董事（理事）、監察人（監事）、經理人及其配偶。但依股票上市或於證券商營業處所買賣公司薪資報酬委員會設置及行使職權辦法第七條履行職權之薪資報酬委員會成員，不在此限</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr class="is-bgcolor">
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>未與其他董事間具有配偶或二親等以內之親屬關係</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>未有公司法第30條各款情事之一</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr class="is-bgcolor">
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>未有公司法第27條規定以政府、法人或其代表人當選</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em><i class="m-icon m-icon-check-mark b-fubon-green m-icon-size-md-2 m-icon-size-sm-2 m-icon-size-xs-2"></i></em></td>
+												</tr>
+												<tr>
+													<td class="b-align-md-left b-align-sm-left b-align-xs-left" data-label="姓名"><em>兼任其他公開發行公司獨立董事家數</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張子欣"><em>0</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="湯明哲"><em>1</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="張景森"><em>0</em></td>
+													<td class="b-align-md-center b-align-sm-center b-align-xs-center" data-label="陳錦稷"><em>1</em></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</main>
+							</article>
 						</main>
 					</section>
 					<!-- ==================== m-section end =================== -->
@@ -222,17 +276,31 @@
 						</header>
 						<main class="m-aside-bd">
 							<ul id="aside-item" class="ng-aside-accordion-item">
-								<li data-channel="jobs">
+								<li data-channel="status">
 									<h6>
-										<a href="../../Views/hr/jobs.html" class="b-middle">
-											<em>焦點職缺</em>
+										<a href="../../Views/governance/status.html" class="b-middle">
+											<em>公司治理現況</em>
+										</a>
+									</h6>
+								</li>
+								<li data-channel="framework">
+									<h6>
+										<a href="../../Views/governance/framework.html" class="b-middle">
+											<em>公司治理架構</em>
+										</a>
+									</h6>
+								</li>
+								<li data-channel="operation">
+									<h6>
+										<a href="../../Views/governance/operation.html" class="b-middle">
+											<em>公司治理運作情形</em>
 										</a>
 									</h6>
 								</li>
 								<li>
 									<h6>
 										<a href="javascript:;" class="b-middle">
-											<em>目前職缺查詢</em>
+											<em>股東會</em>
 											<span class="m-icon-stack m-icon-toggle">
 												<i class="m-icon m-icon-plus"></i>
 												<i class="m-icon m-icon-minus"></i>
@@ -241,148 +309,103 @@
 									</h6>
 									<div>
 										<ul>
-											<li>
-												<a href="javascript:;">
+											<li data-channel="letter">
+												<a href="../../Views/governance/letter.html">
 													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦金控(總處、各處及中心)</em>
+													<em>致股東報告書</em>
 												</a>
 											</li>
-											<li>
-												<a href="javascript:;">
+											<li data-channel="shareholders">
+												<a href="../../Views/governance/shareholders.html">
 													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦人壽</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>台北富邦銀行</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦產險</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦證券</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦投信</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦投顧</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦期貨</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦行銷</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦人壽(越南)</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦銀行(香港)</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦華ㄧ銀行(大陸)</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦財險(大陸)</em>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:;">
-													<i class="m-icon m-icon-arrow-angle-right"></i>
-													<em>富邦產險(越南)</em>
+													<em>股東會資訊</em>
 												</a>
 											</li>
 										</ul>
 									</div>
 								</li>
-								<li data-channel="development">
+								<li>
 									<h6>
-										<a href="../../Views/hr/development.html" class="b-middle">
-											<em>多元學習與發展</em>
+										<a href="javascript:;" class="b-middle">
+											<em>董事會</em>
+											<span class="m-icon-stack m-icon-toggle">
+												<i class="m-icon m-icon-plus"></i>
+												<i class="m-icon m-icon-minus"></i>
+											</span>
+										</a>
+									</h6>
+									<div>
+										<ul>
+											<li data-channel="board_of_directors">
+												<a href="../../Views/governance/board_of_directors.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會成員</em>
+												</a>
+											</li>
+											<li data-channel="election">
+												<a href="../../Views/governance/election.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>獨立董事選任資訊</em>
+												</a>
+											</li>
+											<li data-channel="attendance">
+												<a href="../../Views/governance/attendance.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會出席情形</em>
+												</a>
+											</li>
+											<li data-channel="resolutions">
+												<a href="../../Views/governance/resolutions.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會重要決議</em>
+												</a>
+											</li>
+											<li data-channel="rules">
+												<a href="../../Views/governance/rules.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事會議事規範</em>
+												</a>
+											</li>
+											<li data-channel="study">
+												<a href="../../Views/governance/study.html">
+													<i class="m-icon m-icon-arrow-angle-right"></i>
+													<em>董事進修</em>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li data-channel="committee">
+									<h6>
+										<a href="../../Views/governance/committee.html" class="b-middle">
+											<em>功能性委員會</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="life">
+								<li data-channel="organization">
 									<h6>
-										<a href="../../Views/hr/life.html" class="b-middle">
-											<em>富邦生活</em>
+										<a href="../../Views/governance/organization.html" class="b-middle">
+											<em>內部稽核組織及運作</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="announcements">
+								<li data-channel="regulation">
 									<h6>
-										<a href="../../Views/hr/announcements.html" class="b-middle">
-											<em>重要資訊公告</em>
+										<a href="../../Views/governance/regulation.html" class="b-middle">
+											<em>公司重要章則</em>
 										</a>
 									</h6>
 								</li>
-								<li data-channel="FAQ">
+								<li>
 									<h6>
-										<a href="../../Views/hr/FAQ.html" class="b-middle">
-											<em>FAQ</em>
+										<a href="javascript:;" class="b-middle">
+											<em>獨立董事信箱</em>
 										</a>
 									</h6>
 								</li>
 							</ul>
 						</main>
 					</aside>
-					<div class="m-aside">
-						<div class="m-aside-bd">
-							<ul class="m-icon-stack m-icon-circle-group">
-								<li class="b-align-md-center b-align-sm-center b-align-xs-center">
-									<a href="javascript:;" class="m-icon-circle-item">
-										<span>
-											<i class="m-icon m-icon-download m-icon-size-md-4 m-icon-size-sm-4 m-icon-size-xs-4 is-absolute"></i>
-											<i class="m-icon m-icon-circle m-icon-size-md-8 m-icon-size-sm-8 m-icon-size-xs-8"></i>
-										</span>
-										<em>富邦金控制式履歷下載</em>
-									</a>
-								</li>
-								<li class="b-align-md-center b-align-sm-center b-align-xs-center">
-									<a href="../../Views/hr/contact.html" class="m-icon-circle-item">
-										<span>
-											<i class="m-icon m-icon-comment m-icon-size-md-4 m-icon-size-sm-4 m-icon-size-xs-4 is-absolute"></i>
-											<i class="m-icon m-icon-circle m-icon-size-md-8 m-icon-size-sm-8 m-icon-size-xs-8"></i>
-										</span>
-										<em>與我們聯繫</em>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
 				</div>
 				<!-- ==================== l-side end =================== -->
 
@@ -397,7 +420,7 @@
 		<div class="l-footer b-clearfix">
 			<footer class="m-footer">
 				<div class="m-footer-hd">
-					<div class="m-button-group">
+					<div class="m-button-group is-inline-block">
 						<button type="button" class="m-button m-button-sitemap ng-sitemap">
 							網站導覽
 							<span class="m-icon-stack m-icon-toggle">
@@ -409,7 +432,7 @@
 					<div class="m-sitemap" ng-class="{'is-show' : Common.Footer.Sitemap.Click}">
 						<div class="m-sitemap-bd b-row">
 							<ul>
-								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/about/info.html">關於富邦金控</a></li>
 										<li><a href="../../Views/about/info.html">富邦金控簡介</a></li>
@@ -420,7 +443,7 @@
 										<li><a href="../../Views/about/milestone.html">大事紀</a></li>
 									</ul>
 								</li>
-								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/story/future.html">品牌故事</a></li>
 										<li><a href="../../Views/story/future.html">延續傳承 走向未來</a></li>
@@ -428,7 +451,7 @@
 										<li><a href="../../Views/story/identity.html">富邦品牌標誌</a></li>
 									</ul>
 								</li>
-								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/csr/chairmans_messages.html">企業社會責任</a></li>
 										<li><a href="../../Views/csr/chairmans_messages.html">董事長的話</a></li>
@@ -447,7 +470,7 @@
 										<li><a href="../../Views/csr/downloadlist.html">企業社會責任報告下載</a></li>
 									</ul>
 								</li>
-								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/ir/overview.html">投資人關係</a></li>
 										<li><a href="../../Views/ir/overview.html">公司概況</a></li>
@@ -457,7 +480,7 @@
 										<li><a href="../../Views/ir/contact.html">聯絡我們</a></li>
 									</ul>
 								</li>
-								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/governance/status.html">公司治理</a></li>
 										<li><a href="../../Views/governance/status.html">公司治理現況</a></li>
@@ -471,7 +494,7 @@
 										<li><a href="../../Views/governance/mail.html">獨立董事信箱</a></li>
 									</ul>
 								</li>
-								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/news/list.html">新聞中心</a></li>
 									</ul>
@@ -656,5 +679,6 @@
 <!-- master page include scripts end -->
 
 <!-- self page include scripts begin -->
+<script type="text/javascript" src="../../Scripts/js/governance/common.js?JS=20150630_01"></script>
 <!-- self page include scripts end -->
 </html>

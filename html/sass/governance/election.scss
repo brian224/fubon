@@ -1,3 +1,6 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
 @import "compass";
 
 /* basic set */
@@ -12,4 +15,24 @@
 @import "_common/m-table";
 @import "_common/m-aside";
 @import "common-content";
+=======
+>>>>>>> Stashed changes
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+@import "variables";
+
+@import "_common/mixins";
+@import "_common/m-breadcrumb";
+@import "_common/m-section";
+@import "_common/m-group-paragraph";
+@import "_common/m-article";
+@import "_common/m-table";
+@import "_common/m-aside";
+@import "common-content";
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 @import "election-content";
