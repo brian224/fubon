@@ -21,7 +21,7 @@ Ctrl.directive('ngMember' , ['$document' , function($document) {
 Ctrl.controller('About' , ['$scope' , '$http' , function($scope , $http) {
 	$scope.About = {
 		Honor : {
-			NewYear   : '',
+			NewYear   : ['' , ''],
 			YearArray : [],
 			GetYear : function() {
 				var $this = this;
@@ -31,13 +31,16 @@ Ctrl.controller('About' , ['$scope' , '$http' , function($scope , $http) {
 				};
 
 				if ( $href.indexOf('?year=') === -1 ) {
-					$this.NewYear = $this.YearArray[0];
+					$this.NewYear[0] = $this.YearArray[0];
+					$this.NewYear[1] = $this.NewYear[0];
 				} else {
 					for ( var i = 0 ; i < $this.YearArray.length ; i ++ ) {
 						if ( $.inArray( $href.split('?year=')[1] , $this.YearArray ) === -1 ) {
-							$this.NewYear = $this.YearArray[0];
+							$this.NewYear[0] = $this.YearArray[0];
+							$this.NewYear[1] = $this.NewYear[0];
 						} else {
-							$this.NewYear = $href.split('?year=')[1];
+							$this.NewYear[0] = $href.split('?year=')[1];
+							$this.NewYear[1] = $this.NewYear[0];
 						}
 					};
 				}
@@ -47,9 +50,9 @@ Ctrl.controller('About' , ['$scope' , '$http' , function($scope , $http) {
 				var $Reg = /year=/i;
 
 				if ( ! $Reg.test($href) ) {
-					document.location.href = $href + '?year=' + $this.NewYear;
+					document.location.href = $href + '?year=' + $this.NewYear[0];
 				} else {
-					document.location.href = $href.replace(/([?&]year)=([^#&]*)/g , '$1=' + $this.NewYear);	
+					document.location.href = $href.replace(/([?&]year)=([^#&]*)/g , '$1=' + $this.NewYear[0]);	
 				}
 			}
 		},

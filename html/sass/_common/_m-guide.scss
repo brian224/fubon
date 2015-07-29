@@ -1,198 +1,55 @@
 .m-guide {
 	position : relative;
 
-	$types  : 20;
-	$height : 15px;
-	@while $types > 0 {
-		&.m-guide-height-md-#{$types} {
-			height : $height * $types;
-		}
-
-		$types : $types - 1;
-	}
-
 	&.m-guide-table {
 		.m-guide-bd {
 			> li {
-				.m-icon-chevron-right {
-					top        : 50px;
-					margin-top : 0;
-				}
-			}
+				font-size : 14px;
+				
+				&.m-guide-arrow {
+					$types : 12;
+					$total : 12;
+					@while $types > 0 {
+						&.b-col-md-#{$types} {
+							margin-right : -(((100% / $total) * $types) / 3.99);
+							margin-left  : -(((100% / $total) * $types) / 3.99);
+						}
 
-			.m-guide-item {
-				background : tint($major-color , 85%);
+						$types : $types - 1;
+					}
+
+					.m-icon {
+						margin-top : 110%;
+						color      : $border-minor-color;
+						position   : relative;
+					}
+				}
 
 				> em {
 					padding    : 10px 15px;
 					color      : #FFF;
-					@include display(block);
 					background : tint($major-color , 42%);
+					@include display(block);
+					@include box-sizing(border-box);
 				}
 
 				> p {
-					padding : 10px 15px;
+					padding     : 10px 15px;
+					line-height : 28px;
+					white-space  : nowrap;
+					background  : tint($major-color , 85%);
 					@include display(block);
+					@include box-sizing(border-box);
 				}
-			}
-		}
-	}
-
-	&.m-guide-border {
-		.m-guide-bd {
-			&:before {
-				content : "";
-				@include display(table);
-			}
-
-			> li {
-				line-height : 1.4;
-				position    : relative;
-			}
-
-			.m-guide-item {
-				color  : $major-color;
-				border : 4px solid $major-color;
 			}
 		}
 	}
 }
 
 .m-guide-bd {
-	height   : 100%;
 	position : relative;
 
-	&.b-row {
-		margin-right : -20px;
-		margin-left  : -20px;
-	}
-
 	> li {
-		height      : 100%;
-		line-height : 2;
-		position    : relative;
-
-		&[class^="b-col-md-"] , &[class*=" b-col-md-"] {
-			padding-right : 20px;
-			padding-left  : 20px;
-		}
-
-		.m-icon-chevron-right {
-			top        : 50%;
-			right      : -20px;
-			margin-top : -18px;
-			font-size  : 36px;
-			color      : $border-minor-color;
-			width      : 36px;
-			height     : 36px;
-			position   : absolute;
-		}
-	}
-}
-
-.m-guide-item {
-	
-	@include box-sizing(border-box);
-
-	> em , > p {
-		padding   : 5px 10px;
-		font-size : 14px;
-		@include box-sizing(border-box);
-	}
-}
-
-@include respond-to(Tables) {
-	.m-guide {
-		&[class^="m-guide-height-md-"] , &[class*=" m-guide-height-md-"] {
-			height : auto;
-		}
-	}
-
-	.m-guide-bd {
-		> li {
-			&[class^="b-col-md-"] , &[class*=" b-col-md-"] {
-				padding-right : 0;
-				padding-left  : 0;
-			}
-		}
-	}
-}
-
-@include respond-to(Tables-Mobile) {
-	.m-guide {
-		$types  : 20;
-		$height : 15px;
-		@while $types > 0 {
-			&.m-guide-height-sm-#{$types} {
-				height : $height * $types;
-			}
-
-			$types : $types - 1;
-		}
-	}
-
-	.m-guide-bd {
-		> li {
-			&[class^="b-col-sm-"] , &[class*=" b-col-sm-"] {
-				padding-right : 20px;
-				padding-left  : 20px;
-			}
-		}
-	}
-}
-
-@include respond-to(Mobile) {
-	.m-guide {
-		&[class^="m-guide-height-sm-"] , &[class*=" m-guide-height-sm-"] {
-			height : auto;
-		}
-
-		$types  : 20;
-		$height : 15px;
-		@while $types > 0 {
-			&.m-guide-height-xs-#{$types} {
-				height : $height * $types;
-			}
-
-			$types : $types - 1;
-		}
-
-		&.m-guide-border {
-			.m-guide-bd {
-				> li {
-					&.b-col-xs-6 {
-						padding-top : 40px;
-
-						&:first-child {
-							padding-top : 0;
-						}	
-					}
-				}
-			}
-		}
-	}	
-
-	.m-guide-bd {
-		> li {
-			&[class^="b-col-sm-"] , &[class*=" b-col-sm-"] {
-				padding-right : 0;
-				padding-left  : 0;
-			}
-
-			&[class^="b-col-xs-"] , &[class*=" b-col-xs-"] {
-				padding-right : 20px;
-				padding-left  : 20px;
-			}
-
-			.m-icon-chevron-right {
-				top         : auto;
-				right       : 0;
-				bottom      : -36px;
-				left        : 50%;
-				margin-top  : 0;
-				margin-left : -18px;
-				@include transform(rotate(90deg));
-			}
-		}
+		position : relative;
 	}
 }

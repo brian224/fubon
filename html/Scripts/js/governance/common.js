@@ -61,14 +61,73 @@ Ctrl.controller('Governance' , ['$scope' , '$http' , function($scope , $http) {
 				}
 			}	
 		},
-		BoardOfDirectors : {
-			
+		Resolutions : {
+			Total   : AgElem('.ng-ajax > li').length,
+			Length  : parseInt(AgElem('.ng-ajax').data('length') , 10),
+			Year    : [],
+			Model   : '',
+			Data    : [],
+			GetDate : function(){
+				var $this = this,
+					$Data = [];
+
+				for ( var i = 0 ; i < $this.Total ; i ++ ) {
+					if ( $.inArray(AgElem('.ng-ajax > li:eq('+ i +') > time').text().split('.')[0] , $this.Year ) === -1 ) {
+						$this.Year.push(AgElem('.ng-ajax > li:eq('+ i +') > time').text().split('.')[0]);
+					}
+				};
+
+				$this.Year.sort(function(a , b){
+					return (b - a);
+				});
+
+				if ( $href.indexOf('?year=') === -1 ) {
+					$this.Model = $this.Year[0];
+				} else {
+					for ( var i = 0 ; i < $this.Year.length ; i ++ ) {
+						if ( $.inArray( $href.split('?year=')[1] , $this.Year ) === -1 ) {
+							$this.Model = $this.Year[0];
+						} else {
+							$this.Model = $href.split('?year=')[1];
+						}
+					};
+				}
+
+				for ( var i = 0 ; i < $this.Total ; i ++ ) {
+					if ( AgElem('.ng-ajax > li:eq('+ i +') > time').text().split('.')[0] === $this.Model ) {
+						$Data.push({
+							'Time'  : AgElem('.ng-ajax > li:eq('+ i +') > time').text(),
+							'Title' : AgElem('.ng-ajax > li:eq('+ i +') > em').text()
+						});
+					}
+				};
+
+				for ( var i = 0 , $Length = 0 ; i < ( $Data.length / $this.Length ) ; i ++ ) {
+					$this.Data.push([]);
+					for ( var j = 0 ; j < $this.Length ; j ++ , $Length ++ ) {
+						if ( $Length < $Data.length ) {
+							$this.Data[i].push($Data[$Length]);
+						}
+					}
+				}
+			},
+			OnChange : function(){
+				var $this = this;
+				var $Reg = /year=/i;
+				if ( ! $Reg.test($href) ) {
+					document.location.href = $href + '?year=' + $this.Model;
+				} else {
+					document.location.href = $href.replace(/([?&]year)=([^#&]*)/g , '$1=' + $this.Model);	
+				}
+			}
 		}
 	};
 
 	AgElem(document).ready(function() {
 		if ( AgElem('.l-main').hasClass('shareholders-content') ) {
 			$scope.Governance.Shareholders.GetDate();
+		} else if (  AgElem('.l-main').hasClass('resolutions-content') ) {
+			$scope.Governance.Resolutions.GetDate();
 		}
 		$scope.$apply();
 	});

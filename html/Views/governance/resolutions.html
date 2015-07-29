@@ -22,7 +22,7 @@
 	<meta property="og:image:width" content="504" />
 	<meta property="og:image:height" content="504" />
 	<meta property="og:site_name" content=""/>
-	<title>富邦金控-公司治理-公司治理現況</title>
+	<title>富邦金控-公司治理-董事會-董事會重要決議</title>
 	<link rel="canonical" href="" />
 	<link rel="shortcut icon" type="image/x-icon" href="../../Content/img/favicon.ico">
 	<!-- master page include css begin -->
@@ -32,7 +32,7 @@
 	<!-- master page include css end -->
 
 	<!-- self page include css begin -->
-	<link rel="stylesheet" href="../../Content/css/governance/status.css?CSS=20150630_01">
+	<link rel="stylesheet" href="../../Content/css/governance/resolutions.css?CSS=20150630_01">
 	<!-- self page include css end -->
 
 	<!-- master page include scripts begin -->
@@ -42,6 +42,9 @@
 	<!-- master page include scripts end -->
 </head>
 <body id="ng-app" ng-app="FuBon-Ctrl" ng-controller="Ctrl">
+	<div>
+		<input type="hidden" id="page" value="2">
+	</div>
 	<!-- ==================== l-body begin =================== -->
 	<div class="l-body" ng-class="{'is-animate' : Common.Nav.Mobile.Click , 'is-lock' : Common.Nav.Mobile.Lock}" ng-style="{'margin-top' : ( Common.Nav.Path.Click ? (Common.Nav.Path.Height - Common.Nav.Path.PaddingTop) : 0 )}">
 		<!-- ==================== l-header begin =================== -->
@@ -59,7 +62,7 @@
 					</div>
 				</div>
 				<ul class="m-header-tools">
-					<li class="b-middle"><a href="../../eng/">EN</a></li>
+					<li class="b-middle"><a href="../../eng">EN</a></li>
 					<li class="m-header-search b-middle" ng-class="{'is-open' : Common.Search.Click}">
 						<a href="../../Views/search/search.html?k={{ Common.Search.Value }}" class="m-button m-button-search ng-search"><i class="m-icon m-icon-search"></i></a>
 						<div class="m-form-group m-form-search">
@@ -71,7 +74,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main status-content ng-controller" ng-controller="Governance">
+		<div class="l-main resolutions-content ng-controller" ng-controller="Governance">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -82,7 +85,7 @@
 						</span>
 					</div>
 					<figure class="m-media-item">
-						<img ng-src="../../Content/img/governance/kv.jpg" alt="富邦金控-公司治理">
+						<img ng-src="../../Content/img/governance/kv.jpg" alt="富邦金控-富邦理財電子報">
 					</figure>
 					<ul class="m-media-tools is-right-top b-middle">
 						<li><a href="javascript:;"><i class="m-icon m-icon-m-plus"></i></a></li>
@@ -113,95 +116,133 @@
 							<a href="../../Views/governance/letter.html">公司治理</a>
 						</li>
 						<li>
-							<em>公司治理現況</em>
+							<a href="../../Views/governance/shareholders.html">股東會</a>
+						</li>
+						<li>
+							<em>董事會重要決議</em>
 						</li>
 					</ol>
 					<!-- ==================== m-breadcrumb end =================== -->
 
 					<!-- ==================== m-section begin =================== -->
-					<section class="m-section">
+					<section class="m-section is-line">
 						<header class="m-section-hd is-col b-clearfix">
-							<h2>公司治理現況</h2>
+							<h2>董事會重要決議</h2>
+							<div class="m-section-tools">
+								<div class="m-form-group m-form-select ng-select">
+									<div class="m-form-ctrl">
+										<span class="m-form-addon b-col-xs-0">請選擇年份</span>
+										<label>
+											<select class="m-form m-form-control is-bgcolor" ng-model="Governance.Resolutions.Model" ng-options="option for option in Governance.Resolutions.Year" ng-change="Governance.Resolutions.OnChange()"></select>	
+										</label>
+									</div>
+								</div>
+							</div>
 						</header>
 						<main class="m-section-bd b-clearfix">
-							<article class="m-article is-titles">
-								<main class="m-article-bd b-clearfix">
-									<div class="m-article-data">
-										<p>富邦金控在公司治理方面的努力，多年來屢獲國內外知名財經媒體肯定，至2014年，《天下》雜誌第五度評選富邦金控為「最佳聲望標竿企業」金控產業龍頭，並連續三年蟬聯「跨產業總排名」前十名，2014年總排名更上升至第六名。《亞洲公司治理(Corporate Governance Asia)》雜誌連續六年頒發「亞洲地區最佳公司治理獎」，《財資(The Asset)》雜誌連續四年頒發「公司治理白金獎」。</p>
-										<p>爲有效檢視公司治理制度之落實，富邦金控暨旗下主要子公司自 2009年起持續參加由社團法人中華公司治理協會舉辦之「公司治理制度評量認證」，並連續四屆通過認證，顯示富邦金控致力提升公司治理的決心與努力。</p>
-										<ul class="m-icon-stack m-icon-border b-row b-clearfix">
-											<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-right b-align-sm-right b-align-xs-center">
-												<div class="m-icon-border-item">
-													<div class="b-middle">
-														<span>
-															<i class="m-icon m-icon-banner m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-															<em>第五度</em>
-														</span>	
-													</div>
-													<p>天下雜誌<br />最佳聲望標竿企業</p>
-												</div>
-											</li>
-											<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-												<div class="m-icon-border-item">
-													<div class="b-middle">
-														<span>
-															<i class="m-icon m-icon-stock  m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-															<em>連續六年</em>
-														</span>	
-													</div>
-													<p>亞洲公司治理<br />(Corporate Governance Asia)<br />亞洲地區最佳公司治理獎</p>
-												</div>
-											</li>
-											<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-left b-align-sm-left b-align-xs-center">
-												<div class="m-icon-border-item">
-													<div class="b-middle">
-														<span>
-															<i class="m-icon m-icon-badge-o  m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-															<em>連續四年</em>
-														</span>	
-													</div>
-													<p>財資 (The Asset)<br />公司治理白金獎</p>
-												</div>
-											</li>
-										</ul>
-										<p>富邦金控不僅為第一家引進獨立董事制度的上市公司，更是第一家獨立董事席次達三分之一的金融機構。為求公司治理品質之精進，2011年股東常會率業界之先，採逐案票決方式進行議案表決，使股東對議案之意見得充分表達。為維護股東權益、公平對待公司股東，並落實強化董事提名審查作業之透明度，本公司於2014年新一屆董事選任，採用全體董事候選人提名制度進行全面改選，並順利選任13席董事(外部董事席次過半)。為使獨立董事客觀行使職權，避免因久任降低獨立性，改選後實際在任之獨立董事任期皆未超過九年。</p>
-										<p>富邦金控為強化管理機能，於董事會下設有「審計委員會」、「薪資報酬委員會」及「公司治理委員會」三功能性委員會。「審計委員會」依法由全體獨立董事組成，除依法審議各類案件外，也特別重視子/孫公司的風險管理與督導，以達監督集團內各項風險之目的。「薪資報酬委員會」亦由本公司全體獨立董事組成，協助董事會訂定並檢討評估本公司董事及經理人績效評估與薪資報酬之政策、制度、標準與結構，定期評估並訂定本公司董事及經理人之薪資報酬。「公司治理委員會」之成員除全體獨立董事外尚包含本公司最大股東明東實業及臺北市政府之法人代表各1位，其功能除包含當前公司治理致力倡導「提名委員會」之協助董事會完成全體董事候選人提名相關作業外，並致力於向董事會建議組織運作及管理等事宜，以強化董事會職能。</p>
-										<ul class="m-icon-stack m-icon-border b-row b-clearfix">
-											<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-right b-align-sm-right b-align-xs-center">
-												<div class="m-icon-border-item">
-													<div class="b-middle">
-														<span>
-															<i class="m-icon m-icon-contact-book m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-														</span>	
-													</div>
-													<p>公司治理委員會</p>
-												</div>
-											</li>
-											<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-center b-align-sm-center b-align-xs-center">
-												<div class="m-icon-border-item">
-													<div class="b-middle">
-														<span>
-															<i class="m-icon m-icon-note-search m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-														</span>	
-													</div>
-													<p>審計委員會</p>
-												</div>
-											</li>
-											<li class="b-col-md-4 b-col-sm-4 b-col-xs-6 b-align-md-left b-align-sm-left b-align-xs-center">
-												<div class="m-icon-border-item">
-													<div class="b-middle">
-														<span>
-															<i class="m-icon m-icon-identity-card m-icon-size-md-3 m-icon-size-sm-3 m-icon-size-xs-3"></i>
-														</span>	
-													</div>
-													<p>薪資報酬委員會</p>
-												</div>
-											</li>
-										</ul>
-										<p>富邦金控基於廉潔、透明及負責之經營理念，樹立誠信經營之企業文化及創造永續發展之經營環境，先於 1996年通過「道德行為準則」之制定，更於 2011年通過制定「誠信經營守則」及「企業社會責任守則」，朝向落實企業誠信經營、建立良好商業運作模式及風險控管機制、推動社會公益等目標持續邁進。</p>
+							<div class="m-list m-list-table b-cloak" ng-class="{'b-cloak' : Common.Cloak}">
+								<div class="m-list-hd">
+									<ul class="m-ajax ng-ajax" data-length="7">
+										<li>
+											<time>2015.06.22</time>
+											<em>通過子公司富邦人壽收購韓國現代人壽股權案。</em>
+										</li>
+										<li>
+											<time>2015.06.12</time>
+											<em>通過本公司第五屆「公司治理委員會」委員任命案。</em>
+										</li>
+										<li>
+											<time>2015.06.12</time>
+											<em>通過辦理本公司現金增資發行甲種特別股案。</em>
+										</li>
+										<li>
+											<time>2015.04.28</time>
+											<em>通過審查本公司第六屆獨立董事被提名人案。</em>
+										</li>
+										<li>
+											<time>2015.04.28</time>
+											<em>通過本公司103年度盈餘分配案。</em>
+										</li>
+										<li>
+											<time>2015.04.28</time>
+											<em>通過修正本公司「章程」案。</em>
+										</li>
+										<li>
+											<time>2015.04.28</time>
+											<em>通過本公司擬規劃辦理長期資金募集案。</em>
+										</li>
+										<li>
+											<time>2015.03.20</time>
+											<em>通過本公司104年度預算與營運計畫案。</em>
+										</li>
+										<li>
+											<time>2015.03.20</time>
+											<em>通過本公司103年度財務報表案。</em>
+										</li>
+										<li>
+											<time>2015.03.20</time>
+											<em>通過本公司第二屆「薪資報酬委員會」委員委任案。</em>
+										</li>
+										<li>
+											<time>2015.03.20</time>
+											<em>通過辦理提名本公司第六屆獨立董事候選人案。</em>
+										</li>
+										<li>
+											<time>2015.03.20</time>
+											<em>通過本公司103年度營業報告書案。</em>
+										</li>
+										<li>
+											<time>2015.02.09</time>
+											<em>通過擇定104年股東常會日期、地點及受理提名、提案等相關事宜案。</em>
+										</li>
+										<li>
+											<time>2015.02.09</time>
+											<em>通過本公司第六屆獨立董事補選案。</em>
+										</li>
+										<li>
+											<time>2015.02.09</time>
+											<em>通過本公司及子公司簽證會計師103年度績效衡量評核結果案。</em>
+										</li>
+										<li>
+											<time>2015.02.09</time>
+											<em>通過本公司「布局亞洲發展計畫」案。</em>
+										</li>
+									</ul>
+								</div>
+								<div class="m-list-bd" >
+									<div class="m-tab m-tab-pagination">
+										<div class="m-tab-bd ng-pagination-action"> 
+											<ul class="m-list-content" ng-repeat="list in Governance.Resolutions.Data">
+												<li class="ng-repeat-done" ng-repeat="data in list" data-filter="{{ data.Time }}">
+													<i class="m-icon m-icon-chevron-right"></i>
+													<em>{{ data.Title }}</em>
+													<time class="m-list-item">{{ data.Time }}</time>
+												</li>
+											</ul>
+										</div>
 									</div>
-								</main>
-							</article>
+								</div>
+								<div class="m-list-ft b-cloak" ng-class="{'b-cloak' : Common.Cloak}" ng-hide="Governance.Resolutions.Data.length < 2 || ( Common.UserAgent === 'Mobile' &&  Common.Pagination.Active[0] === (Common.Pagination.Page - 1) )">
+									<div class="m-pagination">
+										<div class="m-pagination-hd">
+											<div class="m-button-group">
+												<button type="button" class="m-button b-inverse ng-pagination-more" data-value="1">MORE</button>
+											</div>
+										</div>
+										<ol class="m-pagination-bd">
+											<li><a href="javascript:;" data-value="0" class="is-prev is-disabled ng-pagination" ng-class="{'is-disabled' : Common.Pagination.Active[0] === 0}"><i class="m-icon m-icon-arrow-pagination-left"></i></a></li>
+											<li ng-repeat="pagination in Governance.Resolutions.Data"><a href="javascript:;" data-value="{{ $index }}" class="ng-pagination" ng-class="{'is-active' : Common.Pagination.Active[0] === $index}">{{ ( $index + 1 ) }}</a></li>
+											<li><a href="javascript:;" data-value="{{ (Governance.Resolutions.Data.length - 1) }}" class="is-next ng-pagination" ng-class="{'is-disabled' : Common.Pagination.Active[0] === (Governance.Resolutions.Data.length - 1)}"><i class="m-icon m-icon-arrow-pagination-right"></i></a></li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="b-loading is-relative" ng-class="{'b-cloak' : ! Common.Cloak}">
+								<span class="m-icon-stack">
+									<i class="m-icon m-icon-fubon-blue is-absolute"></i>
+									<i class="m-icon m-icon-fubon-green"></i>
+								</span>
+							</div>
 						</main>
 					</section>
 					<!-- ==================== m-section end =================== -->
@@ -377,7 +418,7 @@
 					<div class="m-sitemap" ng-class="{'is-show' : Common.Footer.Sitemap.Click}">
 						<div class="m-sitemap-bd b-row">
 							<ul>
-								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/about/info.html">關於富邦金控</a></li>
 										<li><a href="../../Views/about/info.html">富邦金控簡介</a></li>
@@ -388,7 +429,7 @@
 										<li><a href="../../Views/about/milestone.html">大事紀</a></li>
 									</ul>
 								</li>
-								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/story/future.html">品牌故事</a></li>
 										<li><a href="../../Views/story/future.html">延續傳承 走向未來</a></li>
@@ -396,7 +437,7 @@
 										<li><a href="../../Views/story/identity.html">富邦品牌標誌</a></li>
 									</ul>
 								</li>
-								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/csr/chairmans_messages.html">企業社會責任</a></li>
 										<li><a href="../../Views/csr/chairmans_messages.html">董事長的話</a></li>
@@ -415,7 +456,7 @@
 										<li><a href="../../Views/csr/downloadlist.html">企業社會責任報告下載</a></li>
 									</ul>
 								</li>
-								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/ir/overview.html">投資人關係</a></li>
 										<li><a href="../../Views/ir/overview.html">公司概況</a></li>
@@ -425,7 +466,7 @@
 										<li><a href="../../Views/ir/contact.html">聯絡我們</a></li>
 									</ul>
 								</li>
-								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/governance/status.html">公司治理</a></li>
 										<li><a href="../../Views/governance/status.html">公司治理現況</a></li>
@@ -439,7 +480,7 @@
 										<li><a href="../../Views/governance/mail.html">獨立董事信箱</a></li>
 									</ul>
 								</li>
-								<li class="b-col-2 b-col-sm-2 b-col-xs-6">
+								<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 									<ul>
 										<li><a href="../../Views/news/list.html">新聞中心</a></li>
 									</ul>

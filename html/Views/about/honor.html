@@ -6,7 +6,7 @@
 <!--<![endif]-->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,Edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no , minimal-ui" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
@@ -127,7 +127,7 @@
 									<div class="m-form-ctrl">
 										<span class="m-form-addon b-col-xs-0">請選擇年份</span>
 										<label>
-											<select class="m-form m-form-control is-bgcolor" ng-model="About.Honor.NewYear" ng-options="option for option in About.Honor.YearArray" ng-change="About.Honor.OnChange()"></select>
+											<select class="m-form m-form-control is-bgcolor" ng-model="About.Honor.NewYear[0]" ng-options="option for option in About.Honor.YearArray" ng-change="About.Honor.OnChange()"></select>
 										</label>
 									</div>
 								</div>
@@ -136,7 +136,7 @@
 						<main class="m-section-bd b-clearfix">
 							<div class="m-tab b-cloak" ng-class="{'b-cloak' : ! Common.IsReady}">
 								<ul class="m-tab-bd b-clearfix ng-tab-switch">
-									<li class="b-cloak" data-year="2014" ng-class="{'b-cloak' : About.Honor.NewYear !== '2014'}">
+									<li class="b-cloak" data-year="2014" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2014'}">
 										<h3>亞洲貨幣雜誌(Asiamoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -575,7 +575,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2013" ng-class="{'b-cloak' : About.Honor.NewYear !== '2013'}">
+									<li class="b-cloak" data-year="2013" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2013'}">
 										<h3>亞洲貨幣雜誌(Asiamoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -1229,7 +1229,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2012" ng-class="{'b-cloak' : About.Honor.NewYear !== '2012'}">
+									<li class="b-cloak" data-year="2012" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2012'}">
 										<h3>金融亞洲雜誌(FinanceAsia)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -1725,7 +1725,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2011" ng-class="{'b-cloak' : About.Honor.NewYear !== '2011'}">
+									<li class="b-cloak" data-year="2011" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2011'}">
 										<h3>歐元雜誌(Euromoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -2313,7 +2313,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2010" ng-class="{'b-cloak' : About.Honor.NewYear !== '2010'}">
+									<li class="b-cloak" data-year="2010" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2010'}">
 										<h3>歐元雜誌(Euromoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -2820,7 +2820,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2009" ng-class="{'b-cloak' : About.Honor.NewYear !== '2009'}">
+									<li class="b-cloak" data-year="2009" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2009'}">
 										<h3>歐元雜誌(Euromoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -3297,7 +3297,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2008" ng-class="{'b-cloak' : About.Honor.NewYear !== '2008'}">
+									<li class="b-cloak" data-year="2008" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2008'}">
 										<h3>資安人雜誌</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -3481,7 +3481,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2007" ng-class="{'b-cloak' : About.Honor.NewYear !== '2007'}">
+									<li class="b-cloak" data-year="2007" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2007'}">
 										<h3>歐元雜誌(Euromoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
@@ -3657,7 +3657,7 @@
 											</tbody>
 										</table>
 									</li>
-									<li class="b-cloak" data-year="2006" ng-class="{'b-cloak' : About.Honor.NewYear !== '2006'}">
+									<li class="b-cloak" data-year="2006" ng-class="{'b-cloak' : About.Honor.NewYear[1] !== '2006'}">
 										<h3>歐元雜誌(Euromoney)</h3>
 										<table class="m-table no-data-label">
 											<tbody>
