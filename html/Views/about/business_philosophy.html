@@ -71,7 +71,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main business_philosophy-content ng-controller" ng-controller="About">
+		<div class="l-main business_philosophy-content ng-controller" ng-controller="About" ng-init="Common.Channel = 'about'">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -379,7 +379,7 @@
 	<nav class="l-nav" ng-class="{'is-animate' : Common.Nav.Mobile.Click}">
 		<div class="m-nav ng-nav" ng-style="{'margin-top' : ( Common.Nav.Path.Click ? (Common.Nav.Path.Height - Common.Nav.Path.PaddingTop) : 0 )}">
 			<ul class="b-clearfix ng-nav-item">
-				<li class="b-middle">
+				<li class="b-middle" data-channel="about">
 					<a href="../../Views/about/info.html">
 						<em>關於富邦金控</em>
 						<span class="m-icon-stack m-icon-toggle">
@@ -398,7 +398,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="b-middle">
+				<li class="b-middle" data-channel="story">
 					<a href="../../Views/story/future.html">
 						<em>品牌故事</em>
 						<span class="m-icon-stack m-icon-toggle">
@@ -414,7 +414,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="b-middle">
+				<li class="b-middle" data-channel="csr">
 					<a href="../../Views/csr/chairmans_messages.html">
 						<em>企業社會責任</em>
 						<span class="m-icon-stack m-icon-toggle">
@@ -441,7 +441,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="b-middle">
+				<li class="b-middle" data-channel="ir">
 					<a href="../../Views/ir/overview.html">
 						<em>投資人關係</em>
 						<span class="m-icon-stack m-icon-toggle">
@@ -459,7 +459,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="b-middle">
+				<li class="b-middle" data-channel="governance">
 					<a href="../../Views/governance/status.html">
 						<em>公司治理</em>
 						<span class="m-icon-stack m-icon-toggle">
@@ -481,7 +481,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="b-middle">
+				<li class="b-middle" data-channel="news">
 					<a href="../../Views/news/list.html">
 						<em>新聞中心</em>
 						<span class="m-icon-stack m-icon-toggle">

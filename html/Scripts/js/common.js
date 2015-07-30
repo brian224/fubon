@@ -232,17 +232,14 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 	return {
 		restrict: 'C',
 		link: function(scope, elem, attrs) {
-			var $elementLi = elem.find(' > li'),
+			var $elementLi   = elem.find(' > li'),
 				$elementLink = $elementLi.find(' > a');
 
-			// AgElem(window).finish().delay(0).queue(function(){
-
-			// });
-
-			if ( $elementLi.hasClass('is-curr') ) {
-				scope.Common.Nav.Bar.Hover = true;
-				scope.Common.Nav.Submenu.Position(elem.find(' > li.is-curr'));
-			}
+			for ( var i = 0 ; i < $elementLi.length ; i ++ ) {
+				if ( $elementLi.eq(i).data('channel') === scope.Common.Channel ) {
+					$elementLi.eq(i).addClass('is-curr');
+				}
+			};
 
 			$elementLi.hover(function() {
 				if ($userAgent === 'PC') {
@@ -254,8 +251,8 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 			} , function() {
 				if ($userAgent !== 'Mobile') {
 					if (!$elementLi.hasClass('is-curr')) {
-						scope.Common.Nav.Bar.Hover = !scope.Common.Nav.Bar.Hover;
-						scope.Common.Nav.Submenu.Left = 0;
+						scope.Common.Nav.Bar.Hover          = !scope.Common.Nav.Bar.Hover;
+						scope.Common.Nav.Submenu.Left       = 0;
 						scope.Common.Nav.Submenu.MarginLeft = 0;
 						scope.$apply();
 					} else {
@@ -566,27 +563,29 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 				Left       : 0,
 				MarginLeft : 0,
 				Position   : function(element) {
-					$scope.Common.Nav.Bar.Left = element.offset().left;
-					$scope.Common.Nav.Bar.Width = element.width();
-					$scope.Common.Nav.Submenu.Left = 0;
+					$scope.Common.Nav.Bar.Left           = element.offset().left;
+					$scope.Common.Nav.Bar.Width          = element.width();
+					$scope.Common.Nav.Submenu.Left       = 0;
 					$scope.Common.Nav.Submenu.MarginLeft = 0;
 
-					if (!$scope.$$phase) {
+					if ( !$scope.$$phase ) {
 						$scope.$apply();
 					};
 
-					if (element.find('> div').length !== 0) {
-						if ((element.find('> div').width() / 2) > (AgElem('.ng-nav-item').outerWidth() - (element.position().left + (element.width() / 2)))) {
-							$scope.Common.Nav.Submenu.Left = (AgElem('.ng-nav-item').outerWidth()) - element.find('> div').width();
+					if ( element.find('> div').length !== 0 ) {
+						if ( ( element.find('> div').width() / 2 ) > ( AgElem('.ng-nav-item').outerWidth() - ( element.position().left + ( element.width() / 2 ) ) ) ) {
+							$scope.Common.Nav.Submenu.Left = ( AgElem('.ng-nav-item').outerWidth() ) - element.find('> div').width();
 							$scope.$apply();
 						} else {
-							if (element.find('> div').width() < AgElem('.ng-nav-item').outerWidth()) {
-								$scope.Common.Nav.Submenu.Left = (element.position().left + (element.width() / 2));
-								$scope.Common.Nav.Submenu.MarginLeft = ((element.find('> div').width() / 2) * (-1));
-								$scope.$apply();
+							if ( element.find('> div').width() < AgElem('.ng-nav-item').outerWidth() ) {
+								$scope.Common.Nav.Submenu.Left       = ( element.position().left + ( element.width() / 2 ) );
+								$scope.Common.Nav.Submenu.MarginLeft = ( ( element.find('> div').width() / 2 ) * (-1) );
+								if ( !$scope.$$phase ) {
+									$scope.$apply();
+								};
 
-								if (element.find('> div').offset().left < AgElem('.ng-nav-item').offset().left) {
-									$scope.Common.Nav.Submenu.Left = 0;
+								if ( element.find('> div').offset().left < AgElem('.ng-nav-item').offset().left ) {
+									$scope.Common.Nav.Submenu.Left       = 0;
 									$scope.Common.Nav.Submenu.MarginLeft = 0;
 									$scope.$apply();
 								}
@@ -893,8 +892,6 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 		$scope.$apply();
 	});
 
-
-
 	AgElem(window).load(function() {
 		$scope.Common.IsReady = true;
 		if (AgElem('.ng-top').length !== 0) {
@@ -902,6 +899,11 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 		}
 		$scope.$apply();
 		$scope.Common.Pagination.Append('.ng-pagination-action');
+
+		if ( AgElem('.ng-nav > ul > li').hasClass('is-curr') ) {
+			$scope.Common.Nav.Bar.Hover = true;
+			$scope.Common.Nav.Submenu.Position(AgElem('.ng-nav > ul > li.is-curr'));
+		}
 	});
 
 	AgElem(window).resize(function() {

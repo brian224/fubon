@@ -36,6 +36,26 @@
 			}
 		}
 	}
+
+	&.m-list-icon {
+		.m-list-content {
+			> li {
+				width : 100%;
+				@include display(table);
+
+				> * {
+					@include display(table-cell);
+				}
+			}
+
+			.m-icon {
+				padding-right  : 10px;
+				padding-left   : 10px;
+				vertical-align : middle;
+				line-height    : 1.4;
+			}
+		}
+	}
 }
 
 .m-list-hd {
@@ -47,13 +67,12 @@
 	}
 
 	> em {
-		margin-bottom : 0;
+		margin-bottom : 30px;
 	}
 
 	&.is-col {
 		> em {
-			margin-bottom : 30px;
-			float         : left;
+			float : left;
 		}
 
 		.m-list-tools {
@@ -103,6 +122,17 @@
 		color          : $major-color;
 		width          : 1%;
 		vertical-align : top;
+
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-md-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
 	}
 
 	/*.m-list-link {

@@ -17,19 +17,35 @@
 			}
 		}
 	}
+
+	&.m-item-table {
+		> li {
+			@include display(table);
+
+			.m-item-title {
+				white-space : nowrap;
+				@include display(table-cell , top);
+			}
+
+			.m-item-item {
+				@include display(table-cell);
+			}
+		}
+	}
 }
 
 ol.m-item {
 	counter-reset : section;
 
 	> li {
-		padding-left : 1.2em;
+		padding-left : 1.5em;
 		@include display(table);
 
 		&:before {
 			counter-increment : section;
 			content           : counter(section)".";
 			color             : inherit;
+			width             : 1.5em;
 			@include display(table-cell , top);
 		}
 	}

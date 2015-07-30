@@ -3,8 +3,6 @@
 
 	&.is-line {
 		.m-section-hd {
-			margin-bottom  : 5px;
-			padding-bottom : 10px;
 			border-bottom  : 1px solid $border-minor-color;
 
 			&:before {
@@ -35,9 +33,11 @@
 }
 
 .m-section-hd {
-	padding-right : $inner-Width;
-	padding-left  : $inner-Width;
-	position      : relative;
+	margin-bottom  : 5px;
+	padding-right  : $inner-Width;
+	padding-bottom : 10px;
+	padding-left   : $inner-Width;
+	position       : relative;
 	@include box-sizing(border-box);
 
 	&.is-title-hide {
