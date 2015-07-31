@@ -60,7 +60,7 @@ Ctrl.directive('ngRepeatDone', ['$document', function($document) {
 					AgElem('.ng-controller').scope().repeat.Callback(elem);
 				}
 
-				scope.Common.Cloak = false;
+				// scope.Common.Cloak = false;
 			}
 		}
 	};
@@ -490,23 +490,23 @@ Ctrl.directive('ngTab', ['$document', function($document) {
 }]);
 
 /* ng-tab-ctrl directive */
-Ctrl.directive('ngTabCtrl', ['$document', function($document) {
-	return {
-		restrict: 'C',
-		link: function(scope, elem, attrs) {
-			elem.on('click', function(e) {
-				var $this = AgElem(this);
-				e.preventDefault();
-				AgElem('.ng-tab-slide > li').removeClass('b-no-transition');
-				scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
-				scope.Common.Tab.ClickArray[0] = scope.$index;
-				AgElem('.ng-tab-slide > li:eq('+ scope.Common.Tab.ClickArray[0] +')').removeClass('b-cloak');
-				scope.Common.Tab.SlideAnimate(AgElem('.ng-tab-slide'));
-				scope.$apply();
-			});
-		}
-	};
-}]);
+// Ctrl.directive('ngTabCtrl', ['$document', function($document) {
+// 	return {
+// 		restrict: 'C',
+// 		link: function(scope, elem, attrs) {
+// 			elem.on('click', function(e) {
+// 				var $this = AgElem(this);
+// 				e.preventDefault();
+// 				AgElem('.ng-tab-slide > li').removeClass('b-no-transition');
+// 				scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
+// 				scope.Common.Tab.ClickArray[0] = scope.$index;
+// 				AgElem('.ng-tab-slide > li:eq('+ scope.Common.Tab.ClickArray[0] +')').removeClass('b-cloak');
+// 				scope.Common.Tab.SlideAnimate(AgElem('.ng-tab-slide'));
+// 				scope.$apply();
+// 			});
+// 		}
+// 	};
+// }]);
 
 /* ng-select directive */
 Ctrl.directive('ngSelect', ['$document', function($document) {
@@ -888,7 +888,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 
 	AgElem(document).ready(function() {
 		$scope.Common.UserAgentSet();
-		$scope.Common.Tab.Slide();
+		// $scope.Common.Tab.Slide();
 		$scope.$apply();
 	});
 

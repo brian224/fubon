@@ -115,21 +115,18 @@
 		padding-bottom : 10px;
 
 		.m-tab-ctrl {
+			margin-top : 5px;
 			text-align : center;
 
-			> li {
-				@include inline-block;
-			}
-		}
+			.m-icon {
+				padding   : 0 1px;
+				font-size : 18px;
+				color     : $color-pagination;
+				cursor    : pointer;
 
-		.m-tab-ctrl-button {
-			@include m-buttom-default;
-			padding   : 0 1px;
-			font-size : 20px;
-			color     : $color-pagination;
-
-			&.is-active {
-				color : $major-color;
+				&.active {
+					color : $major-color;
+				}
 			}
 		}
 	}

@@ -87,7 +87,8 @@
 			@include inline-block;
 
 			> span {
-				position : relative;
+				text-align : center;
+				position   : relative;
 				@include display(block);
 			}
 
@@ -135,7 +136,13 @@
 			}
 
 			&.m-icon-circle {
+				top     : auto;
+				right   : auto;
+				bottom  : auto;
+				left    : auto;
 				color   : $major-color;
+				width   : auto;
+				height  : auto;
 				z-index : 1;
 				@include text-shadow(rgba(#000 , .15) 3px 3px 0);
 				@include transition(color $transition-times);
@@ -145,8 +152,7 @@
 				}
 
 				&:before {
-					top : 0;
-					@include display(block);
+					vertical-align : top;
 				}
 			}
 		}

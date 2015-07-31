@@ -424,4 +424,8 @@
 
 @include respond-to(Tables-Mobile) {}
 
-@include respond-to(Mobile) {}
+@include respond-to(Mobile) {
+	.m-aside {
+		margin-top : 10px;
+	}
+}

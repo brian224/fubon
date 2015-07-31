@@ -32,6 +32,7 @@
 	<!-- master page include css end -->
 
 	<!-- self page include css begin -->
+	<link rel="stylesheet" href="../../Scripts/plugin/owl.carousel/owl.carousel.css?CSS=20150630_01">
 	<link rel="stylesheet" href="../../Content/css/story/positive.css?CSS=20150630_01">
 	<!-- self page include css end -->
 
@@ -71,7 +72,7 @@
 		</div>
 		<!-- ==================== l-header end =================== -->
 		<!-- ==================== l-main begin =================== -->
-		<div class="l-main positive-content ng-controller" ng-init="Common.Channel = 'story'">
+		<div class="l-main positive-content ng-controller" ng-controller="Story" ng-init="Common.Channel = 'story'">
 			<!-- ==================== l-main-hd begin =================== -->
 			<header class="l-main-hd b-clearfix">
 				<div class="m-media ng-image-load">
@@ -183,53 +184,55 @@
 						</header>
 						<main class="m-aside-bd">
 							<div class="m-tab m-tab-slide">
-								<ul class="m-tab-bd b-clearfix ng-tab-slide">
-									<li>
-										<div class="m-video ng-youtube" data-youtube="WdhzVssc-MI">
+								<div class="m-tab-hd">
+									<ul class="m-ajax ng-youtube-ajax" data-url="//www.youtube.com/embed/">
+										<li>
+											<em>WdhzVssc-MI</em>
+											<p>正向的力量 讓世界持續美好(1分鐘版)</p>	
+										</li>
+										<li>
+											<em>UTDNB3cLc40</em>
+											<p>2015正向的力量幕後花絮</p>
+										</li>
+										<li>
+											<em>v8r5x5N2AOY</em>
+											<p>台東樹屋</p>
+										</li>
+										<li>
+											<em>1VGdGMmYkXU</em>
+											<p>我的開心農場 一起去滾球</p>
+										</li>
+										<li>
+											<em>q1EJn6v_NQ8</em>
+											<p>盲棒挑戰世界盃</p>
+										</li>
+									</ul>
+								</div>
+								<div class="b-clearfix b-cloak owl-carousel" ng-class="{'b-cloak' : Common.Cloak}">
+									<div class="ng-repeat-done ng-owl-carousel" ng-repeat="youtube in Story.Youtube.Data" ng-class="{'b-cloak' : $index !== 0}">
+										<div class="m-video">
 											<div class="m-video-bd">
-												<a href="m-button m-button-video">
-													https://youtu.be/WdhzVssc-MI
-													<!-- <figure>
-														<img ng-src="" alt="富邦員工出動 台東蓋樹屋">
-													</figure> -->
+												<a href="javascript:;" class="m-button m-button-video ng-video" data-id="{{ youtube.ID }}?autoplay=1&autohide=1&controls=0&rel=0&fs=1&wmode=transparent&showinfo=0&modestbranding=1&iv_load_policy=1&start=0&theme=dark&color=red&playsinline=false&enablejsapi=1">
+													<figure class="m-video-figure ng-video-image-load">
+														<img ng-src="http://img.youtube.com/vi/{{ youtube.ID }}/0.jpg" alt="{{ youtube.Name }}">
+													</figure>
 												</a>
-												<div class="m-video-frame"></div>	
+												<div class="m-video-frame" ng-class="{'is-show' : $index === Story.Youtube.Index}">
+													<iframe width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allowtransparency="true" ng-src="{{ Story.Youtube.GetYoutube(Story.Youtube.ID) }}" ng-if="$index === Story.Youtube.Index && Story.Youtube.ID !== ''"></iframe>
+												</div>	
 											</div>
-											<div class="m-video-ft">富邦員工出動 台東蓋樹屋</div>
+											<div class="m-video-ft">{{ youtube.Name }}</div>
 										</div>
-									</li>
-									<li class="b-cloak">
-										<div class="m-video ng-youtube" data-youtube="WdhzVssc-MI">
-											<div class="m-video-bd">
-												<a href="m-button m-button-video">
-													https://youtu.be/WdhzVssc-MI2
-													<!-- <figure>
-														<img ng-src="" alt="富邦員工出動 台東蓋樹屋">
-													</figure> -->
-												</a>
-												<div class="m-video-frame"></div>	
-											</div>
-											<div class="m-video-ft">富邦員工出動 台東蓋樹屋</div>
-										</div>
-									</li>
-									<li class="b-cloak">
-										<div class="m-video ng-youtube" data-youtube="WdhzVssc-MI">
-											<div class="m-video-bd">
-												<a href="m-button m-button-video">
-													https://youtu.be/WdhzVssc-MI3
-													<!-- <figure>
-														<img ng-src="" alt="富邦員工出動 台東蓋樹屋">
-													</figure> -->
-												</a>
-												<div class="m-video-frame"></div>	
-											</div>
-											<div class="m-video-ft">富邦員工出動 台東蓋樹屋</div>
-										</div>
-									</li>
-								</ul>
-								<ul class="m-tab-ctrl">
-									<li ng-repeat="ctrl in Common.Tab.SlidePoint"><button class="m-tab-ctrl-button ng-tab-ctrl" ng-class="{'is-active' : Common.Tab.ClickArray[0] === $index}"><i class="m-icon m-icon-point"></i></button></li>
-								</ul>
+									</div>
+								</div>
+								<div class="m-tab-ft" ng-class="{'b-cloak' : ! Common.Cloak}">
+									<div class="b-loading is-relative">
+										<span class="m-icon-stack">
+											<i class="m-icon m-icon-fubon-blue is-absolute"></i>
+											<i class="m-icon m-icon-fubon-green"></i>
+										</span>
+									</div>
+								</div>
 							</div>
 						</main>
 					</aside>
@@ -506,5 +509,7 @@
 <!-- master page include scripts end -->
 
 <!-- self page include scripts begin -->
+<script type="text/javascript" src="../../Scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20150630_01"></script>
+<script type="text/javascript" src="../../Scripts/js/story/common.js?JS=20150630_01"></script>
 <!-- self page include scripts end -->
 </html>

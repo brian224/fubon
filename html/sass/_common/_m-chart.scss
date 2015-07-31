@@ -1,0 +1,66 @@
+﻿.m-chart {
+	position  : relative;
+	@include clearfix;
+}
+
+.m-chart-bd {
+	margin-right : 0;
+	margin-left  : 0;
+	width        : 100%;
+	position     : relative;
+	@include display(table);
+
+	> li {
+		padding-right : 0;
+		padding-left  : 0;
+		float         : none;
+		@include display(table-cell , bottom);
+	}
+
+	.m-chart-item {
+		margin-right : 2px;
+		margin-left  : 2px;
+		@include display(block);
+		@include box-sizing(border-box);
+
+		$types  : 10;
+		$height : 45px;
+		@while $types > 0 {
+			&.m-chart-height-#{$types} {
+				height : $height * $types;
+			}
+
+			$types : $types - 1;
+		}
+
+		/* 顏色設定 */
+		@each $key , $value in $color {
+			&.b-#{'' + $key} {
+				@if ( $key != 'disabled' ) {
+					@if ( $key != 'inverse' ) {
+						color : $color-white;
+					} @else {
+						color  : $major-color;
+					}
+					
+					background : $value;
+
+				} @else if ( $key == 'disabled' ) {
+					color      : $major-color;
+					background : $value;
+				}
+			}
+		}
+
+		> em {
+			font-size : 14px;
+		}
+	}
+}
+
+.m-chart-ft {
+	font-size  : 14px;
+	margin-top : 10px;
+	position   : relative;
+	color      : $major-color;
+}

@@ -1,0 +1,11 @@
+.m-figure {
+	&.m-figure-img-block {
+		img {
+			@include display(block);
+		}
+	}
+
+	img {
+		max-width : 100%;
+	}
+}

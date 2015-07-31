@@ -6,7 +6,8 @@ html , body  {
 	background : $default-html-bgcolor;
 }
 
-mark {
+/* mark */
+mark , .b-mark {
 	color      : $major-color;
 	background : transparent;
 }

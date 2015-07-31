@@ -72,7 +72,7 @@ Ctrl.controller('About' , ['$scope' , '$http' , function($scope , $http) {
 				jQuery.map( $this.YearArray , function(v , i){
 					if ( v === $this.NewYear ) {
 						AgElem('html , body').animate({
-							'scrollTop' : AgElem('.ng-time-line > li:eq('+ i +') .m-time-line-time').offset().top
+							'scrollTop' : AgElem('.ng-time-line > ul > li:eq('+ i +') .m-time-line-time').offset().top
 						});
 					}
 				});

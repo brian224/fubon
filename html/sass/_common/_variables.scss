@@ -97,6 +97,8 @@ $color-fubon-green  : #0AA;
 $color : (
 	fubon-blue   : $color-fubon-blue,
 	fubon-green  : $color-fubon-green,
+	major        : $major-color,
+	minor        : $minor-color,
 	primary      : $color-primary,
 	warning      : $color-warning,
 	inverse      : $color-inverse,

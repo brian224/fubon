@@ -71,11 +71,15 @@ Ctrl.controller('Governance' , ['$scope' , '$http' , function($scope , $http) {
 							AgElem('.ng-accordion > ol > li:eq('+ $index +')').addClass('is-active');
 
 							if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
-								AgElem('.ng-accordion > ol > li:eq('+ $index +')').one($animationend, function() {
+								AgElem('.ng-accordion > ol > li:eq('+ $index +')').one($animationend , function() {
 									AgElem('html , body').animate({
 										'scrollTop' : AgElem('.ng-accordion > ol > li:eq('+ $index +')').offset().top
 									} , 500);
 								});
+							} else {
+								AgElem('html , body').animate({
+									'scrollTop' : AgElem('.ng-accordion > ol > li:eq('+ $index +')').offset().top
+								} , 500);
 							}
 						}
 					};

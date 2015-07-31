@@ -1,125 +1,152 @@
 .m-time-line {
-	position    : relative;
+	position : relative;
+	@include clearfix;
 
 	&.m-time-line-horizontal {
-		> li {
-			padding-top  : 0;
-			padding-left : 0;
-			@include clearfix;
+		&.is-item-align-bottom {
+			> ul {
+				> li {
+					vertical-align : bottom;
+				}	
+			}
+		}
 
-			&[class^="b-col-"] , &[class*=" b-col-"] {
+		> ul {
+			margin-right : 0;
+			margin-left  : 0;
+			width        : 100%;
+			@include display(table);
+
+			> li {
+				padding-top  : 0;
 				padding-left : 5px;
-			}
+				@include clearfix;
+				@include display(table-cell , top);
 
-			&:first-child {
-				padding-top : 0;
-			}
-
-			&:before {
-				top    : 32px;
-				left   : 0;
-				width  : 100%;
-				height : 1px;
-			}
-
-			.m-time-line-time {
-				top      : 0;
-				left     : 0;
-				position : relative;
-
-				> em {
-					font-size : 16px;
+				&[class^="b-col-"] , &[class*=" b-col-"] {
+					padding-right : 0;
+					padding-left  : 0;
+					float         : none;
 				}
-			}
 
-			.m-time-line-item {
-				margin-top  : 20px;
-				font-size   : 14px;
-				line-height : 1.6;
-			}
+				&:first-child {
+					padding-top : 0;
+				}
+
+				.m-time-line-time {
+					top      : 0;
+					left     : 0;
+					position : relative;
+
+					&:before {
+						top    : 32px;
+						left   : 0;
+						width  : 100%;
+						height : 1px;
+					}
+
+					> span {
+						> em {
+							font-size : 15px;
+						}	
+					}
+				}
+
+				.m-time-line-item {
+					margin-top    : 20px;
+					margin-bottom : 10px;
+					font-size     : 14px;
+					line-height   : 1.6;
+				}
+			}	
 		}
 	}
 
-	> li {
-		padding-top    : 45px;
-		padding-bottom : 15px;
-		padding-left   : 100px;
-		position       : relative;
-		@include box-sizing(border-box);
+	> ul {
+		> li {
+			padding-top    : 45px;
+			padding-bottom : 18px;
+			padding-left   : 100px;
+			position       : relative;
+			@include box-sizing(border-box);
 
-		&:first-child {
-			padding-top : 20px;
-
-			.m-time-line-time {
-				top : 0;
+			&:first-child {
+				margin-top : -26px;
 			}
-		}
-
-		&:before {
-			content    : "";
-			top        : 0;
-			left       : 42px;
-			width      : 2px;
-			height     : 100%;
-			position   : absolute;
-			background : $minor-color;
-			@include clearfix;
 		}
 	}
 }
 
 .m-time-line-time {
-	top         : 26px;
-	left        : 10px;
-	color       : $major-color;
-	text-align  : center;
-	width       : 65px;
-	height      : 65px;
-	position    : absolute;
-	@include inline-block;
-	@include clearfix;
-	@include border-radius(50%);
-	@include box-sizing(border-box);
-
-	&:before , &:after {
-		content  : "";
-		position : absolute;
-		@include clearfix;
-		@include border-radius(50%);
-		@include box-sizing(border-box);
-	}
+	top      : 26px;
+	left     : 10px;
+	height   : 100%;
+	position : absolute;
+	@include display(block);
 
 	&:before {
-		top     : 0;
-		left    : 0;
-		width   : 100%;
-		height  : 100%;
-		z-index : 1;
-		@include background-image(linear-gradient($major-color , $minor-color));
-	}
-
-	&:after {
-		top        : 50%;
-		left       : 50%;
-		margin     : -42% 0 0 -42%;
-		width      : 85%;
-		height     : 85%;
-		background : #FFF;
-		z-index    : 2;
-	}
-
-	> em {
+		content     : "";
 		top         : 0;
-		right       : 0;
-		bottom      : 0;
-		left        : 0;
-		margin      : auto;
-		font-size   : 18px;
-		width       : 100%;
-		height      : 20px;
-		line-height : 20px;
+		left        : 50%;
+		width       : 2px;
+		margin-left : -1px;
+		height      : 100%;
 		position    : absolute;
-		z-index     : 3;
+		background  : $minor-color;
+		@include clearfix;
+	}
+
+	> span {
+		color      : $major-color;
+		text-align : center;
+		width      : 65px;
+		height     : 65px;
+		position   : relative;
+		@include clearfix;
+		@include inline-block;
+		@include border-radius(50%);
+		@include box-sizing(border-box);
+
+		&:before , &:after {
+			content  : "";
+			position : absolute;
+			@include clearfix;
+			@include border-radius(50%);
+			@include box-sizing(border-box);
+		}
+
+		&:before {
+			top     : 0;
+			left    : 0;
+			width   : 100%;
+			height  : 100%;
+			z-index : 1;
+			@include background-image(linear-gradient($major-color , $minor-color));
+		}
+
+		&:after {
+			top        : 50%;
+			left       : 50%;
+			margin     : -42% 0 0 -42%;
+			width      : 85%;
+			height     : 85%;
+			background : #FFF;
+			z-index    : 2;
+		}
+
+		> em {
+			top         : 0;
+			right       : 0;
+			bottom      : 0;
+			left        : 0;
+			margin      : auto;
+			font-size   : 18px;
+			width       : 100%;
+			height      : 20px;
+			line-height : 20px;
+			position    : absolute;
+			z-index     : 3;
+		}
 	}
 }
 
@@ -129,13 +156,15 @@
 
 .IE8 {
 	.m-time-line-time {
-		&:before {
-			background : image-url('m-time-line-border-mask.png') no-repeat center top;	
-			z-index    : 2;
-		}
+		> span {
+			&:before {
+				background : image-url('m-time-line-border-mask.png') no-repeat center top;	
+				z-index    : 2;
+			}
 
-		&:after {
-			z-index : 1;
+			&:after {
+				display : none;
+			}	
 		}
 	}
 }
@@ -147,56 +176,77 @@
 @include respond-to(Mobile) {
 	.m-time-line {
 		&.m-time-line-horizontal {
-			> li {
-				.m-time-line-time {
-					> em {
-						font-size : 14px;
-					}
-				}
+			> ul {
+				@include display(block);
 
-				.m-time-line-item {
-					margin-top : -28px;
-				}
+				> li {
+					@include display(block);
+
+					.m-time-line-time {
+						> span {
+							> em {
+								font-size : 14px;
+							}	
+						}
+					}
+
+					.m-time-line-item {
+						margin-top : 0;
+					}
+				}	
 			}
 		}
 
-		> li {
-			margin-top   : -28px;
-			padding-top  : 0;
-			padding-left : 0;
+		> ul {
+			> li {
+				margin-top     : -10px;
+				padding-top    : 0;
+				padding-bottom : 25px;
+				padding-left   : 0;
 
-			&:first-child {
-				margin-top  : 0;
-				padding-top : 0;
-			}
+				&:first-child {
+					margin-top  : 0;
+					padding-top : 0;
+				}
 
-			&:last-child {
-				.m-time-line-item {
+				&:last-child {
 					padding-bottom : 0;
 				}
-			}
 
-			&:before {
-				display : none;
-			}
+				> *:first-child {
+					margin-bottom : 20px;
+				}
+
+				/*&:before {
+					display : none;
+				}*/
+			}	
 		}
 	}
 
 	.m-time-line-time {
 		top      : 0;
 		left     : 0;
-		width    : 55px;
-		height   : 55px;
 		position : relative;
 
-		> em {
-			font-size : 14px;
+		&:before {
+			content    : "";
+			top        : 50%;
+			left       : 0;
+			width      : 100%;
+			height     : 1px;
+			background : $minor-color;
+		}
+
+		> span {
+			> em {
+				font-size : 14px;
+			}	
 		}
 	}
 
 	.m-time-line-item {
-		margin-top : -28px;
-		padding    : 40px 10px;
-		border-top : 1px solid $minor-color;
+		padding : 0 10px;
+		/*border-top : 1px solid $minor-color;*/
 	}
 }
