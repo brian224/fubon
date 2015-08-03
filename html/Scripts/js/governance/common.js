@@ -14,7 +14,6 @@ Ctrl.controller('Governance' , ['$scope' , '$http' , function($scope , $http) {
 		Callback : function(){
 			$scope.$parent.Common.Cloak = false;
 			AgElem('.ng-pagination-action > *:eq('+ $scope.$parent.Common.Pagination.Active[0] +')').addClass('is-show');
-			$scope.$parent.Common.Pagination.Page = $scope.Governance.Shareholders.Data.length;
 		}
 	},
 	$scope.Governance = {
@@ -135,6 +134,8 @@ Ctrl.controller('Governance' , ['$scope' , '$http' , function($scope , $http) {
 						}
 					}
 				}
+
+				$scope.$parent.Common.Pagination.Page = $this.Data.length;
 			},
 			OnChange : function(){
 				var $this = this;

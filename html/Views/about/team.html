@@ -32,6 +32,7 @@
 	<!-- master page include css end -->
 
 	<!-- self page include css begin -->
+	<link rel="stylesheet" href="../../Scripts/plugin/owl.carousel/owl.carousel.css?CSS=20150630_01">
 	<link rel="stylesheet" href="../../Content/css/about/team.css?CSS=20150630_01">
 	<!-- self page include css end -->
 
@@ -232,7 +233,7 @@
 				<!-- ==================== l-side begin =================== -->
 				<div class="l-side">
 					<aside class="m-aside m-aside-accordion ng-aside-accordion" ng-class="{'is-selected' : Common.Aside.Selected}">
-						<header class="m-aside-hd">
+						<header class="m-aside-hd b-clearfix">
 							<button class="ng-cloak ng-aside-select">
 								{{ Common.Aside.Toggle.Text }}
 								<span class="m-icon-stack m-icon-toggle">
@@ -289,21 +290,46 @@
 						</main>
 					</aside>
 					<aside class="m-aside">
-						<header class="m-aside-hd">
+						<header class="m-aside-hd b-clearfix">
 							<h5>相關連結</h5>
 						</header>
 						<main class="m-aside-bd">
-							<div class="m-video ng-youtube" data-youtube="WdhzVssc-MI">
-								<div class="m-video-bd">
-									<a href="m-button m-button-video">
-										https://youtu.be/WdhzVssc-MI
-										<!-- <figure>
-											<img ng-src="" alt="富邦員工出動 台東蓋樹屋">
-										</figure> -->
-									</a>
-									<div class="m-video-frame"></div>
+							<div class="m-tab m-tab-slide">
+								<div class="m-tab-hd">
+									<ul class="m-ajax ng-youtube-ajax" data-url="//www.youtube.com/embed/" data-setting="?autoplay=0&autohide=1&controls=0&rel=0&fs=1&wmode=transparent&showinfo=0&modestbranding=1&iv_load_policy=1&start=0&theme=dark&color=red&playsinline=false&enablejsapi=1">
+										<li>
+											<em>WdhzVssc-MI</em>
+											<p>正向的力量 讓世界持續美好</p>
+										</li>
+										<li>
+											<em>UTDNB3cLc40</em>
+											<p>待更新</p>
+										</li>
+									</ul>
 								</div>
-								<div class="m-video-ft">富邦金控簡介影片</div>
+								<div class="b-clearfix b-cloak owl-carousel" ng-class="{'b-cloak' : Common.Cloak}">
+									<div class="ng-repeat-done ng-owl-carousel" ng-repeat="youtube in About.Youtube.Data" ng-class="{'b-cloak' : $index !== 0}">
+										<div class="m-video">
+											<div class="m-video-bd">
+												<figure class="m-video-figure ng-video-image">
+													<img ng-src="http://img.youtube.com/vi/{{ youtube.ID }}/0.jpg" alt="{{ youtube.Name }}">
+												</figure>
+												<div class="m-video-frame is-show">
+													<iframe width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allowtransparency="true" class="ng-video-load" ng-src="{{ About.Youtube.GetYoutube(youtube.ID) }}"></iframe>
+												</div>	
+											</div>
+											<div class="m-video-ft">{{ youtube.Name }}</div>
+										</div>
+									</div>
+								</div>
+								<div class="m-tab-ft" ng-class="{'b-cloak' : ! Common.Cloak}">
+									<div class="b-loading is-relative">
+										<span class="m-icon-stack">
+											<i class="m-icon m-icon-fubon-blue is-absolute"></i>
+											<i class="m-icon m-icon-fubon-green"></i>
+										</span>
+									</div>
+								</div>
 							</div>
 						</main>
 					</aside>
@@ -516,13 +542,13 @@
 						<ul class="b-clearfix">
 							<li><a href="../../Views/governance/status.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理現況</em></a></li>
 							<li><a href="../../Views/governance/framework.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理架構</em></a></li>
-							<li><a href="../../Views/governance/operation.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理運作情形</em></a></li>
+							<li><a href="http://www.corpasia.net/taiwan/2881/engovernancepage/13/CH/CG.pdf" target="_blank"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理運作情形</em></a></li>
 							<li><a href="../../Views/governance/letter.html"><i class="m-icon m-icon-nav-arrow"></i><em>股東會</em></a></li>
 							<li><a href="../../Views/governance/board_of_directors.html"><i class="m-icon m-icon-nav-arrow"></i><em>董事會</em></a></li>
 							<li><a href="../../Views/governance/committee.html"><i class="m-icon m-icon-nav-arrow"></i><em>功能性委員會</em></a></li>
 							<li><a href="../../Views/governance/organization.html"><i class="m-icon m-icon-nav-arrow"></i><em>內部稽核組織及運作</em></a></li>
 							<li><a href="../../Views/governance/regulation.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司重要章則</em></a></li>
-							<li><a href="../../Views/governance/mail.html"><i class="m-icon m-icon-nav-arrow"></i><em>獨立董事信箱</em></a></li>
+							<li><a href="mailto:ibtnag@ntu.edu.tw"><i class="m-icon m-icon-nav-arrow"></i><em>獨立董事信箱</em></a></li>
 						</ul>
 					</div>
 				</li>
@@ -580,6 +606,7 @@
 <!-- master page include scripts end -->
 
 <!-- self page include scripts begin -->
+<script type="text/javascript" src="../../Scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20150630_01"></script>
 <script type="text/javascript" src="../../Scripts/js/about/common.js?JS=20150630_01"></script>
 <!-- self page include scripts end -->
 </html>

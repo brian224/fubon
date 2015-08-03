@@ -253,15 +253,85 @@
 			}
 		}
 	}
+
+	&.m-aside-list {
+		.m-aside-hd {
+			> h5 {
+				padding-top    : 15px;
+				padding-bottom : 5px;
+				padding-left   : 15px;
+				
+				&:before {
+					display : none;
+				}
+			}
+		}
+
+		.m-aside-bd {
+			padding-right : 0;
+			padding-left  : 0;
+
+			> ul {
+				> li {
+					&:first-child {
+						> h4 {
+							a {
+								border-top : 0;
+							}
+						}
+					}
+
+					h6 {
+						padding  : 0 ($inner-Width - 5);
+						position : relative;
+						z-index  : 1;
+
+						a {
+							padding     : 10px 0;
+							line-height : 28px;
+							position    : relative;
+							border-top  : 1px solid $border-minor-color;
+							@include display(block);
+							@include box-sizing(border-box);
+							@include transition(color $transition-times);
+
+							&:hover {
+								color : $major-color;
+							}
+
+							> em {
+								padding-left : 14px;
+								font-size    : 14px;
+								position     : relative;
+
+								&:before {
+									content    : "";
+									top        : 11px;
+									left       : 0;
+									width      : 4px;
+									height     : 6px;
+									background : $major-color;
+									position   : absolute;
+									@include clearfix;
+									@include inline-block;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .m-aside-hd {
 	> h5 {
-		padding-left : 20px;
+		padding-left : 15px;
 		font-size    : 18px;
 		line-height  : 1.7;
 		color        : $major-color;
 		position     : relative;
+		float        : left;
 		@include box-sizing(border-box);
 
 		&:before {
@@ -273,6 +343,22 @@
 			position   : absolute;
 			background : $major-color;
 			@include clearfix;
+		}
+	}
+
+	.m-aside-tools {
+		padding-top   : 5px;
+		padding-right : 10px;
+		text-align    : right;
+		width         : 1%;
+		white-space   : nowrap;
+		@include display(table-cell);
+		@include box-sizing(border-box);
+
+		> a {
+			font-size       : 12px;
+			color           : $major-color;
+			text-decoration : underline;
 		}
 	}
 }

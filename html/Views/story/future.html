@@ -146,7 +146,7 @@
 				<!-- ==================== l-side begin =================== -->
 				<div class="l-side">
 					<aside class="m-aside m-aside-accordion ng-aside-accordion" ng-class="{'is-selected' : Common.Aside.Selected}">
-						<header class="m-aside-hd">
+						<header class="m-aside-hd b-clearfix">
 							<button class="ng-cloak ng-aside-select">
 								{{ Common.Aside.Toggle.Text }}
 								<span class="m-icon-stack m-icon-toggle">
@@ -182,16 +182,19 @@
 						</main>
 					</aside>
 					<aside class="m-aside">
-						<header class="m-aside-hd">
+						<header class="m-aside-hd b-clearfix">
 							<h5>影音專區</h5>
+							<div class="m-aside-tools">
+								<a href="https://www.youtube.com/channel/UCgMjSf4JsGOJ1jQpf8uWURQ" target="_blank">MORE</a>
+							</div>
 						</header>
 						<main class="m-aside-bd">
 							<div class="m-tab m-tab-slide">
 								<div class="m-tab-hd">
-									<ul class="m-ajax ng-youtube-ajax" data-url="//www.youtube.com/embed/">
+									<ul class="m-ajax ng-youtube-ajax" data-url="//www.youtube.com/embed/" data-setting="?autoplay=0&autohide=1&controls=0&rel=0&fs=1&wmode=transparent&showinfo=0&modestbranding=1&iv_load_policy=1&start=0&theme=dark&color=red&playsinline=false&enablejsapi=1">
 										<li>
 											<em>WdhzVssc-MI</em>
-											<p>正向的力量 讓世界持續美好(1分鐘版)</p>	
+											<p>正向的力量 讓世界持續美好</p>
 										</li>
 										<li>
 											<em>UTDNB3cLc40</em>
@@ -215,13 +218,11 @@
 									<div class="ng-repeat-done ng-owl-carousel" ng-repeat="youtube in Story.Youtube.Data" ng-class="{'b-cloak' : $index !== 0}">
 										<div class="m-video">
 											<div class="m-video-bd">
-												<a href="javascript:;" class="m-button m-button-video ng-video" data-id="{{ youtube.ID }}?autoplay=1&autohide=1&controls=0&rel=0&fs=1&wmode=transparent&showinfo=0&modestbranding=1&iv_load_policy=1&start=0&theme=dark&color=red&playsinline=false&enablejsapi=1">
-													<figure class="m-video-figure ng-video-image-load">
-														<img ng-src="http://img.youtube.com/vi/{{ youtube.ID }}/0.jpg" alt="{{ youtube.Name }}">
-													</figure>
-												</a>
-												<div class="m-video-frame" ng-class="{'is-show' : $index === Story.Youtube.Index}">
-													<iframe width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allowtransparency="true" ng-src="{{ Story.Youtube.GetYoutube(Story.Youtube.ID) }}" ng-if="$index === Story.Youtube.Index && Story.Youtube.ID !== ''"></iframe>
+												<figure class="m-video-figure ng-video-image">
+													<img ng-src="http://img.youtube.com/vi/{{ youtube.ID }}/0.jpg" alt="{{ youtube.Name }}">
+												</figure>
+												<div class="m-video-frame is-show">
+													<iframe width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allowtransparency="true" class="ng-video-load" ng-src="{{ Story.Youtube.GetYoutube(youtube.ID) }}" ng-if="Story.Youtube.Index === $index"></iframe>
 												</div>	
 											</div>
 											<div class="m-video-ft">{{ youtube.Name }}</div>
@@ -448,13 +449,13 @@
 						<ul class="b-clearfix">
 							<li><a href="../../Views/governance/status.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理現況</em></a></li>
 							<li><a href="../../Views/governance/framework.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理架構</em></a></li>
-							<li><a href="../../Views/governance/operation.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理運作情形</em></a></li>
+							<li><a href="http://www.corpasia.net/taiwan/2881/engovernancepage/13/CH/CG.pdf" target="_blank"><i class="m-icon m-icon-nav-arrow"></i><em>公司治理運作情形</em></a></li>
 							<li><a href="../../Views/governance/letter.html"><i class="m-icon m-icon-nav-arrow"></i><em>股東會</em></a></li>
 							<li><a href="../../Views/governance/board_of_directors.html"><i class="m-icon m-icon-nav-arrow"></i><em>董事會</em></a></li>
 							<li><a href="../../Views/governance/committee.html"><i class="m-icon m-icon-nav-arrow"></i><em>功能性委員會</em></a></li>
 							<li><a href="../../Views/governance/organization.html"><i class="m-icon m-icon-nav-arrow"></i><em>內部稽核組織及運作</em></a></li>
 							<li><a href="../../Views/governance/regulation.html"><i class="m-icon m-icon-nav-arrow"></i><em>公司重要章則</em></a></li>
-							<li><a href="../../Views/governance/mail.html"><i class="m-icon m-icon-nav-arrow"></i><em>獨立董事信箱</em></a></li>
+							<li><a href="mailto:ibtnag@ntu.edu.tw"><i class="m-icon m-icon-nav-arrow"></i><em>獨立董事信箱</em></a></li>
 						</ul>
 					</div>
 				</li>

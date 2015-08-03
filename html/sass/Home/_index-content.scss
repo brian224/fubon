@@ -1,11 +1,76 @@
-.contact-content {
-	.m-media {
-		background : $media-background;
+.l-main-bd {
+	margin-top : 35px;
+	background : transparent;
+	@include box-shadow(rgba(#000 , 0) 0 0 0);
+
+	&.is-content-right {
+		.l-content {
+			width : ($main-min-width - $side-width) - 30;
+		}
+	}
+
+	&.is-content-left {
+		.l-content {
+			width : ($main-min-width - $side-width) - 30;
+		}
 	}
 }
 
-@include respond-to(Tables) {}
+.l-content {
+	padding-top    : 0;
+	padding-bottom : 0;
+	border-top     : 0;
+	overflow       : visible;
+}
 
-@include respond-to(Tables-Mobile) {}
+.l-side {
+	padding-bottom : 0;
+	background     : #FFF;
+	@include box-shadow(rgba(#000 , 0.15) 0 1px 4px);
+}
 
-@include respond-to(Mobile) {}
+.m-media {
+	height     : 780px;
+	background : $media-background;
+}
+
+@include respond-to(Tables) {
+	.l-main-bd {
+		width : auto;
+
+		&:before {
+			display : none;
+		}
+
+		&.is-content-right , &.is-content-left {
+			.l-content , .l-side {
+				width : 100%;
+				float : none;
+			}
+		}
+	}
+
+	.l-side {
+		margin-top : 20px;
+	}
+
+	.m-media {
+		height : 520px;
+	}
+}
+
+@include respond-to(Tables-Mobile) {
+	.l-main-bd {
+		margin-top : 25px;
+	}
+}
+
+@include respond-to(Mobile) {
+	.l-main-bd {
+		margin-top : 15px;
+	}
+
+	.m-media {
+		height : 390px;
+	}
+}

@@ -56,11 +56,33 @@
 			font-size : 14px;
 		}
 	}
+
+	.m-chart-info {
+		font-size  : 14px;
+		margin-top : 10px;
+		position   : relative;
+		color      : $major-color;
+		@include display(block);
+	}
 }
 
 .m-chart-ft {
-	font-size  : 14px;
-	margin-top : 10px;
-	position   : relative;
-	color      : $major-color;
+	position : relative;
+}
+
+@include respond-to(Tables) {}
+@include respond-to(Tables-Mobile) {}
+@include respond-to(Mobile) {
+	.m-chart-bd {
+		@include display(block);
+
+		> li {
+			margin-top : 10px;
+			@include display(block);
+
+			&:first-child {
+				margin-top : 0;
+			}
+		}
+	}
 }
