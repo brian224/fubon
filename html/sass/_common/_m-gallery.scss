@@ -5,44 +5,59 @@
 
 	&.is-info-absolute {
 		.m-gallery-info {
-			top      : 100%;
+			top      : 0;
 			left     : 0;
 			width    : 100%;
 			height   : 100%;
 			position : absolute;
-			@include transition(top $transition-times);
+			@include transform(translateY(100%));
+			@include transition(transform $transition-times);
 
-			&:before {
-				content  : "";
-				top      : 0;
-				left     : 0;
-				width    : 100%;
-				height   : 100%;
-				position : absolute;
-				z-index  : 1;
+			&:after {
+				@include display(block);
+			}
+
+			.m-gallery-group {
+				color : $color-white;
+			}
+
+			.m-item {
+				> li {
+					font-size : 15px;
+
+					&:before {
+						color : $color-white;
+					}
+				}
+			}
+
+			.b-link {
+				color           : $color-white;
+				text-decoration : none;
+				border-bottom   : 1px solid transparent;
+				@include transition(border-color $transition-times);
+
+				&:hover {
+					color               : $color-white;
+					border-bottom-color : $color-white;
+				}
 			}
 		}
 
 		.m-gallery-item {
 			&.is-fubon-blue {
 				.m-gallery-info {
-					&:before {
-						background : rgba($major-color , .65);
+					&:after {
+						background : rgba($major-color , .85);
 					}
 				}
 			}
 
 			&.is-fubon-green {
 				.m-gallery-info {
-					&:before {
-						background : rgba($minor-color , .65);
+					&:after {
+						background : rgba($minor-color , .85);
 					}
-				}
-			}
-
-			&:hover {
-				.m-gallery-info {
-					top : 0;
 				}
 			}
 		}
@@ -135,12 +150,6 @@
 			}
 		}
 	}
-
-	&.is-type-list {
-	}
-
-	&.is-type-article {
-	}
 }
 
 .m-gallery-figure {
@@ -181,13 +190,149 @@
 		bottom    : 0;
 		padding   : 0 5px;
 		font-size : 30px;
-		color     : #FFF;
+		color     : $color-white;
 		position  : absolute;
 		z-index   : 2;
 	}
 }
 
 .m-gallery-info {
+	padding  : 0 25px;
+	width    : 100%;
+	height   : 100%;
 	position : relative;
 	z-index  : 3;
+	@include display(block);
+	@include box-sizing(border-box);
+
+	&:after {
+		content  : "";
+		top      : 0;
+		left     : 0;
+		width    : 100%;
+		height   : 100%;
+		position : absolute;
+		z-index  : 1;
+		display  : none;
+	}
+}
+
+.m-gallery-group {
+	font-size   : 15px;
+	max-width   : 100%;
+	line-height : 28px;
+	position    : relative;
+	z-index     : 2;
+	@include clearfix;
+	@include box-sizing(border-box);
+
+	> div {
+		margin-top : 10px;
+
+		&:first-child {
+			margin-top : 0;
+		}
+
+		> p {
+			text-overflow      : ellipsis;
+			-webkit-line-clamp : 2;
+			@include clearfix;
+			@include box-orient;
+			@include display(-webkit-box);
+		}
+	}
+}
+
+.m-gallery-info-title {
+	margin-bottom : 5px;
+	font-size     : 24px;
+	@include display(block);
+}
+
+@include respond-to(Desktops) {
+	.m-gallery {
+		&.is-info-absolute {
+			.m-gallery-item {
+				&:hover {
+					.m-gallery-info {
+						@include transform(translateY(0));
+					}
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.m-gallery-group {
+		> div {
+			> p {
+				@include line-clamp(6);
+			}	
+		}
+	}
+}
+
+@include respond-to(Tablets) {
+	.m-gallery {
+		&.is-info-absolute {
+			.m-gallery-item {
+				&.is-active {
+					.m-gallery-info {
+						@include transform(translateY(0));
+					}
+				}
+			}
+
+			.m-gallery-group {
+				top : 50%;
+			}
+		}
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.m-gallery-group {
+		> div {
+			> p {
+				@include line-clamp(5);
+			}	
+		}
+	}
+}
+
+@include browsers('IE8') {
+	.m-gallery {
+		&.is-info-absolute {
+			.m-gallery-item {
+				&.is-fubon-blue {
+					.m-gallery-info {
+						&:after {
+							background : image-url('home/background-blue.png') repeat 0 0;
+						}
+					}
+				}
+
+				&.is-fubon-green {
+					.m-gallery-info {
+						&:after {
+							background : image-url('home/background-green.png') repeat 0 0;
+						}
+					}
+				}
+
+				&:hover {
+					.m-gallery-info {
+						top : 0;
+					}
+				}
+			}
+
+			.m-gallery-info {
+				top : 100%;
+			}
+		}
+	}
 }

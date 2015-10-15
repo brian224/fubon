@@ -12,6 +12,7 @@ var $Screen = 1000;
 var $SugarFunBoxSet = {
 	mobile        : false,
 	backdropclose : false,
+	closeBtnElem  : '關閉',
 	loadimg       : '<div class="b-loading"><span class="m-icon-stack"><i class="m-icon m-icon-fubon-blue is-absolute"></i><i class="m-icon m-icon-fubon-green"></i></span></div>'
 }
 
@@ -287,12 +288,12 @@ Ctrl.directive('ngPath', ['$document', function($document) {
 		link: function(scope, elem, attrs) {
 			elem.on('click', function(e) {
 				e.preventDefault();
-				if ( $userAgent !== 'Mobile' ) {
-					scope.Common.Nav.Path.Click = !scope.Common.Nav.Path.Click;
-					scope.$apply();
-				} else {
+				if ( $userAgent !== 'PC' && window.innerWidth <= 768 ) {
 					AgElem('.ng-nav-item').find(' > li').removeClass('is-active');
 					AgElem(this).parent().toggleClass('is-active').siblings().removeClass('is-active');
+				} else {
+					scope.Common.Nav.Path.Click = !scope.Common.Nav.Path.Click;
+					scope.$apply();
 				}
 			});
 		}
@@ -325,6 +326,7 @@ Ctrl.directive('ngPaginationMore', ['$document', function($document) {
 				if (!elem.hasClass('b-disabled')) {
 					scope.Common.Pagination.Active[0] = (scope.Common.Pagination.Active[0] + parseInt(attrs.value, 10));
 					scope.Common.Pagination.MobileAction();
+					console.log(scope.Common.Pagination.Page);
 				}
 				scope.$apply();
 			});
@@ -431,11 +433,10 @@ Ctrl.directive('ngMap', ['$document', function($document) {
 			elem.on('click', function(e) {
 				e.preventDefault();
 
-				AgElem(elem).SugarFunBox({
-					mobile: $SugarFunBoxSet.mobile,
-					backdropclose: $SugarFunBoxSet.backdropclose,
-					click: false,
-					loadimg: $SugarFunBoxSet.loadimg
+				$.SugarFunBox.open({
+					href         : attrs.href,
+					closeBtnElem : $SugarFunBoxSet.closeBtnElem,
+					loadImg      : $SugarFunBoxSet.loadimg
 				});
 			});
 		}
@@ -464,26 +465,18 @@ Ctrl.directive('ngTab', ['$document', function($document) {
 			});
 
 			$elementTab.on('click', function(e) {
-				var $this = AgElem(this),
+				var $this  = AgElem(this),
 					$index = $this.parent().index();
 
-				e.preventDefault();
+				scope.Common.Tab.IsClick = true;
+				// e.preventDefault();
 				elem.removeClass('b-no-transition');
-				$elementTab.removeClass('is-active');
-				$this.addClass('is-active');
-
-				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen ) {
-					scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
-					scope.Common.Tab.ClickArray[0] = $index;
-					$elementItem.eq( scope.Common.Tab.ClickArray[0] ).find('> div').removeClass('b-cloak');
-					scope.Common.Tab.Height = ( $elementItem.eq($index).outerHeight() + parseInt(elem.find(' > ul').css('margin-top') , 10) );
-					scope.Common.Tab.Animate( $elementItem.find('> div') );
-					scope.Common.Tab.Left = $this.position().left;
-				} else {
-					$elementItem.find('> div').removeClass('b-cloak');
-					AgElem(this).parent().toggleClass('is-active').siblings().removeClass('is-active');
-				}
+				scope.Common.Tab.OnClick($elementItem , $elementTab , $this , $index);
 				scope.$apply();
+
+				// window.onhashchange = function() {
+				// 	e.preventDefault();
+				// }
 			});
 		}
 	};
@@ -601,6 +594,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 			}
 		},
 		Tab: {
+			IsClick    : false,
 			ClickArray : [0, 0],
 			Left       : 0,
 			Width      : 0,
@@ -613,7 +607,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 						element.css('left', '-100%');
 					});
 
-					if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
+					if ( 'transform' in window.document.body.style || '-webkit-transition' in window.document.body.style ) {
 						element.one($animationend, function() {
 							$this.ClickArray[1] = $this.ClickArray[0];
 							element.addClass('b-no-transition');
@@ -622,6 +616,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
 							AgElem(window).finish().delay(0).queue(function() {
 								element.removeClass('b-no-transition');
+								$this.IsClick = false;
 							});
 						});
 					} else {
@@ -630,9 +625,10 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							element.css('left', '0');
 							element.addClass('b-cloak');
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
+							$this.IsClick = false;
 						});
 					}
-				} else if ($this.ClickArray[0] < $this.ClickArray[1]) {
+				} else if ( $this.ClickArray[0] < $this.ClickArray[1] ) {
 					if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
 						element.addClass('b-no-transition');
 						element.addClass('b-cloak');
@@ -647,6 +643,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							$this.ClickArray[1] = $this.ClickArray[0];
 							element.addClass('b-cloak');
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
+							$this.IsClick = false;
 						});
 					} else {
 						$this.ClickArray[1] = $this.ClickArray[0];
@@ -654,6 +651,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							element.css('left', '0');
 							element.addClass('b-cloak');
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
+							$this.IsClick = false;
 						});
 					}
 				}
@@ -738,6 +736,42 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 						});
 					}
 				}
+			},
+			OnClick : function(item , tab , elem , index) {
+				var $this = this;
+
+				tab.removeClass('is-active');
+				elem.addClass('is-active');
+
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen ) {
+					$this.ClickArray[1] = $this.ClickArray[0];
+					$this.ClickArray[0] = index;
+					item.eq( $this.ClickArray[0] ).find('> div').removeClass('b-cloak');
+					$this.Height = ( item.eq(index).outerHeight() + parseInt(elem.find(' > ul').css('margin-top') , 10) );
+					$this.Animate( item.find('> div') );
+					$this.Left = elem.position().left;
+				} else {
+					AgElem(window).finish().delay(0).queue(function(){
+						item.eq(index).find('> div').removeClass('b-cloak');
+					});
+					// item.removeClass('is-active');
+					elem.parent().toggleClass('is-active');
+				}
+			},
+			Hash : function() {
+				var $this = this;
+
+				if ( window.location.hash ) {
+					// AgElem('.ng-tab > ul > li > div').addClass('b-no-transition');
+
+					for ( var i = 0 , $length = AgElem('.ng-tab > ul > li').length ; i < $length ; i ++ ) {
+						if ( AgElem('.ng-tab > ul > li:eq('+ i +') > a').attr('href') === window.location.hash ) {
+							$this.OnClick(AgElem('.ng-tab > ul > li') , AgElem('.ng-tab > ul > li > a') , AgElem('.ng-tab > ul > li:eq('+ i +') > a') , i);
+						}
+					};
+				} else {
+					$this.OnClick(AgElem('.ng-tab > ul > li') , AgElem('.ng-tab > ul > li > a') , AgElem('.ng-tab > ul > li:eq(0) > a') , 0);
+				}
 			}
 		},
 		Aside : {
@@ -755,8 +789,8 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 			Top       : parseInt(AgElem('.ng-top').css('top'), 10),
 			Scrolling : function() {
 				var $this = this;
-				if ((AgElem(window).height() + AgElem(document).scrollTop()) >= AgElem('.l-footer').offset().top) {
-					$this.Top = (AgElem('.l-footer').offset().top - AgElem(document).scrollTop() - (AgElem('.ng-top').outerHeight() * 1.7));
+				if ((AgElem(window.parent).height() + AgElem(top.document).scrollTop()) >= AgElem('.l-footer').offset().top) {
+					$this.Top = (AgElem('.l-footer').offset().top - AgElem(top.document).scrollTop() - (AgElem('.ng-top').outerHeight() * 1.7));
 				} else {
 					$this.Top = '';
 				}
@@ -849,10 +883,15 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 		},
 		Accordion : {
 			Aside : function() {
+				if ( $userAgent !== 'PC' ) {
+					if ( AgElem('.ng-aside-accordion .m-aside-hd').outerHeight() > 55 ) {
+						AgElem('.l-content > .m-section').css('margin-top' , ((AgElem('.ng-aside-accordion .m-aside-hd').outerHeight() + 20) + 'px'));
+					}
+				}
 
 			},
 			FAQ : function(parent, element) {
-				if (document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0) {
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 ) {
 					element.append('<span />');
 					parent.find('.m-accordion-bd').append('<span />');
 				}
@@ -871,7 +910,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 
 			$scope.Common.UserAgent = $userAgent;
 
-			if ($userAgent === 'Mobile') {
+			if ( $userAgent !== 'PC' && window.innerWidth <= 768 ) {
 				$this.Nav.Path.Top = 0;
 				$this.Nav.Path.PaddingTop = parseInt(AgElem('.ng-nav').css('padding-top'), 10);
 				$this.Nav.Path.Height = 'auto';
@@ -888,8 +927,18 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 
 	AgElem(document).ready(function() {
 		$scope.Common.UserAgentSet();
-		// $scope.Common.Tab.Slide();
+		$scope.Common.Accordion.Aside();
+		if ( AgElem('.ng-tab').length !== 0 ) {
+			$scope.Common.Tab.Hash();
+		}
 		$scope.$apply();
+
+		window.onhashchange = function() {
+			if ( AgElem('.ng-tab').length !== 0 && ! $scope.Common.Tab.IsClick ) {
+				$scope.Common.Tab.Hash();
+				$scope.$apply();
+			}
+		}
 	});
 
 	AgElem(window).load(function() {

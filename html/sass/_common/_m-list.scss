@@ -18,7 +18,6 @@
 			> li {
 				padding-top    : 10px;
 				padding-bottom : 10px;
-				width          : 100%;
 				@include display(table);
 				@include transition(background $transition-times);
 
@@ -40,7 +39,6 @@
 	&.m-list-icon {
 		.m-list-content {
 			> li {
-				width : 100%;
 				@include display(table);
 
 				> * {
@@ -150,18 +148,26 @@
 }
 
 .m-list-ft {
-	margin-top : 30px;
+	position : relative;
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Desktops) {}
 
-@include respond-to(Tables-Mobile) {
+@include respond-to(Desktops-Tablets) {
+	.m-list-ft {
+		margin-top : 30px;
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
 	.m-list-ft {
 		margin-top : 20px;
 	}
 }
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-list {
 		&.m-list-table {
 			.m-list-content {

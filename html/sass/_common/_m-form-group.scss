@@ -100,7 +100,6 @@
 			padding-top    : 10px;
 			padding-bottom : 9px;
 			line-height    : 1.4;
-			@include display(table);
 		}
 	}
 
@@ -174,8 +173,22 @@
 		display : none;
 	}
 
+	.m-form-ctrl-table {
+		padding-left : 5px;
+
+		> *:first-child {
+			padding-left : 0;
+		}
+
+		> .m-form-addon {
+			padding-left : 5px;
+		}
+	}
+
 	.m-form-ctrl {
-		margin-bottom   : 5px;
+		/*margin-bottom   : 5px;*/
+		padding-right: 0;
+		/*padding-left: 0;*/
 		border-collapse : separate;
 		position        : relative;
 		@include clearfix;
@@ -186,11 +199,6 @@
 			@include display(block);
 		}
 
-		.b-col-md-padding-reset {
-			padding-right : 0;
-			padding-left  : 0;
-		}
-
 		> * {
 			height : 100%;
 			@include clearfix;
@@ -198,22 +206,20 @@
 		}
 
 		> label {
+			padding-right : 0;
 			padding-left  : 5px;
 			@include display(table-cell);
 
 			&:first-child {
 				padding-left : 0;
 			}
-
-			&.is-margin-top {
-				margin-top : 10px;
-			}
 		}
 
 		.m-form-addon {
-			padding-left : 5px;
-			width        : 1%;
-			white-space  : nowrap;
+			padding-right : 0;
+			padding-left  : 5px;
+			width         : 1%;
+			white-space   : nowrap;
 			@include display(table-cell);
 
 			&:first-child {
@@ -244,36 +250,53 @@
 	}
 }
 
-/* IE8 & IE9 */
-.IE8 , .IE9 {
+@include respond-to(Desktops) {
 	.m-form-group {
-		&.m-form-select {
-			.m-form-ctrl {
-				.is-label {
-					> .m-icon {
-						display : none;
-					}
-				}
+		.is-margin-top-md {
+			margin-top : 5px;
+		}
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.m-form-group {
+		&.m-form-horizontal {
+			width : 100%;
+			@include display(table);
+
+			.m-form-addon {
+				@include display(table-cell , top);
+			}
+		}
+
+		.m-form-ctrl-table {
+			padding-right : 0;
+			@include display(table-cell);
+
+			> .m-form-addon {
+				float : left;
+				@include display(block);
 			}
 		}
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Tablets) {}
 
-@include respond-to(Tables-Mobile) {
+@include respond-to(Tablets-Mobiles) {
 	.m-form-group {
-		.m-form-ctrl {
-			.b-col-sm-padding-reset {
-				padding-right : 0;
-				padding-left  : 0;
-			}
+		.is-margin-top-sm {
+			margin-top : 5px;
 		}
 	}
 }
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-form-group {
+		.is-margin-top-xs {
+			margin-top : 5px;
+		}
+
 		&.is-required {
 			> .m-form-addon {
 				&:after {
@@ -288,20 +311,39 @@
 
 		&.m-form-horizontal {
 			.m-form-addon {
+				/*@include display(block);*/
+			}
+		}
+
+		.m-form-ctrl-table {
+			padding-right : 5px;
+			@include clearfix;
+
+			> .m-form-addon {
+				float : left;
 				@include display(block);
 			}
 		}
 
 		.m-form-ctrl {
-			width : 100%;
-
-			.b-col-xs-padding-reset {
-				padding-right : 0;
-				padding-left  : 0;
-			}
+			/*width : 100%;*/
 
 			.m-form-addon {
 				width : auto;
+			}
+		}
+	}
+}
+
+@include browsers('IE8&IE9') {
+	.m-form-group {
+		&.m-form-select {
+			.m-form-ctrl {
+				.is-label {
+					> .m-icon {
+						display : none;
+					}
+				}
 			}
 		}
 	}

@@ -1,67 +1,9 @@
 .m-aside {
-	margin-top : 25px;
-	position   : relative;
-
-	&:first-child {
-		margin-top : 0;
-	}
+	position : relative;
 
 	&.m-aside-accordion {
-		/*margin-bottom : -1px;*/
-		border-bottom : 1px solid $border-minor-color;
 		@include box-sizing(border-box);
 
-		.m-aside-hd {
-			height      : 40px;
-			line-height : 40px;
-			border      : 1px solid $border-major-color;
-			display     : none;
-			background  : $color-inverse;
-			position    : relative;
-			@include box-sizing(border-box);
-
-			> button {
-				margin         : 0;
-				padding        : 0 15px;
-				font           : 20px/1.6 $font-family;
-				text-align     : left;
-				color          : $text-major-color;
-				width          : 100%;
-				height         : 100%;
-				border         : 0;
-				border-spacing : 0;
-				position       : relative;
-				background     : none;
-				outline        : 0;
-				text-indent    : 0;
-				white-space    : nowrap;
-				z-index        : 1;
-				@include touch-action;
-				@include display(block);
-				@include box-sizing(border-box);
-
-				.m-icon-stack {
-					top         : 50%;
-					right       : 15px;
-					margin-top  : -10px;
-					color       : $major-color;
-					width       : 20px;
-					height      : 20px;
-					line-height : 20px;
-					position    : absolute;
-					@include clearfix;
-
-					.m-icon {
-						display : none;
-
-						&:first-child {
-							@include display(block);
-						}
-					}
-				}
-			}
-		}
-		
 		.m-aside-bd {
 			padding-right : 0;
 			padding-left  : 0;
@@ -133,7 +75,7 @@
 					}
 
 					&:first-child {
-						> h4 {
+						> h6 {
 							a {
 								border-top : 0;
 							}
@@ -166,7 +108,6 @@
 						z-index  : 1;
 
 						a {
-							height      : 50px;
 							line-height : 1.6;
 							position    : relative;
 							display     : block;
@@ -174,23 +115,8 @@
 							@include box-sizing(border-box);
 							@include transition(color $transition-times);
 
-							&:hover {
-								color : $major-color;
-							}
-
 							> em {
 								font-size : 15px;
-
-								&:before {
-									content      : "";
-									margin-top   : -3px;
-									margin-right : 10px;
-									width        : 4px;
-									height       : 6px;
-									background   : $major-color;
-									@include clearfix;
-									@include inline-block;
-								}
 							}
 						}
 					}
@@ -211,7 +137,7 @@
 								> a {
 									padding-top    : 10px;
 									padding-bottom : 10px;
-									color          : #FFF;
+									color          : $color-white;
 									@include display(block);
 
 									> .m-icon {
@@ -225,24 +151,12 @@
 										@include inline-block;
 										@include transition(border-color $transition-times);
 									}
-
-									&:hover {
-										> em {
-											border-bottom-color : #FFF;
-										}
-									}
 								}
 
 								&.is-active {
 									> a {
 										> .m-icon {
 											visibility : visible;
-										}
-
-										&:hover {
-											> em {
-												border-bottom-color : transparent;
-											}
 										}
 									}
 								}
@@ -274,7 +188,7 @@
 			> ul {
 				> li {
 					&:first-child {
-						> h4 {
+						> h6 {
 							a {
 								border-top : 0;
 							}
@@ -367,7 +281,100 @@
 	padding  : 0 ($inner-Width - 5);
 }
 
-@include respond-to(Tables) {
+@include respond-to(Desktops) {
+	.m-aside {
+		&.m-aside-accordion {
+			border-bottom : 1px solid $border-minor-color;
+
+			.m-aside-hd {
+				display : none;
+			}
+
+			.m-aside-bd {
+				> ul {
+
+					> li {
+						h6 {
+							a {
+								padding     : 5px 0 5px 13px;
+								width       : 100%;
+								min-height  : 50px;
+								line-height : 20px;
+								@include display(table);
+
+								&:hover {
+									color : $major-color;
+								}
+
+								> em {
+									@include display(table-cell);
+
+									&:before {
+										content    : "";
+										top        : 50%;
+										left       : 0;
+										margin-top : -3px;
+										width      : 4px;
+										height     : 6px;
+										background : $major-color;
+										position   : relative;
+										position   : absolute;
+										@include clearfix;
+									}
+								}
+							}
+						}
+
+						> div {
+							> ul {
+								> li {
+									> a {
+										@include display(table);
+
+										&:hover {
+											> em {
+												border-bottom-color : $color-white;
+											}
+										}
+
+										> .m-icon {
+											padding-right : 5px;
+											width         : 1%;
+											white-space   : nowrap;
+											@include display(table-cell);
+										}
+									}
+
+									&.is-active {
+										> a {
+											&:hover {
+												> em {
+													border-bottom-color : transparent;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.m-aside {
+		margin-top : 25px;
+
+		&:first-child {
+			margin-top : 0;
+		}
+	}
+}
+
+@include respond-to(Tablets) {
 	.m-aside {
 		padding-right : ($inner-Width - 10);
 		padding-left  : ($inner-Width - 10);
@@ -377,9 +384,9 @@
 			left          : 0;
 			width         : 100%;
 			border-bottom : 0;
-			display       : block;
 			position      : absolute;
 			z-index       : 20;
+			@include display(block);
 
 			&.is-disabled {
 				.m-aside-hd {
@@ -400,7 +407,7 @@
 					> button {
 						.m-icon-stack {
 							.m-icon {
-								display : block;
+								@include display(block);
 
 								&:first-child {
 									display : none;
@@ -416,7 +423,44 @@
 			}
 
 			.m-aside-hd {
-				display : block;
+				padding     : 10px 0;
+				min-height  : 40px;
+				line-height : 20px;
+				border      : 1px solid $border-major-color;
+				background  : $color-inverse;
+				position    : relative;
+				@include box-sizing(border-box);
+
+				> button {
+					padding     : 0 15px;
+					font-size   : 20px;
+					text-align  : left;
+					width       : 100%;
+					height      : 100%;
+					line-height : 1.2;
+					@include display(block);
+					@include box-sizing(border-box);
+
+					.m-icon-stack {
+						top         : 50%;
+						right       : 15px;
+						margin-top  : -10px;
+						color       : $major-color;
+						width       : 20px;
+						height      : 20px;
+						line-height : 20px;
+						position    : absolute;
+						@include clearfix;
+
+						.m-icon {
+							display : none;
+
+							&:first-child {
+								@include display(block);
+							}
+						}
+					}
+				}
 			}
 
 			.m-aside-bd {
@@ -446,39 +490,13 @@
 							}
 						}
 
-						&.is-active , &.is-curred {
-							> h6 {
-								a {
-									&:hover {
-										color : $major-color;
-									}
-								}
-							}
-						}
-
-						&:first-child {
-							> h6 {
-								a {
-									border-top : 0;
-								}
-							}
-						}
-
 						> h6 {
-							padding : 0 ($inner-Width - 5);
-							
 							a {
-								height : 40px;
-
-								&:hover {
-									color : $text-minor-color;
-								}
-
-								> em {
-									&:before {
-										display : none;
-									}
-								}
+								padding-top    : 5px;
+								padding-bottom : 5px;
+								width          : 100%;
+								min-height     : 40px;
+								@include display(table);
 							}	
 						}
 
@@ -508,10 +526,14 @@
 
 }
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Tablets-Mobiles) {}
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-aside {
 		margin-top : 10px;
+
+		&:first-child {
+			margin-top : 0;
+		}
 	}
 }

@@ -24,13 +24,14 @@
 }
 
 .m-personal-item {
-	padding  : 5px;
+	padding  : 1px;
 	position : relative;
+	border   : 1px solid $border-minor-color;
 	@include clearfix;
 	@include inline-block;
-	@include border-radius(50%);
+	/*@include border-radius(50%);*/
 	@include box-sizing(border-box);
-	@include background-image(linear-gradient($major-color , $minor-color));
+	/*@include background-image(linear-gradient($major-color , $minor-color));*/
 
 	img {
 		max-width  : 100%;
@@ -39,7 +40,7 @@
 		z-index    : 1;
 		@include clearfix;
 		@include display(block);
-		@include border-radius(50%);
+		/*@include border-radius(50%);*/
 	}
 }
 
@@ -53,7 +54,7 @@
 	color : $major-color;
 }
 
-.IE8 {
+@include browsers('IE8') {
 	.m-personal {
 		.m-personal-item {
 			> span {
@@ -67,7 +68,7 @@
 			}
 		}
 
-		&.is-sm {
+		/*&.is-sm {
 			.m-personal-item {
 				> span {
 					background : image-url('m-personal-border-mask-sm.png') no-repeat center center;
@@ -81,6 +82,6 @@
 					background : image-url('m-personal-border-mask-lg.png') no-repeat center center;
 				}
 			}
-		}
+		}*/
 	}
 }

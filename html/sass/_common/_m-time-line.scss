@@ -15,19 +15,13 @@
 			margin-right : 0;
 			margin-left  : 0;
 			width        : 100%;
-			@include display(table);
+			
 
 			> li {
 				padding-top  : 0;
 				padding-left : 5px;
 				@include clearfix;
-				@include display(table-cell , top);
-
-				&[class^="b-col-"] , &[class*=" b-col-"] {
-					padding-right : 0;
-					padding-left  : 0;
-					float         : none;
-				}
+				
 
 				&:first-child {
 					padding-top : 0;
@@ -39,10 +33,11 @@
 					position : relative;
 
 					&:before {
-						top    : 32px;
-						left   : 0;
-						width  : 100%;
-						height : 1px;
+						top         : 32px;
+						left        : 0;
+						margin-left : 0;
+						width       : 100%;
+						height      : 1px;
 					}
 
 					> span {
@@ -53,7 +48,6 @@
 				}
 
 				.m-time-line-item {
-					margin-top    : 20px;
 					margin-bottom : 10px;
 					font-size     : 14px;
 					line-height   : 1.6;
@@ -64,33 +58,19 @@
 
 	> ul {
 		> li {
-			padding-top    : 45px;
-			padding-bottom : 18px;
-			padding-left   : 100px;
-			position       : relative;
+			position : relative;
 			@include box-sizing(border-box);
-
-			&:first-child {
-				margin-top : -26px;
-			}
 		}
 	}
 }
 
 .m-time-line-time {
-	top      : 26px;
-	left     : 10px;
-	height   : 100%;
-	position : absolute;
+	height : 100%;
 	@include display(block);
 
 	&:before {
 		content     : "";
-		top         : 0;
-		left        : 50%;
-		width       : 2px;
 		margin-left : -1px;
-		height      : 100%;
 		position    : absolute;
 		background  : $minor-color;
 		@include clearfix;
@@ -99,8 +79,8 @@
 	> span {
 		color      : $major-color;
 		text-align : center;
-		width      : 65px;
-		height     : 65px;
+		width      : 66px;
+		height     : 66px;
 		position   : relative;
 		@include clearfix;
 		@include inline-block;
@@ -116,21 +96,23 @@
 		}
 
 		&:before {
-			top     : 0;
-			left    : 0;
-			width   : 100%;
-			height  : 100%;
+			top     : 1px;
+			left    : 1px;
+			width   : 64px;
+			height  : 64px;
 			z-index : 1;
 			@include background-image(linear-gradient($major-color , $minor-color));
 		}
 
 		&:after {
-			top        : 50%;
-			left       : 50%;
-			margin     : -42% 0 0 -42%;
-			width      : 85%;
-			height     : 85%;
-			background : #FFF;
+			top        : 0;
+			right      : 0;
+			bottom     : 0;
+			left       : 0;
+			margin     : auto;
+			width      : 56px;
+			height     : 56px;
+			background : $color-white;
 			z-index    : 2;
 		}
 
@@ -140,7 +122,6 @@
 			bottom      : 0;
 			left        : 0;
 			margin      : auto;
-			font-size   : 18px;
 			width       : 100%;
 			height      : 20px;
 			line-height : 20px;
@@ -154,44 +135,76 @@
 	@include box-sizing(border-box);
 }
 
-.IE8 {
-	.m-time-line-time {
-		> span {
-			&:before {
-				background : image-url('m-time-line-border-mask.png') no-repeat center top;	
-				z-index    : 2;
-			}
+@include respond-to(Desktops) {}
 
-			&:after {
-				display : none;
-			}	
+@include respond-to(Desktops-Tablets) {
+	.m-time-line {
+		&.m-time-line-horizontal {
+			> ul {
+				@include display(table);
+
+				> li {
+					padding-right : 0;
+					padding-left  : 0;
+					@include display(table-cell , top);
+
+					.m-time-line-item {
+						margin-top : 20px;
+					}
+				}
+			}
+		}
+
+		> ul {
+			> li {
+				margin-bottom  : -1px;
+				padding-top    : 45px;
+				padding-bottom : 18px;
+				padding-left   : 100px;
+
+				&:first-child {
+					margin-top : -26px;
+				}
+			}
+		}
+	}
+
+	.m-time-line-time {
+		top      : 25px;
+		left     : 10px;
+		position : absolute;
+
+		&:before {
+			content : "";
+			top     : 0;
+			left    : 50%;
+			width   : 2px;
+			height  : 100%;
+		}
+
+		> span {
+			> em {
+				font-size : 18px;
+			}
 		}
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Tablets) {}
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Tablets-Mobiles) {}
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-time-line {
 		&.m-time-line-horizontal {
 			> ul {
-				@include display(block);
-
 				> li {
-					@include display(block);
-
 					.m-time-line-time {
 						> span {
 							> em {
 								font-size : 14px;
 							}	
 						}
-					}
-
-					.m-time-line-item {
-						margin-top : 0;
 					}
 				}	
 			}
@@ -200,13 +213,10 @@
 		> ul {
 			> li {
 				margin-top     : -10px;
-				padding-top    : 0;
 				padding-bottom : 25px;
-				padding-left   : 0;
 
 				&:first-child {
-					margin-top  : 0;
-					padding-top : 0;
+					margin-top : 0;
 				}
 
 				&:last-child {
@@ -225,28 +235,66 @@
 	}
 
 	.m-time-line-time {
-		top      : 0;
-		left     : 0;
 		position : relative;
 
 		&:before {
-			content    : "";
-			top        : 50%;
-			left       : 0;
-			width      : 100%;
-			height     : 1px;
-			background : $minor-color;
+			top    : 50%;
+			left   : 0;
+			width  : 100%;
+			height : 1px;
 		}
 
 		> span {
 			> em {
 				font-size : 14px;
-			}	
+			}
 		}
 	}
 
 	.m-time-line-item {
 		padding : 0 10px;
-		/*border-top : 1px solid $minor-color;*/
+	}
+}
+
+@include browsers('IE8') {
+	.m-time-line {
+		&.m-time-line-horizontal {
+			&.is-item-align-bottom {
+				> ul {
+					> li {
+						vertical-align : bottom;
+					}
+				}
+			}
+
+			> ul {
+				> li {
+					&:first-child {
+						padding-top : 45px;
+					}
+				}
+			}
+		}
+
+		> ul {
+			> li {
+				margin-bottom : 0;
+			}
+		}
+	}
+
+	.m-time-line-time {
+		> span {
+			&:before {
+				width      : 100%;
+				height     : 100%;
+				background : image-url('m-time-line-border-mask.png') no-repeat left top;
+				z-index    : 2;
+			}
+
+			&:after {
+				display : none;
+			}
+		}
 	}
 }

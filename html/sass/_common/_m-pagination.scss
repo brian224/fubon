@@ -1,33 +1,13 @@
 .m-pagination {
 	text-align : center;
 	position   : relative;
-
-	&:after {
-		content    : "";
-		top        : 50%;
-		left       : 0;
-		width      : 100%;
-		height     : 1px;
-		background : $border-minor-color;
-		position   : absolute;
-		z-index    : 1;
-		@include clearfix;
-	}
-}
-
-.m-pagination-hd {
-	display : none;
-
-	.m-button {
-		width : 100%;
-	}
 }
 
 .m-pagination-bd {
 	padding-right : 20px;
 	padding-left  : 20px;
 	position      : relative;
-	background    : #FFF;
+	background    : $color-white;
 	white-space   : nowrap;
 	z-index       : 2;
 	@include clearfix;
@@ -44,7 +24,7 @@
 		> a {
 			font-size      : 14px;
 			text-align     : center;
-			color          : #FFF;
+			color          : $color-white;
 			width          : 24px;
 			height         : 24px;
 			line-height    : 24px;
@@ -84,19 +64,37 @@
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Desktops) {}
 
-@include respond-to(Tables-Mobile) {}
-
-@include respond-to(Mobile) {
+@include respond-to(Desktops-Tablets) {
 	.m-pagination {
 		&:after {
-			display : none;
+			content    : "";
+			top        : 50%;
+			left       : 0;
+			width      : 100%;
+			height     : 1px;
+			background : $border-minor-color;
+			position   : absolute;
+			z-index    : 1;
+			@include clearfix;
 		}
 	}
 
 	.m-pagination-hd {
-		@include display(block);
+		display : none;
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.m-pagination-hd {
+		.m-button {
+			width : 100%;
+		}
 	}
 
 	.m-pagination-bd {

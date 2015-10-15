@@ -1,8 +1,8 @@
 .m-section {
-	margin-top : 15px;
-
 	&.is-line {
 		.m-section-hd {
+			margin-bottom  : 5px;
+			padding-bottom : 5px;
 			border-bottom  : 1px solid $border-minor-color;
 
 			&:before {
@@ -33,10 +33,7 @@
 }
 
 .m-section-hd {
-	margin-bottom  : 5px;
-	padding-right  : $inner-Width;
-	padding-bottom : 10px;
-	padding-left   : $inner-Width;
+	margin-bottom  : -16px;
 	position       : relative;
 	@include box-sizing(border-box);
 
@@ -53,7 +50,6 @@
 
 		.m-section-tools {
 			margin-top  : 0;
-			padding-top : 5px;
 			text-align  : right;
 			width       : 1%;
 			@include display(table-cell);
@@ -91,29 +87,56 @@
 	}
 
 	.m-section-tools {
-		margin-top : 10px;
 		font-size  : 14px;
 		@include display(block);
 	}
 }
 
 .m-section-bd {
-	padding  : 25px $inner-Width 0 $inner-Width;
+	padding  : 25px 0 0 0;
 	position : relative;
 	@include box-sizing(border-box);
 
 	> * {
-		margin-top : 25px;
-
 		&:first-child {
 			margin-top : 0;
 		}
 	}
 }
 
-@include respond-to(Tables) {
+@include respond-to(Desktops) {
 	.m-section {
-		margin-top : 55px;
+		margin-top : 15px;
+	}
+
+	.m-section-hd {
+		padding-right : $inner-Width;
+		padding-left  : $inner-Width;
+
+		&.is-col {
+			.m-section-tools {
+				padding-top : 5px;
+			}
+		}
+
+		.m-section-tools {
+			margin-top : 10px;
+		}
+	}
+
+	.m-section-bd {
+		padding-right : $inner-Width;
+		padding-left  : $inner-Width;
+
+		> * {
+			margin-top : 25px;
+		}
+	}
+}
+
+@include respond-to(Tablets) {
+	.m-section {
+		margin-top : 65px;
 	}
 
 	.m-section-hd {
@@ -145,9 +168,9 @@
 	}
 }
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Tablets-Mobiles) {}
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-section-hd {
 		.m-section-tools {
 			.m-form-group {

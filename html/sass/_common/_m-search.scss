@@ -3,11 +3,7 @@
 }
 
 .m-search-hd {
-	&.is-margin-bottom {
-		> * {
-			margin-bottom : 25px;
-		}	
-	}
+	margin-bottom : 20px;
 
 	.m-form-group {
 		.m-search-data {
@@ -40,7 +36,8 @@
 	border-top : 1px solid $border-minor-color;
 
 	&:first-child {
-		border-top : 0;
+		padding-top : 0;
+		border-top  : 0;
 	}
 
 	> em {
@@ -55,9 +52,21 @@
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Desktops) {}
 
-@include respond-to(Tables-Mobile) {
+@include respond-to(Desktops-Tablets) {
+	.m-search-bd {
+		&.is-margin-bottom {
+			> * {
+				margin-bottom : 25px;
+			}	
+		}
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
 	.m-search-bd {
 		&.is-margin-bottom {
 			> * {
@@ -67,7 +76,7 @@
 	}
 }
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-search-bd {
 		&.is-margin-bottom {
 			> * {

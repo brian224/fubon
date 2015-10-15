@@ -1,12 +1,10 @@
 .m-file {
-	margin-bottom : -45px;
-	position      : relative;
+	position : relative;
 	@include clearfix;
 	@include display(block);
 }
 
 .m-file-item {
-	margin-bottom  : 45px;
 	padding-top    : 30px;
 	padding-bottom : 30px;
 	border         : 1px solid $border-minor-color;
@@ -33,18 +31,6 @@
 
 	&:after {
 		bottom : 5px;
-	}
-
-	&:hover {
-		&:before {
-			background : darken($major-color , 15%);
-		}
-
-		.m-file-item-bd {
-			> em {
-				color : darken($major-color , 15%);
-			}
-		}
 	}
 }
 
@@ -76,25 +62,33 @@
 	}
 }
 
-@include respond-to(Tables) {
+@include respond-to(Desktops) {
 	.m-file-item {
-		margin-bottom : 20px;
+		margin-bottom  : 45px;
 
 		&:hover {
 			&:before {
-				background : $major-color;
+				background : darken($major-color , 15%);
 			}
 
 			.m-file-item-bd {
 				> em {
-					color : $major-color;
+					color : darken($major-color , 15%);
 				}
 			}
 		}
 	}
 }
 
-@include respond-to(Tables-Mobile) {
+@include respond-to(Desktops-Tablets) {
+	.m-file {
+		margin-bottom : -45px;
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
 	.m-file {
 		margin-bottom : -30px;
 	}
@@ -104,8 +98,12 @@
 	}
 }
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-file {
 		margin-bottom : -20px;
+	}
+
+	.m-file-item {
+		margin-bottom : 20px;
 	}
 }

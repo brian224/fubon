@@ -1,20 +1,9 @@
 ﻿.m-icon {
 	/* 顏色設定 */
 	@each $key , $value in $color {
-		&.b-#{'' + $key} {
+		&.b-#{$key} {
 			color : $value !important;
 		}
-	}
-
-	/* icon-size */
-	$types : 20;
-	$Size  : 12px;
-	@while $types > 0 {
-		&.m-icon-size-md-#{$types} {
-			font-size : $Size * $types;
-		}
-
-		$types : $types - 1;
 	}
 }
 
@@ -24,19 +13,6 @@
 	@include inline-block;
 	@include box-sizing(border-box);
 
-	/* icon-size */
-	$types : 20;
-	$Size  : 12px;
-	@while $types > 0 {
-		&.m-icon-size-md-#{$types} {
-			.m-icon {
-				font-size : $Size * $types;
-			}
-		}
-
-		$types : $types - 1;
-	}
-
 	.m-icon {
 		top        : 0;
 		left       : 0;
@@ -45,7 +21,10 @@
 		display    : block;
 
 		&.is-absolute {
+			top      : 0 !important;
+			left     : 0 !important;
 			position : absolute !important;
+			@include display(block !important);
 		}
 
 		&.is-hide {
@@ -55,6 +34,7 @@
 
 	&.m-icon-fubon-group {
 		.m-icon {
+			white-space : nowrap;
 			@include display(table-cell);
 
 			&.m-icon-fubon-blue {
@@ -64,10 +44,6 @@
 			&.m-icon-fubon-green {
 				color : $color-fubon-green;
 			}
-		}
-
-		&.is-story {
-			font-size : attr(data-size);
 		}
 	}
 
@@ -119,7 +95,7 @@
 			bottom     : 0;
 			left       : 0;
 			text-align : center;
-			color      : #FFF;
+			color      : $color-white;
 			width      : 100%;
 			height     : 100%;
 			position   : relative;
@@ -163,7 +139,7 @@
 			top            : 0;
 			left           : 0;
 			font-size      : 45%;
-			color          : #FFF;
+			color          : $color-white;
 			width          : 100%;
 			height         : 100%;
 			position       : absolute;
@@ -206,14 +182,6 @@
 			margin-top    : 10px;
 			margin-bottom : 10px;
 			@include box-sizing(border-box);
-
-			&.b-align-md-left {
-				padding-left : 30px;
-			}
-
-			&.b-align-md-right {
-				padding-right : 30px;
-			}
 		}
 
 		.m-icon-border-item {
@@ -240,7 +208,7 @@
 					margin     : -50px 0 0 -50px;
 					width      : 100px;
 					height     : 100px;
-					background : #FFF;
+					background : $color-white;
 					position   : absolute;
 					z-index    : 1;
 					@include clearfix;
@@ -280,28 +248,49 @@
 	}
 }
 
-.IE8 , .IE9 {
-	.m-icon-stack {
-		&.m-icon-border {
-			.m-icon-border-item {
-				> div {
-					background : none;
-					filter     : none;
+@include respond-to(Desktops) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-md-#{$types} {
+				font-size : $Size * $types;
+			}
 
-					&:after {
-						margin     : -55px 0 0 -55px;
-						width      : 110px;
-						height     : 110px;
-						background : image-url('m-icon-border-mask.png') no-repeat center center;
-						@include border-radius(0);
-					}
+			$types : $types - 1;
+		}
+	}
+
+	.m-icon-stack {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-md-#{$types} {
+				.m-icon {
+					font-size : $Size * $types;
 				}
+			}
+
+			$types : $types - 1;
+		}
+
+		&.m-icon-border {
+			&.b-align-md-left {
+				padding-left : 30px;
+			}
+
+			&.b-align-md-right {
+				padding-right : 30px;
 			}
 		}
 	}
 }
 
-@include respond-to(Tables) {
+@include respond-to(Desktops-Tablets) {}
+
+@include respond-to(Tablets) {
 	.m-icon-stack {
 		&.m-icon-circle-group {
 			.m-icon-circle-item {
@@ -321,7 +310,7 @@
 	}
 }
 
-@include respond-to(Tables-Mobile) {
+@include respond-to(Tablets-Mobiles) {
 	.m-icon {
 		/* icon-size */
 		$types : 20;
@@ -351,21 +340,6 @@
 
 		&.m-icon-border {
 			> li {
-				&.b-align-md-left {
-					padding-right : 0;
-					padding-left  : 0;
-				}
-
-				&.b-align-md-center {
-					padding-right : 0;
-					padding-left  : 0;
-				}
-
-				&.b-align-md-right {
-					padding-right : 0;
-					padding-left  : 0;
-				}
-
 				&.b-align-sm-left {
 					padding-left : 15px;
 				}
@@ -382,7 +356,7 @@
 	}
 }
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-icon {
 		/* icon-size */
 		$types : 20;
@@ -409,28 +383,38 @@
 
 			$types : $types - 1;
 		}
+	}
+}
 
-		&.m-icon-border {
-			> li {
-				&.b-align-sm-left {
-					padding-right : 0;
-					padding-left  : 0;
-				}
-
-				&.b-align-sm-center {
-					padding-right : 0;
-					padding-left  : 0;
-				}
-
-				&.b-align-sm-right {
-					padding-right : 0;
-					padding-left  : 0;
+@include browsers('FireFox') {
+	.m-icon-stack {
+		&.m-icon-circle-group {
+			.m-icon {
+				&.m-icon-circle {
+					&:before {
+						vertical-align : middle;
+					}
 				}
 			}
+		}
+	}
+}
 
+@include browsers('IE8&IE9') {
+	.m-icon-stack {
+		&.m-icon-border {
 			.m-icon-border-item {
-				> p {
-					padding-left : 20px;
+				> div {
+					background : none;
+					filter     : none;
+
+					&:after {
+						margin     : -55px 0 0 -55px;
+						width      : 110px;
+						height     : 110px;
+						background : image-url('m-icon-border-mask.png') no-repeat center center;
+						@include border-radius(0);
+					}
 				}
 			}
 		}

@@ -1,9 +1,6 @@
 .l-nav {
-	top       : 0;
-	left      : 0;
-	width     : 100%;
-	min-width : $main-min-width;
-	position : absolute;
+	top  : 0;
+	left : 0;
 	@include transition(margin-left $transition-times);
 
 	&.no-transition {
@@ -20,7 +17,7 @@
 
 .l-header {
 	position   : relative;
-	background : #FFF;
+	background : $color-white;
 	@include box-sizing(border-box);
 }
 
@@ -33,12 +30,8 @@
 }
 
 .l-main-bd {
-	margin       : -36px auto 0 auto;
-	width        : 100%;
-	max-width    : $main-min-width;
-	/*background : $sub-color;*/
-	background   : #FFF;
-	position     : relative;
+	margin   : 0 auto;
+	position : relative;
 	@include box-sizing(border-box);
 	@include box-shadow(rgba(#000 , .15) 0 1px 4px);
 
@@ -50,28 +43,6 @@
 		height     : 100%;
 		position   : absolute;
 		background : $sub-color;
-	}
-
-	&.is-content-right {
-		.l-content {
-			width : ($main-min-width - $side-width);
-			float : right;
-		}
-
-		.l-side {
-			float : left;
-		}
-	}
-
-	&.is-content-left {
-		.l-content {
-			width : ($main-min-width - $side-width);
-			float : left;
-		}
-
-		.l-side {
-			float : right;
-		}
 	}
 }
 
@@ -86,9 +57,8 @@
 
 .l-side {
 	padding-bottom : 30px;
-	width          : $side-width;
+	width          : 100%;
 	border-top     : 4px solid $major-color;
-	position       : relative;
 	@include clearfix;
 	@include box-sizing(border-box);
 }
@@ -98,10 +68,56 @@
 	background : $color-footer;
 }
 
-@include respond-to(Tables) {
+@include respond-to(Desktops) {
+	.l-nav {
+		width     : 100%;
+		min-width : $main-min-width;
+		position  : absolute;
+	}
+
+	.l-main-bd {
+		margin-top : -36px;
+		width      : 100%;
+		max-width  : $main-min-width;
+		background : $color-white;
+
+		&:first-child {
+			margin-top : 45px;
+		}
+
+		&.is-content-right {
+			.l-content {
+				width : ($main-min-width - $side-width);
+				float : right;
+			}
+
+			.l-side {
+				width : $side-width;
+				float : left;
+			}
+		}
+
+		&.is-content-left {
+			.l-content {
+				width : ($main-min-width - $side-width);
+				float : left;
+			}
+
+			.l-side {
+				width : $side-width;
+				float : right;
+			}
+		}
+	}
+
+	.l-side {
+		position : relative;
+	}
+}
+
+@include respond-to(Tablets) {
 	.l-nav {
 		margin-left : -80%;
-		min-width   : inherit;
 		width       : 80%;
 		height      : 100%;
 		position    : fixed;
@@ -138,26 +154,19 @@
 	}
 
 	.l-main-bd {
-		margin     : -18px 10px 0 10px;
-		width      : auto;
-		max-width  : inherit;
-		background : none;
+		margin : -18px 10px 0 10px;
 		@include box-shadow(rgba(#000 , .15) 0 0 0);
+
+		&:first-child {
+			margin-top : 25px;
+		}
 
 		&:before {
 			left       : 0;
 			right      : auto;
 			width      : 100%;
-			background : #FFF;
+			background : $color-white;
 			@include box-shadow(rgba(#000 , .15) 0 1px 4px);
-		}
-
-		&.is-content-right , &.is-content-left {
-			.l-content , .l-side {
-				width : 100%;
-				float : none;
-				/*@include box-shadow(rgba(#000 , .15) 0 1px 4px);*/
-			}
 		}
 	}
 
@@ -167,8 +176,6 @@
 
 	.l-side {
 		border-top : 0;
-		float      : none;
-		position   : static;
 	}
 
 	.l-footer {
@@ -176,6 +183,6 @@
 	}
 }
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Tablets-MobileS) {}
 
-@include respond-to(Mobile) {}
+@include respond-to(MobileS) {}

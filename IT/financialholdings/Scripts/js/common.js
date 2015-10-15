@@ -10,16 +10,17 @@ var $Device = /Android|webOS|iPad|BlackBerry/i,
 	$userDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
 var $Screen = 1000;
 var $SugarFunBoxSet = {
-	$mobile: false,
-	$backdropclose: false,
-	$loadimg: '<div class="b-loading"><span class="m-icon-stack"><i class="m-icon m-icon-fubon-blue is-absolute"></i><i class="m-icon m-icon-fubon-green"></i></span></div>'
+	mobile        : false,
+	backdropclose : false,
+	closeBtnElem  : '關閉',
+	loadimg       : '<div class="b-loading"><span class="m-icon-stack"><i class="m-icon m-icon-fubon-blue is-absolute"></i><i class="m-icon m-icon-fubon-green"></i></span></div>'
 }
 
 /* aside accordion item add class */
 var $AsideItem = document.getElementById('aside-item');
 
-if ($AsideItem !== null) {
-	for (var i = 0, $elem = $AsideItem.getElementsByTagName('li'); i < $elem.length; i++) {
+if ( $AsideItem !== null ) {
+	for ( var i = 0, $elem = $AsideItem.getElementsByTagName('li'); i < $elem.length; i++ ) {
 		if ($elem[i].getAttribute('data-channel') !== null && $elem[i].getAttribute('data-channel') === $channel) {
 			if ($elem[i].parentNode.parentNode.parentNode.nodeName.toLowerCase() === 'li') {
 				if ($elem[i].parentNode.parentNode.parentNode.className.length !== 0) $elem[i].parentNode.parentNode.parentNode.className = $elem[i].parentNode.parentNode.parentNode.className + ' is-curr';
@@ -33,7 +34,7 @@ if ($AsideItem !== null) {
 }
 
 function userAgentFun() {
-	if (window.innerWidth < 768) {
+	if ( window.innerWidth < 768 ) {
 		$userAgent = 'Mobile';
 	} else {
 		if ($Device.test(navigator.userAgent)) {
@@ -60,7 +61,7 @@ Ctrl.directive('ngRepeatDone', ['$document', function($document) {
 					AgElem('.ng-controller').scope().repeat.Callback(elem);
 				}
 
-				scope.Common.Cloak = false;
+				// scope.Common.Cloak = false;
 			}
 		}
 	};
@@ -232,17 +233,14 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 	return {
 		restrict: 'C',
 		link: function(scope, elem, attrs) {
-			var $elementLi = elem.find(' > li'),
+			var $elementLi   = elem.find(' > li'),
 				$elementLink = $elementLi.find(' > a');
 
-			// AgElem(window).finish().delay(0).queue(function(){
-
-			// });
-
-			if ( $elementLi.hasClass('is-curr') ) {
-				scope.Common.Nav.Bar.Hover = true;
-				scope.Common.Nav.Submenu.Position(elem.find(' > li.is-curr'));
-			}
+			for ( var i = 0 ; i < $elementLi.length ; i ++ ) {
+				if ( $elementLi.eq(i).data('channel') === scope.Common.Channel ) {
+					$elementLi.eq(i).addClass('is-curr');
+				}
+			};
 
 			$elementLi.hover(function() {
 				if ($userAgent === 'PC') {
@@ -251,11 +249,11 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 					}
 					scope.Common.Nav.Submenu.Position(AgElem(this));
 				}
-			}, function() {
+			} , function() {
 				if ($userAgent !== 'Mobile') {
 					if (!$elementLi.hasClass('is-curr')) {
-						scope.Common.Nav.Bar.Hover = !scope.Common.Nav.Bar.Hover;
-						scope.Common.Nav.Submenu.Left = 0;
+						scope.Common.Nav.Bar.Hover          = !scope.Common.Nav.Bar.Hover;
+						scope.Common.Nav.Submenu.Left       = 0;
 						scope.Common.Nav.Submenu.MarginLeft = 0;
 						scope.$apply();
 					} else {
@@ -265,14 +263,14 @@ Ctrl.directive('ngNavItem', ['$document', function($document) {
 			});
 
 			$elementLink.on('click', function(e) {
-				if ($userAgent === 'Mobile') {
-					if (AgElem(this).next('div').length !== 0) {
+				if ( $userAgent !== 'PC' && window.innerWidth <= 768 ) {
+					if ( AgElem(this).next('div').length !== 0 ) {
 						e.preventDefault();
 						AgElem(this).parent().toggleClass('is-active').siblings().removeClass('is-active');
 						AgElem('.ng-path').parent().removeClass('is-active');
 					}
-				} else if ($userAgent === 'Tablet') {
-					if (AgElem(this).next('div').length !== 0) {
+				} else if ( $userAgent === 'Tablet' ) {
+					if ( AgElem(this).next('div').length !== 0 ) {
 						e.preventDefault();
 						scope.Common.Nav.Bar.Hover = true;
 						scope.Common.Nav.Submenu.Position(AgElem(this).parent());
@@ -290,12 +288,12 @@ Ctrl.directive('ngPath', ['$document', function($document) {
 		link: function(scope, elem, attrs) {
 			elem.on('click', function(e) {
 				e.preventDefault();
-				if ($userAgent !== 'Mobile') {
-					scope.Common.Nav.Path.Click = !scope.Common.Nav.Path.Click;
-					scope.$apply();
-				} else {
+				if ( $userAgent !== 'PC' && window.innerWidth <= 768 ) {
 					AgElem('.ng-nav-item').find(' > li').removeClass('is-active');
 					AgElem(this).parent().toggleClass('is-active').siblings().removeClass('is-active');
+				} else {
+					scope.Common.Nav.Path.Click = !scope.Common.Nav.Path.Click;
+					scope.$apply();
 				}
 			});
 		}
@@ -328,6 +326,7 @@ Ctrl.directive('ngPaginationMore', ['$document', function($document) {
 				if (!elem.hasClass('b-disabled')) {
 					scope.Common.Pagination.Active[0] = (scope.Common.Pagination.Active[0] + parseInt(attrs.value, 10));
 					scope.Common.Pagination.MobileAction();
+					console.log(scope.Common.Pagination.Page);
 				}
 				scope.$apply();
 			});
@@ -434,11 +433,10 @@ Ctrl.directive('ngMap', ['$document', function($document) {
 			elem.on('click', function(e) {
 				e.preventDefault();
 
-				AgElem(elem).SugarFunBox({
-					mobile: $SugarFunBoxSet.mobile,
-					backdropclose: $SugarFunBoxSet.backdropclose,
-					click: false,
-					loadimg: $SugarFunBoxSet.loadimg
+				$.SugarFunBox.open({
+					href         : attrs.href,
+					closeBtnElem : $SugarFunBoxSet.closeBtnElem,
+					loadImg      : $SugarFunBoxSet.loadimg
 				});
 			});
 		}
@@ -454,12 +452,9 @@ Ctrl.directive('ngTab', ['$document', function($document) {
 				$elementTab = $elementItem.find('> a');
 
 			AgElem(document).finish().delay(0).queue(function() {
-				if (document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen) {
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen ) {
 					elem.addClass('b-no-transition');
 					scope.Common.Tab.Height = ($elementItem.eq(0).outerHeight() + parseInt(elem.find(' > ul').css('margin-top'), 10));
-					// for (var i = 0; i < $elementItem.length; i++) {
-					// $elementTab.eq(i).css('left', ($elementTab.outerWidth() * i));
-					// };
 				}
 
 				scope.Common.Tab.Width = $elementTab.outerWidth();
@@ -470,47 +465,41 @@ Ctrl.directive('ngTab', ['$document', function($document) {
 			});
 
 			$elementTab.on('click', function(e) {
-				var $this = AgElem(this),
+				var $this  = AgElem(this),
 					$index = $this.parent().index();
 
-				e.preventDefault();
+				scope.Common.Tab.IsClick = true;
+				// e.preventDefault();
 				elem.removeClass('b-no-transition');
-
-				if (document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen) {
-					scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
-					scope.Common.Tab.ClickArray[0] = $index;
-					$elementItem.eq(scope.Common.Tab.ClickArray[0]).find('> div').removeClass('b-cloak');
-					scope.Common.Tab.Height = ($elementItem.eq($index).outerHeight() + parseInt(elem.find(' > ul').css('margin-top'), 10));
-					scope.Common.Tab.Animate($elementItem.find('> div'));
-					scope.Common.Tab.Left = $this.position().left;
-				} else {
-					$elementItem.find('> div').removeClass('b-cloak');
-					AgElem(this).parent().toggleClass('is-active').siblings().removeClass('is-active');
-				}
+				scope.Common.Tab.OnClick($elementItem , $elementTab , $this , $index);
 				scope.$apply();
+
+				// window.onhashchange = function() {
+				// 	e.preventDefault();
+				// }
 			});
 		}
 	};
 }]);
 
 /* ng-tab-ctrl directive */
-Ctrl.directive('ngTabCtrl', ['$document', function($document) {
-	return {
-		restrict: 'C',
-		link: function(scope, elem, attrs) {
-			elem.on('click', function(e) {
-				var $this = AgElem(this);
-				e.preventDefault();
-				AgElem('.ng-tab-slide > li').removeClass('b-no-transition');
-				scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
-				scope.Common.Tab.ClickArray[0] = scope.$index;
-				AgElem('.ng-tab-slide > li:eq('+ scope.Common.Tab.ClickArray[0] +')').removeClass('b-cloak');
-				scope.Common.Tab.SlideAnimate(AgElem('.ng-tab-slide'));
-				scope.$apply();
-			});
-		}
-	};
-}]);
+// Ctrl.directive('ngTabCtrl', ['$document', function($document) {
+// 	return {
+// 		restrict: 'C',
+// 		link: function(scope, elem, attrs) {
+// 			elem.on('click', function(e) {
+// 				var $this = AgElem(this);
+// 				e.preventDefault();
+// 				AgElem('.ng-tab-slide > li').removeClass('b-no-transition');
+// 				scope.Common.Tab.ClickArray[1] = scope.Common.Tab.ClickArray[0];
+// 				scope.Common.Tab.ClickArray[0] = scope.$index;
+// 				AgElem('.ng-tab-slide > li:eq('+ scope.Common.Tab.ClickArray[0] +')').removeClass('b-cloak');
+// 				scope.Common.Tab.SlideAnimate(AgElem('.ng-tab-slide'));
+// 				scope.$apply();
+// 			});
+// 		}
+// 	};
+// }]);
 
 /* ng-select directive */
 Ctrl.directive('ngSelect', ['$document', function($document) {
@@ -567,27 +556,29 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 				Left       : 0,
 				MarginLeft : 0,
 				Position   : function(element) {
-					$scope.Common.Nav.Bar.Left = element.position().left;
-					$scope.Common.Nav.Bar.Width = element.width();
-					$scope.Common.Nav.Submenu.Left = 0;
+					$scope.Common.Nav.Bar.Left           = element.offset().left;
+					$scope.Common.Nav.Bar.Width          = element.width();
+					$scope.Common.Nav.Submenu.Left       = 0;
 					$scope.Common.Nav.Submenu.MarginLeft = 0;
 
-					if (!$scope.$$phase) {
+					if ( !$scope.$$phase ) {
 						$scope.$apply();
 					};
 
-					if (element.find('> div').length !== 0) {
-						if ((element.find('> div').width() / 2) > (AgElem('.ng-nav-item').outerWidth() - (element.position().left + (element.width() / 2)))) {
-							$scope.Common.Nav.Submenu.Left = (AgElem('.ng-nav-item').outerWidth()) - element.find('> div').width();
+					if ( element.find('> div').length !== 0 ) {
+						if ( ( element.find('> div').width() / 2 ) > ( AgElem('.ng-nav-item').outerWidth() - ( element.position().left + ( element.width() / 2 ) ) ) ) {
+							$scope.Common.Nav.Submenu.Left = ( AgElem('.ng-nav-item').outerWidth() ) - element.find('> div').width();
 							$scope.$apply();
 						} else {
-							if (element.find('> div').width() < AgElem('.ng-nav-item').outerWidth()) {
-								$scope.Common.Nav.Submenu.Left = (element.position().left + (element.width() / 2));
-								$scope.Common.Nav.Submenu.MarginLeft = ((element.find('> div').width() / 2) * (-1));
-								$scope.$apply();
+							if ( element.find('> div').width() < AgElem('.ng-nav-item').outerWidth() ) {
+								$scope.Common.Nav.Submenu.Left       = ( element.position().left + ( element.width() / 2 ) );
+								$scope.Common.Nav.Submenu.MarginLeft = ( ( element.find('> div').width() / 2 ) * (-1) );
+								if ( !$scope.$$phase ) {
+									$scope.$apply();
+								};
 
-								if (element.find('> div').offset().left < AgElem('.ng-nav-item').offset().left) {
-									$scope.Common.Nav.Submenu.Left = 0;
+								if ( element.find('> div').offset().left < AgElem('.ng-nav-item').offset().left ) {
+									$scope.Common.Nav.Submenu.Left       = 0;
 									$scope.Common.Nav.Submenu.MarginLeft = 0;
 									$scope.$apply();
 								}
@@ -603,6 +594,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 			}
 		},
 		Tab: {
+			IsClick    : false,
 			ClickArray : [0, 0],
 			Left       : 0,
 			Width      : 0,
@@ -615,7 +607,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 						element.css('left', '-100%');
 					});
 
-					if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
+					if ( 'transform' in window.document.body.style || '-webkit-transition' in window.document.body.style ) {
 						element.one($animationend, function() {
 							$this.ClickArray[1] = $this.ClickArray[0];
 							element.addClass('b-no-transition');
@@ -624,6 +616,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
 							AgElem(window).finish().delay(0).queue(function() {
 								element.removeClass('b-no-transition');
+								$this.IsClick = false;
 							});
 						});
 					} else {
@@ -632,9 +625,10 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							element.css('left', '0');
 							element.addClass('b-cloak');
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
+							$this.IsClick = false;
 						});
 					}
-				} else if ($this.ClickArray[0] < $this.ClickArray[1]) {
+				} else if ( $this.ClickArray[0] < $this.ClickArray[1] ) {
 					if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
 						element.addClass('b-no-transition');
 						element.addClass('b-cloak');
@@ -649,6 +643,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							$this.ClickArray[1] = $this.ClickArray[0];
 							element.addClass('b-cloak');
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
+							$this.IsClick = false;
 						});
 					} else {
 						$this.ClickArray[1] = $this.ClickArray[0];
@@ -656,6 +651,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 							element.css('left', '0');
 							element.addClass('b-cloak');
 							element.eq($this.ClickArray[0]).removeClass('b-cloak');
+							$this.IsClick = false;
 						});
 					}
 				}
@@ -740,6 +736,42 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 						});
 					}
 				}
+			},
+			OnClick : function(item , tab , elem , index) {
+				var $this = this;
+
+				tab.removeClass('is-active');
+				elem.addClass('is-active');
+
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 || window.innerWidth >= $Screen ) {
+					$this.ClickArray[1] = $this.ClickArray[0];
+					$this.ClickArray[0] = index;
+					item.eq( $this.ClickArray[0] ).find('> div').removeClass('b-cloak');
+					$this.Height = ( item.eq(index).outerHeight() + parseInt(elem.find(' > ul').css('margin-top') , 10) );
+					$this.Animate( item.find('> div') );
+					$this.Left = elem.position().left;
+				} else {
+					AgElem(window).finish().delay(0).queue(function(){
+						item.eq(index).find('> div').removeClass('b-cloak');
+					});
+					// item.removeClass('is-active');
+					elem.parent().toggleClass('is-active');
+				}
+			},
+			Hash : function() {
+				var $this = this;
+
+				if ( window.location.hash ) {
+					// AgElem('.ng-tab > ul > li > div').addClass('b-no-transition');
+
+					for ( var i = 0 , $length = AgElem('.ng-tab > ul > li').length ; i < $length ; i ++ ) {
+						if ( AgElem('.ng-tab > ul > li:eq('+ i +') > a').attr('href') === window.location.hash ) {
+							$this.OnClick(AgElem('.ng-tab > ul > li') , AgElem('.ng-tab > ul > li > a') , AgElem('.ng-tab > ul > li:eq('+ i +') > a') , i);
+						}
+					};
+				} else {
+					$this.OnClick(AgElem('.ng-tab > ul > li') , AgElem('.ng-tab > ul > li > a') , AgElem('.ng-tab > ul > li:eq(0) > a') , 0);
+				}
 			}
 		},
 		Aside : {
@@ -757,8 +789,8 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 			Top       : parseInt(AgElem('.ng-top').css('top'), 10),
 			Scrolling : function() {
 				var $this = this;
-				if ((AgElem(window).height() + AgElem(document).scrollTop()) >= AgElem('.l-footer').offset().top) {
-					$this.Top = (AgElem('.l-footer').offset().top - AgElem(document).scrollTop() - (AgElem('.ng-top').outerHeight() * 1.7));
+				if ((AgElem(window.parent).height() + AgElem(top.document).scrollTop()) >= AgElem('.l-footer').offset().top) {
+					$this.Top = (AgElem('.l-footer').offset().top - AgElem(top.document).scrollTop() - (AgElem('.ng-top').outerHeight() * 1.7));
 				} else {
 					$this.Top = '';
 				}
@@ -851,10 +883,15 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 		},
 		Accordion : {
 			Aside : function() {
+				if ( $userAgent !== 'PC' ) {
+					if ( AgElem('.ng-aside-accordion .m-aside-hd').outerHeight() > 55 ) {
+						AgElem('.l-content > .m-section').css('margin-top' , ((AgElem('.ng-aside-accordion .m-aside-hd').outerHeight() + 20) + 'px'));
+					}
+				}
 
 			},
 			FAQ : function(parent, element) {
-				if (document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0) {
+				if ( document.documentMode === 8 || navigator.userAgent.indexOf('MSIE 8.0') > 0 ) {
 					element.append('<span />');
 					parent.find('.m-accordion-bd').append('<span />');
 				}
@@ -873,7 +910,7 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 
 			$scope.Common.UserAgent = $userAgent;
 
-			if ($userAgent === 'Mobile') {
+			if ( $userAgent !== 'PC' && window.innerWidth <= 768 ) {
 				$this.Nav.Path.Top = 0;
 				$this.Nav.Path.PaddingTop = parseInt(AgElem('.ng-nav').css('padding-top'), 10);
 				$this.Nav.Path.Height = 'auto';
@@ -890,11 +927,19 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 
 	AgElem(document).ready(function() {
 		$scope.Common.UserAgentSet();
-		$scope.Common.Tab.Slide();
+		$scope.Common.Accordion.Aside();
+		if ( AgElem('.ng-tab').length !== 0 ) {
+			$scope.Common.Tab.Hash();
+		}
 		$scope.$apply();
+
+		window.onhashchange = function() {
+			if ( AgElem('.ng-tab').length !== 0 && ! $scope.Common.Tab.IsClick ) {
+				$scope.Common.Tab.Hash();
+				$scope.$apply();
+			}
+		}
 	});
-
-
 
 	AgElem(window).load(function() {
 		$scope.Common.IsReady = true;
@@ -903,6 +948,11 @@ Ctrl.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
 		}
 		$scope.$apply();
 		$scope.Common.Pagination.Append('.ng-pagination-action');
+
+		if ( AgElem('.ng-nav > ul > li').hasClass('is-curr') ) {
+			$scope.Common.Nav.Bar.Hover = true;
+			$scope.Common.Nav.Submenu.Position(AgElem('.ng-nav > ul > li.is-curr'));
+		}
 	});
 
 	AgElem(window).resize(function() {

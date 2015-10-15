@@ -14,24 +14,23 @@
 Ctrl.controller('Story' , ['$scope' , '$http' , '$sce' , function($scope , $http , $sce) {
 	$scope.repeat = {
 		Callback : function(){
-			$scope.$parent.Common.Cloak = false;
-			
-			AgElem(document).finish().delay(100).queue(function(){
-				AgElem('.ng-owl-carousel').removeClass('b-cloak');
-				$scope.Story.owlCarousel.Setup();
-				$scope.Story.owlCarousel.OnChange();
-				
+			AgElem('.ng-video-image img').bind('load' , function(){
+				$scope.Story.Youtube.AddIndex++;
 
-				AgElem(document).finish().delay(500).queue(function(){
-					AgElem('.ng-video-image').addClass('is-cloak');
-					if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
-						AgElem('.ng-video-image').one($animationend , function() {
-							AgElem('.ng-video-image').addClass('is-hide');
+				if ( $scope.Story.Youtube.AddIndex === $scope.Story.Youtube.Data.length ) {
+					
+					AgElem('.ng-owl-carousel').removeClass('b-cloak');
+					AgElem('.ng-video-frame:eq(0) iframe').bind('load' , function(){
+						$scope.$parent.Common.Cloak = false;
+						$scope.$apply();
+						$scope.Story.owlCarousel.Setup();
+						$scope.Story.owlCarousel.OnChange();
+
+						AgElem(window).finish().delay(0).queue(function(){
+							AgElem('.ng-video-frame').addClass('is-show');
 						});
-					} else {
-						AgElem('.ng-video-image').addClass('is-hide');
-					}
-				});
+					});
+				}
 			});
 		}
 	},
@@ -44,7 +43,7 @@ Ctrl.controller('Story' , ['$scope' , '$http' , '$sce' , function($scope , $http
 				$this.element.owlCarousel({
 					items      : 1,
 					mouseDrag  : false,
-					responsive : false,
+					responsive : true,
 					center     : true,
 					autoHeight : true,
 					dotsClass  : 'm-tab-ctrl',
@@ -61,10 +60,11 @@ Ctrl.controller('Story' , ['$scope' , '$http' , '$sce' , function($scope , $http
 			}
 		},
 		Youtube : {
-			Index   : 0,
-			Url     : AgElem('.ng-youtube-ajax').data('url'),
-			Setting : AgElem('.ng-youtube-ajax').data('setting'),
-			Data    : [],
+			AddIndex : 0,
+			Index    : 0,
+			Url      : AgElem('.ng-youtube-ajax').data('url'),
+			Setting  : AgElem('.ng-youtube-ajax').data('setting'),
+			Data     : [],
 			GetData : function(){
 				var $this = this;
 

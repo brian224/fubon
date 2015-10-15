@@ -6,12 +6,11 @@ Ctrl.directive('ngMember' , ['$document' , function($document) {
 			elem.on('click' , function(e){
 				e.preventDefault();
 
-				AgElem(elem).SugarFunBox({
-					mobile        : $SugarFunBoxSet.mobile,
-					backdropclose : $SugarFunBoxSet.backdropclose,
-					click         : false,
-					loadimg       : $SugarFunBoxSet.loadimg,
-					width         : 610
+				$.SugarFunBox.open({
+					width        : 610,
+					href         : attrs.href,
+					closeBtnElem : $SugarFunBoxSet.closeBtnElem,
+					loadImg      : $SugarFunBoxSet.loadimg
 				});
 			});
 		}

@@ -1,5 +1,5 @@
 <div class="m-footer-hd">
-	<div class="m-button-group">
+	<div class="m-button-group is-inline-block">
 		<button type="button" class="m-button m-button-sitemap ng-sitemap">
 			網站導覽
 			<span class="m-icon-stack m-icon-toggle">
@@ -24,9 +24,9 @@
 				</li>
 				<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">
 					<ul>
-						<li><a href="/financialholdings/story/future.html">品牌故事</a></li>
-						<li><a href="/financialholdings/story/future.html">延續傳承 走向未來</a></li>
+						<li><a href="/financialholdings/story/positive.html">品牌故事</a></li>
 						<li><a href="/financialholdings/story/positive.html">正向的力量</a></li>
+						<li><a href="/financialholdings/story/future.html">品牌願景與承諾</a></li>
 						<li><a href="/financialholdings/story/identity.html">富邦品牌標誌</a></li>
 					</ul>
 				</li>
@@ -64,13 +64,13 @@
 						<li><a href="/financialholdings/governance/status.html">公司治理</a></li>
 						<li><a href="/financialholdings/governance/status.html">公司治理現況</a></li>
 						<li><a href="/financialholdings/governance/framework.html">公司治理架構</a></li>
-						<li><a href="/financialholdings/governance/operation.html">公司治理運作情形</a></li>
-						<li><a href="/financialholdings/governance/shareholders.html">股東會</a></li>
+						<li><a href="http://www.corpasia.net/taiwan/2881/engovernancepage/13/CH/CG.pdf" target="_blank">公司治理運作情形</a></li>
+						<li><a href="/financialholdings/governance/letter.html">股東會</a></li>
 						<li><a href="/financialholdings/governance/board_of_directors.html">董事會</a></li>
 						<li><a href="/financialholdings/governance/committee.html">功能性委員會</a></li>
 						<li><a href="/financialholdings/governance/organization.html">內部稽核組織及運作</a></li>
 						<li><a href="/financialholdings/governance/regulation.html">公司重要章則</a></li>
-						<li><a href="/financialholdings/governance/mail.html">獨立董事信箱</a></li>
+						<li><a href="mailto:ibtnag@ntu.edu.tw">獨立董事信箱</a></li>
 					</ul>
 				</li>
 				<li class="b-col-md-2 b-col-sm-2 b-col-xs-6">

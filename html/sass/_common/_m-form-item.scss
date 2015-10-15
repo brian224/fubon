@@ -2,22 +2,12 @@
 	position : relative;
 }
 
-.m-form-item-hd {
-	margin-bottom : -25px;
-
-	> * {
-		margin-bottom : 25px;
-	}
-}
-
 .m-form-item-bd {
 	.m-step {
 		margin-bottom : -10px;
 	}
 
 	> * {
-		margin-top : 25px;
-
 		&:first-child {
 			margin-top : 0;
 		}
@@ -25,7 +15,6 @@
 }
 
 .m-form-item-ft {
-	margin-top  : 40px;
 	padding-top : 15px;
 	font-size   : 14px;
 	line-height : 28px;
@@ -44,9 +33,31 @@
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Desktops) {}
 
-@include respond-to(Tables-Mobile) {
+@include respond-to(Desktops-Tablets) {
+	.m-form-item-hd {
+		margin-bottom : -25px;
+
+		> * {
+			margin-bottom : 25px;
+		}
+	}
+
+	.m-form-item-bd {
+		> * {
+			margin-top : 25px;
+		}
+	}
+
+	.m-form-item-ft {
+		margin-top : 40px;
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
 	.m-form-item-hd {
 		margin-bottom : -20px;
 		
@@ -66,7 +77,7 @@
 	}
 }
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-form-item-hd {
 		margin-bottom : -15px;
 		

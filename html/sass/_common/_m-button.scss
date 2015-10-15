@@ -1,12 +1,13 @@
 ﻿.m-button {
-	@include m-buttom-default;
-	padding : 7px 15px;
+	@include buttom-default;
+	padding     : 7px 0;
+	font-size   : 14px;
+	line-height : 1.75;
 	@include transition((background (($transition-times * 2) - 0.1) , color (($transition-times * 2) - 0.1)));
 
 	&.m-button-search {
 		width      : 28px;
 		height     : 28px;
-		border     : 0;
 		text-align : center;
 	}
 
@@ -28,8 +29,7 @@
 	}
 
 	&.m-button-navicon {
-		padding     : 5px 10px;
-		border      : 0;
+		padding     : 5px 0;
 		line-height : inherit;
 
 		.m-icon {
@@ -38,8 +38,7 @@
 	}
 
 	&.m-button-map {
-		padding     : 0 0 0 22px;
-		white-space : normal;
+		padding : 0 0 0 22px;
 		
 		.m-icon {
 			top       : 0;
@@ -53,21 +52,13 @@
 	}
 
 	&.m-button-top {
-		right        : 50%;
 		top          : 90%;
-		margin-right : (($main-min-width / 2 * (-1)) - 40);
 		padding      : 0;
 		width        : 40px;
 		text-align   : center;
 		color        : $major-color;
 		position     : fixed;
 		z-index      : 25;
-
-		&:hover {
-			.m-icon {
-				background : darken($major-color , 15%);
-			}
-		}
 
 		.m-icon {
 			font-size  : 30px;
@@ -111,7 +102,7 @@
 
 	/* 顏色設定 */
 	@each $key , $value in $color {
-		&.b-#{'' + $key} {
+		&.b-#{$key} {
 			@if ( $key != 'disabled' ) {
 				@if ( $key != 'inverse' ) {
 					color : $color-white;
@@ -126,50 +117,33 @@
 			} @else if ( $key == 'disabled' ) {
 				@include disabled;
 			}
-
-			&:hover {
-				background   : darken($value , 15%);
-
-				@if ( $key == 'disabled' ) {
-					color : lighten($text-sub-color , 5%);
-				}
-			}
 		}
 	}
 }
 
-@include respond-to(1085px) {
+@include respond-to(Desktops) {
 	.m-button {
+		padding-right : 15px;
+		padding-left  : 15px;
+
 		&.m-button-top {
-			margin-right : (($main-min-width / 2 * (-1)));
+			right        : 50%;
+			margin-right : (($main-min-width / 2 * (-1)) - 40);
 
 			&:hover {
 				.m-icon {
-					background : $major-color;
+					background : darken($major-color , 15%);
 				}
 			}
 		}
-	}
-}
 
-@include respond-to(Tables) {
-	.m-button {
-		padding-right : 12px;
-		padding-left  : 12px;
-
-		&.m-button-top {
-			right        : 10px;
-			margin-right : auto;
-		}
-
-		/* 顏色設定 移除 Hover */
 		@each $key , $value in $color {
-			&.b-#{'' + $key} {
+			&.b-#{$key} {
 				&:hover {
-					background : $value;
+					background : darken($value , 15%);
 
 					@if ( $key == 'disabled' ) {
-						color : $text-sub-color;
+						color : lighten($text-sub-color , 5%);
 					}
 				}
 			}
@@ -177,9 +151,29 @@
 	}
 }
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Desktops-Tablets) {
+	.m-button {
+		&.m-button-navicon {
+			padding-right : 10px;
+			padding-left  : 10px;
+		}
+	}
+}
 
-@include respond-to(Mobile) {
+@include respond-to(Tablets) {
+	.m-button {
+		padding-right : 12px;
+		padding-left  : 12px;
+
+		&.m-button-top {
+			right : 10px;
+		}
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
 	.m-button {
 		padding : 6px 8px;
 
@@ -196,6 +190,15 @@
 			&[class^="m-button-size-"] , &[class*=" m-button-size-"] {
 				width : 100%;
 			}
+		}
+	}
+}
+
+@include browsers('IE8') {
+	.m-button {
+		&.m-button-top {
+			padding-right : 0;
+			padding-left  : 0;
 		}
 	}
 }

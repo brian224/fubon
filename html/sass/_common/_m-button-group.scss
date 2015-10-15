@@ -32,11 +32,15 @@
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Desktops) {}
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Desktops-Tablets) {}
 
-@include respond-to(Mobile) {
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
 	.m-button-group {
 		.m-button {
 			&.b-xs-full , &.b-lg {

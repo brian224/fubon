@@ -13,11 +13,11 @@
 			</div>
 		</div>
 		<ul class="m-header-tools">
-			<li class="b-middle"><a href="/financialholdings/eng/">EN</a></li>
+			<li class="b-middle"><a href="https://www.fubon.com/eng/index.htm">EN</a></li>
 			<li class="m-header-search b-middle" ng-class="{'is-open' : Common.Search.Click}">
-				<a href="/financialholdings/home/search.html?k={{ Common.Search.Value }}" class="m-button m-button-search ng-search"><i class="m-icon m-icon-search"></i></a>
+				<a href="/financialholdings/search/search.html?k={{ Common.Search.Value }}" class="m-button m-button-search ng-search"><i class="m-icon m-icon-search"></i></a>
 				<div class="m-form-group m-form-search">
-					<input type="search" class="m-form m-form-control" ng-model="Common.Search.Value" />
+					<input type="search" class="m-form m-form-control ng-search-result" ng-model="Common.Search.Value" />
 				</div>
 			</li>
 		</ul>

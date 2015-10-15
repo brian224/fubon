@@ -53,19 +53,19 @@
 					<div>
 						<ul>
 							<li>
-								<a href="/financialholdings/home/login.html" class="ng-member">
+								<a href="/financialholdings/member/login.html" class="ng-member">
 									<i class="m-icon m-icon-arrow-angle-right"></i>
 									<em>會員登入</em>
 								</a>
 							</li>
 							<li>
-								<a href="/financialholdings/home/password.html" class="ng-member">
+								<a href="/financialholdings/member/password.html" class="ng-member">
 									<i class="m-icon m-icon-arrow-angle-right"></i>
 									<em>修改密碼</em>
 								</a>
 							</li>
 							<li>
-								<a href="/financialholdings/home/edit_profile.html" class="ng-member">
+								<a href="/financialholdings/member/edit_profile.html" class="ng-member">
 									<i class="m-icon m-icon-arrow-angle-right"></i>
 									<em>修改個人資料</em>
 								</a>

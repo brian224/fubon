@@ -15,23 +15,23 @@ Ctrl.directive('ngVideo', ['$document', function($document) {
 Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http , $sce) {
 	$scope.repeat = {
 		Callback : function(){
-			$scope.$parent.Common.Cloak = false;
+			AgElem('.ng-video-image img').bind('load' , function(){
+				$scope.About.Youtube.AddIndex++;
 
-			AgElem(document).finish().delay(100).queue(function(){
-				AgElem('.ng-owl-carousel').removeClass('b-cloak');
-				$scope.About.owlCarousel.Setup();
-				$scope.About.owlCarousel.OnChange();
+				if ( $scope.About.Youtube.AddIndex === $scope.About.Youtube.Data.length ) {
+					
+					AgElem('.ng-owl-carousel').removeClass('b-cloak');
+					AgElem('.ng-video-frame:eq(0) iframe').bind('load' , function(){
+						$scope.$parent.Common.Cloak = false;
+						$scope.$apply();
+						$scope.About.owlCarousel.Setup();
+						$scope.About.owlCarousel.OnChange();
 
-				AgElem(document).finish().delay(500).queue(function(){
-					AgElem('.ng-video-image').addClass('is-cloak');
-					if ('transform' in window.document.body.style || '-webkit-transition' in window.document.body.style) {
-						AgElem('.ng-video-image').one($animationend , function() {
-							AgElem('.ng-video-image').addClass('is-hide');
+						AgElem(window).finish().delay(0).queue(function(){
+							AgElem('.ng-video-frame').addClass('is-show');
 						});
-					} else {
-						AgElem('.ng-video-image').addClass('is-hide');
-					}
-				});
+					});
+				}
 			});
 		}
 	},
@@ -102,7 +102,7 @@ Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http
 				$this.element.owlCarousel({
 					items      : 1,
 					mouseDrag  : false,
-					responsive : false,
+					responsive : true,
 					center     : true,
 					autoHeight : true,
 					dotsClass  : 'm-tab-ctrl',
@@ -112,6 +112,9 @@ Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http
 			},
 			OnChange : function() {
 				var $this = this;
+
+				// $scope.$parent.Common.Cloak = true;
+
 				$this.element.on('changed.owl.carousel' , function(e){
 					$scope.About.Youtube.Index = e.item.index;
 					$scope.$apply();
@@ -119,10 +122,11 @@ Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http
 			}
 		},
 		Youtube : {
-			Index   : 0,
-			Url     : AgElem('.ng-youtube-ajax').data('url'),
-			Setting : AgElem('.ng-youtube-ajax').data('setting'),
-			Data    : [],
+			AddIndex : 0,
+			Index    : 0,
+			Url      : AgElem('.ng-youtube-ajax').data('url'),
+			Setting  : AgElem('.ng-youtube-ajax').data('setting'),
+			Data     : [],
 			GetData : function(){
 				var $this = this;
 

@@ -1,5 +1,5 @@
 html , body {
-	background : #FFF;
+	background : $color-white;
 	min-width  : inherit;
 	min-height : inherit;
 	height     : auto;
@@ -23,10 +23,8 @@ html , body {
 }
 
 .m-box-hd {
-	margin-top : 20px;
-	padding    : 0 $inner-Width;
-	width      : 100%;
-	position   : relative;
+	width    : 100%;
+	position : relative;
 	@include box-sizing(border-box);
 
 	.box-item {
@@ -65,8 +63,6 @@ html , body {
 	}
 
 	> * {
-		margin-top : 20px;
-
 		&.is-margin-default {
 			margin-top : 0;
 		}
@@ -74,26 +70,36 @@ html , body {
 }
 
 .m-box-ft {
-	padding     : 15px 20px;
 	line-height : 28px;
 	border-top  : 1px solid $border-minor-color;
 	background  : $color-inverse; 
 }
 
-/* IE8 , IE9 */
-.IE8 , .IE9 {
-	.m-box {
-		&:before {
-			display : none;
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+	.m-box-hd {
+		margin-top    : 20px;
+		padding-right : $inner-Width;
+		padding-left  : $inner-Width;
+	}
+
+	.m-box-bd {
+		> * {
+			margin-top : 20px;
 		}
+	}
+
+	.m-box-ft {
+		padding : 15px 20px;
 	}
 }
 
-@include respond-to(Tables) {}
+@include respond-to(Tablets) {}
 
-@include respond-to(Tables-Mobile) {}
+@include respond-to(Tablets-Mobiles) {}
 
-@include respond-to(Mobile) {
+@include respond-to(Mobiles) {
 	.m-box-hd {
 		margin-top    : 10px;
 		padding-right : ($inner-Width - 10);
@@ -119,5 +125,19 @@ html , body {
 
 	.m-box-ft {
 		padding : 5px 15px;
+	}
+}
+
+@include browsers('IE8&IE9') {
+	.m-box {
+		&:before {
+			display : none;
+		}
+	}
+}
+
+@include browsers('IE8') {
+	html , body {
+		min-width  : inherit;
 	}
 }

@@ -8,13 +8,11 @@
 	margin-left  : 0;
 	width        : 100%;
 	position     : relative;
-	@include display(table);
 
 	> li {
 		padding-right : 0;
 		padding-left  : 0;
 		float         : none;
-		@include display(table-cell , bottom);
 	}
 
 	.m-chart-item {
@@ -70,15 +68,26 @@
 	position : relative;
 }
 
-@include respond-to(Tables) {}
-@include respond-to(Tables-Mobile) {}
-@include respond-to(Mobile) {
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
 	.m-chart-bd {
-		@include display(block);
+		@include display(table);
 
 		> li {
+			@include display(table-cell , bottom);
+		}
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.m-chart-bd {
+		> li {
 			margin-top : 10px;
-			@include display(block);
 
 			&:first-child {
 				margin-top : 0;

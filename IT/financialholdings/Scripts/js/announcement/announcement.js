@@ -7,8 +7,8 @@ Ctrl.controller('Announcement' , ['$scope' , '$http' , function($scope , $http) 
 		}
 	},
 	$scope.Announcement = {
-		Total   : AgElem('.ng-public-list > .m-list-hd > li').length,
-		Length  : parseInt(AgElem('.ng-public-list').data('length') , 10),
+		Total   : AgElem('.ng-ajax > li').length,
+		Length  : parseInt(AgElem('.ng-ajax').data('length') , 10),
 		Year    : [],
 		Model   : '',
 		Data    : [],
@@ -17,8 +17,8 @@ Ctrl.controller('Announcement' , ['$scope' , '$http' , function($scope , $http) 
 				$Data = [];
 
 			for ( var i = 0 ; i < $this.Total ; i ++ ) {
-				if ( $.inArray(AgElem('.ng-public-list > .m-list-hd > li:eq('+ i +') > time').text() , $this.Year) === -1 ) {
-					$this.Year.push(AgElem('.ng-public-list > .m-list-hd > li:eq('+ i +') > time').text());
+				if ( $.inArray(AgElem('.ng-ajax > li:eq('+ i +') > time').text() , $this.Year) === -1 ) {
+					$this.Year.push(AgElem('.ng-ajax > li:eq('+ i +') > time').text());
 				}
 			};
 
@@ -39,20 +39,20 @@ Ctrl.controller('Announcement' , ['$scope' , '$http' , function($scope , $http) 
 			}
 
 			for ( var i = 0 ; i < $this.Total ; i ++ ) {
-				if ( AgElem('.ng-public-list > .m-list-hd > li:eq('+ i +') > time').text() === $this.Model ) {
+				if ( AgElem('.ng-ajax > li:eq('+ i +') > time').text() === $this.Model ) {
 					$Data.push({
-						'Time'  : AgElem('.ng-public-list > .m-list-hd > li:eq('+ i +') > time').text(),
-						'Title' : AgElem('.ng-public-list > .m-list-hd > li:eq('+ i +') > em').text(),
-						'Href'  : AgElem('.ng-public-list > .m-list-hd > li:eq('+ i +') > button').text()
+						'Time'  : AgElem('.ng-ajax > li:eq('+ i +') > time').text(),
+						'Title' : AgElem('.ng-ajax > li:eq('+ i +') > em').text(),
+						'Href'  : AgElem('.ng-ajax > li:eq('+ i +') > button').text()
 					});
 				}
 			};
 
-			for ( var i = 0 , $Len = 0 ; i < ( $Data.length / $this.Length ) ; i ++ ) {
+			for ( var i = 0 , $Length = 0 ; i < ( $Data.length / $this.Length ) ; i ++ ) {
 				$this.Data.push([]);
-				for ( var j = 0 ; j < $this.Length ; j ++ , $Len ++ ) {
-					if ( $Len < $Data.length ) {
-						$this.Data[i].push($Data[$Len]);
+				for ( var j = 0 ; j < $this.Length ; j ++ , $Length ++ ) {
+					if ( $Length < $Data.length ) {
+						$this.Data[i].push($Data[$Length]);
 					}
 				}
 			}
@@ -62,9 +62,9 @@ Ctrl.controller('Announcement' , ['$scope' , '$http' , function($scope , $http) 
 			// 	for ( var j = 0 ; j < $this.Length ; j ++ , $Len ++ ) {
 			// 		if ( $Len < $this.Total ) {
 			// 			$this.Data[i].push({
-			// 				'Time'  : AgElem('.ng-public-list > .m-list-hd > li:eq('+ $Len +') > time').text(),
-			// 				'Title' : AgElem('.ng-public-list > .m-list-hd > li:eq('+ $Len +') > em').text(),
-			// 				'Href'  : AgElem('.ng-public-list > .m-list-hd > li:eq('+ $Len +') > button').text()
+			// 				'Time'  : AgElem('.ng-ajax > li:eq('+ $Len +') > time').text(),
+			// 				'Title' : AgElem('.ng-ajax > li:eq('+ $Len +') > em').text(),
+			// 				'Href'  : AgElem('.ng-ajax > li:eq('+ $Len +') > button').text()
 			// 			});
 			// 		}
 			// 	}

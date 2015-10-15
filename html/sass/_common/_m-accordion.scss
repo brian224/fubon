@@ -44,7 +44,7 @@
 }
 
 .m-accordion-hd {
-	padding     : 18px 60px 18px 28px;
+	padding     : 18px 0;
 	font-size   : 18px;
 	color       : $major-color;
 	line-height : 1.6;
@@ -54,10 +54,6 @@
 	@include clearfix;
 	@include box-sizing(border-box);
 	@include transition(background $transition-times);
-
-	&:hover {
-		background  : darken($sub-color , 5%);
-	}
 
 	&:after {
 		content    : "";
@@ -83,14 +79,9 @@
 	}
 
 	.m-icon {
-		top        : 50%;
-		right      : 20px;
-		margin-top : -10px;
-		font-size  : 20px;
-		width      : 20px;
-		height     : 20px;
-		color      : $major-color;
-		position   : absolute;
+		top      : 50%;
+		color    : $major-color;
+		position : absolute;
 		@include clearfix;
 		@include display(block);
 		@include transform-origin(center);
@@ -111,7 +102,7 @@
 
 .m-accordion-content {
 	margin-bottom : 10px;
-	padding       : 15px 24px 15px 28px;
+	padding       : 15px 0;
 	position      : relative;
 	@include clearfix;
 	@include box-sizing(border-box);
@@ -146,8 +137,77 @@
 	}
 }
 
-/* IE8 */
-.IE8 {
+@include respond-to(Desktops) {
+	.m-accordion-hd {
+		&:hover {
+			background  : darken($sub-color , 5%);
+		}
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.m-accordion-hd {
+		padding-right : 60px;
+		padding-left  : 28px;
+
+		.m-icon {
+			right      : 20px;
+			margin-top : -10px;
+			font-size  : 20px;
+			width      : 20px;
+			height     : 20px;
+		}
+	}
+
+	.m-accordion-content {
+		padding-right : 24px;
+		padding-left  : 28px;
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {
+	.m-accordion-hd {
+		padding-right : 48px;
+		padding-left  : 22px;
+
+		.m-icon {
+			right      : 16px;
+			margin-top : -9px;
+			font-size  : 18px;
+			width      : 18px;
+			height     : 18px;
+		}
+	}	
+
+	.m-accordion-content {
+		padding-right : 22px;
+		padding-left  : 26px;
+	}
+}
+
+@include respond-to(Mobiles) {
+	.m-accordion-hd {
+		padding-right : 35px;
+		padding-left  : 18px;
+
+		.m-icon {
+			right      : 10px;
+			font-size  : 16px;
+			margin-top : -8px;
+			width      : 16px;
+			height     : 16px;
+		}
+	}
+
+	.m-accordion-content {
+		padding-right : 18px;
+		padding-left  : 22px;
+	}
+}
+
+@include browsers('IE8') {
 	.m-accordion {
 		> ol {
 			> li {
@@ -209,47 +269,5 @@
 		&:after {
 			display : none;
 		}
-	}
-}
-
-@include respond-to(Tables) {}
-
-@include respond-to(Tables-Mobile) {
-	.m-accordion-hd {
-		padding-right : 48px;
-		padding-left  : 22px;
-
-		.m-icon {
-			right      : 16px;
-			font-size  : 18px;
-			margin-top : -9px;
-			width      : 18px;
-			height     : 18px;
-		}
-	}	
-
-	.m-accordion-content {
-		padding-right : 22px;
-		padding-left  : 26px;
-	}
-}
-
-@include respond-to(Mobile) {
-	.m-accordion-hd {
-		padding-right : 35px;
-		padding-left  : 18px;
-
-		.m-icon {
-			right      : 10px;
-			font-size  : 16px;
-			margin-top : -8px;
-			width      : 16px;
-			height     : 16px;
-		}
-	}
-
-	.m-accordion-content {
-		padding-right : 18px;
-		padding-left  : 22px;
 	}
 }

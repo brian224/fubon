@@ -112,7 +112,7 @@
 	}
 }
 
-@mixin autofill( $background-color : #FFF !important , $color : #CCC !important ) {
+@mixin autofill( $background-color : $color-white !important , $color : #CCC !important ) {
 	&::-moz-autofill {
 		color            : $color;
 		background-color : $background-color;
@@ -142,6 +142,10 @@
 @mixin display( $type , $vertical : middle ) {
 	display        : $type;
 	vertical-align : $vertical;
+
+	@if $type == table-cell {
+		float : none;
+	}
 }
 
 /* touch-action */
@@ -162,49 +166,81 @@
 	appearance         : $type;
 }
 
-
 /* disabled */
 @mixin disabled {
 	color        : lighten($text-sub-color , 15%);
 	border-color : darken($color-disabled , 5%);
 	background   : $color-disabled;
 	cursor       : not-allowed;
-	@include text-shadow(#FFF 1px 1px 0);
+	@include text-shadow($color-white 1px 1px 0);
 
 	&:hover {
 		color : lighten($text-sub-color , 15%);
 	}
 }
 
-@mixin m-buttom-default {
+/* box-orient */
+@mixin box-orient($type : vertical) {
+	-webkit-box-orient : $type;
+	-moz-box-orient    : $type;
+	-ms-box-orient     : $type;
+	-o-box-orient      : $type;
+	box-orient         : $type;
+}
+
+/* box-orient */
+@mixin line-clamp($number : 1) {
+	-webkit-line-clamp : $number;
+	-moz-line-clamp    : $number;
+	-ms-line-clamp     : $number;
+	-o-line-clamp      : $number;
+	line-clamp         : $number;
+}
+
+@mixin buttom-default {
 	margin         : 0;
 	padding        : 0;
-	font           : 14px/1.6 $font-family;
+	font-family    : $font-family;
 	color          : $text-major-color;
-	border         : 1px solid transparent;
+	border         : 0;
 	border-spacing : 0;
 	position       : relative;
 	background     : none;
 	outline        : 0;
 	cursor         : pointer;
 	text-indent    : 0;
-	white-space    : nowrap;
 	z-index        : 1;
 	text-rendering : auto;
 	text-transform : none;
 	speak          : none;
-	@include transform(translate(0, 0));
-	@include inline-block;
+	display        : inline-block;
 	@include touch-action;
+	@include transform(translate(0, 0));
+}
+
+@mixin browsers($browsers) {
+	@if $browsers == 'IE8' {
+		.IE8 { @content; }
+	} @else if $browsers == 'IE8&IE9' {
+		.IE8 , .IE9 { @content; }
+	} @else if $browsers == 'FireFox' {
+		@-moz-document url-prefix() { @content; }
+	}
 }
 
 /* RWD */
 @mixin respond-to($midia) {
-	@if $midia == Tables {
-		@media screen and ( max-width : $screen-pc ) { @content; }
-	} @else if $midia == Tables-Mobile {
+	@if $midia == Desktops {
+		.IE8 { @content; }
+		@media screen and ( min-width : $screen-pc ) { @content; }
+	} @else if $midia == Desktops-Tablets {
+		.IE8 { @content; }
+		@media screen and ( min-width : $screen-device ) { @content; }
+	} @else if $midia == Tablets {
+		@media screen and ( max-width : ($screen-pc - 1) ) { @content; }
+	} @else if $midia == Tablets-Mobiles {
 		@media screen and ( min-width : $screen-device ) and ( max-width : ($screen-pc - 1) ) { @content; }
-	} @else if $midia == Mobile {
+	} @else if $midia == Mobiles {
 		@media screen and ( max-width : ($screen-device - 1) ) { @content; }
 	} @else {
 		@media screen and ( max-width : $midia ) { @content; }
