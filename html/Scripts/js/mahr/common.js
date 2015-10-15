@@ -1,0 +1,160 @@
+/* ng-video directive */
+Ctrl.directive('ngVideo', ['$document', function($document) {
+	return {
+		restrict: 'C',
+		link: function(scope, elem, attrs) {
+			elem.on('click' , function(e){
+				scope.Mahr.Youtube.ID    = attrs.id;
+				scope.Mahr.Youtube.Index = scope.$index;
+				scope.$apply();
+			});
+		}
+	};
+}]);
+
+Ctrl.controller('Mahr' , ['$scope' , '$http' , '$sce' , function($scope , $http , $sce) {
+	$scope.repeat = {
+		Callback : function(){
+			AgElem('.ng-video-image img').bind('load' , function(){
+				$scope.Mahr.Youtube.AddIndex++;
+
+				if ( $scope.Mahr.Youtube.AddIndex === $scope.Mahr.Youtube.Data.length ) {
+					
+					AgElem('.ng-owl-carousel').removeClass('b-cloak');
+					AgElem('.ng-video-frame:eq(0) iframe').bind('load' , function(){
+						$scope.$parent.Common.Cloak = false;
+						$scope.$apply();
+						$scope.Mahr.owlCarousel.Setup();
+						$scope.Mahr.owlCarousel.OnChange();
+
+						AgElem(window).finish().delay(0).queue(function(){
+							AgElem('.ng-video-frame').addClass('is-show');
+						});
+					});
+				}
+			});
+		}
+	},
+	$scope.Mahr = {
+		Honor : {
+			NewYear   : ['' , ''],
+			YearArray : [],
+			GetYear : function() {
+				var $this = this;
+
+				for (var i = 0 , $Length = AgElem('.ng-tab-switch > li').length ; i < $Length ; i ++ ) {
+					$this.YearArray.push((AgElem('.ng-tab-switch > li:eq('+ i +')').data('year') + ''));
+				};
+
+				if ( $href.indexOf('?year=') === -1 ) {
+					$this.NewYear[0] = $this.YearArray[0];
+					$this.NewYear[1] = $this.NewYear[0];
+				} else {
+					for ( var i = 0 ; i < $this.YearArray.length ; i ++ ) {
+						if ( $.inArray( $href.split('?year=')[1] , $this.YearArray ) === -1 ) {
+							$this.NewYear[0] = $this.YearArray[0];
+							$this.NewYear[1] = $this.NewYear[0];
+						} else {
+							$this.NewYear[0] = $href.split('?year=')[1];
+							$this.NewYear[1] = $this.NewYear[0];
+						}
+					};
+				}
+			},
+			OnChange : function() {
+				var $this = this;
+				var $Reg = /year=/i;
+
+				if ( ! $Reg.test($href) ) {
+					document.location.href = $href + '?year=' + $this.NewYear[0];
+				} else {
+					document.location.href = $href.replace(/([?&]year)=([^#&]*)/g , '$1=' + $this.NewYear[0]);	
+				}
+			}
+		},
+		Milestone : {
+			NewYear : '',
+			YearArray : [],
+			GetYear : function() {
+				var $this = this;
+
+				for (var i = 0 , $Length = AgElem('.ng-time-line .m-time-line-time').length ; i < $Length ; i ++ ) {
+					$this.YearArray.push((AgElem('.ng-time-line .m-time-line-time:eq('+ i +')').text() + ''));
+				};
+			},
+			OnChange : function() {
+				var $this = this;
+
+				jQuery.map( $this.YearArray , function(v , i){
+					if ( v === $this.NewYear ) {
+						AgElem('html , body').animate({
+							'scrollTop' : AgElem('.ng-time-line > ul > li:eq('+ i +') .m-time-line-time').offset().top
+						});
+					}
+				});
+			}	
+		},
+		owlCarousel : {
+			element : AgElem('.owl-carousel'),
+			Setup   : function() {
+				var $this = this;
+
+				$this.element.owlCarousel({
+					items      : 1,
+					mouseDrag  : false,
+					responsive : true,
+					center     : true,
+					autoHeight : true,
+					dotsClass  : 'm-tab-ctrl',
+					dotClass   : 'm-icon m-icon-point',
+					slideBy    : 1
+				});
+			},
+			OnChange : function() {
+				var $this = this;
+
+				// $scope.$parent.Common.Cloak = true;
+
+				$this.element.on('changed.owl.carousel' , function(e){
+					$scope.Mahr.Youtube.Index = e.item.index;
+					$scope.$apply();
+				});
+			}
+		},
+		Youtube : {
+			AddIndex : 0,
+			Index    : 0,
+			Url      : AgElem('.ng-youtube-ajax').data('url'),
+			Setting  : AgElem('.ng-youtube-ajax').data('setting'),
+			Data     : [],
+			GetData : function(){
+				var $this = this;
+
+				for ( var i = 0 , $length = AgElem('.ng-youtube-ajax > li').length ; i < $length ; i ++ ) {
+					$this.Data.push({
+						'ID'   : AgElem('.ng-youtube-ajax > li > em:eq('+ i +')').text(),
+						'Name' : AgElem('.ng-youtube-ajax > li > p:eq('+ i +')').text()
+					});
+				};
+			},
+			GetYoutube : function(ID) {
+				var $this = this;
+
+				if ( ID !== '' ) {
+					return $sce.trustAsResourceUrl($this.Url + ID + $this.Setting);
+				}
+			}
+		}
+	};
+
+	AgElem(document).ready(function() {
+		$scope.Mahr.Youtube.GetData();
+
+		if ( AgElem('.l-main').hasClass('honor-content') ) {
+			$scope.Mahr.Honor.GetYear();
+		} else if ( AgElem('.l-main').hasClass('milestone-content') ) {
+			$scope.Mahr.Milestone.GetYear();
+		}
+		$scope.$apply();
+	});
+}]);
