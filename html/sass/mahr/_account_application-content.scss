@@ -3,26 +3,13 @@
 	font-size : 24px;
 }
 
+.m-form-group .m-form-ctrl-table > .m-form-addon {
+	clear : both;
+}
+
 .m-section-bd {
 	padding-right : 40px;
 	padding-left  : 40px;
-}
-
-.m-form-item-ft {
-	padding-right : 30px;
-	padding-left  : 30px;
-
-	em {
-		color : $major-color;
-	}
-
-	ul {
-		margin-top : 0;
-
-		.m-icon {
-			color : $major-color;
-		}
-	}
 }
 
 @include respond-to(Desktops) {
@@ -40,12 +27,6 @@
 	}
 }
 
-@include respond-to(Desktops-Tablets) {
-	.m-button-group .m-button:first-child {
-		margin-left : 8px;
-	}
-}
-
 @include respond-to(Tablets-Mobiles) {
 	.m-section {
 		margin-top : 0;
@@ -59,10 +40,6 @@
 		> h2 {
 			display : block;
 		}
-	}
-
-	.m-form-group .m-form-ctrl-table > .m-form-addon {
-		clear : both;
 	}
 
 	.m-footer {
