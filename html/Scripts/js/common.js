@@ -443,6 +443,25 @@ Ctrl.directive('ngMap', ['$document', function($document) {
 	};
 }]);
 
+/* ng-box directive */
+Ctrl.directive('ngBox', ['$document', function($document) {
+	return {
+		restrict: 'C',
+		link: function(scope, elem, attrs) {
+			elem.on('click', function(e) {
+				e.preventDefault();
+
+				$.SugarFunBox.open({
+					href         : attrs.href,
+					closeBtnElem : $SugarFunBoxSet.closeBtnElem,
+					loadImg      : $SugarFunBoxSet.loadimg,
+					width        : '460'
+				});
+			});
+		}
+	};
+}]);
+
 /* ng-tab directive */
 Ctrl.directive('ngTab', ['$document', function($document) {
 	return {

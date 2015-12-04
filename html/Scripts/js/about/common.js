@@ -4,9 +4,11 @@ Ctrl.directive('ngVideo', ['$document', function($document) {
 		restrict: 'C',
 		link: function(scope, elem, attrs) {
 			elem.on('click' , function(e){
-				scope.About.Youtube.ID    = attrs.id;
-				scope.About.Youtube.Index = scope.$index;
-				scope.$apply();
+				if ( $userAgent === 'PC' && ! scope.About.Youtube.Data[scope.$index].URL ) {
+					e.preventDefault();
+					scope.About.Youtube.Index = scope.$index;
+					scope.$apply();
+				}
 			});
 		}
 	};
@@ -15,23 +17,11 @@ Ctrl.directive('ngVideo', ['$document', function($document) {
 Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http , $sce) {
 	$scope.repeat = {
 		Callback : function(){
-			AgElem('.ng-video-image img').bind('load' , function(){
-				$scope.About.Youtube.AddIndex++;
-
-				if ( $scope.About.Youtube.AddIndex === $scope.About.Youtube.Data.length ) {
-					
-					AgElem('.ng-owl-carousel').removeClass('b-cloak');
-					AgElem('.ng-video-frame:eq(0) iframe').bind('load' , function(){
-						$scope.$parent.Common.Cloak = false;
-						$scope.$apply();
-						$scope.About.owlCarousel.Setup();
-						$scope.About.owlCarousel.OnChange();
-
-						AgElem(window).finish().delay(0).queue(function(){
-							AgElem('.ng-video-frame').addClass('is-show');
-						});
-					});
-				}
+			AgElem(document).finish().delay(100).queue(function(){
+				$scope.$parent.Common.Cloak = false;
+				$scope.$apply();
+				$scope.About.owlCarousel.Setup();
+				$scope.About.owlCarousel.OnChange();
 			});
 		}
 	},
@@ -104,7 +94,6 @@ Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http
 					mouseDrag  : false,
 					responsive : true,
 					center     : true,
-					autoHeight : true,
 					dotsClass  : 'm-tab-ctrl',
 					dotClass   : 'm-icon m-icon-point',
 					slideBy    : 1
@@ -113,17 +102,15 @@ Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http
 			OnChange : function() {
 				var $this = this;
 
-				// $scope.$parent.Common.Cloak = true;
-
 				$this.element.on('changed.owl.carousel' , function(e){
-					$scope.About.Youtube.Index = e.item.index;
+					$scope.About.Youtube.Index = null;
 					$scope.$apply();
 				});
 			}
 		},
 		Youtube : {
 			AddIndex : 0,
-			Index    : 0,
+			Index    : null,
 			Url      : AgElem('.ng-youtube-ajax').data('url'),
 			Setting  : AgElem('.ng-youtube-ajax').data('setting'),
 			Data     : [],
@@ -133,7 +120,8 @@ Ctrl.controller('About' , ['$scope' , '$http' , '$sce' , function($scope , $http
 				for ( var i = 0 , $length = AgElem('.ng-youtube-ajax > li').length ; i < $length ; i ++ ) {
 					$this.Data.push({
 						'ID'   : AgElem('.ng-youtube-ajax > li > em:eq('+ i +')').text(),
-						'Name' : AgElem('.ng-youtube-ajax > li > p:eq('+ i +')').text()
+						'Name' : AgElem('.ng-youtube-ajax > li > p:eq('+ i +')').text(),
+						'URL'  : AgElem('.ng-youtube-ajax > li > button:eq('+ i +')') ? AgElem('.ng-youtube-ajax > li > button:eq('+ i +')').text() : ''
 					});
 				};
 			},

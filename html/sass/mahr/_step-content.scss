@@ -1,0 +1,262 @@
+.m-form-item-bd {
+	overflow : hidden;
+
+	.m-form-group {
+		&.m-form-horizontal {
+			margin : 0 auto;
+
+			.m-form-addon {
+				display  : block;
+				position : relative;
+			}
+		}
+
+		&.is-required .m-form-addon:before {
+			margin-top : -8px;
+			position   : absolute;
+			top        : 50%;
+			left       : 0;
+			text-align : left;
+		}
+
+		.m-form-ctrl-table {
+			display  : block;
+			overflow : hidden;
+		}
+
+		.m-form-ctrl {
+			margin-bottom : 16px;
+			padding-left  : 0;
+		}
+	}
+}
+
+.m-form-item-ft {
+	padding-top    : 0;
+	padding-bottom : 15px;
+	border-top     : 0;
+}
+
+.m-step-progress {
+	margin     : 40px 40px 20px 40px !important;
+	min-height : 80px;
+	position   : relative;
+
+	&:before, &:after {
+		content    : '';
+		background : $border-minor-color;
+		display    : block;
+		width      : 100%;
+		height     : 6px;
+		position   : absolute;
+		top        : 21px;
+		left       : 0;
+	}
+
+	&:after {
+		background : $minor-color;
+		width      : 0;
+	}
+
+	.m-step-line {
+		margin-left : -24px;
+		height      : 80px;
+		position    : absolute;
+		left        : 0;
+		z-index     : 1;
+		color       : $border-minor-color;
+		line-height : 32px;
+		text-align  : center;
+		white-space : nowrap;
+
+		&:before {
+			content       : '';
+			background    : $border-minor-color;
+			display       : block;
+			width         : 48px;
+			height        : 48px;
+			border-radius : 50%;
+			color         : $color-white;
+			font-size     : 32px;
+			font-family   : 'Century Gothic';
+			font-style    : italic;
+			line-height   : 48px;
+		}
+
+		@for $i from 1 through 6 {
+			&:nth-child(#{$i}) {
+				left : 20% * ($i - 1);
+
+				&:before {
+					content : '#{$i}';
+				}
+			}
+		}
+	}
+}
+
+.curr-step-1 .m-form-item-bd .m-form-group {
+	&.m-form-horizontal {
+		width : 75%;
+
+		.m-form-addon {
+			padding-left : 15px;
+			color        : $major-color;
+			font-size    : 18px;
+		}
+	}
+
+	.m-form-ctrl-table {
+		padding-left : 30px;
+	}
+}
+
+.curr-step-5 .m-form-item-bd .m-form-group {
+	&.m-form-horizontal {
+		width : 90%;
+
+		.m-form-addon {
+			padding-left : 0;
+		}
+	}
+
+	.m-form-ctrl-table {
+		padding-left : 0;
+	}
+}
+
+@for $i from 1 through 6 {
+	.curr-step-#{$i} .m-step-progress {
+		&:after {
+			width : 20% * ($i - 1);
+		}
+
+		@if $i == 1 {
+			.m-step-line:first-child {
+				color : $text-minor-color;
+
+				&:before {
+					background : $minor-color;
+				}
+			}
+		} @else if $i == 2 {
+			.m-step-line:first-child, .m-step-line:nth-child(2) {
+				color : $text-minor-color;
+
+				&:before {
+					background : $minor-color;
+				}
+			}
+		} @else if $i == 3 {
+			.m-step-line:first-child, .m-step-line:nth-child(2), .m-step-line:nth-child(3) {
+				color : $text-minor-color;
+
+				&:before {
+					background : $minor-color;
+				}
+			}
+		} @else if $i == 4 {
+			.m-step-line:first-child, .m-step-line:nth-child(2), .m-step-line:nth-child(3), .m-step-line:nth-child(4) {
+				color : $text-minor-color;
+
+				&:before {
+					background : $minor-color;
+				}
+			}
+		} @else if $i == 5 {
+			.m-step-line:first-child, .m-step-line:nth-child(2), .m-step-line:nth-child(3), .m-step-line:nth-child(4), .m-step-line:nth-child(5) {
+				color : $text-minor-color;
+
+				&:before {
+					background : $minor-color;
+				}
+			}
+		} @else if $i == 6 {
+			.m-step-line {
+				color : $text-minor-color;
+
+				&:before {
+					background : $minor-color;
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.m-button.m-button-navicon {
+		display : none;
+	}
+}
+
+@include respond-to(Tablets) {
+	.m-button.m-button-navicon {
+		display : none;
+	}
+
+	.m-form-item-bd .m-form-group {
+		&.m-form-horizontal {
+			width : 100%;
+	
+			.m-form-addon {
+				padding-left : 0;
+
+				&:before {
+					margin-top : 0;
+					position   : relative;
+					top        : auto;
+				}
+			}
+		}
+
+		.m-form-ctrl-table {
+			padding-left : 0;
+		}
+	}
+
+	.m-step-progress {
+		margin-right : 0 !important;
+		margin-left  : 0 !important;
+
+		&:before, &:after {
+			display : none;
+		}
+
+		.m-step-line {
+			margin       : 12px auto 0 auto;
+			padding-left : 60px;
+			width        : 60px;
+			height       : auto;
+			position     : relative;
+			left         : auto !important;
+			line-height  : 48px;
+			text-align   : left;
+	
+			&:before {
+				position   : absolute;
+				top        : 0;
+				left       : 0;
+				text-align : center;
+			}
+
+			&:after {
+				content    : '';
+				background : $border-minor-color;
+				display    : block;
+				width      : 6px;
+				height     : 12px;
+				position   : absolute;
+				top        : -12px;
+				left       : 21px;
+			}
+
+			&:first-child:after {
+				display : none;
+			}
+
+			&.is-complete:after {
+				background : $minor-color;
+			}
+		}
+	}
+}

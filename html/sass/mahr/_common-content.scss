@@ -1,0 +1,99 @@
+.l-content.is-background {
+	padding-bottom  : 360px;
+	background      : image-url('mahr/main-bg.png') right bottom no-repeat;
+	background-size : 100%;
+}
+
+.m-form-item-hd .m-form-addon {
+	color     : $text-minor-color;
+	font-size : 24px;
+}
+
+.m-section {
+	margin-top : 0;
+}
+
+.m-section-bd {
+	padding-right : 40px;
+	padding-left  : 40px;
+
+	.m-form-horizontal {
+		margin-top : 10px;
+	}
+}
+
+.m-form-group .m-form-ctrl {
+	margin-right : 20px;
+
+	.m-form {
+		height : 32px;
+	}
+}
+
+.m-form-item-ft {
+	em {
+		color     : $major-color;
+		font-size : 18px;
+	}
+
+	ul {
+		margin-top    : 0;
+		padding-right : 30px;
+		padding-left  : 30px;
+		font-size     : 15px;
+
+		.m-icon {
+			color : $major-color;
+		}
+	}
+}
+
+.m-footer {
+	margin  : 0 auto;
+	display : table;
+	width   : 1000px;
+	height  : 100px;
+}
+
+.m-footer-ft {
+	display : table-cell;
+}
+
+@include respond-to(Desktops) {
+	.l-main-bd:before {
+		background : transparent;
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.m-button-group .m-button:first-child {
+		margin-left : 8px;
+	}
+}
+
+@include respond-to(Tablets) {
+	.m-section {
+		margin-top : 0;
+	}
+
+	.m-section-hd > h2 {
+		display   : block;
+		font-size : 24px;	
+	}
+
+	.m-footer {
+		width : 100%;
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {
+	.l-content.is-background {
+		padding-bottom : 300px;
+	}
+}
+
+@include respond-to(Mobiles) {
+	.l-content.is-background {
+		padding-bottom : 180px;
+	}
+}

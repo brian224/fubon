@@ -4221,13 +4221,18 @@
 						</main>
 					</aside>
 					<aside class="m-aside">
-						<header class="m-aside-hd">
+						<header class="m-aside-hd b-clearfix">
 							<h5>相關連結</h5>
 						</header>
 						<main class="m-aside-bd">
 							<div class="m-tab m-tab-slide">
 								<div class="m-tab-hd">
-									<ul class="m-ajax ng-youtube-ajax" data-url="//www.youtube.com/embed/" data-setting="?autoplay=0&autohide=1&controls=0&rel=0&fs=1&wmode=transparent&showinfo=0&modestbranding=1&iv_load_policy=1&start=0&theme=dark&color=red&playsinline=false&enablejsapi=1">
+									<ul class="m-ajax ng-youtube-ajax" data-url="//www.youtube.com/embed/" data-setting="?autoplay=1&autohide=1&controls=0&rel=0&fs=1&wmode=transparent&showinfo=0&modestbranding=1&iv_load_policy=1&start=0&theme=dark&color=red&playsinline=false&enablejsapi=1">
+										<li>
+											<em>../../Content/img/about/cnbct.png</em>
+											<p>TDCC簡介</p>
+											<button>http://www.executiveinterviews.com/delivery/v1/mini/default.asp?CI=Y&order=US07079a</button>
+										</li>
 										<li>
 											<em>WdhzVssc-MI</em>
 											<p>正向的力量 讓世界持續美好</p>
@@ -4239,14 +4244,23 @@
 									</ul>
 								</div>
 								<div class="b-clearfix b-cloak owl-carousel" ng-class="{'b-cloak' : Common.Cloak}">
-									<div class="ng-repeat-done ng-owl-carousel" ng-repeat="youtube in About.Youtube.Data" ng-class="{'b-cloak' : $index !== 0}">
+									<div class="ng-repeat-done ng-owl-carousel" ng-repeat="youtube in About.Youtube.Data">
 										<div class="m-video">
 											<div class="m-video-bd">
-												<figure class="m-video-figure ng-video-image">
-													<img ng-src="http://img.youtube.com/vi/{{ youtube.ID }}/0.jpg" alt="{{ youtube.Name }}">
-												</figure>
-												<div class="m-video-frame ng-video-frame">
-													<iframe width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allowtransparency="true" ng-src="{{ About.Youtube.GetYoutube(youtube.ID) }}" ng-if="About.Youtube.Index === $index"></iframe>
+												<a class="m-button-video ng-video" target="_blank" ng-href="//www.youtube.com/watch?v={{ youtube.ID }}" ng-if="! youtube.URL">
+													<figure class="m-video-figure ng-video-image">
+														<i class="m-icon m-icon-youtube-play"></i>
+														<img ng-src="http://img.youtube.com/vi/{{ youtube.ID }}/0.jpg" alt="{{ youtube.Name }}">
+													</figure>
+												</a>
+												<a class="m-button-video ng-video" target="_blank" ng-href="{{ youtube.URL }}" ng-if="youtube.URL">
+													<figure class="m-video-figure ng-video-image">
+														<i class="m-icon m-icon-youtube-play"></i>
+														<img ng-src="{{ youtube.ID }}" alt="{{ youtube.Name }}">
+													</figure>
+												</a>
+												<div class="m-video-frame ng-video-frame" ng-if="About.Youtube.Index === $index && ! youtube.URL">
+													<iframe width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" allowtransparency="true" ng-src="{{ About.Youtube.GetYoutube(youtube.ID) }}"></iframe>
 												</div>
 											</div>
 											<div class="m-video-ft">{{ youtube.Name }}</div>

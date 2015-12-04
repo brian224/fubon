@@ -7,7 +7,7 @@
  */
 
 (function (window , document , jQuery , undefined) {
-	"use strict";
+	'use strict';
 
 	var H = $('html'),
 		B = $('body'),
@@ -42,7 +42,7 @@
 			return Math.ceil(value);
 		},
 		getValue = function(value, dim) {
-			return getScalar(value, dim) + 'px';
+			return getScalar(value , dim) + 'px';
 		};
 
 	$.extend( S , {
@@ -78,7 +78,7 @@
 			tpl : {
 				overlay  : '<div class="sugarfunbox-overlay"></div>',
 				wrap     : '<div class="sugarfunbox" tabIndex="-1" role="dialog"><div class="sugarfunbox-hd"><a href="javascript:;" class="sugarfunbox-close" title="Close"></a></div><div class="sugarfunbox-bd"></div></div>',
-				iframe   : '<iframe id="sugarfunbox-frame{rnd}" name="sugarfunbox-frame{rnd}" class="sugarfunbox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen' + (IE ? ' allowtransparency="true"' : '') + '></iframe>',
+				iframe   : '<iframe id="sugarfunbox-frame{rnd}" name="sugarfunbox-frame{rnd}" class="sugarfunbox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency="true"></iframe>',
 				closeBtn : '.sugarfunbox-close',
 				loading  : '<div class="sugarfunbox-loading sugarfunbox-middleSet"><div class="sugarfunbox-loading-bd"></div></div>'
 			},
@@ -179,16 +179,13 @@
 				});
 
 				group[ i ] = obj;
+
+
 			});
 
-			S.opts = $.extend(true, {} , S.defaults , opts);
+			S.opts = $.extend(true , {} , S.defaults , opts);
 
 			S.group = group;
-
-			// support Mobile
-			if ( ! S.opts.supportMobile && isMobile ) {
-				B.find('> *:not(.sugarfunbox)').addClass('sugarfunbox-hide');
-			}
 
 			return S._start(S.opts.index);
 		},
@@ -493,9 +490,18 @@
 				});
 			}
 
+			// support Mobile
+			if ( ! coming.supportMobile && isMobile ) {
+				B.find('> *:not(.sugarfunbox)').addClass('sugarfunbox-hide');
+			}
+
 			// 'autoSize' property is a shortcut, too
-			if ( ( coming.width === 'auto' || coming.width === S.defaults.width ) || ( coming.height === 'auto' || coming.height === S.defaults.height ) && coming.autoSize ) {
-				coming.autoWidth = coming.autoHeight = true;
+			if ( ( coming.width === 'auto' || coming.width === S.defaults.width ) && coming.autoSize ) {
+				coming.autoWidth = true;
+			}
+
+			if ( ( coming.height === 'auto' || coming.height === S.defaults.height ) && coming.autoSize ) {
+				coming.autoHeight = true;
 			}
 
 			if ( coming.width === 'auto' ) {
@@ -516,8 +522,13 @@
 
 			S.isActive = true;
 
-			coming.wrap = $(coming.tpl.wrap).addClass('sugarfunbox-' + ( ( ! S.opts.supportMobile && isMobile ) ? 'mobiles' : 'desktops' ) + ' sugarfunbox-hidden' ).appendTo( coming.parent || 'body' );
-			$('.sugarfunbox-close' , $('.sugarfunbox-hd', coming.wrap)).text(coming.closeBtnElem);
+			coming.wrap = $(coming.tpl.wrap).addClass('sugarfunbox-' + ( ( ! coming.supportMobile && isMobile ) ? 'mobiles' : 'desktops' ) + ' sugarfunbox-hidden' ).appendTo( coming.parent || 'body' );
+
+			if ( coming.closeBtnElem.match(/(\<|\>)/g) ) {
+				$('.sugarfunbox-close' , $('.sugarfunbox-hd', coming.wrap)).append( $(coming.closeBtnElem) );
+			} else {
+				$('.sugarfunbox-close' , $('.sugarfunbox-hd', coming.wrap)).text( coming.closeBtnElem );	
+			}
 
 			// Build the neccessary markup
 			$.extend( coming , {
@@ -528,7 +539,7 @@
 			S.trigger('onReady');
 
 			// Check before try to load; 'inline' and 'html' types need content, others - href
-			if ( coming.href !== '' && coming.href !== 'javascript:;' && coming.href !== '#' ) {
+			if ( coming.href !== null && coming.href !== 'javascript:;' && coming.href !== '#' ) {
 				S._loadIframe();
 			} else {
 				S._afterLoad();	
@@ -676,30 +687,32 @@
 				wrap.width('100%').removeClass('sugarfunbox-hidden');
 			}
 
-			origWidth  = (viewport.w < getScalar(width)) ? (viewport.w * 0.95) : width;
+			origWidth  = ( viewport.w < getScalar(width , 'w') ) ? ( viewport.w * 0.95 ) : getScalar(width , 'w');
 			origHeight = height;
 
-			if ( current.href !== '' && current.href !== 'javascript:;' && current.href !== '#' ) {
+			if ( current.href !== null && current.href !== 'javascript:;' && current.href !== '#' ) {
 				iframe = current.content;
 
-				if ( current.autoHeight && iframe.data('ready') === 1 ) {
+				if ( current.autoHeight && parseInt(iframe.data('ready') , 10) === 1 ) {
+
 					try {
 						if ( iframe[0].contentWindow.document.location ) {
 							if ( ! isMobile || current.supportMobile ) {
-								bd.width( origWidth );
+								wrap.add(bd).width( origWidth );
 							} else {
 								bd.width( '100%' );
 							}
 
-							bd.height(9999);
+							body       = iframe[0].contentWindow.document.body;
+							origHeight = body.scrollHeight;
 
-							body = iframe.contents().find('body');
+							bd.height(9999);
 
 							if ( scrollOut ) {
 								body.css('overflow-x' , 'hidden');
 							}
 
-							origHeight = body.outerHeight(true);
+							origHeight = origHeight;
 						}
 
 					} catch (e) {}
@@ -1036,15 +1049,17 @@
 				this.close();
 			}
 
-			// console.log(S.coming);
-
-			this.overlay = $(S.coming.tpl.overlay).addClass('sugarfunbox-overlay' + ( ( ! S.opts.supportMobile && isMobile ) ? 'mobiles' : 'desktops' ) ).appendTo( S.coming ? S.coming.parent : opts.parent );
+			this.overlay = $(S.coming.tpl.overlay).addClass('sugarfunbox-overlay' + ( ( ! S.coming.supportMobile && isMobile ) ? 'mobiles' : 'desktops' ) );
 			this.fixed   = false;
 
 			if ( opts.fixed && S.defaults.fixed ) {
 				this.overlay.addClass('sugarfunbox-overlay-fixed');
 
 				this.fixed = true;
+			}
+
+			if ( ( S.coming.supportMobile && isMobile ) || ! isMobile ) {
+				this.overlay.appendTo( S.coming ? S.coming.parent : opts.parent );
 			}
 		},
 
@@ -1089,7 +1104,7 @@
 
 			W.unbind('resize.overlay');
 
-			if (this.el.hasClass('sugarfunbox-lock')) {
+			if ( this.el.hasClass('sugarfunbox-lock') ) {
 				$('.sugarfunbox-margin').removeClass('sugarfunbox-margin');
 
 				scrollV = W.scrollTop();
@@ -1210,7 +1225,7 @@
 						e.preventDefault();
 					}
 				}
-			};;
+			};
 
 		options = options || {};
 		index   = options.index || 0;
