@@ -5,6 +5,12 @@
 	@include box-sizing(border-box);
 	@include transition(margin-top $transition-times);
 
+	&.is-en {
+		.m-nav-path {
+			top : -110px;
+		}
+	}
+
 	> a {
 		color : $color-white;
 	}
@@ -140,6 +146,12 @@
 @include respond-to(Desktops) {
 	.m-nav {
 		padding-top : 10px;
+
+		&.is-en {
+			.m-nav-path {
+				height : 120px;
+			}
+		}
 
 		> ul {
 			padding   : 16px 183px 0 210px;

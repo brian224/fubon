@@ -455,7 +455,7 @@ Ctrl.directive('ngBox', ['$document', function($document) {
 					href         : attrs.href,
 					closeBtnElem : $SugarFunBoxSet.closeBtnElem,
 					loadImg      : $SugarFunBoxSet.loadimg,
-					width        : '460'
+					width        : attrs.width ? attrs.width : 800
 				});
 			});
 		}

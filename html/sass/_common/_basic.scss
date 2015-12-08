@@ -3,6 +3,12 @@
 	display : none !important;
 }
 
+/* display */
+.b-inline {
+	display: inline-block !important;
+	@include inline-block;
+}
+
 /* vertical-align middle */
 .b-middle {
 	font-size  : 0;
@@ -155,6 +161,12 @@ h3 , .b-h3 {
 }
 
 @include respond-to(Desktops) {
+	/* display */
+	.b-inline-md {
+		display: inline-block !important;
+		@include inline-block;
+	}
+
 	/* align */
 	.b-align-md-left {
 		text-align : left;
@@ -211,6 +223,12 @@ h3 , .b-h3 {
 @include respond-to(Tablets) {}
 
 @include respond-to(Tablets-Mobiles) {
+	/* display */
+	.b-inline-sm {
+		display: inline-block !important;
+		@include inline-block;
+	}
+
 	/* h1 ~ h6 font size */
 	h2 , .b-h2 {
 		font-size : 28px;
@@ -278,6 +296,12 @@ h3 , .b-h3 {
 			text-decoration : underline;
 			cursor          : pointer;
 		}
+	}
+
+	/* display */
+	.b-inline-xs {
+		display: inline-block !important;
+		@include inline-block;
 	}
 
 	.b-align-xs-left {

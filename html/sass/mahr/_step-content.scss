@@ -125,6 +125,47 @@
 	}
 }
 
+.curr-step-6 .m-form-item-bd {
+	font-size : 14px !important;
+
+	.box-item {
+		margin : 0 30px 20px 30px;
+	}
+
+	.m-form-group {
+		&.is-radio .m-form-ctrl {
+			> div > label {
+				display   : inline-block;
+				min-width : 60px;
+			}
+
+			.m-form-control {
+				margin-right : 5px;
+			}
+		}
+
+		.m-form-sub-item {
+			margin-bottom : 16px;
+			padding       : 0;
+			display       : table;
+
+			> li {
+				display        : table-cell;
+				float          : none;
+				vertical-align : bottom;
+
+				> .m-form-ctrl {
+					margin : 0;
+				}
+
+				label {
+					min-width: 60px;
+				}
+			}
+		}
+	}
+}
+
 @for $i from 1 through 6 {
 	.curr-step-#{$i} .m-step-progress {
 		&:after {
@@ -211,6 +252,28 @@
 
 		.m-form-ctrl-table {
 			padding-left : 0;
+		}
+	}
+}
+
+@include respond-to(Mobiles) {
+	.m-box-bd {
+		.box-item {
+			padding : 0 40px;
+		}
+
+		.m-button-group .m-button.b-lg {
+			width : auto;
+		}
+	}
+
+	.curr-step-6 .m-form-item-bd {
+		.box-item {
+			margin : 0 0 20px 0;
+		}
+
+		.m-form-group {
+			padding : 0;
 		}
 	}
 

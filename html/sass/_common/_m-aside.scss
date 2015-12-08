@@ -13,7 +13,7 @@
 					&.is-curr , &.is-active {
 						.m-icon-stack {
 							.m-icon {
-								@include display(block);
+								@include inline-block;
 
 								&:first-child {
 									display : none;
@@ -83,21 +83,20 @@
 					}
 
 					.m-icon-stack {
-						top       : 50%;
-						right     : 5px;
-						margin-top: -6px;
-						font-size : 12px;
-						color     : $major-color;
-						width     : 12px;
-						height    : 12px;
-						display   : block;
-						position  : absolute;
+						padding-left : 5px;
+						color        : $major-color;
+						font-size    : 12px;
+						width        : 12px;
+						height       : 12px;
+						position     : relative;
+						@include display(table-cell);
 
 						.m-icon {
-							display: none;
+							height  : auto;
+							display : none;
 
 							&:first-child {
-								display : block;
+								@include inline-block;
 							}
 						}
 					}
