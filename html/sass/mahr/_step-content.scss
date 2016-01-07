@@ -1,6 +1,12 @@
 .m-form-item-bd {
 	overflow : hidden;
 
+	&.is-bgcolor {
+		margin     : 0 -40px;
+		padding    : 20px 40px;
+		background : $color-inverse;
+	}
+
 	.m-form-group {
 		&.m-form-horizontal {
 			margin : 0 auto;
@@ -9,14 +15,6 @@
 				display  : block;
 				position : relative;
 			}
-		}
-
-		&.is-required .m-form-addon:before {
-			margin-top : -8px;
-			position   : absolute;
-			top        : 50%;
-			left       : 0;
-			text-align : left;
 		}
 
 		.m-form-ctrl-table {
@@ -96,6 +94,14 @@
 }
 
 .curr-step-1 .m-form-item-bd .m-form-group {
+	&.is-required .m-form-addon:before {
+		margin-top : -8px;
+		position   : absolute;
+		top        : 50%;
+		left       : 0;
+		text-align : left;
+	}
+
 	&.m-form-horizontal {
 		width : 75%;
 
@@ -108,6 +114,219 @@
 
 	.m-form-ctrl-table {
 		padding-left : 30px;
+	}
+}
+
+.curr-step-2 .m-form-item-bd {
+	position : relative;
+
+	.m-form-group {
+		&.m-form-horizontal {
+			margin-bottom : 16px;
+
+			.m-form-addon {
+				display : table-cell;
+			}
+		}
+
+		.m-form-ctrl-table {
+			display : table-cell;
+		}
+
+		.m-form-ctrl {
+			margin-bottom : 0;
+		}
+
+		&.is-radio.m-form-horizontal {
+			&.is-nationality {
+				line-height : 40px;
+
+				> .m-form-addon {
+					padding-top    : 0;
+					padding-bottom : 0;
+					vertical-align : middle;
+				}
+
+				input[type="text"]{
+					width : 120px !important;
+				}
+			}
+
+			.m-form-addon {
+				float : none;
+			}
+
+			.m-form-ctrl label > .m-form {
+				width : auto;
+			}
+
+			.m-form-select {
+				.m-form-ctrl-table {
+					padding-left : 0;
+					display      : block;
+				}
+
+				.m-form-ctrl {
+					display : table;
+					width   : 100%;
+
+					.m-form-addon {
+						padding-left : 5px;
+					}
+
+					label {
+						display : table-cell;
+
+						.is-label {
+							display : block;
+
+							.m-form {
+								width : 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.is-in-taiwan {
+			line-height : 40px;
+
+			> .m-form-addon {
+				padding-top    : 0;
+				padding-bottom : 0;
+				vertical-align : middle;
+			}
+		}
+
+		&.is-photo-upload {
+			margin-top : 0;
+			position   : absolute;
+			top        : 140px;
+			right      : 0;
+
+			.box-upload {
+				display  : block;
+				width    : 124px;
+				height   : 124px;
+				position : absolute;
+				top      : 0;
+				left     : 0;
+				cursor   : pointer;
+				z-index  : 1;
+				@include opacity(0);
+			}
+
+			.m-button {
+				display : block;
+				width   : 124px;
+				height  : 124px;
+
+				&:before {
+					content    : '';
+					margin     : 0 auto 10px auto;
+					background : image-url('mahr/icon-photo-upload.png') 0 0 no-repeat;
+					display    : block;
+					width      : 55px;
+					height     : 71px;
+				}
+			}
+		}
+	}
+
+	&.is-edu-bg {
+		* {
+			line-height : 40px;
+		}
+
+		> .m-form-group:first-child {
+			.m-form-addon {
+				padding : 0 !important;
+				float   : left;
+			}
+
+			.m-button {
+				padding-top    : 0;
+				padding-bottom : 0;
+			}
+		}
+
+		.m-form-group:last-child .m-form-group > * {
+			padding-left : 0;
+		}
+
+		.m-form-ctrl, .m-form-select {
+			.m-form-addon {
+				padding-top    : 0;
+				padding-bottom : 0;
+			}
+
+			label {
+				padding-left : 5px;
+				display      : table-cell;
+
+				.m-form {
+					width : 100% !important;
+				}
+			}
+		}
+
+		.m-form-select {
+			padding-right : 0;
+			padding-left  : 0;
+
+			.m-form {
+				padding-top    : 0;
+				padding-bottom : 0;
+			}
+		}
+
+		.m-form-horizontal.m-form-select {
+			.m-form-ctrl-table {
+				padding-left : 0;
+
+				.m-form-addon:first-child {
+					padding-left : 0;
+				}
+			}
+		}
+	}
+}
+
+.curr-step-3 .m-form-item-bd > .m-form-group {
+	&:first-child {
+		margin-bottom : 16px;
+
+		.m-form-addon {
+			float : left;
+		}
+	}
+
+	.m-form-addon, .m-form-ctrl-table {
+		display : table-cell;
+		float   : none;
+	}
+}
+
+.curr-step-4 .m-form-item-bd {
+	.m-button-group {
+		padding : 0;
+	}
+
+	> .m-form-group {
+		&:first-child {
+			margin-bottom : 16px;
+
+			.m-form-addon {
+				float : left;
+			}
+		}
+
+		.m-form-addon, .m-form-ctrl-table {
+			padding-left : 5px;
+			display      : table-cell;
+			float        : none;
+		}
 	}
 }
 
@@ -181,7 +400,7 @@
 				}
 			}
 		} @else if $i == 2 {
-			.m-step-line:first-child, .m-step-line:nth-child(2) {
+			.m-step-line:first-child, .m-step-line:first-child + li {
 				color : $text-minor-color;
 
 				&:before {
@@ -189,7 +408,7 @@
 				}
 			}
 		} @else if $i == 3 {
-			.m-step-line:first-child, .m-step-line:nth-child(2), .m-step-line:nth-child(3) {
+			.m-step-line:first-child, .m-step-line:first-child + li, .m-step-line:first-child + li + li {
 				color : $text-minor-color;
 
 				&:before {
@@ -197,7 +416,7 @@
 				}
 			}
 		} @else if $i == 4 {
-			.m-step-line:first-child, .m-step-line:nth-child(2), .m-step-line:nth-child(3), .m-step-line:nth-child(4) {
+			.m-step-line:first-child, .m-step-line:first-child + li, .m-step-line:first-child + li + li, .m-step-line:first-child + li + li + li {
 				color : $text-minor-color;
 
 				&:before {
@@ -205,7 +424,7 @@
 				}
 			}
 		} @else if $i == 5 {
-			.m-step-line:first-child, .m-step-line:nth-child(2), .m-step-line:nth-child(3), .m-step-line:nth-child(4), .m-step-line:nth-child(5) {
+			.m-step-line:first-child, .m-step-line:first-child + li, .m-step-line:first-child + li + li, .m-step-line:first-child + li + li + li, .m-step-line:first-child + li + li + li + li {
 				color : $text-minor-color;
 
 				&:before {
@@ -221,6 +440,13 @@
 				}
 			}
 		}
+	}
+}
+
+@include respond-to(Desktops) {
+	.curr-step-2 .m-form-item-bd .m-form-group.is-in-taiwan .b-col-md-3 {
+		width : 25% !important;
+		float : left !important;
 	}
 }
 
@@ -254,6 +480,11 @@
 			padding-left : 0;
 		}
 	}
+
+	.curr-step-2 .m-form-item-bd .m-form-group.is-in-taiwan .b-col-sm-4 {
+		width : 33.33333% !important;
+		float : left !important;
+	}
 }
 
 @include respond-to(Mobiles) {
@@ -267,20 +498,7 @@
 		}
 	}
 
-	.curr-step-6 .m-form-item-bd {
-		.box-item {
-			margin : 0 0 20px 0;
-		}
-
-		.m-form-group {
-			padding : 0;
-		}
-	}
-
 	.m-step-progress {
-		margin-right : 0 !important;
-		margin-left  : 0 !important;
-
 		&:before, &:after {
 			display : none;
 		}
@@ -321,5 +539,243 @@
 				background : $minor-color;
 			}
 		}
+	}
+
+	.curr-step-1 .m-form-item-bd .m-form-group.m-form-horizontal {
+		width : 100%;
+
+		.m-form-addon, .m-form-ctrl-table {
+			padding-left : 0;
+		}
+	}
+
+	.curr-step-2 .m-form-item-bd {
+		.m-step-progress {
+			margin : 40px 0 200px 0 !important;
+		}
+
+		.m-form-group {
+			.m-form-ctrl-table {
+				display : block;
+			}
+	
+			&.is-radio.m-form-horizontal {
+				&.is-m-service {
+					.m-form-ctrl-table, .m-form-ctrl-table .m-form-select {
+						padding-right : 0;
+					}
+
+					.m-form-select .m-form-addon:first-child {
+						padding-right : 0;
+						display       : table-caption !important;
+					}
+				}
+	
+				.m-form-addon {
+					display : block;
+				}
+		
+				.m-form-select {
+					padding-left : 0;
+			
+					.m-form-addon {
+						margin-left : -6px;
+			
+						&:first-child {
+							margin-left : 0;
+							display     : block;
+						}
+					}
+				}
+			}
+
+			&.is-nationality > .m-form-ctrl > div:last-child {
+				margin-top   : 16px;
+				padding-left : 24px;
+			}
+
+			&.is-photo-upload {
+				margin-left : -62px;
+				top         : 428px;
+				left        : 50%;
+				right       : auto;
+			}
+
+			&.is-in-taiwan {
+				.b-col-xs-6 {
+					padding-right : 0;
+					width         : 100% !important;
+				}
+
+				.m-form-ctrl-table {
+					padding-right : 0;
+				}
+			}
+		}
+
+		&.is-edu-bg {
+			.m-form-horizontal {
+				&.is-radio .m-form-ctrl-table {
+					padding-right : 0;
+
+					.m-form-ctrl-table label {
+						padding-left : 0;
+						display      : block;
+						width        : 100%;
+					}
+				}
+
+				&:nth-child(2) {
+					> .m-form-ctrl {
+						.m-form-addon {
+							display : block;
+						}
+
+						label {
+							margin-bottom : 16px;
+							padding-left  : 0;
+							display       : block;
+							width         : 100%;
+						}
+					}
+				}
+
+				&.m-form-select {
+					.m-form-ctrl-table {
+						padding-right : 0;
+					}
+
+					.m-form-addon:first-child {
+						display : table-caption;
+					}
+
+					.m-form-ctrl:nth-child(2) .m-form-addon:first-child {
+						position    : relative;
+						text-indent : -99999px;
+
+						&:before {
+							content     : '~';
+							margin-left : -9px;
+							position    : absolute;
+							top         : 0;
+							left        : 50%;
+							font-size   : 18px;
+							text-indent : 0;
+							@include transform(rotate(90deg));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.curr-step-3 .m-form-item-bd > .m-form-group {
+		.m-form-addon, .m-form-ctrl-table {
+			display : block;
+		}
+
+		.m-form-select .m-form-ctrl {
+			.m-form-addon {
+				text-align : center;
+			}
+
+			&:nth-child(2) {
+				label {
+					padding-left : 0;
+				}
+
+				.m-form-addon:first-child {
+					display     : table-caption;
+					position    : relative;
+					text-indent : -99999px;
+		
+					&:before {
+						content     : '~';
+						margin-left : -9px;
+						position    : absolute;
+						top         : 0;
+						left        : 50%;
+						font-size   : 18px;
+						text-indent : 0;
+						@include transform(rotate(90deg));
+					}
+				}
+			}
+		}
+	}
+
+	.curr-step-4 .m-form-item-bd>.m-form-group {
+		.m-form-addon, .m-form-ctrl-table {
+			padding-left : 0;
+			display      : block;
+		}
+
+		.m-form-addon, .m-form-ctrl-table .m-form-addon {
+			padding-left : 5px;
+		}
+	}
+
+	.curr-step-6 .m-form-item-bd {
+		.box-item {
+			margin : 0 0 20px 0;
+		}
+
+		.m-form-group {
+			padding : 0;
+		}
+	}
+}
+
+@include browsers('IE8') {
+	.m-step-progress .m-step-line {
+		&:before {
+			content : '1';
+			text-align: center;
+		}
+
+		&:first-child + li {
+			left : 20%;
+
+			&:before {
+				content : '2';
+			}
+		}
+
+		&:first-child + li + li {
+			left : 40%;
+
+			&:before {
+				content : '3';
+			}
+		}
+
+		&:first-child + li + li + li {
+			left : 60%;
+
+			&:before {
+				content : '4';
+			}
+		}
+
+		&:first-child + li + li + li + li {
+			left : 80%;
+
+			&:before {
+				content : '5';
+			}
+		}
+
+		&:first-child + li + li + li + li + li {
+			left : 100%;
+
+			&:before {
+				content : '6';
+			}
+		}
+	}
+
+	.curr-step-2 .is-edu-bg.m-form-item-bd .m-form-select .m-form {
+		padding-top    : 10px;
+		padding-bottom : 10px;
 	}
 }

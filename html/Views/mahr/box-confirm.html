@@ -69,6 +69,10 @@
 	<!-- ==================== m-box end =================== -->
 </body>
 <!-- master page include scripts begin -->
-<!-- <script type="text/javascript" src="../../Scripts/plugin/jquery/jquery.min.js?JS=20150630_01"></script> -->
+<script>
+	document.querySelector('.m-button.b-primary.b-lg').addEventListener('click', function() {
+		window.parent.$.SugarFunBox.close();
+	});
+</script>
 <!-- master page include scripts end -->
 </html>
