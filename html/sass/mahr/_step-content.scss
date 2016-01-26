@@ -135,9 +135,13 @@
 
 		.m-form-ctrl {
 			margin-bottom : 0;
+
+			> * {
+				height : auto;
+			}
 		}
 
-		&.is-radio.m-form-horizontal {
+		&.is-radio.m-form-horizontal, &.is-checkbox.m-form-horizontal {
 			&.is-nationality {
 				line-height : 40px;
 
@@ -559,7 +563,7 @@
 				display : block;
 			}
 	
-			&.is-radio.m-form-horizontal {
+			&.is-radio.m-form-horizontal, &.is-checkbox.m-form-horizontal {
 				&.is-m-service {
 					.m-form-ctrl-table, .m-form-ctrl-table .m-form-select {
 						padding-right : 0;
@@ -615,7 +619,7 @@
 
 		&.is-edu-bg {
 			.m-form-horizontal {
-				&.is-radio .m-form-ctrl-table {
+				&.is-radio .m-form-ctrl-table, &.is-checkbox .m-form-ctrl-table {
 					padding-right : 0;
 
 					.m-form-ctrl-table label {
